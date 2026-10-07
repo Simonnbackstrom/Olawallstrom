@@ -19,7 +19,7 @@ export default function Home() {
       <LogoCarousel />
       <MethodTeaser />
       <QuoteBlock />
-      <CtaBand tone="light" />
+      <CtaBand tone="dark" />
     </>
   );
 }
