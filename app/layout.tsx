@@ -42,12 +42,6 @@ export const metadata: Metadata = {
     description:
       "Serieentreprenör med 25 års erfarenhet. Mentor för bolagsägare 10–50 Mkr.",
   },
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon.png", type: "image/png" },
-    ],
-  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
