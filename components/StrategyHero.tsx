@@ -18,7 +18,7 @@ declare global {
   }
 }
 
-export default function Hero() {
+export default function StrategyHero() {
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const [muted, setMuted] = useState(true);
   const [ready, setReady] = useState(false);
@@ -63,16 +63,10 @@ export default function Hero() {
 
   return (
     <section className="relative pt-28 md:pt-32 pb-20 md:pb-28 bg-white overflow-hidden">
-      <div
-        aria-hidden
-        className="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[720px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(232,80,10,0.18) 0%, transparent 70%)" }}
-      />
-
       <div className="container-site relative text-center">
         <div className="reveal inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#E8500A]/35 bg-[#E8500A]/5 text-[11px] font-bold tracking-[0.2em] uppercase text-[#E8500A] mb-8">
           <span className="h-1.5 w-1.5 rounded-full bg-[#E8500A]" />
-          Mentor för bolagsägare 10–50 Mkr
+          Kostnadsfritt strategisamtal
         </div>
 
         <h1 className="reveal reveal-d1 font-[family-name:var(--font-manrope)] font-extrabold tracking-tight text-[clamp(32px,5.4vw,64px)] leading-[1.08] text-[#0B0E14] max-w-4xl mx-auto">
@@ -97,7 +91,7 @@ export default function Hero() {
 
         <p className="reveal reveal-d2 mt-7 text-[18px] md:text-xl text-[#0B0E14]/70 max-w-2xl mx-auto leading-relaxed">
           För dig som äger ett bolag mellan 10–50 Mkr och kört på autopilot för länge.
-          Jag hjälper dig bygga ett självgående bolag — på sex månader känner du skillnaden.
+          I ett 30-minuters samtal får du konkreta nästa steg — oavsett om vi fortsätter jobba ihop eller inte.
         </p>
 
         <div className="reveal reveal-d3 mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">

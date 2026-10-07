@@ -66,7 +66,7 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden lg:block">
-          <Link href="/kontakt" className="btn-primary !py-2.5 !px-5 text-[13px]">
+          <Link href="/strategisession" className="btn-primary !py-2.5 !px-5 text-[13px]">
             Boka strategisamtal
           </Link>
         </div>
@@ -113,7 +113,7 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <Link href="/kontakt" onClick={() => setOpen(false)} className="btn-primary mt-4 justify-center">
+            <Link href="/strategisession" onClick={() => setOpen(false)} className="btn-primary mt-4 justify-center">
               Boka strategisamtal
             </Link>
           </nav>

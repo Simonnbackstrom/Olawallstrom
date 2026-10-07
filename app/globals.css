@@ -28,6 +28,7 @@
   --ink3: #1E2330;
   --cream: #F7F4F0;
   --cream2: #EDE9E3;
+  --section-y: clamp(80px, 10vw, 140px);
 }
 
 * {
@@ -86,14 +87,13 @@ h1, h2, h3, h4 {
   font-weight: 700;
   font-size: 15px;
   border-radius: 999px;
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 10px 30px -10px rgba(232, 80, 10, 0.5);
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 16px -6px rgba(232, 80, 10, 0.35);
 }
 
 .btn-primary:hover {
   background: var(--o2);
-  transform: translateY(-1px);
-  box-shadow: 0 14px 36px -10px rgba(232, 80, 10, 0.6);
+  box-shadow: 0 6px 20px -6px rgba(232, 80, 10, 0.45);
 }
 
 .btn-ghost {
@@ -134,8 +134,8 @@ h1, h2, h3, h4 {
 
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(20px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.is-visible {
@@ -143,11 +143,11 @@ h1, h2, h3, h4 {
   transform: none;
 }
 
-.reveal-d1 { transition-delay: 0.08s; }
-.reveal-d2 { transition-delay: 0.16s; }
-.reveal-d3 { transition-delay: 0.24s; }
-.reveal-d4 { transition-delay: 0.32s; }
-.reveal-d5 { transition-delay: 0.4s; }
+.reveal-d1 { transition-delay: 0.15s; }
+.reveal-d2 { transition-delay: 0.3s; }
+.reveal-d3 { transition-delay: 0.45s; }
+.reveal-d4 { transition-delay: 0.6s; }
+.reveal-d5 { transition-delay: 0.75s; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
