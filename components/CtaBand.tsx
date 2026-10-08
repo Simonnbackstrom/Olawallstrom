@@ -3,62 +3,52 @@ import Link from "next/link";
 type Props = {
   heading?: string;
   intro?: string;
-  tone?: "dark" | "light" | "orange";
+  tone?: "marin" | "sand" | "olabla";
 };
 
 export default function CtaBand({
-  heading = "Boka ett kostnadsfritt strategisamtal",
-  intro = "30 minuter direkt med mig. Oavsett om jag blir rätt mentor för dig eller inte lämnar du samtalet med konkreta insikter om ditt bolag.",
-  tone = "dark",
+  heading = "Boka ett samtal. 30 minuter, direkt med mig.",
+  intro = "Inget säljtryck. Oavsett om jag blir rätt mentor för dig eller inte lämnar du samtalet med något konkret att göra på måndag.",
+  tone = "marin",
 }: Props) {
-  const bg =
-    tone === "orange"
-      ? "bg-[#E8500A] text-white"
-      : tone === "light"
-      ? "bg-[#F7F4F0] text-[#0B0E14]"
-      : "bg-[#0B0E14] text-white";
-
-  const sub =
-    tone === "orange" || tone === "dark" ? "text-white/75" : "text-[#0B0E14]/70";
+  const sectionClass =
+    tone === "sand" ? "sec-sand" : tone === "olabla" ? "sec-olabla" : "sec-marin";
+  const dark = tone !== "sand";
+  const sub = dark ? "text-[color:var(--papper)]/75" : "text-ink-soft";
+  const secondaryBtn = dark ? "btn-dark-ghost" : "btn-ghost";
 
   return (
-    <section className={`py-20 md:py-28 ${bg} relative overflow-hidden`}>
-      {tone === "dark" && (
+    <section className={`py-[var(--section-y)] ${sectionClass} relative overflow-hidden`}>
+      {tone === "marin" && (
         <div
           aria-hidden
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(circle at 20% 30%, rgba(232,80,10,0.18) 0%, transparent 55%), radial-gradient(circle at 80% 70%, rgba(232,80,10,0.1) 0%, transparent 55%)",
+              "radial-gradient(circle at 20% 30%, rgba(242,106,46,0.15) 0%, transparent 55%), radial-gradient(circle at 85% 70%, rgba(220,232,243,0.08) 0%, transparent 55%)",
           }}
         />
       )}
+
       <div className="container-site relative text-center">
-        <h2 className="reveal font-[family-name:var(--font-manrope)] font-extrabold tracking-tight text-[clamp(28px,4.2vw,48px)] leading-[1.1] max-w-3xl mx-auto">
-          {heading}
-        </h2>
-        <p className={`reveal reveal-d1 mt-5 text-[17px] md:text-xl leading-relaxed max-w-2xl mx-auto ${sub}`}>
+        <h2 className="reveal max-w-3xl mx-auto">{heading}</h2>
+        <p className={`reveal reveal-d1 mt-5 text-[1.05rem] md:text-[1.15rem] leading-relaxed max-w-2xl mx-auto ${sub}`}>
           {intro}
         </p>
         <div className="reveal reveal-d2 mt-10 flex flex-col sm:flex-row justify-center gap-3">
-          <Link href="/kontakt" className="btn-primary">
+          <Link href="/strategisession" className="btn-primary">
             Boka strategisamtal
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="13 6 19 12 13 18" />
             </svg>
           </Link>
-          <a
-            href="https://calendly.com/olawallstrom/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={tone === "dark" || tone === "orange" ? "btn-dark" : "btn-ghost"}
-          >
-            Hitta en tid direkt
-          </a>
+          <Link href="/kontakt" className={secondaryBtn}>
+            Skicka ett meddelande
+          </Link>
         </div>
-        <p className={`reveal reveal-d3 mt-6 text-[13px] ${sub}`}>
-          Kostnadsfritt · 30 minuter · Direkt med Ola · Inget säljtryck
+        <p className={`reveal reveal-d3 mt-6 text-[0.85rem] ${sub}`}>
+          Kostnadsfritt · 30 minuter · Direkt med mig · Inget säljtryck
         </p>
       </div>
     </section>

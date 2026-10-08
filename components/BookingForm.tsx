@@ -34,92 +34,82 @@ export default function BookingForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl bg-white ring-1 ring-[#E2DDD8] p-8 text-center">
-        <svg
-          width="48"
-          height="48"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#22C55E"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="mx-auto mb-4"
-        >
-          <circle cx="12" cy="12" r="10" />
-          <polyline points="9 12 11 14 15 10" />
-        </svg>
-        <h3 className="font-[family-name:var(--font-manrope)] font-extrabold text-[22px] text-[#0B0E14] mb-2">
-          Tack, jag hör av mig!
-        </h3>
-        <p className="text-[15px] text-[#0B0E14]/70">
-          Jag eller mitt team kontaktar dig inom kort för att hitta en tid som passar.
+      <div className="rounded-2xl bg-white border border-[color:var(--border-soft)] p-8 md:p-10 text-center">
+        <div className="mx-auto mb-5 h-14 w-14 rounded-full bg-[color:var(--glod-dim)] inline-flex items-center justify-center">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--glod)"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </div>
+        <h3 className="mb-3">Tack. Jag hör av mig.</h3>
+        <p className="text-[1rem] text-ink-soft max-w-md mx-auto">
+          Jag läser alla meddelanden själv och återkommer så fort jag kan — oftast samma dag.
         </p>
-        <a
-          href="https://calendly.com/olawallstrom/30min"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-primary mt-6 inline-flex"
-        >
-          Boka tid direkt i Calendly
-        </a>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="grid gap-4 sm:grid-cols-2">
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <div className="grid gap-5 sm:grid-cols-2">
         <label className="block">
-          <span className="text-[13px] font-semibold text-[#0B0E14]/80">Namn *</span>
+          <span className="field-label">Namn *</span>
           <input
             name="name"
             type="text"
             required
             placeholder="För- och efternamn"
-            className="mt-1.5 w-full rounded-xl bg-white ring-1 ring-[#E2DDD8] px-4 py-3 text-[15px] text-[#0B0E14] placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#E8500A]/50"
+            className="field-input"
           />
         </label>
         <label className="block">
-          <span className="text-[13px] font-semibold text-[#0B0E14]/80">Företag *</span>
+          <span className="field-label">Företag *</span>
           <input
             name="company"
             type="text"
             required
             placeholder="Företagsnamn"
-            className="mt-1.5 w-full rounded-xl bg-white ring-1 ring-[#E2DDD8] px-4 py-3 text-[15px] text-[#0B0E14] placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#E8500A]/50"
+            className="field-input"
           />
         </label>
       </div>
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-5 sm:grid-cols-2">
         <label className="block">
-          <span className="text-[13px] font-semibold text-[#0B0E14]/80">E-post *</span>
+          <span className="field-label">E-post *</span>
           <input
             name="email"
             type="email"
             required
             placeholder="din@email.se"
-            className="mt-1.5 w-full rounded-xl bg-white ring-1 ring-[#E2DDD8] px-4 py-3 text-[15px] text-[#0B0E14] placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#E8500A]/50"
+            className="field-input"
           />
         </label>
         <label className="block">
-          <span className="text-[13px] font-semibold text-[#0B0E14]/80">Mobil *</span>
+          <span className="field-label">Mobil *</span>
           <input
             name="phone"
             type="tel"
             required
             placeholder="070 123 45 67"
-            className="mt-1.5 w-full rounded-xl bg-white ring-1 ring-[#E2DDD8] px-4 py-3 text-[15px] text-[#0B0E14] placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#E8500A]/50"
+            className="field-input"
           />
         </label>
       </div>
       <label className="block">
-        <span className="text-[13px] font-semibold text-[#0B0E14]/80">Berätta kort (frivilligt)</span>
+        <span className="field-label">Berätta kort (frivilligt)</span>
         <textarea
           name="message"
           rows={4}
-          placeholder="Vad är den största utmaningen i bolaget just nu?"
-          className="mt-1.5 w-full rounded-xl bg-white ring-1 ring-[#E2DDD8] px-4 py-3 text-[15px] text-[#0B0E14] placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#E8500A]/50 resize-none"
+          placeholder="Vad är det du vill prata om?"
+          className="field-textarea"
         />
       </label>
       <button
@@ -127,17 +117,23 @@ export default function BookingForm() {
         disabled={status === "loading"}
         className="btn-primary w-full justify-center disabled:opacity-70 disabled:cursor-not-allowed"
       >
-        {status === "loading" ? "Skickar..." : "Boka kostnadsfritt strategisamtal →"}
+        {status === "loading" ? "Skickar..." : "Boka samtal"}
+        {status !== "loading" && (
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="13 6 19 12 13 18" />
+          </svg>
+        )}
       </button>
       {status === "error" && (
         <p className="text-sm text-red-600 text-center">{errorMsg || "Något gick fel. Försök igen."}</p>
       )}
-      <p className="text-[12px] text-[#6B7280] flex items-center gap-1.5 justify-center">
+      <p className="text-[0.8rem] text-muted flex items-center gap-1.5 justify-center">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
           <path d="M7 11V7a5 5 0 0 1 10 0v4" />
         </svg>
-        Ingen spam — dina uppgifter delas aldrig med tredje part.
+        Dina uppgifter stannar hos mig. Ingen tredjepart, ingen lista.
       </p>
     </form>
   );

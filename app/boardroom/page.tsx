@@ -16,33 +16,33 @@ const THEMES = [
     q: "Q1 · jan–mar",
     title: "Mental klarhet",
     body: "Riktning, fokus, prioriteringar och kontroll över tid och energi.",
-    bg: "bg-[#1C2944]",
-    text: "text-white",
-    accent: "text-white/60",
+    bg: "bg-[color:var(--marin)]",
+    text: "text-[color:var(--papper)]",
+    accent: "text-[color:var(--papper)]/65",
   },
   {
     q: "Q2 · apr–jun",
     title: "Stjärnledarskap",
     body: "Få människor att ta ansvar, tänka själva och fungera bättre tillsammans.",
-    bg: "bg-[#2E6BB8]",
-    text: "text-white",
-    accent: "text-white/70",
+    bg: "bg-[color:var(--olabla)]",
+    text: "text-[color:var(--papper)]",
+    accent: "text-[color:var(--papper)]/75",
   },
   {
     q: "Q3 · jul–sep",
     title: "Autentisk affärsutveckling",
     body: "Utveckla affären utifrån egna styrkor, kundvärde och tydlig riktning.",
-    bg: "bg-[#E8500A]",
+    bg: "bg-[color:var(--glod)]",
     text: "text-white",
-    accent: "text-white/75",
+    accent: "text-white/80",
   },
   {
     q: "Q4 · okt–dec",
     title: "Smart säljstrategi",
     body: "Ett sälj som är tydligt, hållbart och mindre personberoende.",
-    bg: "bg-[#FFC9A6]",
-    text: "text-[#0B0E14]",
-    accent: "text-[#0B0E14]/60",
+    bg: "bg-[color:var(--sand)]",
+    text: "text-[color:var(--marin)]",
+    accent: "text-[color:var(--marin)]/70",
   },
 ];
 
@@ -60,49 +60,49 @@ const JOURNEY = [
     meta: "4 tim i Stockholm",
     body: "Riktning, viktigaste förflyttningar och en personlig plan.",
     bg: "bg-white",
-    text: "text-[#0B0E14]",
-    accent: "text-[#E8500A]",
-    ring: "ring-[#E2DDD8]",
+    text: "text-[color:var(--marin)]",
+    accent: "text-ink-soft",
+    border: "border border-[color:var(--border-soft)]",
   },
   {
     tag: "Q1 · JAN–MAR",
     title: "Mental klarhet",
     meta: "Avstamp 12 jan · WS 21 jan · 5 sessions",
     body: "Riktning, fokus och kontroll över tid och energi.",
-    bg: "bg-[#1C2944]",
-    text: "text-white",
-    accent: "text-white/60",
-    ring: "ring-white/10",
+    bg: "bg-[color:var(--marin)]",
+    text: "text-[color:var(--papper)]",
+    accent: "text-[color:var(--papper)]/65",
+    border: "",
   },
   {
     tag: "Q2 · APR–JUN",
     title: "Stjärnledarskap",
     meta: "Avstamp 6 apr · WS 15 apr · 5 sessions",
     body: "Få människor att ta ansvar och fungera tillsammans.",
-    bg: "bg-[#2E6BB8]",
-    text: "text-white",
-    accent: "text-white/70",
-    ring: "ring-white/10",
+    bg: "bg-[color:var(--olabla)]",
+    text: "text-[color:var(--papper)]",
+    accent: "text-[color:var(--papper)]/75",
+    border: "",
   },
   {
     tag: "Q3 · JUL–SEP",
     title: "Autentisk affärsutveckling",
     meta: "Avstamp 29 jun · WS 7 okt · 4 sessions",
     body: "Utveckla affären utifrån egna styrkor och kundvärde.",
-    bg: "bg-[#E8500A]",
+    bg: "bg-[color:var(--glod)]",
     text: "text-white",
-    accent: "text-white/75",
-    ring: "ring-white/10",
+    accent: "text-white/80",
+    border: "",
   },
   {
     tag: "Q4 · OKT–DEC",
     title: "Smart säljstrategi",
     meta: "Avstamp 28 sep · WS 8 okt · 5 sessions",
     body: "Ett sälj som är tydligt, hållbart och mindre personberoende.",
-    bg: "bg-[#FFC9A6]",
-    text: "text-[#0B0E14]",
-    accent: "text-[#0B0E14]/60",
-    ring: "ring-[#E8500A]/20",
+    bg: "bg-[color:var(--sand)]",
+    text: "text-[color:var(--marin)]",
+    accent: "text-[color:var(--marin)]/70",
+    border: "border border-[color:var(--glod)]/20",
   },
 ];
 
@@ -124,7 +124,7 @@ export default function BoardroomPage() {
         title={
           <>
             Boardroom 2027.<br />
-            <em className="not-italic text-[#E8500A]">Ett år. Fyra teman.</em>
+            <em>Ett år. Fyra teman.</em>
           </>
         }
         intro="Tolv månader för dig som VD eller ägare — i ett litet rum av erfarna ägare, med personligt stöd hela vägen. Fyra teman, en gemensam rytm och en handfast kundresa från start till Q4."
@@ -133,13 +133,11 @@ export default function BoardroomPage() {
       <BoardroomWheel />
 
       {/* THEMES */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
-          <div className="max-w-2xl mb-14">
-            <p className="reveal eyebrow mb-4">Fyra teman</p>
-            <h2 className="reveal reveal-d1 font-[family-name:var(--font-manrope)] font-extrabold tracking-tight text-[clamp(28px,4vw,46px)] leading-[1.1] text-[#0B0E14]">
-              Ett år tillsammans — fyra riktningar att växa i.
-            </h2>
+          <div className="max-w-2xl mb-14 md:mb-16">
+            <p className="reveal eyebrow mb-5">Fyra teman</p>
+            <h2 className="reveal reveal-d1">Ett år tillsammans — fyra riktningar att växa i.</h2>
           </div>
           <div className="grid gap-5 md:gap-6 sm:grid-cols-2">
             {THEMES.map((t, i) => (
@@ -147,13 +145,13 @@ export default function BoardroomPage() {
                 key={t.title}
                 className={`reveal reveal-d${(i % 4) + 1} rounded-3xl p-8 md:p-10 ${t.bg} ${t.text} transition-transform hover:-translate-y-1`}
               >
-                <div className={`text-[11px] font-bold tracking-[0.2em] uppercase mb-5 ${t.accent}`}>
+                <div className={`text-[0.72rem] font-bold tracking-[0.22em] uppercase mb-5 ${t.accent}`}>
                   {t.q}
                 </div>
-                <h3 className="font-[family-name:var(--font-manrope)] font-extrabold text-[26px] md:text-[30px] leading-tight">
+                <h3 className={`font-[family-name:var(--font-lora)] font-semibold text-[1.5rem] md:text-[1.8rem] leading-tight ${t.text}`}>
                   {t.title}
                 </h3>
-                <p className={`mt-4 text-[15.5px] leading-relaxed ${t.accent}`}>{t.body}</p>
+                <p className={`mt-4 text-[1rem] leading-relaxed ${t.accent}`}>{t.body}</p>
               </article>
             ))}
           </div>
@@ -161,14 +159,12 @@ export default function BoardroomPage() {
       </section>
 
       {/* QUARTER LOOP */}
-      <section className="py-20 md:py-28 bg-[#F7F4F0]">
+      <section className="py-[var(--section-y)] sec-sand">
         <div className="container-site">
-          <div className="max-w-2xl mb-14">
-            <p className="reveal eyebrow mb-4">Kvartalsloopen</p>
-            <h2 className="reveal reveal-d1 font-[family-name:var(--font-manrope)] font-extrabold tracking-tight text-[clamp(28px,4vw,46px)] leading-[1.1] text-[#0B0E14]">
-              Samma rytm — fyra varv per år.
-            </h2>
-            <p className="reveal reveal-d2 mt-5 text-[16.5px] text-[#0B0E14]/70 leading-relaxed max-w-xl">
+          <div className="max-w-2xl mb-14 md:mb-16">
+            <p className="reveal eyebrow mb-5">Kvartalsloopen</p>
+            <h2 className="reveal reveal-d1">Samma rytm — fyra varv per år.</h2>
+            <p className="reveal reveal-d2 mt-6 text-[1.02rem] text-ink-soft leading-relaxed max-w-xl">
               Varje tema får 90 dagar — fyra steg som bygger på varandra. Du vet alltid var i resan du är.
             </p>
           </div>
@@ -177,19 +173,15 @@ export default function BoardroomPage() {
             {LOOP_STEPS.map((s, i) => (
               <article
                 key={s.n}
-                className={`reveal reveal-d${(i % 4) + 1} relative rounded-2xl bg-white ring-1 ring-[#E2DDD8] p-7`}
+                className={`reveal reveal-d${(i % 4) + 1} relative rounded-2xl bg-white border border-[color:var(--border-soft)] p-7`}
               >
-                <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#E8500A] mb-3">
-                  Steg {s.n}
-                </div>
-                <h3 className="font-[family-name:var(--font-manrope)] font-extrabold text-[20px] leading-tight text-[#0B0E14]">
-                  {s.title}
-                </h3>
-                <p className="mt-3 text-[14.5px] text-[#0B0E14]/70 leading-relaxed">{s.body}</p>
+                <div className="eyebrow-upper mb-4">Steg {s.n}</div>
+                <h3 className="text-[1.15rem] leading-tight mt-2">{s.title}</h3>
+                <p className="mt-3 text-[0.95rem] text-ink-soft leading-relaxed">{s.body}</p>
                 {i < LOOP_STEPS.length - 1 && (
                   <svg
                     aria-hidden
-                    className="hidden md:block absolute top-1/2 -right-3.5 -translate-y-1/2 text-[#E8500A]"
+                    className="hidden md:block absolute top-1/2 -right-3.5 -translate-y-1/2 text-[color:var(--glod)]"
                     width="20"
                     height="20"
                     viewBox="0 0 24 24"
@@ -207,27 +199,25 @@ export default function BoardroomPage() {
             ))}
           </div>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-2 text-[12.5px] font-semibold">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white ring-1 ring-[#E2DDD8] text-[#0B0E14]/70">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-2 text-[0.78rem] font-semibold">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[color:var(--border-soft)] text-ink-soft">
               Ett tema · 90 dagar
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1C2944] text-white">Q1 Mental klarhet</span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#2E6BB8] text-white">Q2 Stjärnledarskap</span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E8500A] text-white">Q3 Autentisk affärsutveckling</span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFC9A6] text-[#0B0E14]">Q4 Smart säljstrategi</span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[color:var(--marin)] text-[color:var(--papper)]">Q1 Mental klarhet</span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[color:var(--olabla)] text-[color:var(--papper)]">Q2 Stjärnledarskap</span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[color:var(--glod)] text-white">Q3 Autentisk affärsutveckling</span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[color:var(--sand)] text-[color:var(--marin)] border border-[color:var(--glod)]/30">Q4 Smart säljstrategi</span>
           </div>
         </div>
       </section>
 
       {/* CUSTOMER JOURNEY */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
-          <div className="max-w-2xl mb-14">
-            <p className="reveal eyebrow mb-4">Kundresan</p>
-            <h2 className="reveal reveal-d1 font-[family-name:var(--font-manrope)] font-extrabold tracking-tight text-[clamp(28px,4vw,46px)] leading-[1.1] text-[#0B0E14]">
-              Din resa i Boardroom.
-            </h2>
-            <p className="reveal reveal-d2 mt-5 text-[16.5px] text-[#0B0E14]/70 leading-relaxed max-w-xl">
+          <div className="max-w-2xl mb-14 md:mb-16">
+            <p className="reveal eyebrow mb-5">Kundresan</p>
+            <h2 className="reveal reveal-d1">Din resa i Boardroom.</h2>
+            <p className="reveal reveal-d2 mt-6 text-[1.02rem] text-ink-soft leading-relaxed max-w-xl">
               Tolv månader — från en personlig start till fyra teman tillsammans med andra erfarna ägare.
             </p>
           </div>
@@ -236,21 +226,21 @@ export default function BoardroomPage() {
             {JOURNEY.map((j, i) => (
               <article
                 key={j.tag}
-                className={`reveal reveal-d${(i % 5) + 1} rounded-2xl p-6 ${j.bg} ${j.text} ring-1 ${j.ring} flex flex-col`}
+                className={`reveal reveal-d${(i % 5) + 1} rounded-2xl p-6 ${j.bg} ${j.text} ${j.border} flex flex-col`}
               >
-                <div className={`text-[10.5px] font-bold tracking-[0.18em] uppercase mb-3 ${j.accent}`}>
+                <div className={`text-[0.68rem] font-bold tracking-[0.18em] uppercase mb-3 ${j.accent}`}>
                   {j.tag}
                 </div>
-                <h3 className="font-[family-name:var(--font-manrope)] font-extrabold text-[18px] md:text-[19px] leading-tight">
+                <h3 className={`font-[family-name:var(--font-lora)] font-semibold text-[1.1rem] md:text-[1.15rem] leading-tight ${j.text}`}>
                   {j.title}
                 </h3>
-                <p className={`mt-3 text-[13.5px] leading-relaxed ${j.accent}`}>{j.body}</p>
-                <div className={`mt-auto pt-4 text-[12px] font-semibold ${j.accent}`}>{j.meta}</div>
+                <p className={`mt-3 text-[0.9rem] leading-relaxed ${j.accent}`}>{j.body}</p>
+                <div className={`mt-auto pt-4 text-[0.78rem] font-semibold ${j.accent}`}>{j.meta}</div>
               </article>
             ))}
           </div>
 
-          <div className="mt-12 pt-10 border-t border-[#E2DDD8]">
+          <div className="mt-14 pt-10 border-t border-[color:var(--border-soft)]">
             <p className="eyebrow mb-5">Löpande under hela året</p>
             <ul className="grid gap-3 md:grid-cols-3">
               {[
@@ -260,9 +250,9 @@ export default function BoardroomPage() {
               ].map((row) => (
                 <li
                   key={row}
-                  className="flex gap-3 items-start rounded-xl bg-[#F7F4F0] px-5 py-4 text-[14.5px] text-[#0B0E14]/85"
+                  className="flex gap-3 items-start rounded-xl bg-sand px-6 py-5 text-[0.95rem] text-ink"
                 >
-                  <span className="shrink-0 mt-0.5 h-5 w-5 inline-flex items-center justify-center rounded-full bg-[#E8500A]/15 text-[#E8500A]">
+                  <span className="shrink-0 mt-0.5 h-5 w-5 inline-flex items-center justify-center rounded-full bg-[color:var(--glod-dim)] text-[color:var(--glod)]">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
@@ -276,26 +266,24 @@ export default function BoardroomPage() {
       </section>
 
       {/* INCLUDED + PRICE */}
-      <section className="py-20 md:py-28 bg-[#0B0E14] text-white relative overflow-hidden">
+      <section className="py-[var(--section-y)] sec-marin relative overflow-hidden">
         <div
           aria-hidden
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(circle at 15% 20%, rgba(232,80,10,0.18) 0%, transparent 55%), radial-gradient(circle at 85% 80%, rgba(46,107,184,0.14) 0%, transparent 55%)",
+              "radial-gradient(circle at 15% 20%, rgba(242,106,46,0.2) 0%, transparent 55%), radial-gradient(circle at 85% 80%, rgba(42,98,160,0.18) 0%, transparent 55%)",
           }}
         />
         <div className="container-site relative">
           <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-start">
             <div>
-              <p className="reveal eyebrow mb-4">Det här ingår</p>
-              <h2 className="reveal reveal-d1 font-[family-name:var(--font-manrope)] font-extrabold tracking-tight text-[clamp(28px,4vw,46px)] leading-[1.1]">
-                Hela året — i ett paket.
-              </h2>
-              <ul className="reveal reveal-d2 mt-8 space-y-3">
+              <p className="reveal eyebrow mb-5">Det här ingår</p>
+              <h2 className="reveal reveal-d1">Hela året — i ett paket.</h2>
+              <ul className="reveal reveal-d2 mt-10 space-y-3">
                 {INCLUDED.map((row) => (
-                  <li key={row} className="flex gap-3 items-start text-[15.5px] text-white/90">
-                    <span className="shrink-0 mt-0.5 h-6 w-6 inline-flex items-center justify-center rounded-full bg-[#E8500A]/25 text-[#E8500A]">
+                  <li key={row} className="flex gap-3 items-start text-[1rem] text-[color:var(--papper)]/90">
+                    <span className="shrink-0 mt-0.5 h-6 w-6 inline-flex items-center justify-center rounded-full bg-[color:var(--glod)]/25 text-[color:var(--glod)]">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
@@ -306,20 +294,18 @@ export default function BoardroomPage() {
               </ul>
             </div>
 
-            <div className="reveal reveal-d3 rounded-3xl bg-white text-[#0B0E14] p-8 md:p-10 ring-1 ring-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)]">
-              <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#E8500A] mb-3">
-                Boardroom 2027
-              </div>
-              <h3 className="font-[family-name:var(--font-manrope)] font-extrabold text-[26px] md:text-[30px] leading-tight text-[#0B0E14]">
+            <div className="reveal reveal-d3 rounded-3xl bg-papper text-ink p-8 md:p-10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)]">
+              <p className="eyebrow-upper mb-4">Boardroom 2027</p>
+              <h3 className="font-[family-name:var(--font-lora)] font-semibold text-[2.2rem] md:text-[2.5rem] leading-tight text-[color:var(--marin)]">
                 195 000 kr
               </h3>
-              <p className="mt-2 text-[14px] text-[#6B7280]">
+              <p className="mt-2 text-[0.9rem] text-muted">
                 12 månader · max 15 deltagare · exkl. moms
               </p>
-              <div className="mt-6 pt-6 border-t border-[#E2DDD8] flex flex-wrap gap-x-5 gap-y-2 text-[13px] text-[#0B0E14]/75">
+              <div className="mt-6 pt-6 border-t border-[color:var(--border-soft)] flex flex-wrap gap-x-5 gap-y-2 text-[0.85rem] text-ink-soft">
                 {["Litet rum", "Personligt stöd", "Erfarna ägare"].map((m) => (
                   <span key={m} className="inline-flex items-center gap-1.5">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8500A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--glod)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                     {m}
@@ -327,20 +313,15 @@ export default function BoardroomPage() {
                 ))}
               </div>
               <div className="mt-8 flex flex-col gap-3">
-                <a
-                  href="https://calendly.com/olawallstrom/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary justify-center"
-                >
+                <Link href="/strategisession" className="btn-primary justify-center">
                   Boka strategisamtal
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="13 6 19 12 13 18" />
                   </svg>
-                </a>
-                <Link href="/strategisession" className="btn-ghost justify-center">
-                  Läs mer om strategisamtalet
+                </Link>
+                <Link href="/kontakt" className="btn-ghost justify-center">
+                  Skicka ett meddelande
                 </Link>
               </div>
             </div>
@@ -349,30 +330,25 @@ export default function BoardroomPage() {
       </section>
 
       {/* FOR WHOM */}
-      <section className="py-20 md:py-24 bg-[#F7F4F0]">
+      <section className="py-[var(--section-y)] sec-sand">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="reveal eyebrow mb-4 justify-center">För vem</p>
-            <h2 className="reveal reveal-d1 font-[family-name:var(--font-manrope)] font-extrabold tracking-tight text-[clamp(26px,3.6vw,40px)] leading-tight text-[#0B0E14]">
+            <p className="reveal eyebrow mb-5 justify-center">För vem</p>
+            <h2 className="reveal reveal-d1">
               För dig som VD eller ägare som vill växa tillsammans med andra erfarna ägare.
             </h2>
-            <p className="reveal reveal-d2 mt-5 text-[16.5px] text-[#0B0E14]/70 leading-relaxed">
+            <p className="reveal reveal-d2 mt-6 text-[1.02rem] text-ink-soft leading-relaxed">
               Du leder ett bolag i spannet 10–50 Mkr, är redo att ändra på dig själv — inte bara teamet —
               och vill ha ett litet rum där du både får hjälp och bidrar med din egen erfarenhet.
             </p>
-            <div className="reveal reveal-d3 mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a
-                href="https://calendly.com/olawallstrom/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-              >
+            <div className="reveal reveal-d3 mt-12 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <Link href="/strategisession" className="btn-primary">
                 Boka strategisamtal
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="13 6 19 12 13 18" />
                 </svg>
-              </a>
+              </Link>
               <Link href="/om-ola" className="btn-ghost">
                 Mer om Ola
               </Link>
@@ -381,7 +357,7 @@ export default function BoardroomPage() {
         </div>
       </section>
 
-      <CtaBand tone="dark" />
+      <CtaBand tone="marin" />
     </>
   );
 }

@@ -3,33 +3,45 @@ import Image from "next/image";
 
 export default function ConsultHero() {
   return (
-    <section className="relative pt-24 md:pt-28 pb-16 md:pb-24 bg-white overflow-hidden">
-      <div className="container-site">
-        <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-center">
-          {/* Text column */}
-          <div className="order-2 lg:order-1 max-w-xl">
-            <p className="reveal eyebrow mb-6">Mentor för bolagsägare 10–50 Mkr</p>
+    <section className="relative pt-28 md:pt-32 pb-20 md:pb-28 bg-papper overflow-hidden">
+      {/* Subtle Himmel wash top-right as brand accent */}
+      <div
+        aria-hidden
+        className="absolute -top-24 -right-24 w-[560px] h-[560px] rounded-full bg-himmel/60 blur-3xl pointer-events-none"
+      />
 
-            <h1 className="reveal reveal-d1 font-[family-name:var(--font-manrope)] font-extrabold tracking-[-0.03em] text-[clamp(40px,6.4vw,84px)] leading-[0.98] text-[#0B0E14]">
-              Självgående bolag.{" "}
-              <span className="block text-[#E8500A]">På riktigt.</span>
+      <div className="container-site relative">
+        <div className="grid lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-20 items-center">
+          {/* Text */}
+          <div className="order-2 lg:order-1 max-w-2xl">
+            <p className="reveal eyebrow mb-6">Autentisk affärsutveckling</p>
+
+            <h1 className="reveal reveal-d1 text-[color:var(--marin)]">
+              Äkta, rakt{" "}
+              <em className="text-[color:var(--glod)] not-italic font-[family-name:var(--font-lora)]">
+                och med
+              </em>{" "}
+              <span className="italic">riktning framåt.</span>
             </h1>
 
-            <p className="reveal reveal-d2 mt-8 text-[18px] md:text-[19px] text-[#0B0E14]/70 leading-relaxed">
-              Jag coachar bolagsägare att bygga företag som fungerar även när ägaren
-              inte är där. 25 år som serieentreprenör. 8 egna bolag. 650+ bolagsägare.
+            <p className="reveal reveal-d2 mt-8 text-[1.1rem] md:text-[1.15rem] text-ink-soft leading-relaxed max-w-xl">
+              Jag är Ola. Jag pratar rakt och på du, utan konsultspråk. Vi mäter framgång
+              i det som faktiskt blir gjort — så du kan äga din tid och ditt företag.
             </p>
 
-            <div className="reveal reveal-d3 mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+            <div className="reveal reveal-d3 mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Link href="/strategisession" className="btn-primary">
-                Boka strategisamtal
+                Boka ett samtal med mig
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="13 6 19 12 13 18" />
                 </svg>
               </Link>
-              <Link href="/metod" className="group inline-flex items-center gap-2 text-[15px] font-semibold text-[#0B0E14] hover:text-[#E8500A] transition-colors px-2 py-3">
-                Så fungerar metoden
+              <Link
+                href="/metod"
+                className="group inline-flex items-center gap-2 text-[0.95rem] font-semibold text-[color:var(--marin)] hover:text-[color:var(--glod)] transition-colors px-2 py-3"
+              >
+                Så jobbar jag
                 <svg
                   width="14"
                   height="14"
@@ -48,41 +60,39 @@ export default function ConsultHero() {
             </div>
 
             {/* Proof row */}
-            <div className="reveal reveal-d4 mt-14 pt-8 border-t border-[#E2DDD8] grid grid-cols-3 gap-6 max-w-md">
-              <div>
-                <div className="font-[family-name:var(--font-manrope)] font-extrabold text-[28px] md:text-[32px] leading-none text-[#0B0E14]">
-                  650+
+            <div className="reveal reveal-d4 mt-14 pt-8 border-t border-[color:var(--border-soft)] grid grid-cols-3 gap-6 max-w-lg">
+              {[
+                { n: "650+", l: "Bolagsägare\njag coachat" },
+                { n: "25 år", l: "Som serie-\nentreprenör" },
+                { n: "8", l: "Bolag jag\nbyggt själv" },
+              ].map((p) => (
+                <div key={p.n}>
+                  <div className="font-[family-name:var(--font-lora)] font-semibold text-[2rem] md:text-[2.25rem] leading-none text-[color:var(--marin)]">
+                    {p.n}
+                  </div>
+                  <div className="mt-2 text-[0.78rem] text-muted leading-snug whitespace-pre-line">
+                    {p.l}
+                  </div>
                 </div>
-                <div className="mt-2 text-[12px] text-[#6B7280] leading-snug">
-                  Coachade<br />bolagsägare
-                </div>
-              </div>
-              <div>
-                <div className="font-[family-name:var(--font-manrope)] font-extrabold text-[28px] md:text-[32px] leading-none text-[#0B0E14]">
-                  25 år
-                </div>
-                <div className="mt-2 text-[12px] text-[#6B7280] leading-snug">
-                  Som serie­<br />entreprenör
-                </div>
-              </div>
-              <div>
-                <div className="font-[family-name:var(--font-manrope)] font-extrabold text-[28px] md:text-[32px] leading-none text-[#0B0E14]">
-                  8
-                </div>
-                <div className="mt-2 text-[12px] text-[#6B7280] leading-snug">
-                  Bolag jag<br />byggt själv
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
-          {/* Portrait column */}
+          {/* Portrait */}
           <div className="order-1 lg:order-2 relative">
-            {/* Soft background shape */}
-            <div
+            {/* Open-circle brand accent behind */}
+            <svg
               aria-hidden
-              className="absolute inset-0 -z-10 translate-x-4 translate-y-4 rounded-[3rem] bg-[#F7F4F0]"
-            />
+              viewBox="0 0 400 400"
+              className="absolute -top-6 -left-6 md:-top-10 md:-left-10 w-[110%] h-auto -z-0 text-[color:var(--glod)]"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="6"
+              strokeLinecap="round"
+            >
+              <path d="M 200 30 A 170 170 0 1 1 330 320" />
+            </svg>
+
             <div className="relative aspect-[4/5] max-w-[520px] mx-auto">
               <Image
                 src="/images/ola-studio.jpg"
@@ -90,15 +100,13 @@ export default function ConsultHero() {
                 fill
                 priority
                 sizes="(min-width: 1024px) 520px, 90vw"
-                className="object-cover object-top"
+                className="object-cover object-top rounded-[2rem]"
               />
-              {/* Signature badge */}
-              <div className="absolute -bottom-5 -left-5 md:-bottom-6 md:-left-6 bg-white ring-1 ring-[#E2DDD8] rounded-2xl px-5 py-4 shadow-[0_12px_32px_-12px_rgba(0,0,0,0.18)]">
-                <div className="text-[10px] font-bold tracking-[0.18em] uppercase text-[#E8500A]">
-                  Framgångsrikt entreprenörskap
-                </div>
-                <div className="mt-1 font-[family-name:var(--font-manrope)] font-extrabold text-[15px] text-[#0B0E14]">
-                  Olas metod — 4 nycklar
+              {/* Badge */}
+              <div className="absolute -bottom-5 -left-5 md:-bottom-6 md:-left-6 bg-papper border border-[color:var(--border-soft)] rounded-2xl px-5 py-4 shadow-[0_14px_38px_-14px_rgba(23,59,96,0.3)]">
+                <div className="eyebrow-upper">Metoden</div>
+                <div className="mt-2 font-[family-name:var(--font-lora)] font-semibold text-[0.95rem] text-[color:var(--marin)] leading-tight">
+                  Fyra principer<br />som flyttar bolag framåt
                 </div>
               </div>
             </div>

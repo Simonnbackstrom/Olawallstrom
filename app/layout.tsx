@@ -1,36 +1,37 @@
 import type { Metadata } from "next";
-import { Manrope, Inter } from "next/font/google";
+import { Lora, Raleway } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const lora = Lora({
+  variable: "--font-lora",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: "variable",
+  style: ["normal", "italic"],
   display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const raleway = Raleway({
+  variable: "--font-raleway",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "variable",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://olawallstrom.com"),
   title: {
-    default: "Ola Wallström – Mentor för bolagsägare från 10 till 50 Mkr",
+    default: "Ola Wallström – Autentisk affärsutveckling",
     template: "%s · Ola Wallström",
   },
   description:
-    "Serieentreprenör och mentor med 25 års erfarenhet. Jag coachar bolagsägare mellan 10–50 Mkr till självgående och lönsamma bolag — utan att du offrar livet runt omkring.",
+    "Autentisk affärsutveckling. Äkta, rakt och med riktning framåt. Ola Wallström coachar bolagsägare som vill äga sin tid och sitt företag.",
   openGraph: {
-    title: "Ola Wallström – Mentor för bolagsägare från 10 till 50 Mkr",
+    title: "Ola Wallström – Autentisk affärsutveckling",
     description:
-      "Serieentreprenör med 25 års erfarenhet och 650+ coachade bolagsägare. Boka ett kostnadsfritt strategisamtal.",
+      "Äkta, rakt och med riktning framåt. Boka ett kostnadsfritt strategisamtal direkt med Ola.",
     url: "https://olawallstrom.com",
     siteName: "Ola Wallström",
     locale: "sv_SE",
@@ -38,16 +39,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ola Wallström – Mentor för bolagsägare",
+    title: "Ola Wallström – Autentisk affärsutveckling",
     description:
-      "Serieentreprenör med 25 års erfarenhet. Mentor för bolagsägare 10–50 Mkr.",
+      "Äkta, rakt och med riktning framåt. Mentor för bolagsägare som vill äga sin tid.",
   },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="sv" className={`${manrope.variable} ${inter.variable}`}>
-      <body className="min-h-screen flex flex-col bg-white text-[#0B0E14]">
+    <html lang="sv" className={`${lora.variable} ${raleway.variable}`}>
+      <body className="min-h-screen flex flex-col bg-papper text-ink">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

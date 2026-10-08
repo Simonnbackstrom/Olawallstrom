@@ -1,5 +1,5 @@
 type Props = {
-  tone?: "dark" | "light";
+  tone?: "marin" | "papper" | "himmel";
 };
 
 const STATS = [
@@ -9,22 +9,27 @@ const STATS = [
   { num: "19 Mkr → 1,9 Mdr", label: "Ett klientresultat" },
 ];
 
-export default function StatsBand({ tone = "light" }: Props) {
-  const isDark = tone === "dark";
+export default function StatsBand({ tone = "himmel" }: Props) {
+  const sectionClass =
+    tone === "marin" ? "sec-marin" : tone === "papper" ? "sec-papper" : "sec-himmel";
+  const isDark = tone === "marin";
+  const numColor = isDark ? "text-[color:var(--papper)]" : "text-[color:var(--marin)]";
+  const labelColor = isDark ? "text-[color:var(--papper)]/65" : "text-muted";
+
   return (
-    <section className={`py-16 md:py-20 ${isDark ? "bg-[#0B0E14] text-white" : "bg-[#F7F4F0] text-[#0B0E14]"}`}>
+    <section className={`py-16 md:py-20 ${sectionClass}`}>
       <div className="container-site">
-        <dl className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 text-center">
+        <dl className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 text-center">
           {STATS.map((s, i) => (
             <div key={s.label} className={`reveal reveal-d${(i % 5) + 1}`}>
               <dt
-                className={`font-[family-name:var(--font-manrope)] font-extrabold leading-tight ${
-                  s.num.length > 10 ? "text-[20px] md:text-[24px]" : "text-[36px] md:text-[44px]"
-                } ${isDark ? "text-white" : "text-[#0B0E14]"}`}
+                className={`font-[family-name:var(--font-lora)] font-semibold leading-tight ${
+                  s.num.length > 10 ? "text-[1.3rem] md:text-[1.55rem]" : "text-[2.4rem] md:text-[3rem]"
+                } ${numColor}`}
               >
                 {s.num}
               </dt>
-              <dd className={`mt-2 text-[13px] md:text-[14px] ${isDark ? "text-white/60" : "text-[#6B7280]"}`}>
+              <dd className={`mt-3 text-[0.85rem] md:text-[0.9rem] tracking-wide ${labelColor}`}>
                 {s.label}
               </dd>
             </div>

@@ -34,26 +34,24 @@ export default function NewsletterForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl bg-white ring-1 ring-[#E2DDD8] p-6 text-center">
-        <svg
-          width="40"
-          height="40"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#22C55E"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="mx-auto mb-3"
-        >
-          <circle cx="12" cy="12" r="10" />
-          <polyline points="9 12 11 14 15 10" />
-        </svg>
-        <h3 className="font-[family-name:var(--font-manrope)] font-extrabold text-[18px] text-[#0B0E14] mb-1">
-          Tack för din anmälan!
-        </h3>
-        <p className="text-[14px] text-[#0B0E14]/70">
-          Du får nästa nyhetsbrev direkt i inkorgen.
+      <div className="rounded-2xl bg-white border border-[color:var(--border-soft)] p-6 text-center">
+        <div className="mx-auto mb-3 h-10 w-10 rounded-full bg-[color:var(--glod-dim)] inline-flex items-center justify-center">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--glod)"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </div>
+        <h3 className="text-[1.15rem] mb-1">Tack. Du är med.</h3>
+        <p className="text-[0.9rem] text-ink-soft">
+          Nästa brev landar i din inkorg i veckan.
         </p>
       </div>
     );
@@ -67,14 +65,14 @@ export default function NewsletterForm() {
           type="text"
           required
           placeholder="Namn"
-          className="w-full rounded-xl bg-white ring-1 ring-[#E2DDD8] px-4 py-3 text-[15px] text-[#0B0E14] placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#E8500A]/50"
+          className="field-input"
         />
         <input
           name="email"
           type="email"
           required
           placeholder="din@email.se"
-          className="w-full rounded-xl bg-white ring-1 ring-[#E2DDD8] px-4 py-3 text-[15px] text-[#0B0E14] placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#E8500A]/50"
+          className="field-input"
         />
       </div>
       <button
@@ -82,13 +80,13 @@ export default function NewsletterForm() {
         disabled={status === "loading"}
         className="btn-primary w-full justify-center disabled:opacity-70 disabled:cursor-not-allowed"
       >
-        {status === "loading" ? "Skickar..." : "Prenumerera gratis"}
+        {status === "loading" ? "Skickar..." : "Prenumerera"}
       </button>
       {status === "error" && (
         <p className="text-sm text-red-600 text-center">{errorMsg || "Något gick fel. Försök igen."}</p>
       )}
-      <p className="text-[12px] text-[#6B7280] text-center">
-        En artikel i månaden. Avprenumerera när som helst.
+      <p className="text-[0.78rem] text-muted text-center">
+        En tanke i veckan. Avprenumerera när du vill.
       </p>
     </form>
   );

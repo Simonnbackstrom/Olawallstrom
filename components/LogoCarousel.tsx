@@ -13,11 +13,15 @@ const LOGOS = [
   { src: "/logos/logo-viredo.svg", alt: "ViRedo" },
 ];
 
-export default function LogoCarousel({ heading = "Några av de bolag jag coachat" }: { heading?: string }) {
+export default function LogoCarousel({
+  heading = "Några av bolagen jag jobbat med",
+}: {
+  heading?: string;
+}) {
   return (
-    <section className="py-16 md:py-20 bg-[#F7F4F0]">
+    <section className="py-16 md:py-20 bg-sand">
       <div className="container-site">
-        <h2 className="reveal text-center text-[11px] font-bold uppercase tracking-[3px] text-[#6B7280] mb-10">
+        <h2 className="reveal text-center eyebrow-upper mx-auto block w-fit mb-10 !border-t-0 !pt-0">
           {heading}
         </h2>
       </div>
@@ -25,7 +29,10 @@ export default function LogoCarousel({ heading = "Några av de bolag jag coachat
         {[0, 1].map((set) => (
           <div className="marquee-track" aria-hidden={set === 1} key={set}>
             {LOGOS.map((logo, i) => (
-              <div key={`${set}-${i}`} className="shrink-0 h-14 md:h-16 flex items-center opacity-70 hover:opacity-100 transition-opacity">
+              <div
+                key={`${set}-${i}`}
+                className="shrink-0 h-14 md:h-16 flex items-center opacity-60 hover:opacity-100 transition-opacity"
+              >
                 <Image
                   src={logo.src}
                   alt={set === 0 ? logo.alt : ""}

@@ -11,14 +11,14 @@ export type Testimonial = {
 export const TESTIMONIALS: Testimonial[] = [
   {
     result: "Fri från att släcka bränder",
-    text: "Efter tre månaders arbete med Ola hade vi delegerat bort mycket av det som åt upp min tid. Nu kan jag lägga mer fokus på det som driver företaget framåt istället för att släcka bränder.",
+    text: "Efter tre månaders arbete med Ola hade vi delegerat bort mycket av det som åt upp min tid. Nu kan jag lägga fokus på det som driver bolaget framåt istället för att släcka bränder.",
     author: "Christoffer Sjölund",
     role: "VD, Räls & Markservice AB",
     photo: "/testimonials/christoffer.jpg",
   },
   {
-    result: "Skärpa, värme och affärsnytta",
-    text: "Det jag uppskattar med Ola är kombinationen av skärpa och värme. Han är affärsmässig, konkret och hjälper oss snabbt att se vad som är viktigt. När vi ligger rätt bekräftar han det, och när något behöver ramas in gör han det utan krångel.",
+    result: "Skärpa och värme",
+    text: "Det jag uppskattar med Ola är kombinationen av skärpa och värme. Han är konkret och hjälper oss snabbt att se vad som faktiskt är viktigt. När vi ligger rätt bekräftar han det, när något behöver ramas in gör han det utan krångel.",
     author: "Fredrik Birath",
     role: "Beras International",
     photo: "/testimonials/fredrik.jpg",
@@ -42,35 +42,47 @@ export const TESTIMONIALS: Testimonial[] = [
 type Props = {
   variant?: "grid" | "showcase";
   items?: Testimonial[];
-  tone?: "light" | "dark";
+  tone?: "sand" | "papper" | "marin";
 };
 
-export default function Testimonials({ variant = "grid", items = TESTIMONIALS, tone = "light" }: Props) {
-  const isDark = tone === "dark";
+export default function Testimonials({
+  variant = "grid",
+  items = TESTIMONIALS,
+  tone = "sand",
+}: Props) {
+  const isDark = tone === "marin";
+  const sectionClass =
+    tone === "marin" ? "sec-marin" : tone === "papper" ? "sec-papper" : "sec-sand";
+  const cardBg = isDark
+    ? "bg-white/[0.04] border border-white/10"
+    : "bg-white border border-[color:var(--border-soft)]";
+  const quoteColor = isDark ? "text-[color:var(--papper)]/90" : "text-ink";
+  const authorColor = isDark ? "text-[color:var(--papper)]" : "text-[color:var(--marin)]";
+  const roleColor = isDark ? "text-[color:var(--papper)]/60" : "text-muted";
 
   if (variant === "showcase") {
     return (
-      <section className={`py-20 md:py-28 ${isDark ? "bg-[#0B0E14] text-white" : "bg-white text-[#0B0E14]"}`}>
+      <section className={`py-[var(--section-y)] ${sectionClass}`}>
         <div className="container-site">
           <div className="grid gap-8 md:grid-cols-2">
             {items.map((t, i) => (
               <article
                 key={t.author}
-                className={`reveal reveal-d${(i % 4) + 1} rounded-3xl p-8 md:p-10 ${
-                  isDark ? "bg-white/[0.03] ring-1 ring-white/10" : "bg-[#F7F4F0] ring-1 ring-[#E2DDD8]"
-                }`}
+                className={`reveal reveal-d${(i % 4) + 1} rounded-3xl p-8 md:p-10 ${cardBg}`}
               >
-                <div className="eyebrow mb-4">{t.result}</div>
-                <p className={`text-[17px] leading-relaxed mb-6 ${isDark ? "text-white/85" : "text-[#0B0E14]/85"}`}>
+                <div className="eyebrow mb-5">{t.result}</div>
+                <p className={`font-[family-name:var(--font-lora)] italic text-[1.1rem] md:text-[1.2rem] leading-relaxed mb-7 ${quoteColor}`}>
                   &ldquo;{t.text}&rdquo;
                 </p>
                 <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-full overflow-hidden ring-2 ring-[#E8500A]/40 bg-[#E8500A]/10 shrink-0">
+                  <div className="h-12 w-12 rounded-full overflow-hidden bg-[color:var(--glod-dim)] shrink-0">
                     <Image src={t.photo} alt={t.author} width={48} height={48} className="h-full w-full object-cover" />
                   </div>
                   <div>
-                    <div className="font-[family-name:var(--font-manrope)] font-bold text-[15px]">{t.author}</div>
-                    <div className={`text-[13px] ${isDark ? "text-white/60" : "text-[#6B7280]"}`}>{t.role}</div>
+                    <div className={`font-[family-name:var(--font-raleway)] font-bold text-[0.95rem] ${authorColor}`}>
+                      {t.author}
+                    </div>
+                    <div className={`text-[0.82rem] ${roleColor}`}>{t.role}</div>
                   </div>
                 </div>
               </article>
@@ -82,34 +94,32 @@ export default function Testimonials({ variant = "grid", items = TESTIMONIALS, t
   }
 
   return (
-    <section className={`py-20 md:py-28 ${isDark ? "bg-[#0B0E14] text-white" : "bg-[#F7F4F0] text-[#0B0E14]"}`}>
+    <section className={`py-[var(--section-y)] ${sectionClass}`}>
       <div className="container-site">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <p className="reveal eyebrow mb-4 justify-center">Vad kunderna säger</p>
-          <h2 className="reveal reveal-d1 font-[family-name:var(--font-manrope)] font-extrabold tracking-tight text-[clamp(26px,3.8vw,42px)] leading-[1.12]">
-            Det här säger några av mina kunder.
-          </h2>
+        <div className="text-center max-w-3xl mx-auto mb-14 md:mb-16">
+          <p className="reveal eyebrow mb-5 justify-center">Vad kunderna säger</p>
+          <h2 className="reveal reveal-d1">Det här säger några av dem jag jobbat med.</h2>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
           {items.map((t, i) => (
             <article
               key={t.author}
-              className={`reveal reveal-d${(i % 4) + 1} rounded-2xl p-7 ${
-                isDark ? "bg-white/[0.03] ring-1 ring-white/10" : "bg-white ring-1 ring-[#E2DDD8]"
-              }`}
+              className={`reveal reveal-d${(i % 4) + 1} rounded-2xl p-7 md:p-8 ${cardBg}`}
             >
-              <div className="eyebrow mb-3">{t.result}</div>
-              <p className={`text-[15.5px] leading-relaxed mb-5 ${isDark ? "text-white/85" : "text-[#0B0E14]/85"}`}>
+              <div className="eyebrow mb-4">{t.result}</div>
+              <p className={`font-[family-name:var(--font-lora)] italic text-[1.05rem] leading-relaxed mb-6 ${quoteColor}`}>
                 &ldquo;{t.text}&rdquo;
               </p>
               <div className="flex items-center gap-3">
-                <div className="h-11 w-11 rounded-full overflow-hidden ring-2 ring-[#E8500A]/40 bg-[#E8500A]/10 shrink-0">
+                <div className="h-11 w-11 rounded-full overflow-hidden bg-[color:var(--glod-dim)] shrink-0">
                   <Image src={t.photo} alt={t.author} width={44} height={44} className="h-full w-full object-cover" />
                 </div>
                 <div>
-                  <div className="font-[family-name:var(--font-manrope)] font-bold text-[14px]">{t.author}</div>
-                  <div className={`text-[12.5px] ${isDark ? "text-white/60" : "text-[#6B7280]"}`}>{t.role}</div>
+                  <div className={`font-[family-name:var(--font-raleway)] font-bold text-[0.9rem] ${authorColor}`}>
+                    {t.author}
+                  </div>
+                  <div className={`text-[0.8rem] ${roleColor}`}>{t.role}</div>
                 </div>
               </div>
             </article>
