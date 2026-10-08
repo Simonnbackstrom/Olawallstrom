@@ -8,32 +8,51 @@ import ResultsGrid from "@/components/ResultsGrid";
 import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
-  title: "Metoden – Framgångsrikt Entreprenörskap",
+  title: "Metoden – Autentisk affärsutveckling",
   description:
-    "Fyra nycklar och sex konkreta steg som tar ditt bolag från 10 till 50 Mkr. Så här jobbar jag med bolagsägare som vill äga ett självgående bolag.",
+    "Fyra principer och sex konkreta steg som tar bolaget från 10 till 50 Mkr. Så jobbar jag med bolagsägare som vill äga ett självgående bolag.",
   alternates: { canonical: "/metod" },
 };
+
+const PRINCIPLES = [
+  { num: "01", key: "Äkta", q: "Utgår från vem du är. Ingen mall, inga lånade ord." },
+  { num: "02", key: "Klarhet", q: "Du vet alltid vad nästa steg är. Varje gång." },
+  { num: "03", key: "Genomförande", q: "Ord blir handling. Det som syns blir gjort." },
+  { num: "04", key: "Frihet", q: "Allt pekar mot ett bolag som inte äger dig." },
+];
+
+const FOR_WHOM = [
+  "Omsätter 10–50 Mkr och vill växa vidare.",
+  "Är själv flaskhals i det dagliga.",
+  "Är öppen för att ändra på sig själv — inte bara teamet.",
+  "Vill fatta beslut på data och känsla, inte bara känsla.",
+];
 
 export default function MetodPage() {
   return (
     <>
       <PageHero
-        eyebrow="Framgångsrikt entreprenörskap"
+        eyebrow="Metoden"
         title={
           <>
-            Min metod. <em className="not-italic text-[#E8500A]">Enkel att förstå.</em>
+            Autentisk affärsutveckling. <em>Enkel att förstå.</em>
             <br />
             Svår att göra ensam.
           </>
         }
-        intro="Metoden Framgångsrikt Entreprenörskap bygger på fyra nycklar och genomförs i sex konkreta steg tillsammans med mig. Hela upplägget är designat för bolag i spannet 10–50 Mkr där ägaren vill ut ur den operativa tröskverket."
+        intro="Metoden vilar på fyra principer och genomförs i sex konkreta steg tillsammans med mig. Hela upplägget är designat för bolag i spannet 10–50 Mkr där ägaren vill ut ur det operativa."
       />
 
-      <section className="py-20 md:py-24 bg-white">
+      <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
           <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-center">
             <div className="reveal relative">
-              <div className="relative rounded-3xl overflow-hidden ring-1 ring-[#E2DDD8] aspect-[4/5] bg-[#EDE9E3]">
+              <div
+                aria-hidden
+                className="absolute -top-5 -right-5 w-[85%] h-[85%] rounded-3xl pointer-events-none"
+                style={{ border: "2px solid var(--glod)", clipPath: "polygon(0 0, 100% 0, 100% 72%, 70% 100%, 0 100%)" }}
+              />
+              <div className="relative rounded-3xl overflow-hidden border border-[color:var(--border-soft)] aspect-[4/5] bg-sand">
                 <Image
                   src="/images/ola-metod.jpg"
                   alt="Ola Wallström i arbete"
@@ -44,34 +63,27 @@ export default function MetodPage() {
               </div>
             </div>
             <div>
-              <p className="reveal eyebrow mb-4">De fyra nycklarna</p>
-              <h2 className="reveal reveal-d1 font-[family-name:var(--font-manrope)] font-extrabold tracking-tight text-[clamp(28px,4vw,46px)] leading-[1.1] text-[#0B0E14]">
-                Fyra enkla frågor som avgör allt.
-              </h2>
-              <p className="reveal reveal-d2 mt-5 text-[16px] text-[#0B0E14]/70 leading-relaxed">
-                Jag har sett över 650 bolag och nästan allt kokar ner till fyra frågor. Får du
-                dem rätt växer bolaget — nästan oavsett bransch och konjunktur.
+              <p className="reveal eyebrow mb-5">De fyra principerna</p>
+              <h2 className="reveal reveal-d1">Fyra ord som styr allt.</h2>
+              <p className="reveal reveal-d2 mt-6 text-[1.02rem] text-ink-soft leading-relaxed">
+                Jag har sett över 650 bolag och nästan allt kokar ner till fyra frågor. Får du dem
+                rätt växer bolaget — nästan oavsett bransch och konjunktur.
               </p>
 
-              <div className="reveal reveal-d3 mt-8 space-y-4">
-                {[
-                  { num: "01", key: "Rätt riktning", q: "Vart ska bolaget faktiskt?" },
-                  { num: "02", key: "Rätt struktur", q: "Levererar bolaget utan dig?" },
-                  { num: "03", key: "Rätt människor", q: "Står rätt personer på rätt plats?" },
-                  { num: "04", key: "Rätt lönsamhet", q: "Är tillväxten lönsam på riktigt?" },
-                ].map((item) => (
+              <div className="reveal reveal-d3 mt-10 space-y-4">
+                {PRINCIPLES.map((item) => (
                   <div
                     key={item.num}
-                    className="flex gap-5 items-start rounded-xl bg-[#F7F4F0] ring-1 ring-[#E2DDD8] p-5"
+                    className="flex gap-6 items-start rounded-xl bg-white border border-[color:var(--border-soft)] p-6"
                   >
-                    <div className="font-[family-name:var(--font-manrope)] font-extrabold text-[#E8500A] text-[28px] leading-none">
+                    <div className="font-[family-name:var(--font-lora)] italic font-semibold text-[color:var(--glod)] text-[2rem] md:text-[2.3rem] leading-none min-w-[52px]">
                       {item.num}
                     </div>
                     <div>
-                      <div className="font-[family-name:var(--font-manrope)] font-extrabold text-[18px] text-[#0B0E14] mb-1">
+                      <div className="font-[family-name:var(--font-lora)] font-semibold text-[1.2rem] text-[color:var(--marin)] mb-1.5">
                         {item.key}
                       </div>
-                      <p className="text-[15px] text-[#0B0E14]/70">{item.q}</p>
+                      <p className="text-[0.95rem] text-ink-soft">{item.q}</p>
                     </div>
                   </div>
                 ))}
@@ -85,27 +97,20 @@ export default function MetodPage() {
 
       <MethodGrid variant="steps" />
 
-      <ResultsGrid
-        eyebrow="Resultat av metoden"
-        heading="Så här känns det efter sex månader."
-      />
+      <ResultsGrid eyebrow="Resultat" heading="Så här känns det efter sex månader." />
 
-      <section className="py-20 md:py-24 bg-[#F7F4F0]">
+      <section className="py-[var(--section-y)] sec-sand">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="reveal eyebrow mb-4 justify-center">För vem är det här?</p>
-            <h2 className="reveal reveal-d1 font-[family-name:var(--font-manrope)] font-extrabold tracking-tight text-[clamp(26px,3.6vw,40px)] leading-tight text-[#0B0E14]">
-              Jag jobbar bäst med bolagsägare som:
-            </h2>
-            <ul className="reveal reveal-d2 mt-8 grid gap-3 text-left max-w-xl mx-auto">
-              {[
-                "Omsätter 10–50 Mkr och har tillväxtambition.",
-                "Är själva flaskhalsen i det dagliga arbetet.",
-                "Är öppna för att ändra på sig själva — inte bara teamet.",
-                "Vill fatta beslut baserat på data, inte känsla.",
-              ].map((p) => (
-                <li key={p} className="flex gap-3 items-start text-[16px] text-[#0B0E14]/85 rounded-xl bg-white px-5 py-4 ring-1 ring-[#E2DDD8]">
-                  <span className="shrink-0 mt-1 h-5 w-5 inline-flex items-center justify-center rounded-full bg-[#E8500A]/15 text-[#E8500A]">
+            <p className="reveal eyebrow mb-5 justify-center">För vem är det här?</p>
+            <h2 className="reveal reveal-d1">Jag jobbar bäst med bolagsägare som:</h2>
+            <ul className="reveal reveal-d2 mt-10 grid gap-3 text-left max-w-xl mx-auto">
+              {FOR_WHOM.map((p) => (
+                <li
+                  key={p}
+                  className="flex gap-3 items-start text-[1rem] text-ink rounded-xl bg-white px-6 py-5 border border-[color:var(--border-soft)]"
+                >
+                  <span className="shrink-0 mt-1 h-5 w-5 inline-flex items-center justify-center rounded-full bg-[color:var(--glod-dim)] text-[color:var(--glod)]">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
@@ -114,16 +119,20 @@ export default function MetodPage() {
                 </li>
               ))}
             </ul>
-            <div className="reveal reveal-d3 mt-10">
-              <Link href="/kontakt" className="btn-primary">
-                Boka kostnadsfritt strategisamtal
+            <div className="reveal reveal-d3 mt-12">
+              <Link href="/strategisession" className="btn-primary">
+                Boka ett samtal
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="13 6 19 12 13 18" />
+                </svg>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <CtaBand tone="dark" />
+      <CtaBand tone="marin" />
     </>
   );
 }

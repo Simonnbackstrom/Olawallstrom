@@ -9,7 +9,6 @@ const NAV_LINKS = [
   { href: "/om-ola", label: "Om Ola" },
   { href: "/metod", label: "Metoden" },
   { href: "/boardroom", label: "Boardroom" },
-  { href: "/strategisession", label: "Strategisession" },
   { href: "/resultat", label: "Resultat" },
   { href: "/nyhetsbrev", label: "Nyhetsbrev" },
   { href: "/kontakt", label: "Kontakt" },
@@ -38,27 +37,33 @@ export default function Navbar() {
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled || open
-          ? "bg-white/95 backdrop-blur-md border-b border-[#E2DDD8]"
+          ? "bg-papper/95 backdrop-blur-md border-b border-[color:var(--border-soft)]"
           : "bg-transparent"
       }`}
     >
       <div className="container-site flex items-center justify-between h-16 md:h-20">
-        <Link href="/" className="flex items-center gap-2.5" aria-label="Ola Wallström startsida">
-          <Image src="/logo.png" alt="" width={44} height={44} className="h-8 w-auto md:h-10" priority />
-          <span className="font-[family-name:var(--font-manrope)] font-extrabold tracking-tight text-[15px] md:text-base text-[#0B0E14]">
-            Ola Wallström
-          </span>
+        <Link href="/" className="flex items-center" aria-label="Ola Wallström startsida">
+          <Image
+            src="/brand/logo-horizontal.png"
+            alt="Ola Wallström"
+            width={1289}
+            height={236}
+            priority
+            className="h-7 md:h-8 w-auto"
+          />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8" aria-label="Huvudmeny">
+        <nav className="hidden lg:flex items-center gap-9" aria-label="Huvudmeny">
           {NAV_LINKS.map((link) => {
             const active = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${
-                  active ? "text-[#E8500A]" : "text-[#0B0E14]/80 hover:text-[#E8500A]"
+                className={`text-sm font-semibold transition-colors ${
+                  active
+                    ? "text-[color:var(--glod)]"
+                    : "text-[color:var(--marin)] hover:text-[color:var(--glod)]"
                 }`}
               >
                 {link.label}
@@ -77,8 +82,8 @@ export default function Navbar() {
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
-          aria-label="Öppna meny"
-          className="lg:hidden h-10 w-10 inline-flex items-center justify-center rounded-full border border-[#E2DDD8] text-[#0B0E14]"
+          aria-label={open ? "Stäng meny" : "Öppna meny"}
+          className="lg:hidden h-10 w-10 inline-flex items-center justify-center rounded-full border border-[color:var(--marin)]/20 text-[color:var(--marin)]"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
             {open ? (
@@ -98,8 +103,8 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-[#E2DDD8] bg-white">
-          <nav className="container-site py-6 flex flex-col gap-2" aria-label="Mobilmeny">
+        <div className="lg:hidden fixed inset-x-0 top-16 bottom-0 bg-[color:var(--marin)] text-[color:var(--papper)] overflow-y-auto">
+          <nav className="container-site py-10 flex flex-col gap-1" aria-label="Mobilmeny">
             {NAV_LINKS.map((link) => {
               const active = pathname === link.href;
               return (
@@ -107,15 +112,19 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`py-3 text-lg font-semibold ${
-                    active ? "text-[#E8500A]" : "text-[#0B0E14]"
+                  className={`py-4 text-2xl font-[family-name:var(--font-lora)] font-semibold border-b border-white/10 ${
+                    active ? "text-[color:var(--glod)]" : "text-[color:var(--papper)]"
                   }`}
                 >
                   {link.label}
                 </Link>
               );
             })}
-            <Link href="/strategisession" onClick={() => setOpen(false)} className="btn-primary mt-4 justify-center">
+            <Link
+              href="/strategisession"
+              onClick={() => setOpen(false)}
+              className="btn-primary mt-8 justify-center"
+            >
               Boka strategisamtal
             </Link>
           </nav>

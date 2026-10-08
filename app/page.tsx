@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import ConsultHero from "@/components/ConsultHero";
 import LogoCarousel from "@/components/LogoCarousel";
+import CoreValues from "@/components/CoreValues";
 import MethodTeaser from "@/components/MethodTeaser";
 import QuoteBlock from "@/components/QuoteBlock";
 import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
-  title: "Ola Wallström — Mentor för bolagsägare 10–50 Mkr",
+  title: "Ola Wallström — Autentisk affärsutveckling",
   description:
-    "Serieentreprenör med 25 års erfarenhet. Jag coachar bolagsägare till självgående och lönsamma bolag — med metoden Framgångsrikt Entreprenörskap.",
+    "Äkta, rakt och med riktning framåt. Jag coachar bolagsägare som vill äga sin tid och sitt företag.",
   alternates: { canonical: "/" },
 };
 
@@ -17,9 +18,10 @@ export default function Home() {
     <>
       <ConsultHero />
       <LogoCarousel />
+      <CoreValues />
       <MethodTeaser />
       <QuoteBlock />
-      <CtaBand tone="dark" />
+      <CtaBand tone="marin" />
     </>
   );
 }

@@ -62,41 +62,29 @@ export default function StrategyHero() {
   };
 
   return (
-    <section className="relative pt-28 md:pt-32 pb-20 md:pb-28 bg-white overflow-hidden">
-      <div className="container-site relative text-center">
-        <div className="reveal inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#E8500A]/35 bg-[#E8500A]/5 text-[11px] font-bold tracking-[0.2em] uppercase text-[#E8500A] mb-8">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#E8500A]" />
-          Kostnadsfritt strategisamtal
-        </div>
+    <section className="relative pt-32 md:pt-40 pb-20 md:pb-28 sec-papper overflow-hidden">
+      <div
+        aria-hidden
+        className="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[720px] rounded-full pointer-events-none opacity-60"
+        style={{ background: "radial-gradient(circle, rgba(242,106,46,0.14) 0%, transparent 65%)" }}
+      />
 
-        <h1 className="reveal reveal-d1 font-[family-name:var(--font-manrope)] font-extrabold tracking-tight text-[clamp(32px,5.4vw,64px)] leading-[1.08] text-[#0B0E14] max-w-4xl mx-auto">
-          Fullt huvud, team som väntar och allt{" "}
-          <em className="not-italic text-[#E8500A] relative inline-block">
-            landar på dig
-            <svg
-              aria-hidden
-              viewBox="0 0 300 12"
-              preserveAspectRatio="none"
-              className="absolute left-0 -bottom-2 w-full h-3 text-[#E8500A]/40"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="3"
-              strokeLinecap="round"
-            >
-              <path d="M4 8 C 80 2, 160 10, 296 4" />
-            </svg>
-          </em>
-          .
+      <div className="container-site relative text-center">
+        <p className="reveal eyebrow mb-6 justify-center">Kostnadsfritt · 30 minuter</p>
+
+        <h1 className="reveal reveal-d1 max-w-4xl mx-auto">
+          Fullt huvud, team som väntar — och allt{" "}
+          <em>landar på dig</em>.
         </h1>
 
-        <p className="reveal reveal-d2 mt-7 text-[18px] md:text-xl text-[#0B0E14]/70 max-w-2xl mx-auto leading-relaxed">
+        <p className="reveal reveal-d2 mt-7 text-[1.15rem] md:text-[1.25rem] text-ink-soft max-w-2xl mx-auto leading-relaxed">
           För dig som äger ett bolag mellan 10–50 Mkr och kört på autopilot för länge.
           I ett 30-minuters samtal får du konkreta nästa steg — oavsett om vi fortsätter jobba ihop eller inte.
         </p>
 
         <div className="reveal reveal-d3 mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link href="/kontakt" className="btn-primary">
-            Boka kostnadsfritt strategisamtal
+            Boka strategisamtal
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="13 6 19 12 13 18" />
@@ -108,7 +96,7 @@ export default function StrategyHero() {
         </div>
 
         <div className="reveal reveal-d4 mt-14 max-w-4xl mx-auto">
-          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.35)] ring-1 ring-black/5 bg-[#0B0E14]">
+          <div className="relative aspect-video rounded-3xl overflow-hidden shadow-[0_30px_80px_-20px_rgba(23,59,96,0.3)] ring-1 ring-[color:var(--marin)]/10 bg-[color:var(--marin)]">
             <iframe
               ref={iframeRef}
               src="https://player.vimeo.com/video/1198692854?badge=0&autopause=0&autoplay=1&muted=1&playsinline=1&title=0&byline=0&portrait=0&controls=0"
@@ -120,7 +108,7 @@ export default function StrategyHero() {
               <button
                 type="button"
                 onClick={unmute}
-                className="absolute bottom-4 right-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 backdrop-blur text-[13px] font-semibold text-[#0B0E14] shadow-lg hover:bg-white transition"
+                className="absolute bottom-4 right-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[color:var(--papper)]/95 backdrop-blur text-[0.85rem] font-semibold text-[color:var(--marin)] shadow-lg hover:bg-[color:var(--papper)] transition"
                 aria-label="Aktivera ljud"
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -134,30 +122,30 @@ export default function StrategyHero() {
           </div>
         </div>
 
-        <dl className="reveal reveal-d5 mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 max-w-4xl mx-auto">
+        <dl className="reveal reveal-d5 mt-14 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 max-w-4xl mx-auto">
           <div className="text-center">
-            <dt className="font-[family-name:var(--font-manrope)] font-extrabold text-[32px] md:text-[40px] text-[#0B0E14] leading-none">
+            <dt className="font-[family-name:var(--font-lora)] font-semibold text-[2.2rem] md:text-[2.6rem] text-[color:var(--marin)] leading-none">
               650+
             </dt>
-            <dd className="mt-2 text-[13px] text-[#6B7280]">Coachade bolagsägare</dd>
+            <dd className="mt-3 text-[0.85rem] text-muted">Coachade bolagsägare</dd>
           </div>
           <div className="text-center">
-            <dt className="font-[family-name:var(--font-manrope)] font-extrabold text-[32px] md:text-[40px] text-[#0B0E14] leading-none">
+            <dt className="font-[family-name:var(--font-lora)] font-semibold text-[2.2rem] md:text-[2.6rem] text-[color:var(--marin)] leading-none">
               25 år
             </dt>
-            <dd className="mt-2 text-[13px] text-[#6B7280]">Som serieentreprenör</dd>
+            <dd className="mt-3 text-[0.85rem] text-muted">Som serieentreprenör</dd>
           </div>
           <div className="text-center">
-            <dt className="font-[family-name:var(--font-manrope)] font-extrabold text-[32px] md:text-[40px] text-[#0B0E14] leading-none">
+            <dt className="font-[family-name:var(--font-lora)] font-semibold text-[2.2rem] md:text-[2.6rem] text-[color:var(--marin)] leading-none">
               8
             </dt>
-            <dd className="mt-2 text-[13px] text-[#6B7280]">Bolag jag byggt själv</dd>
+            <dd className="mt-3 text-[0.85rem] text-muted">Egna bolag byggda</dd>
           </div>
           <div className="text-center">
-            <dt className="font-[family-name:var(--font-manrope)] font-extrabold text-[22px] md:text-[28px] text-[#E8500A] leading-tight">
+            <dt className="font-[family-name:var(--font-lora)] italic font-semibold text-[1.4rem] md:text-[1.7rem] text-[color:var(--glod)] leading-tight">
               19 Mkr → 1,9 Mdr
             </dt>
-            <dd className="mt-2 text-[13px] text-[#6B7280]">Ett klientresultat</dd>
+            <dd className="mt-3 text-[0.85rem] text-muted">Ett klientresultat</dd>
           </div>
         </dl>
       </div>
