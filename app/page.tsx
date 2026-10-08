@@ -3,7 +3,7 @@ import ConsultHero from "@/components/ConsultHero";
 import LogoCarousel from "@/components/LogoCarousel";
 import CoreValues from "@/components/CoreValues";
 import MethodTeaser from "@/components/MethodTeaser";
-import QuoteBlock from "@/components/QuoteBlock";
+import Testimonials from "@/components/Testimonials";
 import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function Home() {
       <LogoCarousel />
       <CoreValues />
       <MethodTeaser />
-      <QuoteBlock />
+      <Testimonials variant="grid" tone="sand" />
       <CtaBand tone="marin" />
     </>
   );
