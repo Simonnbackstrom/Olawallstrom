@@ -20,8 +20,8 @@ export default function LogoCarousel({
 }) {
   return (
     <section className="py-16 md:py-20 bg-sand">
-      <div className="container-site">
-        <h2 className="reveal text-center eyebrow-upper mx-auto block w-fit mb-10 !border-t-0 !pt-0">
+      <div className="container-site text-center">
+        <h2 className="reveal inline-block eyebrow-upper mb-10 !border-t-0 !pt-0">
           {heading}
         </h2>
       </div>

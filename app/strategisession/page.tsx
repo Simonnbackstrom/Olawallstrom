@@ -3,17 +3,12 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import StrategyHero from "@/components/StrategyHero";
 import LogoCarousel from "@/components/LogoCarousel";
-import PainPoints from "@/components/PainPoints";
-import ResultsGrid from "@/components/ResultsGrid";
 import Testimonials from "@/components/Testimonials";
-import MethodGrid from "@/components/MethodGrid";
-import StatsBand from "@/components/StatsBand";
-import BookingForm from "@/components/BookingForm";
 
 export const metadata: Metadata = {
   title: "Boka ett strategisamtal",
   description:
-    "30 min direkt med Ola Wallström. Konkreta nästa steg för din tillväxt — oavsett om vi fortsätter jobba ihop eller inte.",
+    "30 min direkt med Ola Wallström. Konkreta nästa steg för din tillväxt - oavsett om vi fortsätter jobba ihop eller inte.",
   alternates: { canonical: "/strategisession" },
 };
 
@@ -28,15 +23,6 @@ export default function Strategisession() {
     <>
       <StrategyHero />
       <LogoCarousel />
-      <PainPoints />
-      <ResultsGrid />
-      <Testimonials />
-      <MethodGrid
-        variant="steps"
-        eyebrow="Det här får du"
-        heading="Så jobbar vi tillsammans — steg för steg."
-      />
-      <StatsBand tone="himmel" />
 
       {/* ABOUT */}
       <section className="py-[var(--section-y)] sec-papper">
@@ -69,8 +55,8 @@ export default function Strategisession() {
                   erfarenhet vad som krävs för att skala ett bolag lönsamt.
                 </p>
                 <p>
-                  Under 25 år har jag coachat över 650 bolagsägare och ledare. Min metod bygger på
-                  fyra principer — <em>Äkta, Klarhet, Genomförande, Frihet</em> — som hjälper dig
+                  Under 25 år har jag coachat över 650 bolagsägare och ledare. Min VIP-coaching bygger på
+                  fyra principer - <em>Äkta, Klarhet, Genomförande, Frihet</em> - som hjälper dig
                   att gå från 10 till 50 Mkr utan att offra livet runt omkring.
                 </p>
                 <p>
@@ -95,7 +81,9 @@ export default function Strategisession() {
         </div>
       </section>
 
-      {/* FINAL CTA */}
+      <Testimonials tone="sand" />
+
+      {/* CALENDLY EMBED */}
       <section id="boka" className="py-[var(--section-y)] sec-marin relative overflow-hidden">
         <div
           aria-hidden
@@ -106,23 +94,10 @@ export default function Strategisession() {
           }}
         />
         <div className="container-site relative">
-          <div className="max-w-3xl mx-auto text-center mb-14">
-            <p className="reveal eyebrow mb-5 justify-center">För dig som vill äga ditt bolag på riktigt</p>
-            <h2 className="reveal reveal-d1">Boka ett 30-minuters samtal.</h2>
-            <p className="reveal reveal-d2 mt-6 text-[1.1rem] md:text-[1.2rem] text-[color:var(--papper)]/80 leading-relaxed">
-              Jag ger dig konkreta insikter — oavsett om jag blir rätt mentor för dig eller inte.
-            </p>
-          </div>
-
-          <div className="reveal reveal-d3 max-w-2xl mx-auto rounded-3xl bg-papper text-ink p-6 md:p-10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)]">
-            <div className="text-center mb-6">
-              <h3>Boka strategisamtal</h3>
-              <p className="mt-2 text-[0.9rem] text-muted">
-                Kostnadsfritt · 30 minuter · Direkt med mig
-              </p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8 text-[0.82rem] text-muted">
-              {["Kostnadsfritt", "Inget säljtryck", "Direkt med mig"].map((m) => (
+          <div className="max-w-3xl mx-auto text-center mb-10">
+            <h2 className="reveal reveal-d1">Välj en tid som passar dig.</h2>
+            <div className="reveal reveal-d2 mt-5 flex flex-wrap justify-center gap-x-6 gap-y-2 text-[0.9rem] text-[color:var(--papper)]/80">
+              {["Kostnadsfritt", "30 minuter", "Direkt med mig", "Inget säljtryck"].map((m) => (
                 <span key={m} className="inline-flex items-center gap-1.5">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--glod)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
@@ -131,7 +106,17 @@ export default function Strategisession() {
                 </span>
               ))}
             </div>
-            <BookingForm />
+          </div>
+
+          <div className="reveal reveal-d3 max-w-4xl mx-auto rounded-3xl overflow-hidden bg-papper shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)]">
+            <iframe
+              src="https://calendly.com/olawallstrom/30min?hide_gdpr_banner=1"
+              title="Boka strategisamtal med Ola Wallström"
+              width="100%"
+              height="720"
+              frameBorder="0"
+              className="block"
+            />
           </div>
         </div>
       </section>
@@ -149,11 +134,11 @@ export default function Strategisession() {
               <div>
                 <p className="eyebrow-upper mb-5">Ola erbjuder också</p>
                 <h3 className="font-[family-name:var(--font-lora)] font-semibold text-[clamp(1.6rem,3.4vw,2.4rem)] leading-tight text-[color:var(--papper)]">
-                  Boardroom 2027 — ett år, fyra teman.
+                  Boardroom 2027 - ett år, fyra teman.
                 </h3>
                 <p className="mt-5 text-[1rem] text-[color:var(--papper)]/80 leading-relaxed max-w-xl">
                   Vill du gå in i ett helt program? Boardroom är Olas 12-månaders upplägg för
-                  VD/ägare — i ett litet rum av erfarna ägare, med personligt stöd hela vägen.
+                  VD/ägare - i ett litet rum av erfarna ägare, med personligt stöd hela vägen.
                 </p>
                 <div className="mt-7 flex flex-wrap items-center gap-4">
                   <Link href="/boardroom" className="btn-primary">
@@ -175,50 +160,6 @@ export default function Strategisession() {
                 <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-[color:var(--sand)] text-[color:var(--marin)] text-[0.78rem] font-semibold">Q4 Säljstrategi</span>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SOCIAL */}
-      <section className="py-[var(--section-y)] sec-sand">
-        <div className="container-site text-center">
-          <div className="reveal inline-flex items-center justify-center mb-6">
-            <Image
-              src="/brand/logo-mark.png"
-              alt="Ola Wallström"
-              width={64}
-              height={64}
-              className="h-14 w-auto"
-            />
-          </div>
-          <h2 className="reveal reveal-d1">Följ mig</h2>
-          <div className="reveal reveal-d2 mt-10 flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href="https://www.instagram.com/ola.wallstrom/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-white border border-[color:var(--border-soft)] text-[color:var(--marin)] font-semibold text-[0.95rem] hover:border-[color:var(--glod)] hover:text-[color:var(--glod)] transition-colors"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="5" />
-                <circle cx="12" cy="12" r="4" />
-                <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
-              </svg>
-              Instagram
-            </a>
-            <a
-              href="https://se.linkedin.com/in/olawallstrom"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-white border border-[color:var(--border-soft)] text-[color:var(--marin)] font-semibold text-[0.95rem] hover:border-[color:var(--glod)] hover:text-[color:var(--glod)] transition-colors"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5z" />
-                <path d="M.5 8h4V24h-4z" />
-                <path d="M8 8h3.8v2.2h.1c.5-1 1.9-2.4 4.1-2.4 4.4 0 5.2 2.9 5.2 6.7V24h-4v-8.4c0-2-.1-4.5-2.8-4.5s-3.2 2.1-3.2 4.3V24H8z" />
-              </svg>
-              LinkedIn
-            </a>
           </div>
         </div>
       </section>

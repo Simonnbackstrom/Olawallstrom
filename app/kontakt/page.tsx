@@ -20,7 +20,7 @@ export default function KontaktPage() {
             Hör av dig. <em>Jag läser allt själv.</em>
           </>
         }
-        intro="Vill du prata? Skicka ett meddelande eller boka ett 30-minuters samtal direkt. Oavsett väg landar det hos mig — inte hos en assistent."
+        intro="Vill du prata? Skicka ett meddelande eller boka ett 30-minuters samtal direkt. Oavsett väg landar det hos mig - inte hos en assistent."
       />
 
       <section className="py-[var(--section-y)] sec-sand">
@@ -39,7 +39,7 @@ export default function KontaktPage() {
               <h3 className="mb-5">Så här fungerar samtalet</h3>
               <ul className="space-y-3">
                 {[
-                  "Du berättar var bolaget står idag — vinster, utmaningar och mål.",
+                  "Du berättar var bolaget står idag - vinster, utmaningar och mål.",
                   "Vi identifierar den största flaskhalsen just nu.",
                   "Du får konkreta råd att ta med dig direkt.",
                   "Om det känns rätt för oss båda pratar vi om fortsättning.",

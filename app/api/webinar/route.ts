@@ -1,13 +1,13 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-type NewsletterPayload = {
+type WebinarPayload = {
   name?: string;
   email?: string;
 };
 
 export async function POST(req: Request) {
-  let body: NewsletterPayload;
+  let body: WebinarPayload;
   try {
     body = await req.json();
   } catch {
@@ -22,11 +22,11 @@ export async function POST(req: Request) {
 
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL || "ola@olawallstrom.com";
-  const from = process.env.RESEND_FROM_EMAIL || "Nyhetsbrev <noreply@olawallstrom.com>";
+  const from = process.env.RESEND_FROM_EMAIL || "Webinar <noreply@olawallstrom.com>";
 
   if (!apiKey) {
     console.warn("RESEND_API_KEY saknas - anmälan loggas men skickas inte.");
-    console.log("Ny prenumerant:", { name, email });
+    console.log("Ny webinaranmälan:", { name, email });
     return NextResponse.json({ ok: true, note: "logged" });
   }
 
@@ -37,9 +37,9 @@ export async function POST(req: Request) {
       from,
       to,
       replyTo: email,
-      subject: `Ny prenumerant - ${name}`,
+      subject: `Ny webinaranmälan - ${name}`,
       html: `
-        <h2>Ny prenumerant på nyhetsbrevet</h2>
+        <h2>Ny anmälan till webinaret</h2>
         <p><strong>Namn:</strong> ${escapeHtml(name)}</p>
         <p><strong>E-post:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>
       `,

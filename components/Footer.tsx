@@ -15,7 +15,7 @@ export default function Footer() {
               className="h-9 w-auto mb-6"
             />
             <p className="text-[0.95rem] leading-relaxed text-ink-soft max-w-sm">
-              Autentisk affärsutveckling. Äkta, rakt och med riktning framåt — för dig som vill
+              Autentisk affärsutveckling. Äkta, rakt och med riktning framåt - för dig som vill
               äga din tid och ditt företag.
             </p>
             <div className="flex gap-3 mt-7">
@@ -54,8 +54,9 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3 text-[0.95rem] text-ink-soft">
               <li><Link href="/om-ola" className="hover:text-[color:var(--glod)] transition-colors">Om Ola</Link></li>
-              <li><Link href="/metod" className="hover:text-[color:var(--glod)] transition-colors">Metoden</Link></li>
+              <li><Link href="/metod" className="hover:text-[color:var(--glod)] transition-colors">VIP-coaching</Link></li>
               <li><Link href="/boardroom" className="hover:text-[color:var(--glod)] transition-colors">Boardroom</Link></li>
+              <li><Link href="/webinar" className="hover:text-[color:var(--glod)] transition-colors">Webinar</Link></li>
               <li><Link href="/resultat" className="hover:text-[color:var(--glod)] transition-colors">Resultat</Link></li>
               <li><Link href="/nyhetsbrev" className="hover:text-[color:var(--glod)] transition-colors">Nyhetsbrev</Link></li>
             </ul>
@@ -67,7 +68,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3 text-[0.95rem] text-ink-soft">
               <li><a href="mailto:ola@olawallstrom.com" className="hover:text-[color:var(--glod)] transition-colors">ola@olawallstrom.com</a></li>
-              <li><Link href="/strategisession" className="hover:text-[color:var(--glod)] transition-colors">Boka strategisamtal</Link></li>
+              <li><a href="https://calendly.com/olawallstrom/30min" target="_blank" rel="noopener noreferrer" className="hover:text-[color:var(--glod)] transition-colors">Boka strategisamtal</a></li>
               <li><Link href="/kontakt" className="hover:text-[color:var(--glod)] transition-colors">Kontaktformulär</Link></li>
             </ul>
           </div>

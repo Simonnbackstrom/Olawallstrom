@@ -1,10 +1,8 @@
-import Link from "next/link";
-
 const POINTS = [
   "Du blir flaskhalsen i nästan varje viktigt beslut.",
   "Teamet väntar på dig istället för att ta egna initiativ.",
   "Du jobbar mer men bolaget rör sig ändå inte snabbare.",
-  "Du kan vara ledig fysiskt — men aldrig mentalt.",
+  "Du kan vara ledig fysiskt - men aldrig mentalt.",
   "Bolaget växer. Och ditt beroende av bolaget också.",
 ];
 
@@ -24,7 +22,6 @@ export default function PainPoints() {
 
       <div className="container-site relative">
         <div className="max-w-3xl mx-auto text-center mb-14">
-          <p className="reveal eyebrow mb-5 justify-center">Känner du igen dig?</p>
           <h2 className="reveal reveal-d1">
             Du leder ett miljonbolag <em>på samma sätt som när du startade.</em>
           </h2>
@@ -58,13 +55,18 @@ export default function PainPoints() {
             .
           </p>
           <div className="reveal reveal-d3 mt-10">
-            <Link href="/strategisession" className="btn-primary">
+            <a
+              href="https://calendly.com/olawallstrom/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
               Boka ett samtal
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="13 6 19 12 13 18" />
               </svg>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

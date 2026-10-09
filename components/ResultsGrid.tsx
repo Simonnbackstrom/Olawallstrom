@@ -9,11 +9,11 @@ const RESULTS = [
   },
   {
     title: "Du får kontroll på siffrorna",
-    body: "Vi hittar de dolda möjligheterna i ditt bolag — där marginalerna och tiden egentligen finns.",
+    body: "Vi hittar de dolda möjligheterna i ditt bolag - där marginalerna och tiden egentligen finns.",
   },
   {
     title: "Du får tillbaka tid till det som räknas",
-    body: "Du jobbar färre timmar med högre effekt — och har plats för livet runt omkring.",
+    body: "Du jobbar färre timmar med högre effekt - och har plats för livet runt omkring.",
   },
   {
     title: "Du leder med mer säkerhet",
@@ -21,24 +21,21 @@ const RESULTS = [
   },
   {
     title: "Ett bolag som inte äger dig",
-    body: "En självgående verksamhet — redo för expansion, exit eller mer frihet.",
+    body: "En självgående verksamhet - redo för expansion, exit eller mer frihet.",
   },
 ];
 
 type Props = {
-  eyebrow?: string;
   heading?: string;
 };
 
 export default function ResultsGrid({
-  eyebrow = "Förflyttningar",
   heading = "Sex månader från nu känner du skillnaden i vardagen.",
 }: Props) {
   return (
     <section className="py-[var(--section-y)] sec-papper">
       <div className="container-site">
-        <div className="text-center max-w-3xl mx-auto mb-14 md:mb-16">
-          <p className="reveal eyebrow mb-5 justify-center">{eyebrow}</p>
+        <div className="max-w-3xl mx-auto text-center mb-14 md:mb-16">
           <h2 className="reveal reveal-d1">{heading}</h2>
         </div>
 

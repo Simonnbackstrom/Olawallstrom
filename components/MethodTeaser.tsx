@@ -4,7 +4,7 @@ const KEYS = [
   {
     n: "01",
     title: "Rätt riktning",
-    body: "Vart är bolaget på väg — och vill du själv dit? Vi stämmer av ägarens mål, bolagets strategi och vardagen.",
+    body: "Vart är bolaget på väg - och vill du själv dit? Vi stämmer av ägarens mål, bolagets strategi och vardagen.",
   },
   {
     n: "02",
@@ -19,7 +19,7 @@ const KEYS = [
   {
     n: "04",
     title: "Rätt lönsamhet",
-    body: "Marginal, kassaflöde och tillväxt som håller — oavsett vad konjunkturen gör.",
+    body: "Marginal, kassaflöde och tillväxt som håller - oavsett vad konjunkturen gör.",
   },
 ];
 
@@ -36,14 +36,13 @@ export default function MethodTeaser() {
       <div className="container-site relative">
         <div className="grid lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-20 mb-16 md:mb-20 items-end">
           <div>
-            <p className="reveal eyebrow mb-5">Metoden</p>
             <h2 className="reveal reveal-d1">
               Fyra principer som bygger <em>självgående</em> bolag.
             </h2>
           </div>
           <p className="reveal reveal-d2 text-[1.05rem] md:text-[1.1rem] text-[color:var(--papper)]/75 leading-relaxed max-w-xl lg:justify-self-end">
-            Metoden är tränad i åtta egna bolag och förfinad i över 650 mentorskap.
-            Allt vilar på fyra bärande principer — enkla att förstå, svåra att skippa.
+            VIP-coachingen är tränad i åtta egna bolag och förfinad i över 650 mentorskap.
+            Allt vilar på fyra bärande principer - enkla att förstå, svåra att skippa.
           </p>
         </div>
 
@@ -77,7 +76,7 @@ export default function MethodTeaser() {
             href="/metod"
             className="group inline-flex items-center gap-2 text-[0.95rem] font-semibold text-[color:var(--papper)] hover:text-[color:var(--glod)] transition-colors"
           >
-            Läs hela metoden
+            Läs mer om VIP-coachingen
             <svg
               width="16"
               height="16"

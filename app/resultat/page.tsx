@@ -10,7 +10,7 @@ import CtaBand from "@/components/CtaBand";
 export const metadata: Metadata = {
   title: "Resultat",
   description:
-    "Riktiga resultat från bolag jag coachat. Case, testimonials och nyckeltal från mitt arbete som mentor för bolagsägare i segmentet 10–50 Mkr.",
+    "Riktiga resultat från bolag jag coachat. Case, testimonials och nyckeltal från mitt arbete som mentor för bolagsägare i segmentet 10-50 Mkr.",
   alternates: { canonical: "/resultat" },
 };
 
@@ -21,7 +21,7 @@ export default function ResultatPage() {
         eyebrow="Resultat"
         title={
           <>
-            Resultat är <em>inte löften</em> — det är siffror på pappret.
+            Resultat är <em>inte löften</em> - det är siffror på pappret.
           </>
         }
         intro="Det här är ett urval av bolag jag jobbat med och den förflyttning vi gjort tillsammans. Alla case bygger på verkliga samarbeten där ägaren själv valt att stå framför."
@@ -46,7 +46,7 @@ export default function ResultatPage() {
                   </h2>
                   <p className="mt-6 text-[1.1rem] text-[color:var(--papper)]/85 leading-relaxed max-w-md">
                     Från ett tjänstebolag runt tjugo miljoner till ett bolag som idag omsätter nära
-                    två miljarder — med en ägare som fortfarande har tid för familjen. Ett av de
+                    två miljarder - med en ägare som fortfarande har tid för familjen. Ett av de
                     resultat jag fått vara med och forma.
                   </p>
                   <dl className="mt-10 grid grid-cols-3 gap-6">
@@ -96,7 +96,7 @@ export default function ResultatPage() {
         </div>
       </section>
 
-      <Testimonials variant="showcase" tone="sand" />
+      <Testimonials tone="sand" />
 
       <StatsBand tone="himmel" />
 
@@ -105,22 +105,26 @@ export default function ResultatPage() {
       <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
           <div className="max-w-2xl mx-auto text-center">
-            <p className="reveal eyebrow mb-5 justify-center">Vill du bli nästa?</p>
             <h2 className="reveal reveal-d1">
               Jag tar emot ett begränsat antal mentorsklienter per år.
             </h2>
             <p className="reveal reveal-d2 mt-6 text-[1.02rem] text-ink-soft leading-relaxed">
               Varje samarbete kräver tid och fokus. Ett kostnadsfritt strategisamtal är
-              startpunkten — där ser vi båda om det här är rätt för dig.
+              startpunkten - där ser vi båda om det här är rätt för dig.
             </p>
             <div className="reveal reveal-d3 mt-10">
-              <Link href="/strategisession" className="btn-primary">
+              <a
+                href="https://calendly.com/olawallstrom/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
                 Boka ett samtal
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="13 6 19 12 13 18" />
                 </svg>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

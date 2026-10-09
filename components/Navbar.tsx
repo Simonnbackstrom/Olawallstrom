@@ -7,10 +7,9 @@ import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
   { href: "/om-ola", label: "Om Ola" },
-  { href: "/metod", label: "Metoden" },
+  { href: "/metod", label: "VIP-coaching" },
   { href: "/boardroom", label: "Boardroom" },
-  { href: "/resultat", label: "Resultat" },
-  { href: "/nyhetsbrev", label: "Nyhetsbrev" },
+  { href: "/strategisession", label: "Strategisession" },
   { href: "/kontakt", label: "Kontakt" },
 ];
 
@@ -73,9 +72,14 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden lg:block">
-          <Link href="/strategisession" className="btn-primary !py-2.5 !px-5 text-[13px]">
+          <a
+            href="https://calendly.com/olawallstrom/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary !py-2.5 !px-5 text-[13px]"
+          >
             Boka strategisamtal
-          </Link>
+          </a>
         </div>
 
         <button
@@ -120,13 +124,15 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <Link
-              href="/strategisession"
+            <a
+              href="https://calendly.com/olawallstrom/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="btn-primary mt-8 justify-center"
             >
               Boka strategisamtal
-            </Link>
+            </a>
           </nav>
         </div>
       )}

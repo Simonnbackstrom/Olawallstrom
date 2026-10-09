@@ -21,7 +21,7 @@ export default function NyhetsbrevPage() {
             En tanke i veckan. <em>Noll fluff.</em>
           </>
         }
-        intro="Jag skriver bara när jag har något att säga. Varje brev är kort — en konkret insikt från ett verkligt klientarbete, tänkt för dig som äger ett bolag mellan 10 och 50 Mkr."
+        intro="Jag skriver bara när jag har något att säga. Varje brev är kort - en konkret insikt från ett verkligt klientarbete, tänkt för dig som äger ett bolag mellan 10 och 50 Mkr."
       />
 
       <section className="py-[var(--section-y)] sec-papper">
@@ -41,11 +41,11 @@ export default function NyhetsbrevPage() {
             <div>
               <p className="reveal eyebrow mb-5">Vad du får</p>
               <h2 className="reveal reveal-d1">
-                Insikter från 25 år bland bolagsägare — direkt till din inkorg.
+                Insikter från 25 år bland bolagsägare - direkt till din inkorg.
               </h2>
               <ul className="reveal reveal-d2 mt-8 space-y-3 mb-10">
                 {[
-                  "En kort tanke per vecka — tillväxt, ledarskap eller lönsamhet.",
+                  "En kort tanke per vecka - tillväxt, ledarskap eller lönsamhet.",
                   "Konkreta exempel från verkliga klientcase.",
                   "Enkla verktyg du kan använda direkt i din vardag.",
                   "Inbjudningar till utvalda event och frukostmöten.",

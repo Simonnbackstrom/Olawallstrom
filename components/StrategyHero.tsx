@@ -73,13 +73,13 @@ export default function StrategyHero() {
         <p className="reveal eyebrow mb-6 justify-center">Kostnadsfritt · 30 minuter</p>
 
         <h1 className="reveal reveal-d1 max-w-4xl mx-auto">
-          Fullt huvud, team som väntar — och allt{" "}
+          Fullt huvud, team som väntar - och allt{" "}
           <em>landar på dig</em>.
         </h1>
 
         <p className="reveal reveal-d2 mt-7 text-[1.15rem] md:text-[1.25rem] text-ink-soft max-w-2xl mx-auto leading-relaxed">
-          För dig som äger ett bolag mellan 10–50 Mkr och kört på autopilot för länge.
-          I ett 30-minuters samtal får du konkreta nästa steg — oavsett om vi fortsätter jobba ihop eller inte.
+          För dig som äger ett bolag mellan 10-50 Mkr och kört på autopilot för länge.
+          I ett 30-minuters samtal får du konkreta nästa steg - oavsett om vi fortsätter jobba ihop eller inte.
         </p>
 
         <div className="reveal reveal-d3 mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -91,7 +91,7 @@ export default function StrategyHero() {
             </svg>
           </Link>
           <Link href="/metod" className="btn-ghost">
-            Så fungerar metoden
+            Så fungerar VIP-coachingen
           </Link>
         </div>
 
@@ -102,7 +102,7 @@ export default function StrategyHero() {
               src="https://player.vimeo.com/video/1198692854?badge=0&autopause=0&autoplay=1&muted=1&playsinline=1&title=0&byline=0&portrait=0&controls=0"
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
               className="absolute inset-0 w-full h-full"
-              title="Ola Wallström – om metoden"
+              title="Ola Wallström - om VIP-coachingen"
             />
             {muted && (
               <button

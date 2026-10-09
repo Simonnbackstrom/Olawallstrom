@@ -51,7 +51,7 @@ export default function BookingForm() {
         </div>
         <h3 className="mb-3">Tack. Jag hör av mig.</h3>
         <p className="text-[1rem] text-ink-soft max-w-md mx-auto">
-          Jag läser alla meddelanden själv och återkommer så fort jag kan — oftast samma dag.
+          Jag läser alla meddelanden själv och återkommer så fort jag kan - oftast samma dag.
         </p>
       </div>
     );
