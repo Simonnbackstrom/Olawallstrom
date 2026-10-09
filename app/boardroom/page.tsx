@@ -5,7 +5,7 @@ import BoardroomWheel from "@/components/BoardroomWheel";
 import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
-  title: "Boardroom 2027 — Ett år. Fyra teman.",
+  title: "Boardroom 2027 - Ett år. Fyra teman.",
   description:
     "Tolv månader för dig som VD eller ägare. Fyra teman, 19 Boardroom sessions, 4 kvartalsavstamp, 4 workshopdagar och personligt stöd hela vägen. 195 000 kr · max 15 deltagare.",
   alternates: { canonical: "/boardroom" },
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const THEMES = [
   {
-    q: "Q1 · jan–mar",
+    q: "Q1 · jan-mar",
     title: "Mental klarhet",
     body: "Riktning, fokus, prioriteringar och kontroll över tid och energi.",
     bg: "bg-[color:var(--marin)]",
@@ -21,7 +21,7 @@ const THEMES = [
     accent: "text-[color:var(--papper)]/65",
   },
   {
-    q: "Q2 · apr–jun",
+    q: "Q2 · apr-jun",
     title: "Stjärnledarskap",
     body: "Få människor att ta ansvar, tänka själva och fungera bättre tillsammans.",
     bg: "bg-[color:var(--olabla)]",
@@ -29,7 +29,7 @@ const THEMES = [
     accent: "text-[color:var(--papper)]/75",
   },
   {
-    q: "Q3 · jul–sep",
+    q: "Q3 · jul-sep",
     title: "Autentisk affärsutveckling",
     body: "Utveckla affären utifrån egna styrkor, kundvärde och tydlig riktning.",
     bg: "bg-[color:var(--glod)]",
@@ -37,7 +37,7 @@ const THEMES = [
     accent: "text-white/80",
   },
   {
-    q: "Q4 · okt–dec",
+    q: "Q4 · okt-dec",
     title: "Smart säljstrategi",
     body: "Ett sälj som är tydligt, hållbart och mindre personberoende.",
     bg: "bg-[color:var(--sand)]",
@@ -50,7 +50,7 @@ const LOOP_STEPS = [
   { n: "01", title: "Frågebatteri", body: "Reflektion inför kvartalets tema." },
   { n: "02", title: "Kvartalsavstamp", body: "Två timmars digital fördjupning." },
   { n: "03", title: "Workshopdag", body: "Heldag tillsammans på temat." },
-  { n: "04", title: "Boardroom sessions", body: "4–5 digitala träffar à ca 1 tim." },
+  { n: "04", title: "Boardroom sessions", body: "4-5 digitala träffar à ca 1 tim." },
 ];
 
 const JOURNEY = [
@@ -65,7 +65,7 @@ const JOURNEY = [
     border: "border border-[color:var(--border-soft)]",
   },
   {
-    tag: "Q1 · JAN–MAR",
+    tag: "Q1 · JAN-MAR",
     title: "Mental klarhet",
     meta: "Avstamp 12 jan · WS 21 jan · 5 sessions",
     body: "Riktning, fokus och kontroll över tid och energi.",
@@ -75,7 +75,7 @@ const JOURNEY = [
     border: "",
   },
   {
-    tag: "Q2 · APR–JUN",
+    tag: "Q2 · APR-JUN",
     title: "Stjärnledarskap",
     meta: "Avstamp 6 apr · WS 15 apr · 5 sessions",
     body: "Få människor att ta ansvar och fungera tillsammans.",
@@ -85,7 +85,7 @@ const JOURNEY = [
     border: "",
   },
   {
-    tag: "Q3 · JUL–SEP",
+    tag: "Q3 · JUL-SEP",
     title: "Autentisk affärsutveckling",
     meta: "Avstamp 29 jun · WS 7 okt · 4 sessions",
     body: "Utveckla affären utifrån egna styrkor och kundvärde.",
@@ -95,7 +95,7 @@ const JOURNEY = [
     border: "",
   },
   {
-    tag: "Q4 · OKT–DEC",
+    tag: "Q4 · OKT-DEC",
     title: "Smart säljstrategi",
     meta: "Avstamp 28 sep · WS 8 okt · 5 sessions",
     body: "Ett sälj som är tydligt, hållbart och mindre personberoende.",
@@ -107,13 +107,13 @@ const JOURNEY = [
 ];
 
 const INCLUDED = [
-  "19 Boardroom sessions à ca 1 timme — digitala träffar",
-  "4 kvartalsavstamp — frågebatteri + 2 h digital fördjupning",
-  "4 workshopdagar — 21 jan · 15 apr · 7–8 okt",
-  "Personlig startworkshop — 4 tim i Stockholm",
-  "3 personliga coachingsamtal à 45 min — bara du och Ola",
-  "Signal-kanal med Ola och de andra ägarna — året runt",
-  "Ett litet rum av erfarna ägare — max 15 deltagare",
+  "19 Boardroom sessions à ca 1 timme - digitala träffar",
+  "4 kvartalsavstamp - frågebatteri + 2 h digital fördjupning",
+  "4 workshopdagar - 21 jan · 15 apr · 7-8 okt",
+  "Personlig startworkshop - 4 tim i Stockholm",
+  "3 personliga coachingsamtal à 45 min - bara du och Ola",
+  "Signal-kanal med Ola och de andra ägarna - året runt",
+  "Ett litet rum av erfarna ägare - max 15 deltagare",
 ];
 
 export default function BoardroomPage() {
@@ -127,7 +127,7 @@ export default function BoardroomPage() {
             <em>Ett år. Fyra teman.</em>
           </>
         }
-        intro="Tolv månader för dig som VD eller ägare — i ett litet rum av erfarna ägare, med personligt stöd hela vägen. Fyra teman, en gemensam rytm och en handfast kundresa från start till Q4."
+        intro="Tolv månader för dig som VD eller ägare - i ett litet rum av erfarna ägare, med personligt stöd hela vägen. Fyra teman, en gemensam rytm och en handfast kundresa från start till Q4."
       />
 
       <BoardroomWheel />
@@ -137,7 +137,7 @@ export default function BoardroomPage() {
         <div className="container-site">
           <div className="max-w-2xl mb-14 md:mb-16">
             <p className="reveal eyebrow mb-5">Fyra teman</p>
-            <h2 className="reveal reveal-d1">Ett år tillsammans — fyra riktningar att växa i.</h2>
+            <h2 className="reveal reveal-d1">Ett år tillsammans - fyra riktningar att växa i.</h2>
           </div>
           <div className="grid gap-5 md:gap-6 sm:grid-cols-2">
             {THEMES.map((t, i) => (
@@ -163,9 +163,9 @@ export default function BoardroomPage() {
         <div className="container-site">
           <div className="max-w-2xl mb-14 md:mb-16">
             <p className="reveal eyebrow mb-5">Kvartalsloopen</p>
-            <h2 className="reveal reveal-d1">Samma rytm — fyra varv per år.</h2>
+            <h2 className="reveal reveal-d1">Samma rytm - fyra varv per år.</h2>
             <p className="reveal reveal-d2 mt-6 text-[1.02rem] text-ink-soft leading-relaxed max-w-xl">
-              Varje tema får 90 dagar — fyra steg som bygger på varandra. Du vet alltid var i resan du är.
+              Varje tema får 90 dagar - fyra steg som bygger på varandra. Du vet alltid var i resan du är.
             </p>
           </div>
 
@@ -218,7 +218,7 @@ export default function BoardroomPage() {
             <p className="reveal eyebrow mb-5">Kundresan</p>
             <h2 className="reveal reveal-d1">Din resa i Boardroom.</h2>
             <p className="reveal reveal-d2 mt-6 text-[1.02rem] text-ink-soft leading-relaxed max-w-xl">
-              Tolv månader — från en personlig start till fyra teman tillsammans med andra erfarna ägare.
+              Tolv månader - från en personlig start till fyra teman tillsammans med andra erfarna ägare.
             </p>
           </div>
 
@@ -244,9 +244,9 @@ export default function BoardroomPage() {
             <p className="eyebrow mb-5">Löpande under hela året</p>
             <ul className="grid gap-3 md:grid-cols-3">
               {[
-                "3 personliga coachingsamtal à 45 min — bara du och Ola",
-                "Signal-kanal med Ola och de andra ägarna — stöd mellan träffarna",
-                "19 Boardroom sessions à ca 1 tim — frågor, utmaningar och beslut",
+                "3 personliga coachingsamtal à 45 min - bara du och Ola",
+                "Signal-kanal med Ola och de andra ägarna - stöd mellan träffarna",
+                "19 Boardroom sessions à ca 1 tim - frågor, utmaningar och beslut",
               ].map((row) => (
                 <li
                   key={row}
@@ -279,7 +279,7 @@ export default function BoardroomPage() {
           <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-start">
             <div>
               <p className="reveal eyebrow mb-5">Det här ingår</p>
-              <h2 className="reveal reveal-d1">Hela året — i ett paket.</h2>
+              <h2 className="reveal reveal-d1">Hela året - i ett paket.</h2>
               <ul className="reveal reveal-d2 mt-10 space-y-3">
                 {INCLUDED.map((row) => (
                   <li key={row} className="flex gap-3 items-start text-[1rem] text-[color:var(--papper)]/90">
@@ -313,13 +313,18 @@ export default function BoardroomPage() {
                 ))}
               </div>
               <div className="mt-8 flex flex-col gap-3">
-                <Link href="/strategisession" className="btn-primary justify-center">
+                <a
+                  href="https://calendly.com/olawallstrom/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary justify-center"
+                >
                   Boka strategisamtal
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="13 6 19 12 13 18" />
                   </svg>
-                </Link>
+                </a>
                 <Link href="/kontakt" className="btn-ghost justify-center">
                   Skicka ett meddelande
                 </Link>
@@ -333,22 +338,14 @@ export default function BoardroomPage() {
       <section className="py-[var(--section-y)] sec-sand">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="reveal eyebrow mb-5 justify-center">För vem</p>
             <h2 className="reveal reveal-d1">
               För dig som VD eller ägare som vill växa tillsammans med andra erfarna ägare.
             </h2>
             <p className="reveal reveal-d2 mt-6 text-[1.02rem] text-ink-soft leading-relaxed">
-              Du leder ett bolag i spannet 10–50 Mkr, är redo att ändra på dig själv — inte bara teamet —
+              Du leder ett bolag i spannet 10-50 Mkr, är redo att ändra på dig själv, inte bara teamet,
               och vill ha ett litet rum där du både får hjälp och bidrar med din egen erfarenhet.
             </p>
-            <div className="reveal reveal-d3 mt-12 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link href="/strategisession" className="btn-primary">
-                Boka strategisamtal
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="13 6 19 12 13 18" />
-                </svg>
-              </Link>
+            <div className="reveal reveal-d3 mt-12 flex justify-center">
               <Link href="/om-ola" className="btn-ghost">
                 Mer om Ola
               </Link>

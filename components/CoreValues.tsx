@@ -21,9 +21,8 @@ export default function CoreValues() {
   return (
     <section className="py-[var(--section-y)] sec-papper">
       <div className="container-site">
-        <div className="max-w-2xl mb-14 md:mb-16">
-          <p className="reveal eyebrow mb-5">Kärnvärden</p>
-          <h2 className="reveal reveal-d1">
+        <div className="max-w-5xl mx-auto text-center mb-14 md:mb-16">
+          <h2 className="reveal reveal-d1 md:whitespace-nowrap">
             Fyra ord som styr <em>allt</em> jag gör.
           </h2>
         </div>

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 const CRED = [
   "Civilekonom och tidigare marknadschef på Affärsvärlden",
-  "Serieentreprenör — byggt och drivit åtta egna bolag",
+  "Serieentreprenör - byggt och drivit åtta egna bolag",
   "Coachat 650+ bolagsägare under 25 år",
   "Medlem i flera svenska entreprenörsnätverk",
   "Tar emot ett begränsat antal mentorsklienter per år",
@@ -27,10 +27,10 @@ export default function OmOlaPage() {
         eyebrow="Om Ola"
         title={
           <>
-            25 års lärdomar — <em>i åtta egna bolag</em> och vid sidan av 650+ bolagsägare.
+            25 års lärdomar - <em>i åtta egna bolag</em> och vid sidan av 650+ bolagsägare.
           </>
         }
-        intro="Jag har själv suttit på andra sidan bordet. Jag vet hur det känns när allt landar på dig, hur ensamt det kan bli högst upp — och vad som faktiskt flyttar bolaget framåt."
+        intro="Jag har själv suttit på andra sidan bordet. Jag vet hur det känns när allt landar på dig, hur ensamt det kan bli högst upp - och vad som faktiskt flyttar bolaget framåt."
       />
 
       <section className="py-[var(--section-y)] sec-papper">
@@ -53,7 +53,7 @@ export default function OmOlaPage() {
                 />
               </div>
               <figcaption className="mt-5 text-[0.9rem] text-muted font-[family-name:var(--font-lora)] italic">
-                Ola Wallström — mentor och serieentreprenör
+                Ola Wallström - mentor och serieentreprenör
               </figcaption>
             </div>
 
@@ -61,7 +61,7 @@ export default function OmOlaPage() {
               <p className="reveal text-[1.1rem] md:text-[1.15rem] text-ink leading-relaxed">
                 Jag är civilekonom i grunden och började min karriär som marknadschef på
                 Affärsvärlden. Där såg jag varje vecka hur svenska entreprenörer gick igenom samma
-                mönster: de växte, stötte i taket av sig själva — och visste inte varför det
+                mönster: de växte, stötte i taket av sig själva - och visste inte varför det
                 stannade upp.
               </p>
               <p className="reveal reveal-d1 mt-5 text-[1.02rem] text-ink-soft leading-relaxed">
@@ -71,12 +71,12 @@ export default function OmOlaPage() {
                 jakten på nästa miljon. Den resan tar jag med mig in i varje mentorrelation.
               </p>
               <p className="reveal reveal-d2 mt-5 text-[1.02rem] text-ink-soft leading-relaxed">
-                Under 25 år har jag coachat över 650 bolagsägare — de flesta i segmentet 10–50 Mkr.
+                Under 25 år har jag coachat över 650 bolagsägare - de flesta i segmentet 10-50 Mkr.
                 Där står det tydligt varför vissa fastnar och andra passerar lätt genom den där
                 tröskeln.
               </p>
 
-              <h3 className="reveal reveal-d3 mt-12">Metoden — autentisk affärsutveckling</h3>
+              <h3 className="reveal reveal-d3 mt-12">VIP-coaching - autentisk affärsutveckling</h3>
               <p className="reveal reveal-d3 mt-4 text-[1rem] text-ink-soft leading-relaxed">
                 Fyra principer: <strong className="font-[family-name:var(--font-lora)] italic font-semibold text-[color:var(--marin)]">Äkta, Klarhet, Genomförande, Frihet</strong>.
                 De bygger på vad jag själv testat i mina bolag och sett fungera för klienter i helt
@@ -87,7 +87,7 @@ export default function OmOlaPage() {
               <p className="reveal reveal-d4 mt-4 text-[1rem] text-ink-soft leading-relaxed">
                 Jag tar emot ett begränsat antal mentorsklienter per år. Det gör att varje samarbete
                 håller den kvaliteten jag vill stå för. Vi börjar alltid med en bolagsdiagnos, sedan
-                lägger vi en tydlig plan — och jag finns med dig både i de planerade samtalen och
+                lägger vi en tydlig plan - och jag finns med dig både i de planerade samtalen och
                 när något oväntat uppstår.
               </p>
 
@@ -105,15 +105,20 @@ export default function OmOlaPage() {
               </ul>
 
               <div className="reveal reveal-d5 mt-10 flex flex-wrap gap-3">
-                <Link href="/strategisession" className="btn-primary">
+                <a
+                  href="https://calendly.com/olawallstrom/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                >
                   Boka ett samtal
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="13 6 19 12 13 18" />
                   </svg>
-                </Link>
+                </a>
                 <Link href="/metod" className="btn-ghost">
-                  Läs om metoden
+                  Läs om VIP-coachingen
                 </Link>
               </div>
             </div>

@@ -2,12 +2,12 @@ const KEYS = [
   {
     num: "01",
     title: "Rätt riktning",
-    body: "Vart är bolaget på väg — och vill du själv dit? Vi stämmer av ägarens mål, bolagets strategi och vardagen. Utan riktning saknar varje beslut sammanhang.",
+    body: "Vart är bolaget på väg - och vill du själv dit? Vi stämmer av ägarens mål, bolagets strategi och vardagen. Utan riktning saknar varje beslut sammanhang.",
   },
   {
     num: "02",
     title: "Rätt struktur",
-    body: "Processer, roller och rutiner som gör att bolaget rullar även dagar du inte är där. Rapportering som faktiskt används — inte dokument som arkiveras.",
+    body: "Processer, roller och rutiner som gör att bolaget rullar även dagar du inte är där. Rapportering som faktiskt används - inte dokument som arkiveras.",
   },
   {
     num: "03",
@@ -17,20 +17,20 @@ const KEYS = [
   {
     num: "04",
     title: "Rätt lönsamhet",
-    body: "Marginal, kassaflöde och tillväxt som håller — oavsett vad konjunkturen gör. En försäljningsmotor som inte hänger på dig som ägare.",
+    body: "Marginal, kassaflöde och tillväxt som håller - oavsett vad konjunkturen gör. En försäljningsmotor som inte hänger på dig som ägare.",
   },
 ];
 
 const STEPS = [
   {
     num: "01",
-    title: "Bolagsdiagnos — var sitter det?",
+    title: "Bolagsdiagnos - var sitter det?",
     body: "Vi lägger korten på bordet. Vad bromsar, vad äter tid, vad är ni egentligen bra på. Inga antaganden, bara det ni ser när ni verkligen tittar.",
   },
   {
     num: "02",
     title: "Struktur och delegering",
-    body: "Vi bygger systemen som gör att teamet kan leverera utan att du är inblandad. Processer, ansvar och rapportering som blir konkreta — och faktiskt används.",
+    body: "Vi bygger systemen som gör att teamet kan leverera utan att du är inblandad. Processer, ansvar och rapportering som blir konkreta - och faktiskt används.",
   },
   {
     num: "03",
@@ -49,7 +49,7 @@ const STEPS = [
   },
   {
     num: "06",
-    title: "Tillgång vid behov — när det brinner",
+    title: "Tillgång vid behov - när det brinner",
     body: "När något akut uppstår finns jag inom 24 timmar. Din förflyttning ska inte stanna av för att en vecka är dålig.",
   },
 ];

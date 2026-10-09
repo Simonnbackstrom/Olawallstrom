@@ -23,13 +23,13 @@ const raleway = Raleway({
 export const metadata: Metadata = {
   metadataBase: new URL("https://olawallstrom.com"),
   title: {
-    default: "Ola Wallström – Autentisk affärsutveckling",
+    default: "Ola Wallström - Autentisk affärsutveckling",
     template: "%s · Ola Wallström",
   },
   description:
     "Autentisk affärsutveckling. Äkta, rakt och med riktning framåt. Ola Wallström coachar bolagsägare som vill äga sin tid och sitt företag.",
   openGraph: {
-    title: "Ola Wallström – Autentisk affärsutveckling",
+    title: "Ola Wallström - Autentisk affärsutveckling",
     description:
       "Äkta, rakt och med riktning framåt. Boka ett kostnadsfritt strategisamtal direkt med Ola.",
     url: "https://olawallstrom.com",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ola Wallström – Autentisk affärsutveckling",
+    title: "Ola Wallström - Autentisk affärsutveckling",
     description:
       "Äkta, rakt och med riktning framåt. Mentor för bolagsägare som vill äga sin tid.",
   },

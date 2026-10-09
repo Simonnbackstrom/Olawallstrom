@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import MethodGrid from "@/components/MethodGrid";
@@ -8,9 +7,9 @@ import ResultsGrid from "@/components/ResultsGrid";
 import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
-  title: "Metoden – Autentisk affärsutveckling",
+  title: "VIP-coaching - Autentisk affärsutveckling",
   description:
-    "Fyra principer och sex konkreta steg som tar bolaget från 10 till 50 Mkr. Så jobbar jag med bolagsägare som vill äga ett självgående bolag.",
+    "VIP-coaching för bolagsägare som vill äga ett självgående bolag. Fyra principer och sex konkreta steg som tar bolaget från 10 till 50 Mkr.",
   alternates: { canonical: "/metod" },
 };
 
@@ -22,9 +21,9 @@ const PRINCIPLES = [
 ];
 
 const FOR_WHOM = [
-  "Omsätter 10–50 Mkr och vill växa vidare.",
+  "Omsätter 10-50 Mkr och vill växa vidare.",
   "Är själv flaskhals i det dagliga.",
-  "Är öppen för att ändra på sig själv — inte bara teamet.",
+  "Är öppen för att ändra på sig själv - inte bara teamet.",
   "Vill fatta beslut på data och känsla, inte bara känsla.",
 ];
 
@@ -32,7 +31,7 @@ export default function MetodPage() {
   return (
     <>
       <PageHero
-        eyebrow="Metoden"
+        eyebrow="VIP-coaching"
         title={
           <>
             Autentisk affärsutveckling. <em>Enkel att förstå.</em>
@@ -40,8 +39,25 @@ export default function MetodPage() {
             Svår att göra ensam.
           </>
         }
-        intro="Metoden vilar på fyra principer och genomförs i sex konkreta steg tillsammans med mig. Hela upplägget är designat för bolag i spannet 10–50 Mkr där ägaren vill ut ur det operativa."
+        intro="VIP-coachingen vilar på fyra principer och genomförs i sex konkreta steg tillsammans med mig. Hela upplägget är designat för bolag i spannet 10-50 Mkr där ägaren vill ut ur det operativa."
       />
+
+      <section className="py-16 md:py-20 sec-papper border-b border-[color:var(--border-soft)]">
+        <div className="container-site">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="reveal eyebrow mb-5 justify-center">Varför VIP-coaching?</p>
+            <p className="reveal reveal-d1 text-[1.15rem] md:text-[1.25rem] text-ink leading-relaxed font-[family-name:var(--font-lora)] italic">
+              &ldquo;Jag har inte hittat på VIP-coachingen från scratch. Den har växt fram under 25
+              år med 650+ bolagsägare - och jag har plockat bort allt som inte funkar i
+              verkligheten. Det som är kvar är fyra principer och sex steg som faktiskt flyttar
+              bolag.&rdquo;
+            </p>
+            <p className="reveal reveal-d2 mt-6 text-[0.95rem] text-muted font-semibold tracking-wide">
+              - Ola Wallström
+            </p>
+          </div>
+        </div>
+      </section>
 
       <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
@@ -67,7 +83,7 @@ export default function MetodPage() {
               <h2 className="reveal reveal-d1">Fyra ord som styr allt.</h2>
               <p className="reveal reveal-d2 mt-6 text-[1.02rem] text-ink-soft leading-relaxed">
                 Jag har sett över 650 bolag och nästan allt kokar ner till fyra frågor. Får du dem
-                rätt växer bolaget — nästan oavsett bransch och konjunktur.
+                rätt växer bolaget - nästan oavsett bransch och konjunktur.
               </p>
 
               <div className="reveal reveal-d3 mt-10 space-y-4">
@@ -97,14 +113,13 @@ export default function MetodPage() {
 
       <MethodGrid variant="steps" />
 
-      <ResultsGrid eyebrow="Resultat" heading="Så här känns det efter sex månader." />
+      <ResultsGrid heading="Så här känns det efter sex månader." />
 
       <section className="py-[var(--section-y)] sec-sand">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="reveal eyebrow mb-5 justify-center">För vem är det här?</p>
             <h2 className="reveal reveal-d1">Jag jobbar bäst med bolagsägare som:</h2>
-            <ul className="reveal reveal-d2 mt-10 grid gap-3 text-left max-w-xl mx-auto">
+            <ul className="reveal reveal-d2 mt-10 grid gap-3 max-w-xl mx-auto text-left">
               {FOR_WHOM.map((p) => (
                 <li
                   key={p}
@@ -119,15 +134,6 @@ export default function MetodPage() {
                 </li>
               ))}
             </ul>
-            <div className="reveal reveal-d3 mt-12">
-              <Link href="/strategisession" className="btn-primary">
-                Boka ett samtal
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="13 6 19 12 13 18" />
-                </svg>
-              </Link>
-            </div>
           </div>
         </div>
       </section>

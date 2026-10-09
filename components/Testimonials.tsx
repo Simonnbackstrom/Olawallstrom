@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 export type Testimonial = {
   result: string;
@@ -40,16 +43,29 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 type Props = {
-  variant?: "grid" | "showcase";
   items?: Testimonial[];
   tone?: "sand" | "papper" | "marin";
 };
 
-export default function Testimonials({
-  variant = "grid",
-  items = TESTIMONIALS,
-  tone = "sand",
-}: Props) {
+const Stars = () => (
+  <div className="flex gap-1 mb-5" aria-label="5 av 5 stjärnor">
+    {Array.from({ length: 5 }).map((_, i) => (
+      <svg
+        key={i}
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="var(--glod)"
+        aria-hidden
+      >
+        <path d="M12 2l2.9 6.9L22 10l-5.5 4.8L18 22l-6-3.6L6 22l1.5-7.2L2 10l7.1-1.1z" />
+      </svg>
+    ))}
+  </div>
+);
+
+export default function Testimonials({ items = TESTIMONIALS, tone = "sand" }: Props) {
+  const [index, setIndex] = useState(0);
   const isDark = tone === "marin";
   const sectionClass =
     tone === "marin" ? "sec-marin" : tone === "papper" ? "sec-papper" : "sec-sand";
@@ -59,71 +75,118 @@ export default function Testimonials({
   const quoteColor = isDark ? "text-[color:var(--papper)]/90" : "text-ink";
   const authorColor = isDark ? "text-[color:var(--papper)]" : "text-[color:var(--marin)]";
   const roleColor = isDark ? "text-[color:var(--papper)]/60" : "text-muted";
+  const navBtn = isDark
+    ? "border-white/20 text-[color:var(--papper)] hover:border-[color:var(--glod)] hover:text-[color:var(--glod)]"
+    : "border-[color:var(--marin)]/20 text-[color:var(--marin)] hover:border-[color:var(--glod)] hover:text-[color:var(--glod)]";
 
-  if (variant === "showcase") {
-    return (
-      <section className={`py-[var(--section-y)] ${sectionClass}`}>
-        <div className="container-site">
-          <div className="grid gap-8 md:grid-cols-2">
-            {items.map((t, i) => (
-              <article
-                key={t.author}
-                className={`reveal reveal-d${(i % 4) + 1} rounded-3xl p-8 md:p-10 ${cardBg}`}
-              >
-                <div className="eyebrow mb-5">{t.result}</div>
-                <p className={`font-[family-name:var(--font-lora)] italic text-[1.1rem] md:text-[1.2rem] leading-relaxed mb-7 ${quoteColor}`}>
-                  &ldquo;{t.text}&rdquo;
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-full overflow-hidden bg-[color:var(--glod-dim)] shrink-0">
-                    <Image src={t.photo} alt={t.author} width={48} height={48} className="h-full w-full object-cover" />
-                  </div>
-                  <div>
-                    <div className={`font-[family-name:var(--font-raleway)] font-bold text-[0.95rem] ${authorColor}`}>
-                      {t.author}
-                    </div>
-                    <div className={`text-[0.82rem] ${roleColor}`}>{t.role}</div>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  }
+  const total = items.length;
+  const prev = () => setIndex((i) => (i - 1 + total) % total);
+  const next = () => setIndex((i) => (i + 1) % total);
+
+  const t = items[index];
 
   return (
     <section className={`py-[var(--section-y)] ${sectionClass}`}>
       <div className="container-site">
-        <div className="text-center max-w-3xl mx-auto mb-14 md:mb-16">
-          <p className="reveal eyebrow mb-5 justify-center">Vad kunderna säger</p>
+        <div className="max-w-3xl mx-auto text-center mb-14 md:mb-16">
           <h2 className="reveal reveal-d1">Det här säger några av dem jag jobbat med.</h2>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {items.map((t, i) => (
-            <article
-              key={t.author}
-              className={`reveal reveal-d${(i % 4) + 1} rounded-2xl p-7 md:p-8 ${cardBg}`}
-            >
-              <div className="eyebrow mb-4">{t.result}</div>
-              <p className={`font-[family-name:var(--font-lora)] italic text-[1.05rem] leading-relaxed mb-6 ${quoteColor}`}>
-                &ldquo;{t.text}&rdquo;
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="h-11 w-11 rounded-full overflow-hidden bg-[color:var(--glod-dim)] shrink-0">
-                  <Image src={t.photo} alt={t.author} width={44} height={44} className="h-full w-full object-cover" />
-                </div>
-                <div>
-                  <div className={`font-[family-name:var(--font-raleway)] font-bold text-[0.9rem] ${authorColor}`}>
-                    {t.author}
-                  </div>
-                  <div className={`text-[0.8rem] ${roleColor}`}>{t.role}</div>
-                </div>
+        <div className="reveal reveal-d2 relative max-w-3xl mx-auto">
+          <article
+            key={t.author}
+            className={`rounded-3xl p-8 md:p-12 ${cardBg} transition-opacity duration-300`}
+          >
+            <Stars />
+            <div className="eyebrow mb-5">{t.result}</div>
+            <p className={`font-[family-name:var(--font-lora)] italic text-[1.15rem] md:text-[1.35rem] leading-relaxed mb-8 ${quoteColor}`}>
+              &ldquo;{t.text}&rdquo;
+            </p>
+            <div className="flex items-center gap-4">
+              <div className="h-14 w-14 rounded-full overflow-hidden bg-[color:var(--glod-dim)] shrink-0">
+                <Image
+                  src={t.photo}
+                  alt={t.author}
+                  width={56}
+                  height={56}
+                  className="h-full w-full object-cover"
+                />
               </div>
-            </article>
-          ))}
+              <div>
+                <div className={`font-[family-name:var(--font-raleway)] font-bold text-[1rem] ${authorColor}`}>
+                  {t.author}
+                </div>
+                <div className={`text-[0.85rem] ${roleColor}`}>{t.role}</div>
+              </div>
+            </div>
+          </article>
+
+          <div className="mt-8 flex items-center justify-between gap-4">
+            <button
+              type="button"
+              onClick={prev}
+              aria-label="Föregående recension"
+              className={`h-11 w-11 inline-flex items-center justify-center rounded-full border transition-colors ${navBtn}`}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
+
+            <div className="flex gap-2" role="tablist" aria-label="Välj recension">
+              {items.map((item, i) => (
+                <button
+                  key={item.author}
+                  type="button"
+                  onClick={() => setIndex(i)}
+                  aria-label={`Visa recension från ${item.author}`}
+                  aria-selected={i === index}
+                  className={`h-2.5 rounded-full transition-all ${
+                    i === index
+                      ? "w-8 bg-[color:var(--glod)]"
+                      : isDark
+                        ? "w-2.5 bg-white/25 hover:bg-white/50"
+                        : "w-2.5 bg-[color:var(--marin)]/20 hover:bg-[color:var(--marin)]/40"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={next}
+              aria-label="Nästa recension"
+              className={`h-11 w-11 inline-flex items-center justify-center rounded-full border transition-colors ${navBtn}`}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div className="reveal reveal-d3 mt-12 flex justify-center">
+          <a
+            href="https://calendly.com/olawallstrom/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
+            Boka ett möte med Ola
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="13 6 19 12 13 18" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>

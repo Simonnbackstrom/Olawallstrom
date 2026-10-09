@@ -36,13 +36,18 @@ export default function CtaBand({
           {intro}
         </p>
         <div className="reveal reveal-d2 mt-10 flex flex-col sm:flex-row justify-center gap-3">
-          <Link href="/strategisession" className="btn-primary">
+          <a
+            href="https://calendly.com/olawallstrom/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
             Boka strategisamtal
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="13 6 19 12 13 18" />
             </svg>
-          </Link>
+          </a>
           <Link href="/kontakt" className={secondaryBtn}>
             Skicka ett meddelande
           </Link>
