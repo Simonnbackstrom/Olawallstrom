@@ -5,7 +5,47 @@ import PageHero from "@/components/PageHero";
 import LogoCarousel from "@/components/LogoCarousel";
 import Testimonials from "@/components/Testimonials";
 import StatsBand from "@/components/StatsBand";
+import PainStory from "@/components/PainStory";
+import MiniCtaBand from "@/components/MiniCtaBand";
 import CtaBand from "@/components/CtaBand";
+import JsonLd from "@/components/JsonLd";
+
+const SITE_URL = "https://olawallstrom.com";
+
+const caseListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": `${SITE_URL}/resultat#cases`,
+  name: "Resultat från samarbeten",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      item: {
+        "@type": "Review",
+        name: "Från 19 Mkr till 1,9 Mdr",
+        reviewBody:
+          "Från ett tjänstebolag runt tjugo miljoner till ett bolag som idag omsätter nära två miljarder, med en ägare som fortfarande har tid för familjen.",
+        author: { "@type": "Person", name: "Alex" },
+        itemReviewed: { "@id": `${SITE_URL}/metod#service` },
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: 5,
+          bestRating: 5,
+        },
+      },
+    },
+  ],
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Hem", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "Resultat", item: `${SITE_URL}/resultat` },
+  ],
+};
 
 export const metadata: Metadata = {
   title: "Resultat",
@@ -17,14 +57,44 @@ export const metadata: Metadata = {
 export default function ResultatPage() {
   return (
     <>
+      <JsonLd id="resultat-schema" data={[caseListSchema, breadcrumbSchema]} />
       <PageHero
         eyebrow="Resultat"
         title={
           <>
-            Resultat är <em>inte löften</em> - det är siffror på pappret.
+            Resultat är <em>inte löften</em>. Det är siffror på pappret.
           </>
         }
-        intro="Det här är ett urval av bolag jag jobbat med och den förflyttning vi gjort tillsammans. Alla case bygger på verkliga samarbeten där ägaren själv valt att stå framför."
+        intro="Alla började där du är nu, fast med andra siffror. Det här är ett urval av bolag jag jobbat med och den förflyttning vi gjort tillsammans. Alla case bygger på verkliga samarbeten där ägaren själv valt att stå framför."
+      />
+
+      <PainStory
+        tone="sand"
+        eyebrow="Innan vi började jobba ihop"
+        heading={
+          <>
+            De flesta kom hit med samma <em>känsla</em>.
+          </>
+        }
+        body={
+          <>
+            <p>
+              &ldquo;Jag jobbar mer än jag någonsin gjort. Teamet gör sitt, men ingen tänker som en
+              delägare. Omsättningen rör sig knappt och jag vet inte vad jag ska göra nästa vecka
+              för att det ska se annorlunda ut.&rdquo;
+            </p>
+            <p>
+              Det är ungefär där klienterna står när vi börjar. Omsättningen är inte problemet,
+              produkten är inte problemet. Det är ägaren som fastnat i ett mönster byggt när bolaget
+              var hälften så stort.
+            </p>
+            <p>
+              Resultaten på den här sidan började i det läget. Varje enskilt case. Det som skiljer
+              dem från bolag som fastnar är inte talang eller tur, utan att ägaren var redo att
+              ändra på sig själv, inte bara teamet.
+            </p>
+          </>
+        }
       />
 
       <section className="py-[var(--section-y)] sec-papper">
@@ -38,7 +108,7 @@ export default function ResultatPage() {
                   style={{ background: "radial-gradient(circle, rgba(242,106,46,0.22) 0%, transparent 65%)" }}
                 />
                 <div className="relative">
-                  <p className="eyebrow mb-6">Headline-case · Alex</p>
+                  <p className="eyebrow mb-6">Headline-case, Alex</p>
                   <h2 className="font-[family-name:var(--font-lora)] font-semibold text-[clamp(2.4rem,4.5vw,4rem)] leading-[1.05]">
                     <span className="text-[color:var(--glod)]">19 Mkr</span>
                     <span className="text-[color:var(--papper)]/50"> → </span>
@@ -46,7 +116,7 @@ export default function ResultatPage() {
                   </h2>
                   <p className="mt-6 text-[1.1rem] text-[color:var(--papper)]/85 leading-relaxed max-w-md">
                     Från ett tjänstebolag runt tjugo miljoner till ett bolag som idag omsätter nära
-                    två miljarder - med en ägare som fortfarande har tid för familjen. Ett av de
+                    två miljarder, med en ägare som fortfarande har tid för familjen. Ett av de
                     resultat jag fått vara med och forma.
                   </p>
                   <dl className="mt-10 grid grid-cols-3 gap-6">
@@ -102,6 +172,13 @@ export default function ResultatPage() {
 
       <LogoCarousel heading="Bolag jag arbetat med" />
 
+      <MiniCtaBand
+        headline="Vill du bli nästa?"
+        subline="30 min på Zoom med mig, kostnadsfritt. Vi tittar på vad som bromsar dig just nu och vad som behöver flyttas först."
+        ctaLabel="Boka 30 min med Ola"
+        tone="marin"
+      />
+
       <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
           <div className="max-w-2xl mx-auto text-center">
@@ -110,9 +187,20 @@ export default function ResultatPage() {
             </h2>
             <p className="reveal reveal-d2 mt-6 text-[1.02rem] text-ink-soft leading-relaxed">
               Varje samarbete kräver tid och fokus. Ett kostnadsfritt strategisamtal är
-              startpunkten - där ser vi båda om det här är rätt för dig.
+              startpunkten, där ser vi båda om det här är rätt för dig.
             </p>
-            <div className="reveal reveal-d3 mt-10">
+            <p className="reveal reveal-d3 mt-5 text-[0.95rem] text-muted">
+              Boardroom 2027 eller VIP-coaching?{" "}
+              <Link href="/boardroom" className="font-semibold text-[color:var(--marin)] underline underline-offset-4 hover:text-[color:var(--glod)] transition-colors">
+                Se programmet
+              </Link>
+              {" "}eller{" "}
+              <Link href="/metod" className="font-semibold text-[color:var(--marin)] underline underline-offset-4 hover:text-[color:var(--glod)] transition-colors">
+                läs om 1:1
+              </Link>
+              .
+            </p>
+            <div className="reveal reveal-d4 mt-10">
               <a
                 href="https://calendly.com/olawallstrom/30min"
                 target="_blank"

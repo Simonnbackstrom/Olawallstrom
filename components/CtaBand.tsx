@@ -53,7 +53,7 @@ export default function CtaBand({
           </Link>
         </div>
         <p className={`reveal reveal-d3 mt-6 text-[0.85rem] ${sub}`}>
-          Kostnadsfritt · 30 minuter · Direkt med mig · Inget säljtryck
+          Kostnadsfritt, 30 minuter, direkt med mig, inget säljtryck
         </p>
       </div>
     </section>

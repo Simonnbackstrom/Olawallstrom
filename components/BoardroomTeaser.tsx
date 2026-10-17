@@ -20,11 +20,11 @@ export default function BoardroomTeaser() {
           <div className="relative grid lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-14 items-center">
             <div>
               <h2 className="text-[color:var(--papper)]">
-                Boardroom 2027 - <em>ett år, fyra teman</em>.
+                Boardroom 2027. <em>Ett år, fyra teman.</em>
               </h2>
               <p className="mt-6 text-[1.05rem] md:text-[1.1rem] text-[color:var(--papper)]/80 leading-relaxed max-w-xl">
                 Vill du gå in i ett helt program? Boardroom är mitt 12-månaders upplägg för
-                VD/ägare - i ett litet rum av erfarna ägare, med personligt stöd hela vägen.
+                VD/ägare i ett litet rum av erfarna ägare, med personligt stöd hela vägen.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link href="/boardroom" className="btn-primary">
@@ -35,7 +35,7 @@ export default function BoardroomTeaser() {
                   </svg>
                 </Link>
                 <span className="text-[0.85rem] text-[color:var(--papper)]/60">
-                  195 000 kr · max 15 deltagare
+                  195 000 kr, max 15 deltagare
                 </span>
               </div>
             </div>

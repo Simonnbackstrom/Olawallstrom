@@ -3,17 +3,21 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import BoardroomWheel from "@/components/BoardroomWheel";
 import CtaBand from "@/components/CtaBand";
+import JsonLd from "@/components/JsonLd";
+import SharedPainPoints from "@/components/SharedPainPoints";
+import Testimonials from "@/components/Testimonials";
+import PageFAQ from "@/components/PageFAQ";
 
 export const metadata: Metadata = {
-  title: "Boardroom 2027 - Ett år. Fyra teman.",
+  title: "Boardroom 2027. Ett år. Fyra teman.",
   description:
-    "Tolv månader för dig som VD eller ägare. Fyra teman, 19 Boardroom sessions, 4 kvartalsavstamp, 4 workshopdagar och personligt stöd hela vägen. 195 000 kr · max 15 deltagare.",
+    "Tolv månader för dig som VD eller ägare. Fyra teman, 19 Boardroom sessions, 4 kvartalsavstamp, 4 workshopdagar och personligt stöd hela vägen. 195 000 kr, max 15 deltagare.",
   alternates: { canonical: "/boardroom" },
 };
 
 const THEMES = [
   {
-    q: "Q1 · jan-mar",
+    q: "Q1 (jan-mar)",
     title: "Mental klarhet",
     body: "Riktning, fokus, prioriteringar och kontroll över tid och energi.",
     bg: "bg-[color:var(--marin)]",
@@ -21,7 +25,7 @@ const THEMES = [
     accent: "text-[color:var(--papper)]/65",
   },
   {
-    q: "Q2 · apr-jun",
+    q: "Q2 (apr-jun)",
     title: "Stjärnledarskap",
     body: "Få människor att ta ansvar, tänka själva och fungera bättre tillsammans.",
     bg: "bg-[color:var(--olabla)]",
@@ -29,7 +33,7 @@ const THEMES = [
     accent: "text-[color:var(--papper)]/75",
   },
   {
-    q: "Q3 · jul-sep",
+    q: "Q3 (jul-sep)",
     title: "Autentisk affärsutveckling",
     body: "Utveckla affären utifrån egna styrkor, kundvärde och tydlig riktning.",
     bg: "bg-[color:var(--glod)]",
@@ -37,7 +41,7 @@ const THEMES = [
     accent: "text-white/80",
   },
   {
-    q: "Q4 · okt-dec",
+    q: "Q4 (okt-dec)",
     title: "Smart säljstrategi",
     body: "Ett sälj som är tydligt, hållbart och mindre personberoende.",
     bg: "bg-[color:var(--sand)]",
@@ -65,9 +69,9 @@ const JOURNEY = [
     border: "border border-[color:var(--border-soft)]",
   },
   {
-    tag: "Q1 · JAN-MAR",
+    tag: "Q1 (JAN-MAR)",
     title: "Mental klarhet",
-    meta: "Avstamp 12 jan · WS 21 jan · 5 sessions",
+    meta: "Avstamp 12 jan, WS 21 jan, 5 sessions",
     body: "Riktning, fokus och kontroll över tid och energi.",
     bg: "bg-[color:var(--marin)]",
     text: "text-[color:var(--papper)]",
@@ -75,9 +79,9 @@ const JOURNEY = [
     border: "",
   },
   {
-    tag: "Q2 · APR-JUN",
+    tag: "Q2 (APR-JUN)",
     title: "Stjärnledarskap",
-    meta: "Avstamp 6 apr · WS 15 apr · 5 sessions",
+    meta: "Avstamp 6 apr, WS 15 apr, 5 sessions",
     body: "Få människor att ta ansvar och fungera tillsammans.",
     bg: "bg-[color:var(--olabla)]",
     text: "text-[color:var(--papper)]",
@@ -85,9 +89,9 @@ const JOURNEY = [
     border: "",
   },
   {
-    tag: "Q3 · JUL-SEP",
+    tag: "Q3 (JUL-SEP)",
     title: "Autentisk affärsutveckling",
-    meta: "Avstamp 29 jun · WS 7 okt · 4 sessions",
+    meta: "Avstamp 29 jun, WS 7 okt, 4 sessions",
     body: "Utveckla affären utifrån egna styrkor och kundvärde.",
     bg: "bg-[color:var(--glod)]",
     text: "text-white",
@@ -95,9 +99,9 @@ const JOURNEY = [
     border: "",
   },
   {
-    tag: "Q4 · OKT-DEC",
+    tag: "Q4 (OKT-DEC)",
     title: "Smart säljstrategi",
-    meta: "Avstamp 28 sep · WS 8 okt · 5 sessions",
+    meta: "Avstamp 28 sep, WS 8 okt, 5 sessions",
     body: "Ett sälj som är tydligt, hållbart och mindre personberoende.",
     bg: "bg-[color:var(--sand)]",
     text: "text-[color:var(--marin)]",
@@ -107,27 +111,85 @@ const JOURNEY = [
 ];
 
 const INCLUDED = [
-  "19 Boardroom sessions à ca 1 timme - digitala träffar",
-  "4 kvartalsavstamp - frågebatteri + 2 h digital fördjupning",
-  "4 workshopdagar - 21 jan · 15 apr · 7-8 okt",
-  "Personlig startworkshop - 4 tim i Stockholm",
-  "3 personliga coachingsamtal à 45 min - bara du och Ola",
-  "Signal-kanal med Ola och de andra ägarna - året runt",
-  "Ett litet rum av erfarna ägare - max 15 deltagare",
+  "19 Boardroom sessions à ca 1 timme, digitala träffar",
+  "4 kvartalsavstamp, frågebatteri + 2 h digital fördjupning",
+  "4 workshopdagar: 21 jan, 15 apr, 7-8 okt",
+  "Personlig startworkshop, 4 tim i Stockholm",
+  "3 personliga coachingsamtal à 45 min, bara du och Ola",
+  "Signal-kanal med Ola och de andra ägarna året runt",
+  "Ett litet rum av erfarna ägare, max 15 deltagare",
 ];
+
+const SITE_URL = "https://olawallstrom.com";
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${SITE_URL}/boardroom#service`,
+  name: "Boardroom 2027",
+  serviceType: "Mentorship Program",
+  description:
+    "Tolv månader för VD och ägare i segmentet 10-50 Mkr. Fyra teman, 19 Boardroom sessions, 4 kvartalsavstamp, 4 workshopdagar och personligt stöd hela vägen.",
+  provider: { "@id": `${SITE_URL}#person` },
+  areaServed: "SE",
+  audience: {
+    "@type": "BusinessAudience",
+    audienceType: "Bolagsägare och VD i segmentet 10-50 Mkr",
+  },
+  offers: {
+    "@type": "Offer",
+    price: "195000",
+    priceCurrency: "SEK",
+    availability: "https://schema.org/LimitedAvailability",
+    url: `${SITE_URL}/boardroom`,
+    eligibleQuantity: {
+      "@type": "QuantitativeValue",
+      maxValue: 15,
+      unitText: "deltagare",
+    },
+    validFrom: "2027-01-01",
+  },
+  url: `${SITE_URL}/boardroom`,
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Hem", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "Boardroom 2027", item: `${SITE_URL}/boardroom` },
+  ],
+};
 
 export default function BoardroomPage() {
   return (
     <>
+      <JsonLd id="boardroom-schema" data={[serviceSchema, breadcrumbSchema]} />
       <PageHero
-        eyebrow="Program 2027"
+        eyebrow="Primärt program 2027, max 15 platser"
         title={
           <>
             Boardroom 2027.<br />
             <em>Ett år. Fyra teman.</em>
           </>
         }
-        intro="Tolv månader för dig som VD eller ägare - i ett litet rum av erfarna ägare, med personligt stöd hela vägen. Fyra teman, en gemensam rytm och en handfast kundresa från start till Q4."
+        intro="Tolv månader för dig som VD eller ägare som är trött på att vara ensam med besluten. Ett litet rum av erfarna ägare, med personligt stöd hela vägen. Fyra teman, en gemensam rytm och en handfast kundresa från start till Q4."
+      />
+
+      <SharedPainPoints
+        eyebrow="Du är inte först"
+        heading={
+          <>
+            Du leder, men du är <em>själv i rummet</em> med besluten.
+          </>
+        }
+        intro="VD-rollen i ett 10-50 Mkr-bolag är ensam. Ingen i teamet står på samma plats som du. Och styrelsen, om du har en, pratar sällan om det du faktiskt brottas med."
+        points={[
+          "Varje viktigt beslut landar i din knä, och du har ingen att bolla det med på samma nivå.",
+          "Du vet att du behöver tänka 12 månader framåt, men brinner inne i den här veckan.",
+          "Du gör dig själv till flaskhals utan att veta det, för inget pekade på det förrän nu.",
+          "Du har byggt ett team, men det blir ändå ensamt högst upp.",
+        ]}
       />
 
       <BoardroomWheel />
@@ -137,7 +199,7 @@ export default function BoardroomPage() {
         <div className="container-site">
           <div className="max-w-2xl mb-14 md:mb-16">
             <p className="reveal eyebrow mb-5">Fyra teman</p>
-            <h2 className="reveal reveal-d1">Ett år tillsammans - fyra riktningar att växa i.</h2>
+            <h2 className="reveal reveal-d1">Ett år tillsammans, fyra riktningar att växa i.</h2>
           </div>
           <div className="grid gap-5 md:gap-6 sm:grid-cols-2">
             {THEMES.map((t, i) => (
@@ -163,9 +225,9 @@ export default function BoardroomPage() {
         <div className="container-site">
           <div className="max-w-2xl mb-14 md:mb-16">
             <p className="reveal eyebrow mb-5">Kvartalsloopen</p>
-            <h2 className="reveal reveal-d1">Samma rytm - fyra varv per år.</h2>
+            <h2 className="reveal reveal-d1">Samma rytm, fyra varv per år.</h2>
             <p className="reveal reveal-d2 mt-6 text-[1.02rem] text-ink-soft leading-relaxed max-w-xl">
-              Varje tema får 90 dagar - fyra steg som bygger på varandra. Du vet alltid var i resan du är.
+              Varje tema får 90 dagar: fyra steg som bygger på varandra. Du vet alltid var i resan du är.
             </p>
           </div>
 
@@ -201,7 +263,7 @@ export default function BoardroomPage() {
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-2 text-[0.78rem] font-semibold">
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[color:var(--border-soft)] text-ink-soft">
-              Ett tema · 90 dagar
+              Ett tema, 90 dagar
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[color:var(--marin)] text-[color:var(--papper)]">Q1 Mental klarhet</span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[color:var(--olabla)] text-[color:var(--papper)]">Q2 Stjärnledarskap</span>
@@ -218,7 +280,7 @@ export default function BoardroomPage() {
             <p className="reveal eyebrow mb-5">Kundresan</p>
             <h2 className="reveal reveal-d1">Din resa i Boardroom.</h2>
             <p className="reveal reveal-d2 mt-6 text-[1.02rem] text-ink-soft leading-relaxed max-w-xl">
-              Tolv månader - från en personlig start till fyra teman tillsammans med andra erfarna ägare.
+              Tolv månader, från en personlig start till fyra teman tillsammans med andra erfarna ägare.
             </p>
           </div>
 
@@ -244,9 +306,9 @@ export default function BoardroomPage() {
             <p className="eyebrow mb-5">Löpande under hela året</p>
             <ul className="grid gap-3 md:grid-cols-3">
               {[
-                "3 personliga coachingsamtal à 45 min - bara du och Ola",
-                "Signal-kanal med Ola och de andra ägarna - stöd mellan träffarna",
-                "19 Boardroom sessions à ca 1 tim - frågor, utmaningar och beslut",
+                "3 personliga coachingsamtal à 45 min, bara du och Ola",
+                "Signal-kanal med Ola och de andra ägarna, stöd mellan träffarna",
+                "19 Boardroom sessions à ca 1 tim, frågor, utmaningar och beslut",
               ].map((row) => (
                 <li
                   key={row}
@@ -265,6 +327,8 @@ export default function BoardroomPage() {
         </div>
       </section>
 
+      <Testimonials tone="sand" />
+
       {/* INCLUDED + PRICE */}
       <section className="py-[var(--section-y)] sec-marin relative overflow-hidden">
         <div
@@ -279,7 +343,7 @@ export default function BoardroomPage() {
           <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-20 items-start">
             <div>
               <p className="reveal eyebrow mb-5">Det här ingår</p>
-              <h2 className="reveal reveal-d1">Hela året - i ett paket.</h2>
+              <h2 className="reveal reveal-d1">Hela året, i ett paket.</h2>
               <ul className="reveal reveal-d2 mt-10 space-y-3">
                 {INCLUDED.map((row) => (
                   <li key={row} className="flex gap-3 items-start text-[1rem] text-[color:var(--papper)]/90">
@@ -300,7 +364,7 @@ export default function BoardroomPage() {
                 195 000 kr
               </h3>
               <p className="mt-2 text-[0.9rem] text-muted">
-                12 månader · max 15 deltagare · exkl. moms
+                12 månader, max 15 deltagare, exkl. moms
               </p>
               <div className="mt-6 pt-6 border-t border-[color:var(--border-soft)] flex flex-wrap gap-x-5 gap-y-2 text-[0.85rem] text-ink-soft">
                 {["Litet rum", "Personligt stöd", "Erfarna ägare"].map((m) => (
@@ -345,7 +409,14 @@ export default function BoardroomPage() {
               Du leder ett bolag i spannet 10-50 Mkr, är redo att ändra på dig själv, inte bara teamet,
               och vill ha ett litet rum där du både får hjälp och bidrar med din egen erfarenhet.
             </p>
-            <div className="reveal reveal-d3 mt-12 flex justify-center">
+            <p className="reveal reveal-d3 mt-6 text-[0.95rem] text-muted">
+              Vill du hellre jobba 1:1?{" "}
+              <Link href="/metod" className="font-semibold text-[color:var(--marin)] underline underline-offset-4 hover:text-[color:var(--glod)] transition-colors">
+                Läs om VIP-coaching
+              </Link>
+              .
+            </p>
+            <div className="reveal reveal-d4 mt-12 flex justify-center">
               <Link href="/om-ola" className="btn-ghost">
                 Mer om Ola
               </Link>
@@ -353,6 +424,66 @@ export default function BoardroomPage() {
           </div>
         </div>
       </section>
+
+      <PageFAQ
+        heading="Vanliga frågor innan du bokar samtal"
+        intro="De vanligaste frågorna jag får innan vi börjar. Hittar du inte svaret, boka 30 min så pratar vi."
+        items={[
+          {
+            q: "Hur mycket tid tar Boardroom i anspråk under året?",
+            a: (
+              <>
+                Räkna med ungefär 3-4 timmar per månad: 19 Boardroom sessions à ca 1 timme digitalt
+                + 4 workshopdagar + personlig startworkshop. Innehållet är designat för att spara mer
+                tid än det kostar, för att få bort det som idag äter upp din vecka.
+              </>
+            ),
+          },
+          {
+            q: "Vem passar programmet för?",
+            a: (
+              <>
+                VD eller ägare i bolag mellan 10 och 50 Mkr som vill växa tillsammans med andra erfarna
+                ägare. Du är redo att ändra på dig själv, inte bara teamet, och vill ha ett rum där du både får
+                hjälp och bidrar.
+              </>
+            ),
+          },
+          {
+            q: "Vad händer efter att jag bokat ett samtal?",
+            a: (
+              <>
+                Vi kör ett 30 min samtal direkt med mig, kostnadsfritt. Där kollar vi var ditt bolag står
+                idag och om Boardroom är rätt. Om vi båda tycker det är rätt bokar vi in startworkshop. Om inte,
+                går du därifrån med något konkret ändå.
+              </>
+            ),
+          },
+          {
+            q: "Går det att dela upp betalningen?",
+            a: (
+              <>
+                Ja, 195 000 kr kan delas upp. Vi hittar en lösning som passar ditt bolag. Pratar vi
+                upplägg på ditt samtal.
+              </>
+            ),
+          },
+          {
+            q: "Vad är skillnaden mot VIP-coaching (1:1)?",
+            a: (
+              <>
+                Boardroom är ett år tillsammans med 14 andra ägare. VIP-coaching är 1:1 med mig direkt.
+                Många väljer Boardroom för att få andras perspektiv och lärande, och VIP när de vill ha
+                maximal personlig djupgång.{" "}
+                <Link href="/metod" className="font-semibold text-[color:var(--marin)] underline underline-offset-4 hover:text-[color:var(--glod)]">
+                  Läs om VIP-coaching
+                </Link>
+                .
+              </>
+            ),
+          },
+        ]}
+      />
 
       <CtaBand tone="marin" />
     </>

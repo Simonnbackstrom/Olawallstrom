@@ -7,8 +7,8 @@ import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
   { href: "/om-ola", label: "Om Ola" },
-  { href: "/metod", label: "VIP-coaching" },
   { href: "/boardroom", label: "Boardroom" },
+  { href: "/metod", label: "VIP-coaching" },
   { href: "/strategisession", label: "Strategisession" },
   { href: "/kontakt", label: "Kontakt" },
 ];
