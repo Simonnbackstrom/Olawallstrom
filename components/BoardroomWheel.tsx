@@ -79,18 +79,18 @@ export default function BoardroomWheel() {
 
               <g fontFamily="var(--font-lora), serif" fontWeight="600" textAnchor="middle">
                 <text x="275" y="112" fill="#F7F3EC" fontSize="14">Mental klarhet</text>
-                <text x="275" y="128" fill="#F7F3EC" fontSize="10" fontWeight="400" opacity="0.75" fontStyle="italic">Q1 · jan-mar</text>
+                <text x="275" y="128" fill="#F7F3EC" fontSize="10" fontWeight="400" opacity="0.75" fontStyle="italic">Q1 (jan-mar)</text>
 
                 <text x="275" y="275" fill="#F7F3EC" fontSize="14">Stjärnledarskap</text>
-                <text x="275" y="291" fill="#F7F3EC" fontSize="10" fontWeight="400" opacity="0.75" fontStyle="italic">Q2 · apr-jun</text>
+                <text x="275" y="291" fill="#F7F3EC" fontSize="10" fontWeight="400" opacity="0.75" fontStyle="italic">Q2 (apr-jun)</text>
 
                 <text x="125" y="268" fill="#F7F3EC" fontSize="12">Autentisk</text>
                 <text x="125" y="283" fill="#F7F3EC" fontSize="12">affärsutveckling</text>
-                <text x="125" y="299" fill="#F7F3EC" fontSize="10" fontWeight="400" opacity="0.85" fontStyle="italic">Q3 · jul-sep</text>
+                <text x="125" y="299" fill="#F7F3EC" fontSize="10" fontWeight="400" opacity="0.85" fontStyle="italic">Q3 (jul-sep)</text>
 
                 <text x="125" y="112" fill="#173B60" fontSize="12">Smart sälj­</text>
                 <text x="125" y="127" fill="#173B60" fontSize="12">strategi</text>
-                <text x="125" y="143" fill="#173B60" fontSize="10" fontWeight="400" opacity="0.7" fontStyle="italic">Q4 · okt-dec</text>
+                <text x="125" y="143" fill="#173B60" fontSize="10" fontWeight="400" opacity="0.7" fontStyle="italic">Q4 (okt-dec)</text>
               </g>
 
               <circle cx="200" cy="200" r={centerR} fill="#F7F3EC" stroke="var(--border-soft)" strokeWidth="1" />
@@ -113,7 +113,7 @@ export default function BoardroomWheel() {
                 fontSize="10"
                 fill="#6B6B6B"
               >
-                2027 · 12 månader
+                2027, 12 månader
               </text>
 
               {MONTHS.map((m, i) => {
@@ -175,7 +175,7 @@ export default function BoardroomWheel() {
               Ett år. <em>Fyra teman.</em>
             </h2>
             <p className="reveal reveal-d2 mt-6 text-[1.05rem] text-ink-soft leading-relaxed max-w-md">
-              Tolv månader för dig som VD eller ägare - i ett litet rum av erfarna ägare,
+              Tolv månader för dig som VD eller ägare, i ett litet rum av erfarna ägare,
               med personligt stöd hela vägen.
             </p>
 
@@ -199,7 +199,7 @@ export default function BoardroomWheel() {
                   </div>
                   <p className="text-[0.95rem] text-ink-soft leading-relaxed mt-1">
                     Frågebatteri + två timmars digital fördjupning.{" "}
-                    <span className="text-muted">12 jan · 6 apr · 29 jun · 28 sep</span>
+                    <span className="text-muted">12 jan, 6 apr, 29 jun, 28 sep</span>
                   </p>
                 </div>
               </li>
@@ -210,7 +210,7 @@ export default function BoardroomWheel() {
                     4 workshopdagar
                   </div>
                   <p className="text-[0.95rem] text-ink-soft leading-relaxed mt-1">
-                    21 jan Mental klarhet · 15 apr Stjärnledarskap · 7-8 okt Affärsutveckling + Säljstrategi
+                    21 jan Mental klarhet, 15 apr Stjärnledarskap, 7-8 okt Affärsutveckling + Säljstrategi
                   </p>
                 </div>
               </li>
@@ -221,7 +221,7 @@ export default function BoardroomWheel() {
               <ul className="space-y-2 text-[0.95rem] text-ink-soft">
                 <li>Startworkshop 4 tim i Stockholm</li>
                 <li>3 coachingsamtal à 45 min</li>
-                <li>Signal-kanal med Ola och de andra ägarna - löpande</li>
+                <li>Signal-kanal med Ola och de andra ägarna, löpande</li>
               </ul>
             </div>
 

@@ -2,7 +2,7 @@ const POINTS = [
   "Du blir flaskhalsen i nästan varje viktigt beslut.",
   "Teamet väntar på dig istället för att ta egna initiativ.",
   "Du jobbar mer men bolaget rör sig ändå inte snabbare.",
-  "Du kan vara ledig fysiskt - men aldrig mentalt.",
+  "Du kan vara ledig fysiskt, men aldrig mentalt.",
   "Bolaget växer. Och ditt beroende av bolaget också.",
 ];
 

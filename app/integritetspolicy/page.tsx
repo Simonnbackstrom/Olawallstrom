@@ -31,7 +31,7 @@ export default function IntegritetspolicyPage() {
 
           <h2 className="mt-12 mb-4 text-[1.4rem] text-left">Vilka uppgifter samlar vi in?</h2>
           <p>
-            När du bokar ett strategisamtal eller anmäler dig till nyhetsbrevet samlar vi in: namn,
+            När du bokar ett strategisamtal eller anmäler dig till inspirationsbrevet samlar vi in: namn,
             e-postadress, mobilnummer och (för bokning) företagsnamn. Vi samlar in uppgifterna
             direkt från dig via formulär på webbplatsen.
           </p>
@@ -39,13 +39,13 @@ export default function IntegritetspolicyPage() {
           <h2 className="mt-12 mb-4 text-[1.4rem] text-left">Så här använder vi uppgifterna</h2>
           <ul className="list-disc pl-6 space-y-2">
             <li>För att kunna kontakta dig och boka tid för strategisamtal.</li>
-            <li>För att skicka ut nyhetsbrev om du valt att prenumerera.</li>
+            <li>För att skicka ut inspirationsbrev om du valt att prenumerera.</li>
             <li>För att följa upp och förbättra våra tjänster.</li>
           </ul>
 
           <h2 className="mt-12 mb-4 text-[1.4rem] text-left">Hur länge sparas uppgifterna?</h2>
           <p>
-            Vi sparar uppgifterna så länge som är nödvändigt för det syfte de samlades in - eller
+            Vi sparar uppgifterna så länge som är nödvändigt för det syfte de samlades in, eller
             så länge lagen kräver. Du kan när som helst begära att få dina uppgifter raderade.
           </p>
 

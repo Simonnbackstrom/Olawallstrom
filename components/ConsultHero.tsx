@@ -23,8 +23,9 @@ export default function ConsultHero() {
             </h1>
 
             <p className="reveal reveal-d2 mt-8 text-[1.1rem] md:text-[1.15rem] text-ink-soft leading-relaxed max-w-xl">
-              Jag är Ola. Jag pratar rakt och på du, utan konsultspråk. Vi mäter framgång
-              i det som faktiskt blir gjort - så du kan äga din tid och ditt företag.
+              Jag är Ola. Du är inte först som fastnat vid ett omsättningstak eller blivit
+              flaskhals i ditt eget bolag. Jag pratar rakt och på du, utan konsultspråk, och
+              vi mäter framgång i det som faktiskt blir gjort, så du kan äga din tid och ditt företag.
             </p>
 
             <div className="reveal reveal-d3 mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
@@ -41,10 +42,10 @@ export default function ConsultHero() {
                 </svg>
               </a>
               <Link
-                href="/metod"
+                href="/boardroom"
                 className="group inline-flex items-center gap-2 text-[0.95rem] font-semibold text-[color:var(--marin)] hover:text-[color:var(--glod)] transition-colors px-2 py-3"
               >
-                Så jobbar jag
+                Se Boardroom 2027
                 <svg
                   width="14"
                   height="14"
@@ -99,19 +100,12 @@ export default function ConsultHero() {
             <div className="relative aspect-[4/5] max-w-[520px] mx-auto">
               <Image
                 src="/images/ola-studio.jpg"
-                alt="Ola Wallström"
+                alt="Ola Wallström – mentor och serieentreprenör"
                 fill
                 priority
                 sizes="(min-width: 1024px) 520px, 90vw"
                 className="object-cover object-top rounded-[2rem]"
               />
-              {/* Badge */}
-              <div className="absolute -bottom-5 -left-5 md:-bottom-6 md:-left-6 bg-papper border border-[color:var(--border-soft)] rounded-2xl px-5 py-4 shadow-[0_14px_38px_-14px_rgba(23,59,96,0.3)]">
-                <div className="eyebrow-upper">VIP-coaching</div>
-                <div className="mt-2 font-[family-name:var(--font-lora)] font-semibold text-[0.95rem] text-[color:var(--marin)] leading-tight">
-                  Fyra principer<br />som flyttar bolag framåt
-                </div>
-              </div>
             </div>
           </div>
         </div>

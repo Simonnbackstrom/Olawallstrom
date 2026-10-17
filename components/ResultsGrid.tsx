@@ -9,11 +9,11 @@ const RESULTS = [
   },
   {
     title: "Du får kontroll på siffrorna",
-    body: "Vi hittar de dolda möjligheterna i ditt bolag - där marginalerna och tiden egentligen finns.",
+    body: "Vi hittar de dolda möjligheterna i ditt bolag, där marginalerna och tiden egentligen finns.",
   },
   {
     title: "Du får tillbaka tid till det som räknas",
-    body: "Du jobbar färre timmar med högre effekt - och har plats för livet runt omkring.",
+    body: "Du jobbar färre timmar med högre effekt, och har plats för livet runt omkring.",
   },
   {
     title: "Du leder med mer säkerhet",
@@ -21,7 +21,7 @@ const RESULTS = [
   },
   {
     title: "Ett bolag som inte äger dig",
-    body: "En självgående verksamhet - redo för expansion, exit eller mer frihet.",
+    body: "En självgående verksamhet, redo för expansion, exit eller mer frihet.",
   },
 ];
 

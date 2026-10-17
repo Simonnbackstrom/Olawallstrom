@@ -51,7 +51,7 @@ export default function NewsletterForm() {
         </div>
         <h3 className="text-[1.15rem] mb-1">Tack. Du är med.</h3>
         <p className="text-[0.9rem] text-ink-soft">
-          Nästa brev landar i din inkorg i veckan.
+          Nästa inspirationsbrev landar i din inkorg i veckan.
         </p>
       </div>
     );
@@ -86,7 +86,7 @@ export default function NewsletterForm() {
         <p className="text-sm text-red-600 text-center">{errorMsg || "Något gick fel. Försök igen."}</p>
       )}
       <p className="text-[0.78rem] text-muted text-center">
-        En tanke i veckan. Avprenumerera när du vill.
+        Ett inspirationsbrev i veckan. Avprenumerera när du vill.
       </p>
     </form>
   );

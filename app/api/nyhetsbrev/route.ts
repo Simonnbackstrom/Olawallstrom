@@ -25,7 +25,7 @@ export async function POST(req: Request) {
   const from = process.env.RESEND_FROM_EMAIL || "Nyhetsbrev <noreply@olawallstrom.com>";
 
   if (!apiKey) {
-    console.warn("RESEND_API_KEY saknas - anmälan loggas men skickas inte.");
+    console.warn("RESEND_API_KEY saknas, anmälan loggas men skickas inte.");
     console.log("Ny prenumerant:", { name, email });
     return NextResponse.json({ ok: true, note: "logged" });
   }
@@ -37,7 +37,7 @@ export async function POST(req: Request) {
       from,
       to,
       replyTo: email,
-      subject: `Ny prenumerant - ${name}`,
+      subject: `Ny prenumerant: ${name}`,
       html: `
         <h2>Ny prenumerant på nyhetsbrevet</h2>
         <p><strong>Namn:</strong> ${escapeHtml(name)}</p>

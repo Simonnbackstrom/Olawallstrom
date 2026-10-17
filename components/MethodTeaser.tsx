@@ -4,7 +4,7 @@ const KEYS = [
   {
     n: "01",
     title: "Rätt riktning",
-    body: "Vart är bolaget på väg - och vill du själv dit? Vi stämmer av ägarens mål, bolagets strategi och vardagen.",
+    body: "Vart är bolaget på väg, och vill du själv dit? Vi stämmer av ägarens mål, bolagets strategi och vardagen.",
   },
   {
     n: "02",
@@ -19,7 +19,7 @@ const KEYS = [
   {
     n: "04",
     title: "Rätt lönsamhet",
-    body: "Marginal, kassaflöde och tillväxt som håller - oavsett vad konjunkturen gör.",
+    body: "Marginal, kassaflöde och tillväxt som håller, oavsett vad konjunkturen gör.",
   },
 ];
 
@@ -34,15 +34,13 @@ export default function MethodTeaser() {
       />
 
       <div className="container-site relative">
-        <div className="grid lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-20 mb-16 md:mb-20 items-end">
-          <div>
-            <h2 className="reveal reveal-d1">
-              Fyra principer som bygger <em>självgående</em> bolag.
-            </h2>
-          </div>
-          <p className="reveal reveal-d2 text-[1.05rem] md:text-[1.1rem] text-[color:var(--papper)]/75 leading-relaxed max-w-xl lg:justify-self-end">
+        <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20">
+          <h2 className="reveal reveal-d1">
+            Fyra principer som bygger <em>självgående</em> bolag.
+          </h2>
+          <p className="reveal reveal-d2 mt-6 text-[1.05rem] md:text-[1.1rem] text-[color:var(--papper)]/75 leading-relaxed">
             VIP-coachingen är tränad i åtta egna bolag och förfinad i över 650 mentorskap.
-            Allt vilar på fyra bärande principer - enkla att förstå, svåra att skippa.
+            Allt vilar på fyra bärande principer, enkla att förstå, svåra att skippa.
           </p>
         </div>
 

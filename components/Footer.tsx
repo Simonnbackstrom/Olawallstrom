@@ -15,7 +15,7 @@ export default function Footer() {
               className="h-9 w-auto mb-6"
             />
             <p className="text-[0.95rem] leading-relaxed text-ink-soft max-w-sm">
-              Autentisk affärsutveckling. Äkta, rakt och med riktning framåt - för dig som vill
+              Autentisk affärsutveckling. Äkta, rakt och med riktning framåt, för dig som vill
               äga din tid och ditt företag.
             </p>
             <div className="flex gap-3 mt-7">
@@ -58,7 +58,7 @@ export default function Footer() {
               <li><Link href="/boardroom" className="hover:text-[color:var(--glod)] transition-colors">Boardroom</Link></li>
               <li><Link href="/webinar" className="hover:text-[color:var(--glod)] transition-colors">Webinar</Link></li>
               <li><Link href="/resultat" className="hover:text-[color:var(--glod)] transition-colors">Resultat</Link></li>
-              <li><Link href="/nyhetsbrev" className="hover:text-[color:var(--glod)] transition-colors">Nyhetsbrev</Link></li>
+              <li><Link href="/inspiration" className="hover:text-[color:var(--glod)] transition-colors">Inspirationsbrev</Link></li>
             </ul>
           </div>
 
@@ -84,7 +84,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-[color:var(--marin)]/15 flex flex-col md:flex-row justify-between gap-3 text-xs text-muted">
-          <p>© 2026 Ola Wallström · Perspektivo i Sverige AB</p>
+          <p>© 2026 Ola Wallström, Perspektivo i Sverige AB</p>
           <p className="italic font-[family-name:var(--font-lora)] text-[color:var(--marin)]/70">Autentisk affärsutveckling</p>
         </div>
       </div>
