@@ -1,15 +1,17 @@
+import Image from "next/image";
+
 const QUESTIONS = [
   {
-    q: "Var står bolaget idag?",
-    a: "Vi börjar med en ärlig nulägesbild: intäkter, team, flaskhalsar och vad som faktiskt stjäl din tid.",
+    q: "Var står bolaget i dag?",
+    a: "En ärlig bild av intäkter, team och vad som tar din tid.",
   },
   {
     q: "Vart vill du?",
-    a: "Vi sätter en riktning du tror på. Inte en standardplan, utan en plan som matchar ditt liv och dina mål som ägare.",
+    a: "En riktning som passar dina mål, för bolaget och för livet runt omkring.",
   },
   {
     q: "Vad står i vägen?",
-    a: "Vi identifierar de två till tre grejer som faktiskt bromsar, och lägger upp vad som ska göras först.",
+    a: "De två, tre saker som bromsar mest, och vad som ska göras först.",
   },
 ];
 
@@ -17,73 +19,66 @@ export default function NeedsAnalysis() {
   return (
     <section className="py-[var(--section-y)] sec-sand">
       <div className="container-site">
-        <div className="max-w-3xl mx-auto text-center mb-14 md:mb-16">
-          <p className="reveal eyebrow mb-5 justify-center">Behovsanalys</p>
-          <h2 className="reveal reveal-d1">
-            Innan vi börjar, <em>tar vi reda på vad du faktiskt behöver.</em>
-          </h2>
-          <p className="reveal reveal-d2 mt-6 text-[1.05rem] text-ink-soft leading-relaxed">
-            Jag jobbar inte med färdiga paket. Vi startar alltid med en kostnadsfri
-            behovsanalys där vi ringar in vad som skulle flytta ditt bolag mest, innan
-            vi pratar program.
+        <div className="max-w-2xl mx-auto text-center mb-12 md:mb-14">
+          <h2 className="reveal">Vi börjar med att ta reda på vad du behöver.</h2>
+          <p className="reveal reveal-d1 mt-6 text-[1.08rem] text-ink leading-relaxed">
+            Jag säljer inga färdiga paket. Första steget är alltid ett kostnadsfritt samtal på 30
+            minuter, där vi går igenom tre frågor.
           </p>
         </div>
 
-        <div className="relative grid gap-5 md:gap-4 md:grid-cols-3 max-w-5xl mx-auto">
-          {QUESTIONS.map((item, i) => (
-            <article
-              key={item.q}
-              className={`reveal reveal-d${i + 1} relative rounded-3xl bg-white border border-[color:var(--border-soft)] p-7 md:p-9 shadow-[0_18px_42px_-24px_rgba(23,59,96,0.18)]`}
-            >
-              <div className="flex items-center gap-4 mb-5">
-                <div className="h-11 w-11 inline-flex items-center justify-center rounded-full bg-[color:var(--marin)] text-[color:var(--papper)] font-[family-name:var(--font-lora)] font-semibold text-[1.1rem]">
-                  {i + 1}
-                </div>
-                <div className="eyebrow-upper">Steg {String(i + 1).padStart(2, "0")}</div>
-              </div>
-              <h3 className="font-[family-name:var(--font-lora)] font-semibold text-[1.25rem] md:text-[1.35rem] leading-tight text-[color:var(--marin)]">
-                {item.q}
-              </h3>
-              <p className="mt-4 text-[0.98rem] text-ink-soft leading-relaxed">{item.a}</p>
-              {i < QUESTIONS.length - 1 && (
-                <svg
-                  aria-hidden
-                  className="hidden md:block absolute top-1/2 -right-3 -translate-y-1/2 text-[color:var(--glod)] bg-sand rounded-full"
-                  width="26"
-                  height="26"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+        <div className="grid gap-5 md:gap-6 lg:grid-cols-2 items-stretch max-w-5xl mx-auto">
+          <div className="reveal relative aspect-[4/3] lg:aspect-auto lg:min-h-[460px] rounded-3xl overflow-hidden bg-papper">
+            <Image
+              src="/images/ola-samtal-skratt.jpg"
+              alt="Ola Wallström antecknar och skrattar tillsammans med två bolagsägare"
+              fill
+              quality={85}
+              sizes="(min-width: 1024px) 900px, 100vw"
+              className="object-cover object-[55%_40%]"
+            />
+          </div>
+
+          <div className="reveal reveal-d1 flex flex-col rounded-3xl bg-white px-7 py-8 md:px-10 md:py-10 shadow-[0_24px_60px_-38px_rgba(23,59,96,0.45)]">
+            <ol className="flex-1">
+              {QUESTIONS.map((item, i) => (
+                <li
+                  key={item.q}
+                  className={`flex items-start gap-5 py-6 first:pt-0 ${i > 0 ? "border-t border-[color:var(--border-soft)]" : ""}`}
                 >
+                  <span className="shrink-0 inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-[color:var(--glod)] font-[family-name:var(--font-lora)] font-semibold text-[1.05rem] text-[color:var(--glod)]">
+                    {i + 1}
+                  </span>
+                  <div className="text-left">
+                    <h3
+                      className="font-[family-name:var(--font-lora)] font-semibold leading-snug"
+                      style={{ fontSize: "1.3rem" }}
+                    >
+                      {item.q}
+                    </h3>
+                    <p className="mt-1.5 text-[1.02rem] text-ink leading-relaxed">{item.a}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+
+            <div className="pt-6 border-t border-[color:var(--border-soft)] text-center">
+              <a
+                href="https://calendly.com/olawallstrom/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary w-full justify-center !py-4"
+              >
+                Boka ett samtal med mig
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="13 6 19 12 13 18" />
                 </svg>
-              )}
-            </article>
-          ))}
-        </div>
-
-        <div className="reveal reveal-d4 mt-14 max-w-2xl mx-auto text-center">
-          <p className="text-[1rem] text-ink-soft leading-relaxed">
-            30 minuter på Zoom. Kostnadsfritt. Du går därifrån med konkreta nästa steg,
-            oavsett om vi fortsätter jobba ihop eller inte.
-          </p>
-          <div className="mt-7">
-            <a
-              href="https://calendly.com/olawallstrom/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              Boka din behovsanalys
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="13 6 19 12 13 18" />
-              </svg>
-            </a>
+              </a>
+              <p className="mt-4 text-[0.88rem] text-muted">
+                30 minuter på Zoom. Kostnadsfritt. Du går därifrån med konkreta nästa steg.
+              </p>
+            </div>
           </div>
         </div>
       </div>

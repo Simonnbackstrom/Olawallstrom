@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
-import NewsletterForm from "@/components/NewsletterForm";
+import InspirationSignupForm from "@/components/InspirationSignupForm";
 import MiniCtaBand from "@/components/MiniCtaBand";
 import CtaBand from "@/components/CtaBand";
 import JsonLd from "@/components/JsonLd";
@@ -88,30 +88,39 @@ const PODCASTS = [
 ];
 
 const TOPICS = [
-  {
-    title: "Ledarskap",
-    body: "Att leda sig själv först. Hur du bygger team som tar ansvar som delägare.",
-  },
-  {
-    title: "Tillväxt",
-    body: "Vad som faktiskt flyttar ett bolag från 10 till 50 Mkr, och vad som bara ser ut att göra det.",
-  },
-  {
-    title: "Frihet",
-    body: "Att äga sin tid. Hur bolaget kan växa utan att du behöver vara i allt.",
-  },
-  {
-    title: "Lönsamhet",
-    body: "Marginalen är inte en Excel-fråga. Den sitter i vad du säger ja och nej till.",
-  },
+  { title: "Ledarskap", body: "Att leda dig själv först, och bygga ett team som tar ansvar." },
+  { title: "Tillväxt", body: "Det som faktiskt flyttar ett bolag från 10 till 50 Mkr." },
+  { title: "Frihet", body: "Att äga din tid, så att bolaget kan växa utan dig i allt." },
+  { title: "Lönsamhet", body: "Marginalen sitter i vad du säger ja och nej till." },
 ];
 
 const PROMISES = [
-  "Ett brev i veckan, aldrig längre än du läser på kaffet.",
-  "Konkreta exempel från verkliga klientcase (anonymiserade).",
-  "Enkla verktyg du kan använda direkt i din vardag.",
-  "Först med inbjudningar till webinar och frukostmöten.",
-  "Avprenumerera med ett klick, när som helst.",
+  "Ett kort brev i veckan",
+  "Verkliga exempel från klienter, anonymiserade",
+  "Enkla verktyg du kan använda direkt",
+  "Först med inbjudningar till webinar och frukostmöten",
+  "Avprenumerera med ett klick",
+];
+
+const NEXT_STEPS = [
+  {
+    href: "/boardroom",
+    name: "Boardroom 2027",
+    title: "Ett år med 14 andra ägare",
+    body: "Ett år tillsammans med andra bolagsägare. Max 15 platser.",
+  },
+  {
+    href: "/metod",
+    name: "VIP-coaching",
+    title: "Bara du och jag",
+    body: "Djuparbete en och en med mig. Ett fåtal platser 2027.",
+  },
+  {
+    href: "/webinar",
+    name: "Gratis webinar",
+    title: "60 minuter om de fyra principerna",
+    body: "Live på Zoom i november, med öppen frågestund.",
+  },
 ];
 
 export default function InspirationPage() {
@@ -119,23 +128,24 @@ export default function InspirationPage() {
     <>
       <JsonLd id="inspiration-schema" data={breadcrumbSchema} />
       <PageHero
-        eyebrow="Inspirationsbrev"
+        align="center"
+        plain
         title={
           <>
             En tanke i veckan. <em>Noll fluff.</em>
           </>
         }
-        intro="Inspirationsbrevet går ut varje vecka till 2 300+ bolagsägare. Korta, konkreta tankar om ledarskap, tillväxt och frihet, skrivna av mig, med utgångspunkt i det jag faktiskt sett fungera hos klienter."
+        intro="Ett kort brev i veckan med tankar om ledarskap, tillväxt och frihet. Det går till fler än 2 300 bolagsägare."
       />
 
-      <section className="py-16 md:py-20 sec-papper border-b border-[color:var(--border-soft)]">
+      <section className="pb-[var(--section-y)] sec-papper">
         <div className="container-site">
-          <div className="max-w-xl mx-auto rounded-3xl bg-sand border border-[color:var(--border-soft)] p-6 md:p-8">
-            <p className="eyebrow mb-3 text-center">Prenumerera</p>
-            <h2 className="text-center text-[1.5rem] md:text-[1.75rem] leading-tight mb-5">
-              Få nästa inspirationsbrev
+          <div className="reveal max-w-xl mx-auto rounded-3xl bg-white px-7 py-9 md:px-10 md:py-10 shadow-[0_24px_60px_-38px_rgba(23,59,96,0.45)]">
+            <h2 className="text-center mb-2" style={{ fontSize: "clamp(1.5rem, 2.4vw, 1.8rem)" }}>
+              Få nästa brev i din inkorg
             </h2>
-            <NewsletterForm />
+            <p className="text-center text-[0.98rem] text-ink-soft mb-7">Gratis. Sluta när du vill.</p>
+            <InspirationSignupForm />
           </div>
         </div>
       </section>
@@ -143,12 +153,9 @@ export default function InspirationPage() {
       <section className="py-[var(--section-y)] sec-sand">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-14">
-            <p className="reveal eyebrow mb-4">Senaste breven</p>
-            <h2 className="reveal reveal-d1">
-              Smakprov från de senaste veckorna.
-            </h2>
-            <p className="reveal reveal-d2 mt-6 text-[1.05rem] text-ink-soft leading-relaxed">
-              Så här ser det ut i inkorgen. Inget långrandigt. En tanke, ett exempel, kanske en övning.
+            <h2 className="reveal">Så här ser breven ut.</h2>
+            <p className="reveal reveal-d1 mt-6 text-[1.05rem] text-ink-soft leading-relaxed">
+              En tanke, ett exempel och ibland en övning.
             </p>
           </div>
 
@@ -156,84 +163,50 @@ export default function InspirationPage() {
             {SAMPLE_LETTERS.map((letter, i) => (
               <li
                 key={letter.nr}
-                className={`reveal reveal-d${(i % 4) + 1} rounded-2xl bg-white border border-[color:var(--border-soft)] p-7`}
+                className={`reveal reveal-d${(i % 4) + 1} rounded-2xl bg-white px-7 py-9 text-center shadow-[0_18px_40px_-32px_rgba(23,59,96,0.35)]`}
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-[0.78rem] font-semibold tracking-wide uppercase text-[color:var(--glod)]">
-                    {letter.nr}
-                  </span>
-                  <span className="h-1 w-1 rounded-full bg-[color:var(--marin)]/30" />
-                  <span className="text-[0.78rem] tracking-wide uppercase text-muted">
-                    {letter.topic}
-                  </span>
-                </div>
-                <h3 className="font-[family-name:var(--font-lora)] font-semibold text-[1.2rem] md:text-[1.3rem] leading-tight text-[color:var(--marin)] mb-3">
+                <p className="text-[0.88rem] text-muted">
+                  <span className="font-semibold text-[color:var(--glod)]">{letter.nr}</span> · {letter.topic}
+                </p>
+                <h3 className="mt-3 mb-3 leading-tight" style={{ fontSize: "clamp(1.2rem, 1.8vw, 1.3rem)" }}>
                   {letter.title}
                 </h3>
-                <p className="text-[0.98rem] text-ink-soft leading-relaxed">
-                  {letter.teaser}
-                </p>
+                <p className="text-[0.98rem] text-ink-soft leading-relaxed max-w-sm mx-auto">{letter.teaser}</p>
               </li>
             ))}
           </ul>
-
-          <p className="reveal reveal-d4 mt-10 text-center text-[0.95rem] text-ink-soft">
-            Prenumerera så landar nästa brev automatiskt i din inkorg.
-          </p>
         </div>
       </section>
 
       <section className="py-[var(--section-y)] sec-himmel">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-14">
-            <p className="reveal eyebrow mb-4">I poddar</p>
-            <h2 className="reveal reveal-d1">Hör mig på andras bord.</h2>
-            <p className="reveal reveal-d2 mt-6 text-[1.05rem] text-ink-soft leading-relaxed">
-              Jag gästar poddar då och då. Här är några av de senaste, perfekt om du
-              vill ha samma tankar som i inspirationsbrevet, fast i öronen på promenaden.
+            <h2 className="reveal">Hellre lyssna?</h2>
+            <p className="reveal reveal-d1 mt-6 text-[1.05rem] text-ink-soft leading-relaxed">
+              Jag gästar poddar ibland. Här är några av de senaste.
             </p>
           </div>
 
           <ul className="grid gap-5 md:grid-cols-3 max-w-5xl mx-auto">
             {PODCASTS.map((p, i) => (
-              <li
-                key={p.show}
-                className={`reveal reveal-d${(i % 3) + 1} flex`}
-              >
+              <li key={p.show} className={`reveal reveal-d${(i % 3) + 1} flex`}>
                 <a
                   href={p.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex flex-col w-full rounded-2xl bg-white border border-[color:var(--border-soft)] p-7 hover:border-[color:var(--glod)] transition-colors"
+                  className="group flex flex-col items-center w-full rounded-2xl bg-white px-7 py-9 text-center shadow-[0_18px_40px_-32px_rgba(23,59,96,0.35)] transition-shadow hover:shadow-[0_24px_50px_-28px_rgba(23,59,96,0.45)]"
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="shrink-0 h-8 w-8 inline-flex items-center justify-center rounded-full bg-[color:var(--glod-dim)] text-[color:var(--glod)]">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </span>
-                    <span className="text-[0.78rem] font-semibold tracking-wide uppercase text-[color:var(--glod)]">
-                      {p.show}
-                    </span>
-                  </div>
-                  <h3 className="font-[family-name:var(--font-lora)] font-semibold text-[1.15rem] leading-tight text-[color:var(--marin)] mb-3">
-                    {p.episode}
-                  </h3>
-                  <p className="text-[0.95rem] text-ink-soft leading-relaxed mb-6">
-                    {p.teaser}
-                  </p>
-                  <span className="mt-auto inline-flex items-center gap-2 text-[0.9rem] font-semibold text-[color:var(--marin)] group-hover:text-[color:var(--glod)] transition-colors">
+                  <span className="h-11 w-11 inline-flex items-center justify-center rounded-full bg-[color:var(--glod)] text-white transition-transform group-hover:scale-105">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
+                  <p className="mt-5 text-[0.88rem] text-muted">{p.show}</p>
+                  <h3 className="mt-2 mb-3 leading-tight" style={{ fontSize: "1.15rem" }}>{p.episode}</h3>
+                  <p className="text-[0.95rem] text-ink-soft leading-relaxed mb-6">{p.teaser}</p>
+                  <span className="mt-auto inline-flex items-center gap-2 text-[0.92rem] font-semibold text-[color:var(--marin)] group-hover:text-[color:var(--glod)] transition-colors">
                     Lyssna på avsnittet
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                       <line x1="7" y1="17" x2="17" y2="7" />
                       <polyline points="7 7 17 7 17 17" />
                     </svg>
@@ -243,7 +216,7 @@ export default function InspirationPage() {
             ))}
           </ul>
 
-          <p className="reveal reveal-d4 mt-10 text-center text-[0.95rem] text-ink-soft">
+          <p className="reveal reveal-d4 mt-10 text-center text-[0.98rem] text-ink-soft">
             Vill du se mer?{" "}
             <a
               href="https://www.youtube.com/@Ola11mars"
@@ -260,33 +233,26 @@ export default function InspirationPage() {
 
       <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
-          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-start">
-            <div className="reveal">
-              <div className="relative rounded-3xl overflow-hidden border border-[color:var(--border-soft)] aspect-[4/5] bg-sand">
-                <Image
-                  src="/images/ola-fatolj.jpg"
-                  alt="Ola Wallström sittande i fåtölj"
-                  fill
-                  sizes="(min-width: 1024px) 520px, 90vw"
-                  className="object-cover"
-                />
-              </div>
+          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+            <div className="reveal relative rounded-3xl overflow-hidden aspect-[4/5] bg-sand max-w-[480px] w-full mx-auto">
+              <Image
+                src="/images/ola-fatolj.jpg"
+                alt="Ola Wallström sitter i en fåtölj"
+                fill
+                sizes="(min-width: 1024px) 480px, 90vw"
+                className="object-cover"
+              />
             </div>
-            <div>
-              <p className="reveal eyebrow mb-5">Vad du får</p>
-              <h2 className="reveal reveal-d1">
-                25 år bland bolagsägare, förtätat till ett brev i veckan.
-              </h2>
-              <p className="reveal reveal-d2 mt-6 text-[1.02rem] text-ink-soft leading-relaxed">
-                Jag skriver inte för att fylla ut. Varje brev kommer ur ett verkligt samtal
-                med en bolagsägare den veckan: vad som fastnat, vad som lossnade, vad jag
-                själv tagit med mig därifrån.
+            <div className="text-center">
+              <h2 className="reveal">Det här får du varje vecka.</h2>
+              <p className="reveal reveal-d1 mt-6 text-[1.05rem] text-ink-soft leading-relaxed max-w-lg mx-auto">
+                Varje brev kommer ur ett verkligt samtal med en bolagsägare den veckan.
               </p>
-              <ul className="reveal reveal-d3 mt-8 space-y-3">
+              <ul className="reveal reveal-d2 mt-9 mx-auto w-fit flex flex-col gap-3 text-left">
                 {PROMISES.map((p) => (
-                  <li key={p} className="flex gap-3 items-start text-[1rem] text-ink">
-                    <span className="shrink-0 mt-1 h-5 w-5 inline-flex items-center justify-center rounded-full bg-[color:var(--glod-dim)] text-[color:var(--glod)]">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <li key={p} className="flex items-start gap-3 text-[1rem] text-ink leading-relaxed">
+                    <span className="mt-[0.2rem] shrink-0 h-5 w-5 inline-flex items-center justify-center rounded-full bg-glod-dim text-[color:var(--glod)]">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
                     </span>
@@ -300,33 +266,26 @@ export default function InspirationPage() {
       </section>
 
       <section className="relative overflow-hidden">
-        <div className="relative aspect-[16/9] md:aspect-[21/9] max-h-[520px] w-full">
+        <div className="relative aspect-[4/3] md:aspect-[21/9] max-h-[520px] w-full">
           <Image
             src="/images/ola-biljard-stot.jpg"
             alt="Ola Wallström vid biljardbordet"
             fill
             sizes="100vw"
-            className="object-cover"
+            className="object-cover object-[50%_45%]"
           />
-          <div
-            aria-hidden
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(90deg, rgba(23,59,96,0.78) 0%, rgba(23,59,96,0.35) 55%, rgba(23,59,96,0) 100%)",
-            }}
-          />
-          <div className="absolute inset-0 flex items-center">
-            <div className="container-site">
-              <div className="max-w-xl">
-                <p className="eyebrow mb-4 text-[color:var(--glod)]">Mellan dragen</p>
-                <h2 className="text-[color:var(--papper)] text-[1.8rem] md:text-[2.4rem] font-[family-name:var(--font-lora)] font-semibold leading-tight">
-                  Det bästa draget är det du inte behövde göra.
-                </h2>
-                <p className="mt-5 text-[1rem] text-[color:var(--papper)]/80 font-[family-name:var(--font-lora)] italic">
-                  en återkommande tanke i inspirationsbrevet
-                </p>
-              </div>
+          <div aria-hidden className="absolute inset-0 bg-[color:var(--marin)]/65" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="container-site text-center">
+              <h2
+                className="max-w-2xl mx-auto font-[family-name:var(--font-lora)] font-semibold leading-tight"
+                style={{ fontSize: "clamp(1.7rem, 3.4vw, 2.6rem)", color: "var(--papper)" }}
+              >
+                Det bästa draget är det du inte behövde göra.
+              </h2>
+              <p className="mt-5 text-[1rem] text-[color:var(--papper)]/80 font-[family-name:var(--font-lora)] italic">
+                En återkommande tanke i breven
+              </p>
             </div>
           </div>
         </div>
@@ -334,67 +293,52 @@ export default function InspirationPage() {
 
       <MiniCtaBand
         headline="Vill du inte vänta till nästa brev?"
-        subline="Boka ett 30 min samtal direkt med mig. Kostnadsfritt, inget säljtryck."
-        ctaLabel="Boka 30 min med Ola"
+        subline="30 minuter direkt med mig. Kostnadsfritt och utan säljtryck."
+        ctaLabel="Boka 30 min med mig"
         tone="marin"
+        centered
       />
 
       <section className="py-[var(--section-y)] sec-sand">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-14">
-            <p className="reveal eyebrow mb-4">Teman</p>
-            <h2 className="reveal reveal-d1">Det jag skriver om.</h2>
+            <h2 className="reveal">Det här skriver jag om.</h2>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
             {TOPICS.map((t, i) => (
               <article
                 key={t.title}
-                className={`reveal reveal-d${(i % 4) + 1} rounded-2xl bg-white border border-[color:var(--border-soft)] p-6`}
+                className={`reveal reveal-d${(i % 4) + 1} rounded-2xl bg-white px-6 py-8 text-center shadow-[0_18px_40px_-32px_rgba(23,59,96,0.35)]`}
               >
-                <h3 className="font-[family-name:var(--font-lora)] font-semibold text-[1.2rem] text-[color:var(--marin)] mb-3">
-                  {t.title}
-                </h3>
-                <p className="text-[0.95rem] text-ink-soft leading-relaxed">
-                  {t.body}
-                </p>
+                <h3 className="mb-3" style={{ fontSize: "1.25rem" }}>{t.title}</h3>
+                <p className="text-[0.96rem] text-ink-soft leading-relaxed">{t.body}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-[var(--section-y)] sec-marin relative overflow-hidden">
-        <div
-          aria-hidden
-          className="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full pointer-events-none opacity-70"
-          style={{ background: "radial-gradient(circle, rgba(242,106,46,0.18) 0%, transparent 65%)" }}
-        />
-        <div className="container-site relative">
-          <div className="grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-center">
-            <div className="reveal order-2 lg:order-1">
-              <p className="eyebrow mb-5">Kommande</p>
+      <section className="py-[var(--section-y)] sec-marin">
+        <div className="container-site">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-5xl mx-auto">
+            <div className="reveal order-2 lg:order-1 text-center">
               <h2>
                 Boken: <em>Autentisk affärsutveckling</em>
               </h2>
-              <p className="mt-6 text-[1.02rem] text-[color:var(--papper)]/80 leading-relaxed max-w-md">
-                Jag arbetar just nu på en bok som samlar de fyra principerna och de misstag jag
-                själv gjort i åtta bolag. Prenumererar du på inspirationsbrevet är du först med
-                släppdatum och får läsa utvalda kapitel innan den trycks.
+              <p className="mt-6 text-[1.05rem] text-[color:var(--papper)]/80 leading-relaxed max-w-md mx-auto">
+                Jag skriver på en bok om de fyra principerna och misstagen jag själv har gjort i åtta
+                bolag. Som prenumerant får du läsa utvalda kapitel först.
               </p>
-              <div className="mt-7 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/15 text-[0.72rem] uppercase tracking-wider text-[color:var(--papper)]/75">
-                <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--glod)]" />
-                Pre-release via inspirationsbrevet
-              </div>
             </div>
             <div className="reveal reveal-d1 order-1 lg:order-2">
-              <div className="relative mx-auto max-w-sm">
+              <div className="relative mx-auto max-w-[300px]">
                 <div className="rounded-2xl bg-gradient-to-br from-[color:var(--glod)] to-[color:var(--glod-dark)] aspect-[3/4] shadow-2xl relative overflow-hidden">
-                  <div className="absolute inset-0 p-10 flex flex-col justify-between text-white">
+                  <div className="absolute inset-0 p-9 flex flex-col justify-between text-white text-center">
                     <div>
                       <div className="text-[0.7rem] uppercase tracking-[0.3em] opacity-80 mb-4">
                         Av Ola Wallström
                       </div>
-                      <div className="font-[family-name:var(--font-lora)] font-semibold text-[2rem] leading-[1.05]">
+                      <div className="font-[family-name:var(--font-lora)] font-semibold text-[1.9rem] leading-[1.05]">
                         Autentisk<br />affärsutveckling
                       </div>
                     </div>
@@ -407,14 +351,6 @@ export default function InspirationPage() {
                       </div>
                     </div>
                   </div>
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 pointer-events-none mix-blend-overlay opacity-30"
-                    style={{
-                      backgroundImage:
-                        "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.3) 0%, transparent 50%)",
-                    }}
-                  />
                 </div>
               </div>
             </div>
@@ -424,57 +360,37 @@ export default function InspirationPage() {
 
       <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
-          <div className="max-w-3xl mx-auto">
-            <p className="reveal eyebrow mb-4 text-center">Vill du gå djupare?</p>
-            <h2 className="reveal reveal-d1 text-center mb-10">
-              Här är nästa steg om breven resonerar.
-            </h2>
+          <div className="max-w-5xl mx-auto">
+            <h2 className="reveal text-center mb-12">Vill du gå djupare?</h2>
             <div className="grid gap-5 md:grid-cols-3">
-              <Link
-                href="/boardroom"
-                className="reveal reveal-d1 group rounded-2xl bg-sand border border-[color:var(--border-soft)] p-6 hover:border-[color:var(--glod)] transition-colors"
-              >
-                <div className="eyebrow-upper mb-3 text-[color:var(--glod)]">Boardroom 2027</div>
-                <h3 className="font-[family-name:var(--font-lora)] font-semibold text-[1.15rem] text-[color:var(--marin)] mb-3 leading-tight">
-                  Ett år med 14 andra ägare
-                </h3>
-                <p className="text-[0.92rem] text-ink-soft leading-relaxed">
-                  12 månader tillsammans med andra bolagsägare i samma segment. Fyra workshopdagar och personligt stöd hela vägen. Max 15 platser.
-                </p>
-              </Link>
-              <Link
-                href="/metod"
-                className="reveal reveal-d2 group rounded-2xl bg-sand border border-[color:var(--border-soft)] p-6 hover:border-[color:var(--glod)] transition-colors"
-              >
-                <div className="eyebrow-upper mb-3 text-[color:var(--glod)]">VIP-coaching</div>
-                <h3 className="font-[family-name:var(--font-lora)] font-semibold text-[1.15rem] text-[color:var(--marin)] mb-3 leading-tight">
-                  Jobba 1-till-1 med mig
-                </h3>
-                <p className="text-[0.92rem] text-ink-soft leading-relaxed">
-                  Djuparbete över 6 månader. För bolagsägare som vill gå från flaskhals till arkitekt. Begränsat antal platser 2027.
-                </p>
-              </Link>
-              <Link
-                href="/webinar"
-                className="reveal reveal-d3 group rounded-2xl bg-sand border border-[color:var(--border-soft)] p-6 hover:border-[color:var(--glod)] transition-colors"
-              >
-                <div className="eyebrow-upper mb-3 text-[color:var(--glod)]">Gratis webinar</div>
-                <h3 className="font-[family-name:var(--font-lora)] font-semibold text-[1.15rem] text-[color:var(--marin)] mb-3 leading-tight">
-                  60 minuter om de fyra principerna
-                </h3>
-                <p className="text-[0.92rem] text-ink-soft leading-relaxed">
-                  Live på Zoom i november. Hela ramverket förtätat, med öppen frågestund.
-                </p>
-              </Link>
+              {NEXT_STEPS.map((n, i) => (
+                <Link
+                  key={n.href}
+                  href={n.href}
+                  className={`reveal reveal-d${i + 1} group flex flex-col items-center rounded-2xl bg-white px-7 py-9 text-center shadow-[0_18px_40px_-32px_rgba(23,59,96,0.35)] transition-shadow hover:shadow-[0_24px_50px_-28px_rgba(23,59,96,0.45)]`}
+                >
+                  <p className="text-[0.88rem] font-semibold text-[color:var(--glod)]">{n.name}</p>
+                  <h3 className="mt-2 mb-3 leading-tight" style={{ fontSize: "1.2rem" }}>{n.title}</h3>
+                  <p className="text-[0.95rem] text-ink-soft leading-relaxed mb-6">{n.body}</p>
+                  <span className="mt-auto inline-flex items-center gap-2 text-[0.92rem] font-semibold text-[color:var(--marin)] group-hover:text-[color:var(--glod)] transition-colors">
+                    Läs mer
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="transition-transform group-hover:translate-x-1">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="13 6 19 12 13 18" />
+                    </svg>
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       <CtaBand
-        tone="sand"
+        tone="olabla"
+        plain
         heading="Hellre direkt till saken?"
-        intro="Boka ett kostnadsfritt strategisamtal med mig istället. 30 minuter, inget säljtryck."
+        intro="Boka ett kostnadsfritt samtal på 30 minuter med mig. Inget säljtryck."
       />
     </>
   );

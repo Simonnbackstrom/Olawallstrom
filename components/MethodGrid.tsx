@@ -24,75 +24,59 @@ const KEYS = [
 const STEPS = [
   {
     num: "01",
-    title: "Bolagsdiagnos: var sitter det?",
-    body: "Vi lägger korten på bordet. Vad bromsar, vad äter tid, vad är ni egentligen bra på. Inga antaganden, bara det ni ser när ni verkligen tittar.",
+    title: "Bolagsdiagnos",
+    body: "Vi lägger korten på bordet: vad som bromsar, vad som äter din tid och vad ni faktiskt är bra på. Det blir vår startpunkt.",
   },
   {
     num: "02",
     title: "Struktur och delegering",
-    body: "Vi bygger systemen som gör att teamet kan leverera utan att du är inblandad. Processer, ansvar och rapportering som blir konkreta, och faktiskt används.",
+    body: "Processer, ansvar och rapportering som gör att teamet levererar utan att du behöver vara med i allt.",
   },
   {
     num: "03",
-    title: "Rekrytering och teamutveckling",
-    body: "Vi jobbar med hur du hittar rätt folk, placerar dem rätt och bygger en kultur där de tar ansvar på allvar.",
+    title: "Team och rekrytering",
+    body: "Rätt människor på rätt plats, och en kultur där de tar ansvar på riktigt.",
   },
   {
     num: "04",
-    title: "Lönsamhet och tillväxtmotor",
-    body: "Vi identifierar de affärer som faktiskt är lönsamma och skapar en säljmotor som inte är beroende av dig.",
-  },
-  {
-    num: "05",
-    title: "1:1-samtal två gånger i månaden",
-    body: "Vi stämmer av, planerar framåt och håller momentum. Personligt, konkret och alltid med nästa steg definierat innan vi lägger på.",
-  },
-  {
-    num: "06",
-    title: "Tillgång vid behov, när det brinner",
-    body: "När något akut uppstår finns jag inom 24 timmar. Din förflyttning ska inte stanna av för att en vecka är dålig.",
+    title: "Lönsamhet och sälj",
+    body: "Vi hittar de affärer som verkligen lönar sig och bygger ett sälj som inte hänger på dig.",
   },
 ];
 
 type Props = {
   variant?: "keys" | "steps";
   heading?: string;
-  eyebrow?: string;
 };
 
 export default function MethodGrid({
   variant = "steps",
   heading,
-  eyebrow,
 }: Props) {
   const items = variant === "keys" ? KEYS : STEPS;
-  const defaultEyebrow = variant === "keys" ? "Fyra principer" : "Så jobbar vi tillsammans";
   const defaultHeading =
     variant === "keys"
       ? "Fyra principer som bygger självgående bolag."
-      : "Det här får du när vi börjar jobba ihop.";
+      : "Det här jobbar vi med.";
 
   return (
     <section className="py-[var(--section-y)] sec-papper">
       <div className="container-site">
-        <div className="max-w-2xl mb-14 md:mb-16">
-          <p className="reveal eyebrow mb-5">{eyebrow ?? defaultEyebrow}</p>
-          <h2 className="reveal reveal-d1">{heading ?? defaultHeading}</h2>
+        <div className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
+          <h2 className="reveal">{heading ?? defaultHeading}</h2>
         </div>
 
-        <ol className="grid gap-5 md:gap-6 md:grid-cols-2">
+        <ol className="grid gap-5 md:gap-6 md:grid-cols-2 max-w-5xl mx-auto">
           {items.map((item, i) => (
             <li
               key={item.num}
-              className={`reveal reveal-d${(i % 5) + 1} relative rounded-2xl p-7 md:p-8 bg-white border border-[color:var(--border-soft)] flex gap-6 transition-colors hover:border-[color:var(--glod)]`}
+              className={`reveal reveal-d${(i % 5) + 1} relative rounded-2xl px-7 py-9 md:px-10 md:py-10 bg-white border border-[color:var(--border-soft)] text-center transition-colors hover:border-[color:var(--glod)]`}
             >
-              <div className="font-[family-name:var(--font-lora)] italic font-semibold text-[2.4rem] md:text-[2.8rem] leading-none text-[color:var(--glod)] min-w-[56px]">
+              <div className="font-[family-name:var(--font-lora)] italic font-semibold text-[2.2rem] md:text-[2.5rem] leading-none text-[color:var(--glod)]">
                 {item.num}
               </div>
-              <div>
-                <h3 className="text-[1.2rem] md:text-[1.3rem] mb-3">{item.title}</h3>
-                <p className="text-[0.98rem] text-ink-soft leading-relaxed">{item.body}</p>
-              </div>
+              <h3 className="mt-4 mb-3" style={{ fontSize: "clamp(1.2rem, 1.8vw, 1.35rem)" }}>{item.title}</h3>
+              <p className="text-[0.98rem] text-ink-soft leading-relaxed max-w-md mx-auto">{item.body}</p>
             </li>
           ))}
         </ol>

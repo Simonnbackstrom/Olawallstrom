@@ -10,8 +10,8 @@ export default function StructuredData() {
     name: "Perspektivo i Sverige AB",
     alternateName: "Ola Wallström",
     url: SITE_URL,
-    logo: `${SITE_URL}/images/ola-portrait.jpg`,
-    image: `${SITE_URL}/images/ola-portrait.jpg`,
+    logo: `${SITE_URL}/images/ola-portratt.jpg`,
+    image: `${SITE_URL}/images/ola-portratt.jpg`,
     description:
       "Autentisk affärsutveckling. Mentor och coach för bolagsägare i segmentet 10–50 Mkr.",
     areaServed: "SE",
@@ -25,7 +25,7 @@ export default function StructuredData() {
     name: "Ola Wallström",
     jobTitle: "Mentor och serieentreprenör",
     url: SITE_URL,
-    image: `${SITE_URL}/images/ola-portrait.jpg`,
+    image: `${SITE_URL}/images/ola-portratt.jpg`,
     description:
       "Civilekonom, serieentreprenör med åtta egna bolag och mentor för över 650 bolagsägare under 25 år.",
     worksFor: { "@id": `${SITE_URL}#organization` },

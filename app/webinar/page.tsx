@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import WebinarForm from "@/components/WebinarForm";
-import Testimonials from "@/components/Testimonials";
+import WebinarSignupForm from "@/components/WebinarSignupForm";
+import TestimonialsClean from "@/components/TestimonialsClean";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
@@ -32,11 +32,11 @@ const DETAILS = [
 ];
 
 const PAIN_POINTS = [
-  "Du blir flaskhalsen i nästan varje viktigt beslut.",
-  "Teamet gör sitt, men ingen rör sig som en delägare, allt väntar på dig.",
-  "Du jobbar fler timmar nu än när bolaget var hälften så stort.",
-  "Du är aldrig riktigt mentalt ledig, bolaget tar plats även på helgerna.",
-  "Bolaget växer, men ditt beroende av att vara med överallt växer också.",
+  "Nästan varje viktigt beslut går fortfarande via mig.",
+  "Teamet gör sitt, men ingen rör sig som en delägare. Allt väntar på mig.",
+  "Jag jobbar fler timmar nu än när bolaget var hälften så stort.",
+  "Jag är aldrig riktigt ledig. Bolaget tar plats även på helgerna.",
+  "Bolaget växer, men det gör också mitt behov av att vara med överallt.",
 ];
 
 const LESSONS = [
@@ -48,16 +48,16 @@ const LESSONS = [
   {
     n: "02",
     title: "Fyra principer som flyttar bolag",
-    body: "Äkta, Klarhet, Genomförande, Frihet. Samma ramverk som jag använder i varje VIP-coachning. Du får hela modellen på en A4.",
+    body: "Äkta, Klarhet, Genomförande, Frihet. Samma ramverk som jag använder i varje VIP-coaching. Du får hela modellen på en A4.",
   },
   {
     n: "03",
     title: "Första steget mot ett bolag som rullar själv",
-    body: "En konkret bolagsdiagnos du gör på en helg, och ser svart på vitt var din tid faktiskt läcker ut idag.",
+    body: "En konkret bolagsdiagnos du gör på en helg, där du ser svart på vitt var din tid faktiskt läcker ut i dag.",
   },
   {
     n: "04",
-    title: "Öppen frågestund med Ola",
+    title: "Öppen frågestund",
     body: "Sista 15 minuterna är dina. Ta med en konkret knut i ditt bolag så svarar jag live.",
   },
 ];
@@ -174,158 +174,120 @@ export default function WebinarPage() {
     <>
       <JsonLd id="webinar-schema" data={[EVENT_LD, faqSchema, breadcrumbSchema]} />
 
-      <section className="relative pt-32 md:pt-40 pb-16 md:pb-20 overflow-hidden sec-papper">
-        <div
-          aria-hidden
-          className="absolute -top-32 right-[-10%] w-[640px] h-[640px] rounded-full pointer-events-none opacity-70"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(242,106,46,0.14) 0%, transparent 65%)",
-          }}
-        />
-        <div className="container-site relative">
-          <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-start">
-            <div>
-              <div className="reveal inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full bg-[color:var(--glod-dim)] border border-[color:var(--glod)]/30">
-                <span className="h-2 w-2 rounded-full bg-[color:var(--glod)] animate-pulse" />
-                <span className="text-[0.78rem] font-semibold tracking-wide uppercase text-[color:var(--marin)]">
-                  Live {EVENT_DATE_LABEL.toLowerCase()}, max {SEATS_LIMIT} platser
-                </span>
-              </div>
-              <p className="reveal eyebrow mb-6">Gratis webinar</p>
-              <h1 className="reveal reveal-d1">
+      <section className="pt-32 md:pt-40 pb-16 md:pb-20 sec-papper">
+        <div className="container-site">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-stretch max-w-6xl mx-auto">
+            <div className="flex flex-col justify-center text-center">
+              <h1 className="reveal" style={{ fontSize: "clamp(2.5rem, 4.6vw, 3.9rem)" }}>
                 Så bygger du ett bolag <em>som inte äger dig</em>.
               </h1>
-              <p className="reveal reveal-d2 mt-6 text-[1.1rem] md:text-[1.2rem] leading-relaxed text-ink-soft max-w-xl">
-                60 minuter om de fyra principerna jag använt för att hjälpa 650+ bolagsägare
-                bryta igenom taket vid 10 Mkr. Live på Zoom, kostnadsfritt, med öppen frågestund.
+              <p className="reveal reveal-d1 mt-6 text-[1.1rem] md:text-[1.2rem] leading-relaxed text-ink-soft max-w-xl mx-auto">
+                60 minuter där jag delar de fyra principerna jag har använt med fler än 650
+                bolagsägare för att ta sig förbi taket vid 10 Mkr. Live på Zoom, kostnadsfritt och
+                med öppen frågestund.
+              </p>
+              <p className="reveal reveal-d2 mt-5 text-[0.98rem] font-semibold text-[color:var(--marin)]">
+                {EVENT_DATE_LABEL} kl. {EVENT_TIME_LABEL} · max {SEATS_LIMIT} platser
               </p>
 
-              <ul className="reveal reveal-d3 mt-8 space-y-3 max-w-md">
+              <ul className="reveal reveal-d3 mt-8 mx-auto w-fit max-w-md flex flex-col gap-3 text-left">
                 {[
                   "De tre mönstren som gör dig till flaskhals",
-                  "Hela ramverket på en A4, samma som VIP-klienter får",
+                  "Hela ramverket på en A4, samma som mina VIP-klienter får",
                   "Bolagsdiagnosen (PDF) direkt efter anmälan",
                 ].map((item) => (
-                  <li key={item} className="flex gap-3 items-start text-[1rem] text-ink">
-                    <span className="shrink-0 mt-1 h-5 w-5 inline-flex items-center justify-center rounded-full bg-[color:var(--glod-dim)] text-[color:var(--glod)]">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
+                  <li key={item} className="flex items-start gap-3 text-[1rem] text-ink leading-relaxed">
+                    <span className="mt-[0.2rem] shrink-0 h-5 w-5 inline-flex items-center justify-center rounded-full bg-glod-dim text-[color:var(--glod)]">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
                     </span>
                     {item}
                   </li>
                 ))}
               </ul>
-
-              <div className="reveal reveal-d4 mt-10 flex items-center gap-4">
-                <a href="#anmal" className="btn-primary">
-                  Säkra min plats
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="13 6 19 12 13 18" />
-                  </svg>
-                </a>
-                <span className="text-[0.9rem] text-muted">60 sek, ingen bindning</span>
-              </div>
             </div>
 
-            <div id="anmal-top" className="reveal reveal-d2 lg:sticky lg:top-24">
-              <div className="rounded-3xl bg-[color:var(--marin)] p-6 md:p-8 shadow-2xl relative overflow-hidden">
-                <div
-                  aria-hidden
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background:
-                      "radial-gradient(circle at 100% 0%, rgba(242,106,46,0.2) 0%, transparent 55%)",
-                  }}
-                />
-                <div className="relative">
-                  <div className="eyebrow-upper text-[color:var(--glod)] mb-3">Anmäl dig nu</div>
-                  <h2 className="text-[color:var(--papper)] text-[1.6rem] md:text-[1.8rem] leading-tight mb-5">
-                    Säkra din plats. Gratis.
-                  </h2>
-                  <p className="text-[color:var(--papper)]/70 text-[0.95rem] mb-6">
-                    Du får Zoom-länken och bolagsdiagnosen direkt till mejlen.
-                  </p>
-                  <WebinarForm />
-                </div>
+            <div id="anmal-top" className="reveal reveal-d2 flex">
+              <div className="w-full rounded-3xl sec-marin px-7 py-10 md:px-10 flex flex-col justify-center text-center shadow-[0_30px_70px_-34px_rgba(23,59,96,0.6)]">
+                <h2 className="text-[color:var(--papper)]" style={{ fontSize: "clamp(1.6rem, 2.6vw, 2rem)" }}>
+                  Säkra din plats. Gratis.
+                </h2>
+                <p className="mt-3 mb-7 text-[0.98rem] text-[color:var(--papper)]/70">
+                  Du får Zoom-länken och bolagsdiagnosen direkt till din mejl.
+                </p>
+                <WebinarSignupForm dark />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-10 md:py-12 sec-sand border-y border-[color:var(--border-soft)]">
-        <div className="container-site">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <p className="eyebrow-upper text-center md:text-left">
-              Betrott av 650+ bolagsägare sedan 2001
-            </p>
-            <div className="flex items-center gap-8 md:gap-12 opacity-70 flex-wrap justify-center">
-              {["belatchew", "ezelius", "pmab", "wolfbuilder", "safestep"].map((slug) => (
-                <div key={slug} className="relative h-8 w-24 md:h-10 md:w-28">
-                  <Image
-                    src={`/logos/logo-${slug}.png`}
-                    alt={slug}
-                    fill
-                    sizes="120px"
-                    className="object-contain grayscale"
-                  />
-                </div>
-              ))}
-            </div>
+      <section className="py-12 md:py-14 sec-sand">
+        <div className="container-site text-center">
+          <p className="reveal text-[1rem] text-ink-soft">Betrodd av fler än 650 bolagsägare sedan 2001</p>
+          <div className="mt-7 flex items-center justify-center gap-8 md:gap-12 opacity-70 flex-wrap">
+            {["belatchew", "ezelius", "pmab", "wolfbuilder", "safestep"].map((slug) => (
+              <div key={slug} className="relative h-8 w-24 md:h-10 md:w-28">
+                <Image
+                  src={`/logos/logo-${slug}.png`}
+                  alt={slug}
+                  fill
+                  sizes="120px"
+                  className="object-contain grayscale"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       <section className="py-16 md:py-20 sec-papper">
         <div className="container-site">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <dl className="grid gap-4 grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
             {DETAILS.map((d) => (
               <div
                 key={d.label}
-                className="reveal rounded-2xl bg-sand/40 border border-[color:var(--border-soft)] p-6"
+                className="reveal flex flex-col-reverse justify-end rounded-2xl bg-white px-5 py-7 text-center shadow-[0_14px_36px_-30px_rgba(23,59,96,0.35)]"
               >
-                <div className="eyebrow-upper mb-2">{d.label}</div>
-                <div className="font-[family-name:var(--font-lora)] font-semibold text-[1.3rem] text-[color:var(--marin)] leading-tight">
+                <dt className="mt-1.5 text-[0.88rem] text-muted">{d.label}</dt>
+                <dd className="font-[family-name:var(--font-lora)] font-semibold text-[1.25rem] md:text-[1.35rem] text-[color:var(--marin)] leading-tight">
                   {d.value}
-                </div>
+                </dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
       </section>
 
-      <section className="py-[var(--section-y)] sec-sand">
+      <section className="py-[var(--section-y)] sec-marin">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-14">
-            <p className="reveal eyebrow mb-4">Känner du igen dig?</p>
-            <h2 className="reveal reveal-d1">
+            <h2 className="reveal">
               Du leder ett miljonbolag på <em>samma sätt</em> som när du startade.
             </h2>
-            <p className="reveal reveal-d2 mt-6 text-[1.05rem] text-ink-soft leading-relaxed">
-              Då är problemet inte att du behöver jobba hårdare. Det är att bolaget fortfarande är byggt runt dig.
+            <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.15rem] text-[color:var(--papper)]/75 leading-relaxed">
+              Då är problemet inte att du behöver jobba hårdare. Känner du igen någon av de här
+              tankarna?
             </p>
           </div>
-          <div className="grid gap-4 max-w-2xl mx-auto">
+          <ul className="mx-auto max-w-4xl flex flex-wrap justify-center gap-4 md:gap-5">
             {PAIN_POINTS.map((p, i) => (
-              <div
+              <li
                 key={p}
-                className={`reveal reveal-d${(i % 4) + 1} flex gap-4 items-start rounded-2xl bg-white border border-[color:var(--border-soft)] px-6 py-5`}
+                className={`reveal reveal-d${(i % 4) + 1} w-full md:w-[calc(50%-0.625rem)] flex flex-col items-center justify-center text-center rounded-2xl bg-white/[0.06] ring-1 ring-white/12 px-8 py-10 md:px-11`}
               >
-                <span className="shrink-0 mt-0.5 h-6 w-6 inline-flex items-center justify-center rounded-full bg-[color:var(--marin)]/8 text-[color:var(--marin)]">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="12" y1="5" x2="12" y2="13" />
-                    <circle cx="12" cy="18" r="1.2" fill="currentColor" />
-                  </svg>
+                <span aria-hidden className="font-[family-name:var(--font-lora)] text-[3.2rem] leading-[0.55] text-[color:var(--glod)]">
+                  &ldquo;
                 </span>
-                <p className="text-[1.02rem] text-ink leading-relaxed">{p}</p>
-              </div>
+                <p className="mt-5 font-[family-name:var(--font-lora)] italic text-[1.18rem] md:text-[1.3rem] leading-relaxed text-[color:var(--papper)]/90">
+                  {p}
+                </p>
+              </li>
             ))}
-          </div>
-          <p className="reveal reveal-d3 mt-10 text-center max-w-xl mx-auto text-[1.02rem] text-ink-soft italic font-[family-name:var(--font-lora)]">
-            Det går att komma ur. Men inte med fler to-dos. Det handlar om hur du leder.
+          </ul>
+          <p className="reveal reveal-d3 mt-14 text-center max-w-2xl mx-auto font-[family-name:var(--font-lora)] text-[1.35rem] md:text-[1.6rem] leading-snug text-[color:var(--papper)]">
+            Det går att komma ur. Inte med fler att göra-listor, utan genom <em className="text-[color:var(--glod)]">hur du leder</em>.
           </p>
         </div>
       </section>
@@ -333,29 +295,24 @@ export default function WebinarPage() {
       <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-14 md:mb-16">
-            <p className="reveal eyebrow mb-4">Agenda</p>
-            <h2 className="reveal reveal-d1">
-              Det här går jag igenom under de 60 minuterna.
-            </h2>
-            <p className="reveal reveal-d2 mt-6 text-[1.05rem] text-ink-soft leading-relaxed">
-              Inga powerpoint-föreläsningar. Jag delar det jag faktiskt säger till
-              bolagsägare när vi sitter öga mot öga, och visar exempel från klientarbete.
+            <h2 className="reveal">Det här går jag igenom under de 60 minuterna.</h2>
+            <p className="reveal reveal-d1 mt-6 text-[1.05rem] text-ink-soft leading-relaxed">
+              Inga powerpoint-föreläsningar. Jag delar det jag faktiskt säger till bolagsägare när vi
+              sitter öga mot öga, och visar exempel från mitt klientarbete.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-5 md:gap-6 md:grid-cols-2 max-w-5xl mx-auto">
             {LESSONS.map((l, i) => (
               <article
                 key={l.n}
-                className={`reveal reveal-d${(i % 4) + 1} rounded-2xl bg-white border border-[color:var(--border-soft)] p-7 md:p-8`}
+                className={`reveal reveal-d${(i % 4) + 1} rounded-2xl bg-white border border-[color:var(--border-soft)] px-7 py-9 md:px-10 text-center`}
               >
-                <div className="font-[family-name:var(--font-lora)] italic font-semibold text-[2.2rem] leading-none text-[color:var(--glod)] mb-5">
+                <div className="font-[family-name:var(--font-lora)] italic font-semibold text-[2.2rem] leading-none text-[color:var(--glod)]">
                   {l.n}
                 </div>
-                <h3 className="text-[1.2rem] leading-tight mb-3 text-[color:var(--marin)]">
-                  {l.title}
-                </h3>
-                <p className="text-[0.98rem] text-ink-soft leading-relaxed">{l.body}</p>
+                <h3 className="mt-4 mb-3 leading-tight" style={{ fontSize: "1.25rem" }}>{l.title}</h3>
+                <p className="text-[0.98rem] text-ink-soft leading-relaxed max-w-md mx-auto">{l.body}</p>
               </article>
             ))}
           </div>
@@ -365,26 +322,23 @@ export default function WebinarPage() {
       <section className="py-[var(--section-y)] sec-sand">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-14">
-            <p className="reveal eyebrow mb-4">Du får också</p>
-            <h2 className="reveal reveal-d1">
+            <h2 className="reveal">
               Tre saker du tar med dig, oavsett om du gör något mer med mig eller inte.
             </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-5 md:gap-6 md:grid-cols-3 max-w-5xl mx-auto">
             {BONUSES.map((b, i) => (
               <div
                 key={b.title}
-                className={`reveal reveal-d${(i % 3) + 1} rounded-2xl bg-white border border-[color:var(--border-soft)] p-7`}
+                className={`reveal reveal-d${(i % 3) + 1} rounded-2xl bg-white px-7 py-9 text-center shadow-[0_18px_40px_-32px_rgba(23,59,96,0.35)]`}
               >
-                <div className="mb-5 h-11 w-11 rounded-full bg-[color:var(--glod-dim)] inline-flex items-center justify-center text-[color:var(--glod)]">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <div className="mx-auto mb-5 h-12 w-12 rounded-full bg-glod-dim inline-flex items-center justify-center text-[color:var(--glod)]">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
-                <h3 className="text-[1.15rem] leading-tight mb-3 text-[color:var(--marin)]">
-                  {b.title}
-                </h3>
-                <p className="text-[0.95rem] text-ink-soft leading-relaxed">{b.body}</p>
+                <h3 className="mb-3 leading-tight" style={{ fontSize: "1.2rem" }}>{b.title}</h3>
+                <p className="text-[0.96rem] text-ink-soft leading-relaxed">{b.body}</p>
               </div>
             ))}
           </div>
@@ -393,104 +347,79 @@ export default function WebinarPage() {
 
       <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
-          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-center">
-            <div className="reveal relative">
-              <div
-                aria-hidden
-                className="absolute -top-5 -right-5 w-[85%] h-[85%] rounded-3xl pointer-events-none"
-                style={{
-                  border: "2px solid var(--glod)",
-                  clipPath: "polygon(0 0, 100% 0, 100% 72%, 70% 100%, 0 100%)",
-                }}
+          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+            <div className="reveal relative rounded-3xl overflow-hidden aspect-[4/5] bg-sand max-w-[480px] w-full mx-auto">
+              <Image
+                src="/images/ola-biljard-ko.jpg"
+                alt="Ola Wallström vid ett biljardbord"
+                fill
+                sizes="(min-width: 1024px) 480px, 90vw"
+                className="object-cover"
               />
-              <div className="relative rounded-3xl overflow-hidden border border-[color:var(--border-soft)] aspect-[4/5] bg-sand">
-                <Image
-                  src="/images/ola-biljard-ko.jpg"
-                  alt="Ola Wallström med biljardkö – mentor för bolagsägare i segmentet 10-50 Mkr"
-                  fill
-                  sizes="(min-width: 1024px) 520px, 90vw"
-                  className="object-cover"
-                />
-              </div>
             </div>
-            <div>
-              <p className="reveal eyebrow mb-4">Vem håller i det</p>
-              <h2 className="reveal reveal-d1">
-                25 år som serieentreprenör. 650+ coachade bolagsägare.
-              </h2>
-              <p className="reveal reveal-d2 mt-6 text-[1.02rem] text-ink-soft leading-relaxed">
-                Jag är Ola Wallström. Civilekonom, tidigare marknadschef på Affärsvärlden
-                och åtta egna bolag bakom mig. Jag jobbar främst med bolagsägare i
-                segmentet 10-50 Mkr som vill växa vidare utan att offra livet runt omkring.
+            <div className="text-center">
+              <h2 className="reveal">25 år som entreprenör. Fler än 650 coachade bolagsägare.</h2>
+              <p className="reveal reveal-d1 mt-6 text-[1.05rem] text-ink-soft leading-relaxed max-w-lg mx-auto">
+                Jag är Ola Wallström. Civilekonom, tidigare marknadschef på Affärsvärlden och med
+                åtta egna bolag bakom mig. Jag jobbar främst med bolagsägare med bolag mellan 10 och
+                50 miljoner som vill växa vidare utan att offra livet runt omkring.
               </p>
-              <p className="reveal reveal-d3 mt-5 text-[1.02rem] text-ink-soft leading-relaxed">
-                Det jag delar på webinaret är inte en teaser. Det är samma ramverk som
-                mina VIP-klienter jobbar med, förtätat till 60 minuter.
+              <p className="reveal reveal-d2 mt-5 text-[1.05rem] text-ink-soft leading-relaxed max-w-lg mx-auto">
+                Det jag delar på webinaret är ingen teaser. Det är samma ramverk som mina VIP-klienter
+                jobbar med, förtätat till 60 minuter.
               </p>
 
-              <dl className="reveal reveal-d4 mt-8 grid grid-cols-3 gap-6 max-w-md">
-                <div>
-                  <dt className="font-[family-name:var(--font-lora)] font-semibold text-[1.8rem] md:text-[2rem] leading-none text-[color:var(--marin)]">
-                    650+
-                  </dt>
-                  <dd className="mt-2 text-[0.78rem] tracking-wide text-muted uppercase">
-                    Coachade
-                  </dd>
-                </div>
-                <div>
-                  <dt className="font-[family-name:var(--font-lora)] font-semibold text-[1.8rem] md:text-[2rem] leading-none text-[color:var(--marin)]">
-                    25 år
-                  </dt>
-                  <dd className="mt-2 text-[0.78rem] tracking-wide text-muted uppercase">
-                    I rollen
-                  </dd>
-                </div>
-                <div>
-                  <dt className="font-[family-name:var(--font-lora)] font-semibold text-[1.8rem] md:text-[2rem] leading-none text-[color:var(--marin)]">
-                    8
-                  </dt>
-                  <dd className="mt-2 text-[0.78rem] tracking-wide text-muted uppercase">
-                    Egna bolag
-                  </dd>
-                </div>
+              <dl className="reveal reveal-d3 mt-10 flex justify-center gap-10 sm:gap-14">
+                {[
+                  { n: "650+", l: "coachade ägare" },
+                  { n: "25 år", l: "som entreprenör" },
+                  { n: "8", l: "egna bolag" },
+                ].map((st) => (
+                  <div key={st.l} className="flex flex-col-reverse justify-end">
+                    <dt className="mt-2 text-[0.85rem] text-muted">{st.l}</dt>
+                    <dd className="font-[family-name:var(--font-lora)] font-semibold text-[1.9rem] md:text-[2.2rem] leading-none text-[color:var(--marin)]">
+                      {st.n}
+                    </dd>
+                  </div>
+                ))}
               </dl>
             </div>
           </div>
         </div>
       </section>
 
-      <Testimonials tone="sand" />
+      <TestimonialsClean tone="sand" />
 
       <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
-          <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-            <div>
-              <p className="reveal eyebrow mb-4 text-[color:var(--glod)]">Det här är för dig som</p>
-              <ul className="reveal reveal-d1 space-y-3">
+          <div className="grid md:grid-cols-2 gap-5 md:gap-6 max-w-4xl mx-auto">
+            <div className="reveal rounded-3xl bg-white px-7 py-9 md:px-9 text-center shadow-[0_18px_40px_-32px_rgba(23,59,96,0.35)]">
+              <h3 style={{ fontSize: "1.3rem" }}>Det här är för dig som</h3>
+              <ul className="mt-6 mx-auto w-fit flex flex-col gap-3 text-left">
                 {FOR_WHOM.map((p) => (
-                  <li key={p} className="flex gap-3 items-start text-[1rem] text-ink">
-                    <span className="shrink-0 mt-1 h-5 w-5 inline-flex items-center justify-center rounded-full bg-[color:var(--glod-dim)] text-[color:var(--glod)]">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
+                  <li key={p} className="flex items-start gap-3 text-[1rem] text-ink leading-relaxed">
+                    <span className="mt-[0.2rem] shrink-0 h-5 w-5 inline-flex items-center justify-center rounded-full bg-glod-dim text-[color:var(--glod)]">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
                     </span>
-                    {p}
+                    {p.replace(/^Du /, "")}
                   </li>
                 ))}
               </ul>
             </div>
-            <div>
-              <p className="reveal eyebrow mb-4 text-muted">Det här är inte för dig som</p>
-              <ul className="reveal reveal-d2 space-y-3">
+            <div className="reveal reveal-d1 rounded-3xl bg-sand px-7 py-9 md:px-9 text-center">
+              <h3 style={{ fontSize: "1.3rem" }}>Det här är inte för dig som</h3>
+              <ul className="mt-6 mx-auto w-fit flex flex-col gap-3 text-left">
                 {NOT_FOR_WHOM.map((p) => (
-                  <li key={p} className="flex gap-3 items-start text-[1rem] text-ink-soft">
-                    <span className="shrink-0 mt-1 h-5 w-5 inline-flex items-center justify-center rounded-full bg-[color:var(--marin)]/8 text-[color:var(--marin)]/60">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <li key={p} className="flex items-start gap-3 text-[1rem] text-ink-soft leading-relaxed">
+                    <span className="mt-[0.2rem] shrink-0 h-5 w-5 inline-flex items-center justify-center rounded-full bg-[color:var(--marin)]/10 text-[color:var(--marin)]/60">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                         <line x1="6" y1="6" x2="18" y2="18" />
                         <line x1="18" y1="6" x2="6" y2="18" />
                       </svg>
                     </span>
-                    {p}
+                    {p.replace(/^Du /, "")}
                   </li>
                 ))}
               </ul>
@@ -503,27 +432,25 @@ export default function WebinarPage() {
         <div className="container-site">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
-              <p className="reveal eyebrow mb-4">Vanliga frågor</p>
-              <h2 className="reveal reveal-d1">
-                Här är det jag brukar få frågor om innan.
-              </h2>
+              <h2 className="reveal">Här är det jag brukar få frågor om innan.</h2>
             </div>
             <div className="space-y-3">
               {FAQ.map((item, i) => (
                 <details
                   key={item.q}
-                  className={`reveal reveal-d${(i % 4) + 1} group rounded-2xl bg-white border border-[color:var(--border-soft)] overflow-hidden`}
+                  className={`reveal reveal-d${(i % 4) + 1} group rounded-2xl bg-white border border-[color:var(--border-soft)] overflow-hidden open:border-[color:var(--glod)]/40 transition-colors`}
                 >
-                  <summary className="cursor-pointer list-none px-6 py-5 flex items-center justify-between gap-6 text-[1.02rem] font-semibold text-[color:var(--marin)]">
-                    {item.q}
-                    <span className="shrink-0 h-8 w-8 inline-flex items-center justify-center rounded-full bg-[color:var(--glod-dim)] text-[color:var(--glod)] transition-transform group-open:rotate-45">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                  <summary className="cursor-pointer list-none px-6 py-5 flex items-center justify-between gap-4 font-[family-name:var(--font-lora)] font-semibold text-[1.05rem] md:text-[1.1rem] text-[color:var(--marin)]">
+                    <span aria-hidden className="shrink-0 w-8" />
+                    <span className="flex-1 text-center">{item.q}</span>
+                    <span className="shrink-0 h-8 w-8 inline-flex items-center justify-center rounded-full bg-glod-dim text-[color:var(--glod)] transition-transform group-open:rotate-45">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>
                         <line x1="12" y1="5" x2="12" y2="19" />
                         <line x1="5" y1="12" x2="19" y2="12" />
                       </svg>
                     </span>
                   </summary>
-                  <div className="px-6 pb-6 text-[0.98rem] text-ink-soft leading-relaxed">
+                  <div className="px-6 md:px-14 pb-6 text-center text-[0.98rem] text-ink-soft leading-relaxed">
                     {item.a}
                   </div>
                 </details>
@@ -533,37 +460,22 @@ export default function WebinarPage() {
         </div>
       </section>
 
-      <section id="anmal" className="py-[var(--section-y)] sec-marin relative overflow-hidden">
-        <div
-          aria-hidden
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(circle at 20% 20%, rgba(242,106,46,0.2) 0%, transparent 55%), radial-gradient(circle at 80% 80%, rgba(242,106,46,0.12) 0%, transparent 55%)",
-          }}
-        />
-        <div className="container-site relative">
+      <section id="anmal" className="py-[var(--section-y)] sec-marin">
+        <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-10">
-            <div className="reveal inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full bg-[color:var(--glod-dim)] border border-[color:var(--glod)]/30">
-              <span className="h-2 w-2 rounded-full bg-[color:var(--glod)] animate-pulse" />
-              <span className="text-[0.78rem] font-semibold tracking-wide uppercase text-[color:var(--papper)]">
-                Max {SEATS_LIMIT} platser, {EVENT_DATE_LABEL}
-              </span>
-            </div>
-            <h2 className="reveal reveal-d1 text-[color:var(--papper)]">
-              Säkra din plats innan den är tagen.
-            </h2>
-            <p className="reveal reveal-d2 mt-5 text-[1.05rem] text-[color:var(--papper)]/80 leading-relaxed">
-              Fyll i din mejl så får du Zoom-länken och bolagsdiagnosen direkt. Kommer du inte
-              live skickar jag även inspelningen efteråt.
+            <h2 className="reveal text-[color:var(--papper)]">Säkra din plats innan den är tagen.</h2>
+            <p className="reveal reveal-d1 mt-5 text-[1.05rem] text-[color:var(--papper)]/75 leading-relaxed">
+              {EVENT_DATE_LABEL} kl. {EVENT_TIME_LABEL}, max {SEATS_LIMIT} platser. Fyll i namn och
+              e-post så får du Zoom-länken och bolagsdiagnosen direkt. Kan du inte vara med live
+              skickar jag inspelningen efteråt.
             </p>
           </div>
 
-          <div className="reveal reveal-d3 max-w-xl mx-auto">
-            <WebinarForm />
+          <div className="reveal reveal-d2 max-w-xl mx-auto">
+            <WebinarSignupForm dark />
           </div>
 
-          <p className="reveal reveal-d4 mt-6 text-center text-[0.85rem] text-[color:var(--papper)]/60">
+          <p className="reveal reveal-d3 mt-6 text-center text-[0.85rem] text-[color:var(--papper)]/60">
             Inga uppsäljningar under webinaret. Inget köptvång efteråt.
           </p>
         </div>

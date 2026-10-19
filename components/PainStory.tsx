@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 type Props = {
-  eyebrow?: string;
+  eyebrow?: string | null;
   heading: React.ReactNode;
   body: React.ReactNode;
   image?: {
@@ -9,6 +9,7 @@ type Props = {
     alt: string;
   };
   tone?: "sand" | "papper";
+  align?: "left" | "center";
 };
 
 export default function PainStory({
@@ -17,6 +18,7 @@ export default function PainStory({
   body,
   image,
   tone = "sand",
+  align = "left",
 }: Props) {
   const sectionClass = tone === "sand" ? "sec-sand" : "sec-papper";
 
@@ -41,7 +43,7 @@ export default function PainStory({
               </div>
             </div>
             <div className="order-1 lg:order-2">
-              <p className="reveal eyebrow mb-5">{eyebrow}</p>
+              {eyebrow && <p className="reveal eyebrow mb-5">{eyebrow}</p>}
               <h2 className="reveal reveal-d1">{heading}</h2>
               <div className="reveal reveal-d2 mt-6 space-y-5 text-[1.05rem] text-ink-soft leading-relaxed">
                 {body}
@@ -49,8 +51,8 @@ export default function PainStory({
             </div>
           </div>
         ) : (
-          <div className="max-w-3xl mx-auto">
-            <p className="reveal eyebrow mb-5">{eyebrow}</p>
+          <div className={`max-w-3xl mx-auto ${align === "center" ? "text-center" : ""}`}>
+            {eyebrow && <p className="reveal eyebrow mb-5">{eyebrow}</p>}
             <h2 className="reveal reveal-d1">{heading}</h2>
             <div className="reveal reveal-d2 mt-6 space-y-5 text-[1.05rem] md:text-[1.1rem] text-ink-soft leading-relaxed">
               {body}

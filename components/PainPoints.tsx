@@ -1,45 +1,35 @@
 const POINTS = [
-  "Du blir flaskhalsen i nästan varje viktigt beslut.",
-  "Teamet väntar på dig istället för att ta egna initiativ.",
-  "Du jobbar mer men bolaget rör sig ändå inte snabbare.",
-  "Du kan vara ledig fysiskt, men aldrig mentalt.",
-  "Bolaget växer. Och ditt beroende av bolaget också.",
+  "Nästan varje viktigt beslut går fortfarande via mig.",
+  "Teamet väntar på mig i stället för att ta egna initiativ.",
+  "Jag jobbar mer än någonsin, men bolaget rör sig inte snabbare.",
+  "Jag kan vara ledig fysiskt, men aldrig mentalt.",
+  "Bolaget växer, men det är fortfarande lika beroende av mig.",
 ];
 
 export default function PainPoints() {
   return (
-    <section className="py-[var(--section-y)] sec-marin relative overflow-hidden">
-      <div
-        aria-hidden
-        className="absolute -top-40 -right-40 w-[560px] h-[560px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(242,106,46,0.22) 0%, transparent 65%)" }}
-      />
-      <div
-        aria-hidden
-        className="absolute -bottom-32 -left-32 w-[420px] h-[420px] rounded-full pointer-events-none opacity-60"
-        style={{ background: "radial-gradient(circle, rgba(220,232,243,0.08) 0%, transparent 65%)" }}
-      />
-
-      <div className="container-site relative">
+    <section className="py-[var(--section-y)] sec-marin">
+      <div className="container-site">
         <div className="max-w-3xl mx-auto text-center mb-14">
-          <h2 className="reveal reveal-d1">
+          <h2 className="reveal">
             Du leder ett miljonbolag <em>på samma sätt som när du startade.</em>
           </h2>
-          <p className="reveal reveal-d2 mt-6 text-[color:var(--papper)]/75 text-[1.1rem]">
-            Då är problemet inte att du behöver jobba hårdare.
+          <p className="reveal reveal-d1 mt-6 text-[color:var(--papper)]/75 text-[1.05rem] md:text-[1.15rem] leading-relaxed">
+            Då är problemet inte att du behöver jobba hårdare. Känner du igen någon av de här
+            tankarna?
           </p>
         </div>
 
-        <ul className="max-w-2xl mx-auto space-y-3">
+        <ul className="mx-auto max-w-4xl flex flex-wrap justify-center gap-4 md:gap-5">
           {POINTS.map((p, i) => (
             <li
               key={p}
-              className={`reveal reveal-d${(i % 5) + 1} flex gap-4 items-start rounded-xl bg-white/[0.04] ring-1 ring-white/10 px-6 py-5`}
+              className={`reveal reveal-d${(i % 5) + 1} w-full md:w-[calc(50%-0.625rem)] flex flex-col items-center justify-center text-center rounded-2xl bg-white/[0.06] ring-1 ring-white/12 px-8 py-10 md:px-11`}
             >
-              <span className="shrink-0 mt-0.5 h-7 w-7 inline-flex items-center justify-center rounded-full bg-[color:var(--glod)]/20 text-[color:var(--glod)] font-bold text-sm">
-                !
+              <span aria-hidden className="font-[family-name:var(--font-lora)] text-[3.2rem] leading-[0.55] text-[color:var(--glod)]">
+                &ldquo;
               </span>
-              <p className="text-[1rem] md:text-[1.05rem] text-[color:var(--papper)]/90 leading-relaxed">
+              <p className="mt-5 font-[family-name:var(--font-lora)] italic text-[1.18rem] md:text-[1.3rem] leading-relaxed text-[color:var(--papper)]/90">
                 {p}
               </p>
             </li>
@@ -47,12 +37,9 @@ export default function PainPoints() {
         </ul>
 
         <div className="mt-14 text-center">
-          <p className="reveal reveal-d2 text-[1.1rem] md:text-[1.2rem] text-[color:var(--papper)]/90 max-w-2xl mx-auto">
+          <p className="reveal reveal-d2 font-[family-name:var(--font-lora)] text-[1.35rem] md:text-[1.6rem] leading-snug text-[color:var(--papper)] max-w-2xl mx-auto">
             Problemet är att bolaget fortfarande är{" "}
-            <strong className="font-[family-name:var(--font-lora)] italic font-semibold text-[color:var(--glod)]">
-              byggt runt dig
-            </strong>
-            .
+            <em className="text-[color:var(--glod)]">byggt runt dig</em>.
           </p>
           <div className="reveal reveal-d3 mt-10">
             <a
@@ -61,7 +48,7 @@ export default function PainPoints() {
               rel="noopener noreferrer"
               className="btn-primary"
             >
-              Boka ett samtal
+              Boka ett samtal med mig
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="13 6 19 12 13 18" />

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type Props = {
   eyebrow?: string;
   heading: React.ReactNode;
@@ -7,6 +9,12 @@ type Props = {
   ctaLabel?: string;
   ctaHref?: string;
   tone?: "marin" | "sand";
+  /** Stack icon above text and center each item. */
+  centered?: boolean;
+  /** No glows; points as a simple divided list without boxes or icons. */
+  plain?: boolean;
+  /** Photo behind the section, under a marin overlay (dark tone). */
+  image?: { src: string; alt: string };
 };
 
 export default function SharedPainPoints({
@@ -18,6 +26,9 @@ export default function SharedPainPoints({
   ctaLabel = "Boka ett samtal",
   ctaHref = "https://calendly.com/olawallstrom/30min",
   tone = "marin",
+  centered = false,
+  plain = false,
+  image,
 }: Props) {
   const dark = tone === "marin";
   const sectionClass = dark ? "sec-marin" : "sec-sand";
@@ -31,7 +42,28 @@ export default function SharedPainPoints({
 
   return (
     <section className={`py-[var(--section-y)] ${sectionClass} relative overflow-hidden`}>
-      {dark && (
+      {image && (
+        <>
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            quality={85}
+            sizes="(min-width: 1024px) 100vw, 200vw"
+            className="object-cover object-[50%_45%]"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(23,59,96,0.9) 0%, rgba(23,59,96,0.6) 50%, rgba(23,59,96,0.88) 100%)",
+            }}
+          />
+        </>
+      )}
+
+      {dark && !plain && !image && (
         <>
           <div
             aria-hidden
@@ -59,29 +91,57 @@ export default function SharedPainPoints({
           )}
         </div>
 
-        <ul className={`mx-auto grid gap-4 ${dark ? "max-w-2xl" : "max-w-4xl md:grid-cols-2 md:gap-5"}`}>
-          {points.map((p, i) => (
-            <li
-              key={p}
-              className={`reveal reveal-d${(i % 5) + 1} flex gap-4 items-start rounded-2xl ${itemBg} px-6 py-5 md:px-7 md:py-6`}
-            >
-              <span className={`shrink-0 mt-0.5 h-8 w-8 inline-flex items-center justify-center rounded-full ${dark ? "bg-[color:var(--glod)]/20 text-[color:var(--glod)]" : "bg-[color:var(--glod-dim)] text-[color:var(--glod)]"}`}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" y1="8" x2="12" y2="12" />
-                  <line x1="12" y1="16" x2="12.01" y2="16" />
-                </svg>
-              </span>
-              <p className={`text-[1rem] md:text-[1.05rem] leading-relaxed ${itemText}`}>
-                {p}
-              </p>
-            </li>
-          ))}
-        </ul>
+        {plain ? (
+          <ul className="mx-auto max-w-4xl grid gap-4 md:gap-5 md:grid-cols-2">
+            {points.map((p, i) => (
+              <li
+                key={p}
+                className={`reveal reveal-d${(i % 5) + 1} flex flex-col items-center justify-center text-center rounded-2xl px-8 py-10 md:px-11 md:py-12 ${
+                  dark
+                    ? "bg-white/[0.06] ring-1 ring-white/12 backdrop-blur-sm"
+                    : "bg-white ring-1 ring-[color:var(--border-soft)]"
+                }`}
+              >
+                <span aria-hidden className="font-[family-name:var(--font-lora)] text-[3.2rem] leading-[0.55] text-[color:var(--glod)]">
+                  &ldquo;
+                </span>
+                <p
+                  className={`mt-5 font-[family-name:var(--font-lora)] italic text-[1.18rem] md:text-[1.35rem] leading-relaxed ${itemText}`}
+                >
+                  {p}
+                </p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <ul className={`mx-auto grid gap-4 ${dark ? "max-w-2xl" : "max-w-4xl md:grid-cols-2 md:gap-5"}`}>
+            {points.map((p, i) => (
+              <li
+                key={p}
+                className={`reveal reveal-d${(i % 5) + 1} flex gap-4 rounded-2xl ${itemBg} px-6 py-5 md:px-7 md:py-6 ${centered ? "flex-col items-center text-center gap-3" : "items-start"}`}
+              >
+                <span className={`shrink-0 mt-0.5 h-8 w-8 inline-flex items-center justify-center rounded-full ${dark ? "bg-[color:var(--glod)]/20 text-[color:var(--glod)]" : "bg-[color:var(--glod-dim)] text-[color:var(--glod)]"}`}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                  </svg>
+                </span>
+                <p className={`text-[1rem] md:text-[1.05rem] leading-relaxed ${itemText}`}>
+                  {p}
+                </p>
+              </li>
+            ))}
+          </ul>
+        )}
 
         {closer && (
           <div className="mt-14 text-center">
-            <p className={`reveal reveal-d2 text-[1.1rem] md:text-[1.2rem] max-w-2xl mx-auto ${closerColor}`}>
+            <p
+              className={`reveal reveal-d2 max-w-2xl mx-auto ${closerColor} ${
+                plain ? "font-[family-name:var(--font-lora)] text-[1.35rem] md:text-[1.6rem] leading-snug" : "text-[1.1rem] md:text-[1.2rem]"
+              }`}
+            >
               {closer}
             </p>
             <div className="reveal reveal-d3 mt-10">

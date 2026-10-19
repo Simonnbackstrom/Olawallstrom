@@ -31,6 +31,25 @@ const MARKERS: Marker[] = [
   { angle: 350, type: "session" },
 ];
 
+const LEGEND = [
+  {
+    title: "19 Boardroom sessions",
+    body: "Digitala träffar på ungefär en timme. Här tar vi upp frågor, utmaningar och beslut tillsammans med de andra ägarna.",
+    marker: <span className="h-2 w-2 rounded-full bg-[color:var(--marin)]" />,
+  },
+  {
+    title: "4 kvartalsavstamp",
+    body: "Ett frågebatteri och två timmars digital fördjupning.",
+    dates: "12 jan, 6 apr, 29 jun, 28 sep",
+    marker: <span className="h-3 w-3 rounded-full border-2 border-[color:var(--glod)]" />,
+  },
+  {
+    title: "4 workshopdagar",
+    body: "21 jan Mental klarhet, 15 apr Stjärnledarskap, 7-8 okt Affärsutveckling och Säljstrategi.",
+    marker: <span className="h-2.5 w-2.5 bg-[color:var(--olabla)] rotate-45" />,
+  },
+];
+
 const polar = (angle: number, radius: number) => {
   const rad = ((angle - 90) * Math.PI) / 180;
   return { x: 200 + radius * Math.cos(rad), y: 200 + radius * Math.sin(rad) };
@@ -49,7 +68,7 @@ export default function BoardroomWheel() {
           {/* Wheel */}
           <div className="reveal relative mx-auto w-full max-w-[520px]">
             <svg
-              viewBox="0 0 400 400"
+              viewBox="-28 -28 456 456"
               className="w-full h-auto"
               role="img"
               aria-label="Årshjul 2027 med fyra kvartalsteman"
@@ -60,21 +79,29 @@ export default function BoardroomWheel() {
               <path
                 d={`M 200 200 L ${200} ${200 - quadrantR} A ${quadrantR} ${quadrantR} 0 0 1 ${200 + quadrantR} 200 Z`}
                 fill="#173B60"
+                stroke="#F7F3EC"
+                strokeWidth="4"
               />
               {/* Q2 Stjärnledarskap - Olablå */}
               <path
                 d={`M 200 200 L ${200 + quadrantR} 200 A ${quadrantR} ${quadrantR} 0 0 1 200 ${200 + quadrantR} Z`}
                 fill="#2A62A0"
+                stroke="#F7F3EC"
+                strokeWidth="4"
               />
               {/* Q3 Autentisk affärsutveckling - Glöd */}
               <path
                 d={`M 200 200 L 200 ${200 + quadrantR} A ${quadrantR} ${quadrantR} 0 0 1 ${200 - quadrantR} 200 Z`}
                 fill="#F26A2E"
+                stroke="#F7F3EC"
+                strokeWidth="4"
               />
               {/* Q4 Smart säljstrategi - Sand */}
               <path
                 d={`M 200 200 L ${200 - quadrantR} 200 A ${quadrantR} ${quadrantR} 0 0 1 200 ${200 - quadrantR} Z`}
                 fill="#EDE4D6"
+                stroke="#F7F3EC"
+                strokeWidth="4"
               />
 
               <g fontFamily="var(--font-lora), serif" fontWeight="600" textAnchor="middle">
@@ -93,7 +120,7 @@ export default function BoardroomWheel() {
                 <text x="125" y="143" fill="#173B60" fontSize="10" fontWeight="400" opacity="0.7" fontStyle="italic">Q4 (okt-dec)</text>
               </g>
 
-              <circle cx="200" cy="200" r={centerR} fill="#F7F3EC" stroke="var(--border-soft)" strokeWidth="1" />
+              <circle cx="200" cy="200" r={centerR} fill="#F7F3EC" />
               <text
                 x="200"
                 y="195"
@@ -169,67 +196,54 @@ export default function BoardroomWheel() {
             </svg>
           </div>
 
-          <div>
-            <p className="reveal eyebrow mb-5">Årshjul 2027</p>
-            <h2 className="reveal reveal-d1">
+          <div className="text-center">
+            <h2 className="reveal">
               Ett år. <em>Fyra teman.</em>
             </h2>
-            <p className="reveal reveal-d2 mt-6 text-[1.05rem] text-ink-soft leading-relaxed max-w-md">
-              Tolv månader för dig som VD eller ägare, i ett litet rum av erfarna ägare,
-              med personligt stöd hela vägen.
+            <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.1rem] text-ink-soft leading-relaxed max-w-md mx-auto">
+              Tolv månader i ett litet rum av erfarna ägare, med mig vid din sida hela vägen.
             </p>
 
-            <ul className="reveal reveal-d3 mt-10 space-y-6">
-              <li className="flex gap-4 items-start">
-                <span className="shrink-0 mt-2 h-2.5 w-2.5 rounded-full bg-[color:var(--marin)]" />
-                <div>
-                  <div className="font-[family-name:var(--font-raleway)] font-bold text-[1rem] text-[color:var(--marin)]">
-                    19 Boardroom sessions
+            <ul className="reveal reveal-d2 mt-10 rounded-3xl bg-white border border-[color:var(--border-soft)] divide-y divide-[color:var(--border-soft)] text-center">
+              {LEGEND.map((l) => (
+                <li key={l.title} className="px-6 py-6 md:px-8">
+                  <div className="inline-flex items-center gap-3 font-semibold text-[1.02rem] text-[color:var(--marin)]">
+                    <span aria-hidden className="h-7 w-7 inline-flex items-center justify-center rounded-full bg-[color:var(--sand)]">
+                      {l.marker}
+                    </span>
+                    {l.title}
                   </div>
-                  <p className="text-[0.95rem] text-ink-soft leading-relaxed mt-1">
-                    Digitala träffar à ca en timme. Lyft frågor, utmaningar och beslut med andra erfarna ägare.
+                  <p className="mt-2 text-[0.96rem] text-ink-soft leading-relaxed max-w-sm mx-auto">
+                    {l.body}
+                    {l.dates && <span className="block mt-1 text-[0.86rem] text-muted">{l.dates}</span>}
                   </p>
-                </div>
-              </li>
-              <li className="flex gap-4 items-start">
-                <span className="shrink-0 mt-2 h-3 w-3 rounded-full border-2 border-[color:var(--glod)]" />
-                <div>
-                  <div className="font-[family-name:var(--font-raleway)] font-bold text-[1rem] text-[color:var(--marin)]">
-                    4 kvartalsavstamp
-                  </div>
-                  <p className="text-[0.95rem] text-ink-soft leading-relaxed mt-1">
-                    Frågebatteri + två timmars digital fördjupning.{" "}
-                    <span className="text-muted">12 jan, 6 apr, 29 jun, 28 sep</span>
-                  </p>
-                </div>
-              </li>
-              <li className="flex gap-4 items-start">
-                <span className="shrink-0 mt-2 h-3 w-3 bg-[color:var(--olabla)] rotate-45" />
-                <div>
-                  <div className="font-[family-name:var(--font-raleway)] font-bold text-[1rem] text-[color:var(--marin)]">
-                    4 workshopdagar
-                  </div>
-                  <p className="text-[0.95rem] text-ink-soft leading-relaxed mt-1">
-                    21 jan Mental klarhet, 15 apr Stjärnledarskap, 7-8 okt Affärsutveckling + Säljstrategi
-                  </p>
-                </div>
-              </li>
+                </li>
+              ))}
             </ul>
 
-            <div className="reveal reveal-d4 mt-10 pt-6 border-t border-[color:var(--border-soft)]">
-              <p className="eyebrow-upper mb-4">Personligt för dig</p>
-              <ul className="space-y-2 text-[0.95rem] text-ink-soft">
-                <li>Startworkshop 4 tim i Stockholm</li>
-                <li>3 coachingsamtal à 45 min</li>
-                <li>Signal-kanal med Ola och de andra ägarna, löpande</li>
+            <div className="reveal reveal-d3 mt-10">
+              <h3 style={{ fontSize: "1.25rem" }}>Personligt för dig</h3>
+              <ul className="mt-3 space-y-1.5 text-[0.98rem] text-ink-soft">
+                <li>En startworkshop på 4 timmar i Stockholm</li>
+                <li>3 coachingsamtal på 45 minuter, bara du och jag</li>
+                <li>En Signal-kanal med mig och de andra ägarna, hela året</li>
               </ul>
             </div>
 
-            <div className="reveal reveal-d5 mt-10 flex items-baseline gap-3">
-              <span className="font-[family-name:var(--font-lora)] font-semibold text-[2.4rem] md:text-[2.8rem] text-[color:var(--marin)] leading-none">
-                195 000 kr
-              </span>
-              <span className="text-[0.85rem] text-muted">max 15 deltagare</span>
+            <div className="reveal reveal-d4 mt-10 flex flex-col items-center gap-3">
+              <a
+                href="https://calendly.com/olawallstrom/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
+                Boka ett samtal med mig
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="13 6 19 12 13 18" />
+                </svg>
+              </a>
+              <span className="text-[0.88rem] text-muted">Max 15 deltagare. 30 minuter, kostnadsfritt.</span>
             </div>
           </div>
         </div>

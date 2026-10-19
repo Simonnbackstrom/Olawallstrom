@@ -1,7 +1,7 @@
 type Item = { q: string; a: React.ReactNode };
 
 type Props = {
-  eyebrow?: string;
+  eyebrow?: string | null;
   heading: React.ReactNode;
   intro?: string;
   items: Item[];
@@ -9,6 +9,10 @@ type Props = {
   ctaLabel?: string;
   ctaHref?: string;
   ctaSub?: string;
+  /** Center question and answer text inside each item. */
+  centered?: boolean;
+  /** Leave out the booking button under the list (when a CTA section follows directly). */
+  hideCta?: boolean;
 };
 
 export default function PageFAQ({
@@ -20,6 +24,8 @@ export default function PageFAQ({
   ctaLabel = "Boka 30 min med Ola",
   ctaHref = "https://calendly.com/olawallstrom/30min",
   ctaSub = "Kostnadsfritt. Inget säljtryck.",
+  centered = false,
+  hideCta = false,
 }: Props) {
   const sectionClass = tone === "sand" ? "sec-sand" : "sec-papper";
 
@@ -28,7 +34,7 @@ export default function PageFAQ({
       <div className="container-site">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-14">
-            <p className="reveal eyebrow mb-5 justify-center">{eyebrow}</p>
+            {eyebrow && <p className="reveal eyebrow mb-5 justify-center">{eyebrow}</p>}
             <h2 className="reveal reveal-d1">{heading}</h2>
             {intro && (
               <p className="reveal reveal-d2 mt-6 text-[1rem] text-ink-soft leading-relaxed">
@@ -42,7 +48,8 @@ export default function PageFAQ({
               <li key={item.q} className={`reveal reveal-d${(i % 4) + 1}`}>
                 <details className="group rounded-2xl bg-white border border-[color:var(--border-soft)] open:border-[color:var(--glod)]/40 transition-colors">
                   <summary className="list-none cursor-pointer px-6 py-5 flex items-center justify-between gap-4">
-                    <span className="font-[family-name:var(--font-lora)] font-semibold text-[1.05rem] md:text-[1.1rem] text-[color:var(--marin)] leading-snug">
+                    {centered && <span aria-hidden className="shrink-0 w-8" />}
+                    <span className={`font-[family-name:var(--font-lora)] font-semibold text-[1.05rem] md:text-[1.1rem] text-[color:var(--marin)] leading-snug${centered ? " flex-1 text-center" : ""}`}>
                       {item.q}
                     </span>
                     <span className="shrink-0 h-8 w-8 inline-flex items-center justify-center rounded-full bg-[color:var(--glod-dim)] text-[color:var(--glod)] transition-transform group-open:rotate-45">
@@ -52,7 +59,7 @@ export default function PageFAQ({
                       </svg>
                     </span>
                   </summary>
-                  <div className="px-6 pb-6 pt-0 text-[0.98rem] text-ink-soft leading-relaxed">
+                  <div className={`px-6 pb-6 pt-0 text-[0.98rem] text-ink-soft leading-relaxed ${centered ? "text-center md:px-14" : ""}`}>
                     {item.a}
                   </div>
                 </details>
@@ -60,6 +67,7 @@ export default function PageFAQ({
             ))}
           </ul>
 
+          {!hideCta && (
           <div className="mt-12 text-center">
             <a
               href={ctaHref}
@@ -77,6 +85,7 @@ export default function PageFAQ({
               <p className="mt-4 text-[0.85rem] text-muted">{ctaSub}</p>
             )}
           </div>
+          )}
         </div>
       </div>
     </section>

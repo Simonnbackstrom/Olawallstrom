@@ -33,20 +33,20 @@ export default function ResultsGrid({
   heading = "Sex månader från nu känner du skillnaden i vardagen.",
 }: Props) {
   return (
-    <section className="py-[var(--section-y)] sec-papper">
+    <section className="py-[var(--section-y)] sec-sand">
       <div className="container-site">
         <div className="max-w-3xl mx-auto text-center mb-14 md:mb-16">
-          <h2 className="reveal reveal-d1">{heading}</h2>
+          <h2 className="reveal">{heading}</h2>
         </div>
 
         <div className="grid gap-5 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {RESULTS.map((r, i) => (
             <article
               key={r.title}
-              className={`reveal reveal-d${(i % 5) + 1} rounded-2xl p-7 md:p-8 bg-white border border-[color:var(--border-soft)] transition-all hover:-translate-y-1 hover:border-[color:var(--glod)]`}
+              className={`reveal reveal-d${(i % 5) + 1} rounded-2xl px-7 py-9 md:px-8 bg-white text-center shadow-[0_18px_44px_-34px_rgba(23,59,96,0.4)]`}
             >
-              <div className="h-[3px] w-10 rounded-full bg-[color:var(--glod)] mb-6" />
-              <h3 className="text-[1.15rem] md:text-[1.25rem] leading-tight mb-3">
+              <div className="mx-auto h-[3px] w-10 rounded-full bg-[color:var(--glod)] mb-6" />
+              <h3 className="leading-tight mb-3" style={{ fontSize: "clamp(1.15rem, 1.7vw, 1.25rem)" }}>
                 {r.title}
               </h3>
               <p className="text-[0.98rem] text-ink-soft leading-relaxed">{r.body}</p>

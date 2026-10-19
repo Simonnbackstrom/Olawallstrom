@@ -5,8 +5,6 @@ import PageHero from "@/components/PageHero";
 import CoreValues from "@/components/CoreValues";
 import StatsBand from "@/components/StatsBand";
 import PainStory from "@/components/PainStory";
-import Testimonials from "@/components/Testimonials";
-import MiniCtaBand from "@/components/MiniCtaBand";
 import CtaBand from "@/components/CtaBand";
 import JsonLd from "@/components/JsonLd";
 
@@ -21,7 +19,7 @@ const personSchema = {
   description:
     "Civilekonom, tidigare marknadschef på Affärsvärlden, serieentreprenör med åtta egna bolag och mentor för 650+ bolagsägare under 25 år.",
   url: `${SITE_URL}/om-ola`,
-  image: `${SITE_URL}/images/ola-portrait.jpg`,
+  image: `${SITE_URL}/images/ola-portratt.jpg`,
   alumniOf: {
     "@type": "Organization",
     name: "Affärsvärlden",
@@ -59,11 +57,10 @@ export const metadata: Metadata = {
 };
 
 const CRED = [
-  "Civilekonom och tidigare marknadschef på Affärsvärlden",
-  "Serieentreprenör, byggt och drivit åtta egna bolag",
-  "Coachat 650+ bolagsägare under 25 år",
+  "Civilekonom, tidigare marknadschef på Affärsvärlden",
+  "Har byggt och drivit åtta egna bolag",
+  "Har coachat fler än 650 bolagsägare under 25 år",
   "Medlem i flera svenska entreprenörsnätverk",
-  "Tar emot ett begränsat antal mentorsklienter per år",
 ];
 
 export default function OmOlaPage() {
@@ -71,13 +68,13 @@ export default function OmOlaPage() {
     <>
       <JsonLd id="om-ola-schema" data={[personSchema, breadcrumbSchema]} />
       <PageHero
-        eyebrow="Om Ola"
+        align="center"
         title={
           <>
-            25 års lärdomar, <em>i åtta egna bolag</em> och vid sidan av 650+ bolagsägare.
+            Hej, jag är Ola. Jag har stått <em>där du står</em>.
           </>
         }
-        intro="Jag har själv suttit på andra sidan bordet. Jag vet hur det känns när allt landar på dig, hur ensamt det kan bli högst upp, och vad som faktiskt flyttar bolaget framåt."
+        intro="Jag har byggt egna bolag, gjort de flesta misstagen och suttit med fler än 650 bolagsägare. Jag vet hur det känns när allt landar på dig, och hur ensamt det kan bli högst upp. Men jag vet också att ditt bolag kan växa utan att du blir någon annan."
       />
 
       <section className="py-[var(--section-y)] sec-papper">
@@ -94,54 +91,51 @@ export default function OmOlaPage() {
                   src="/images/ola-hamn.jpg"
                   alt="Ola Wallström vid hamnen"
                   fill
-                  sizes="(min-width: 1024px) 560px, 90vw"
+                  quality={85}
+                  sizes="(min-width: 1024px) 1040px, 170vw"
                   className="object-cover"
                   priority
                 />
               </div>
-              <figcaption className="mt-5 text-[0.9rem] text-muted font-[family-name:var(--font-lora)] italic">
-                Ola Wallström, mentor och serieentreprenör
-              </figcaption>
             </div>
 
-            <div>
-              <p className="reveal text-[1.1rem] md:text-[1.15rem] text-ink leading-relaxed">
-                Jag är civilekonom i grunden och började min karriär som marknadschef på
-                Affärsvärlden. Där såg jag varje vecka hur svenska entreprenörer gick igenom samma
-                mönster: de växte, stötte i taket av sig själva, och visste inte varför det
-                stannade upp.
+            <div className="text-center">
+              <h2 className="reveal text-[clamp(1.9rem,3.4vw,2.6rem)]">Min väg hit.</h2>
+              <p className="reveal reveal-d1 mt-6 text-[1.1rem] md:text-[1.15rem] text-ink leading-relaxed">
+                Jag är civilekonom och började som marknadschef på Affärsvärlden. Där träffade jag
+                entreprenörer varje vecka, och jag såg samma sak gång på gång. Bolaget växte, och
+                sedan stannade det. Inte för att marknaden tog slut, utan för att allt fortfarande
+                gick genom ägaren.
               </p>
-              <p className="reveal reveal-d1 mt-5 text-[1.02rem] text-ink-soft leading-relaxed">
-                Själv blev jag entreprenör och har sedan dess varit involverad i åtta bolag i olika
-                branscher. Jag har gjort nästan varje misstag som finns att göra: anställt fel folk,
-                skalat för tidigt, byggt system som bara jag förstod, kört slut på mig själv i
-                jakten på nästa miljon. Den resan tar jag med mig in i varje mentorrelation.
+              <p className="reveal reveal-d1 mt-5 text-[1.05rem] text-ink-soft leading-relaxed">
+                Sedan blev jag själv entreprenör. Jag har byggt och varit med i åtta bolag i olika
+                branscher, och jag har gjort de flesta misstagen själv. Anställt fel. Skalat för
+                tidigt. Byggt system som bara jag förstod. Kört slut på mig själv i jakten på nästa
+                miljon.
               </p>
-              <p className="reveal reveal-d2 mt-5 text-[1.02rem] text-ink-soft leading-relaxed">
-                Under 25 år har jag coachat över 650 bolagsägare, de flesta i segmentet 10-50 Mkr.
-                Där står det tydligt varför vissa fastnar och andra passerar lätt genom den där
-                tröskeln.
-              </p>
-
-              <h3 className="reveal reveal-d3 mt-12">VIP-coaching: autentisk affärsutveckling</h3>
-              <p className="reveal reveal-d3 mt-4 text-[1rem] text-ink-soft leading-relaxed">
-                Fyra principer: <strong className="font-[family-name:var(--font-lora)] italic font-semibold text-[color:var(--marin)]">Äkta, Klarhet, Genomförande, Frihet</strong>.
-                De bygger på vad jag själv testat i mina bolag och sett fungera för klienter i helt
-                olika branscher. Enkelt att beskriva, svårt att göra. Där kommer jag in.
+              <p className="reveal reveal-d2 mt-5 text-[1.05rem] text-ink-soft leading-relaxed">
+                I 25 år har jag nu coachat fler än 650 bolagsägare, de flesta med bolag mellan 10
+                och 50 miljoner. Jag vet varför vissa fastnar där och andra tar sig vidare. Oftast
+                handlar det mindre om strategi och mer om vad du som ägare är beredd att släppa.
               </p>
 
-              <h3 className="reveal reveal-d4 mt-10">Så arbetar jag</h3>
-              <p className="reveal reveal-d4 mt-4 text-[1rem] text-ink-soft leading-relaxed">
-                Jag tar emot ett begränsat antal mentorsklienter per år. Det gör att varje samarbete
-                håller den kvaliteten jag vill stå för. Vi börjar alltid med en bolagsdiagnos, sedan
-                lägger vi en tydlig plan, och jag finns med dig både i de planerade samtalen och
-                när något oväntat uppstår.
+              <h3 className="reveal reveal-d3 mt-12">Så jobbar jag med dig</h3>
+              <p className="reveal reveal-d3 mt-4 text-[1.05rem] text-ink-soft leading-relaxed">
+                Jag säger som det är, även när det är obekvämt. Jag gör det krångliga enkelt, så
+                att vi båda ser vad som är viktigast. Och eftersom en bra plan inte räcker följer
+                jag upp tills sakerna faktiskt är gjorda.
+              </p>
+              <p className="reveal reveal-d4 mt-4 text-[1.05rem] text-ink-soft leading-relaxed">
+                Jag tar bara emot ett fåtal klienter per år, så att jag kan vara närvarande på
+                riktigt. Vi börjar med att titta på var ditt bolag står i dag och gör sedan en
+                tydlig plan. Jag finns med både i de planerade samtalen och när något oväntat
+                händer.
               </p>
 
-              <ul className="reveal reveal-d5 mt-10 space-y-3">
+              <ul className="reveal reveal-d5 mt-10 mx-auto w-fit flex flex-col gap-3 text-left">
                 {CRED.map((c) => (
-                  <li key={c} className="flex items-start gap-3 text-[1rem] text-ink">
-                    <span className="shrink-0 mt-1 h-5 w-5 inline-flex items-center justify-center rounded-full bg-[color:var(--glod-dim)] text-[color:var(--glod)]">
+                  <li key={c} className="flex items-start gap-3 text-[1rem] text-ink leading-relaxed">
+                    <span className="mt-[0.2rem] shrink-0 h-5 w-5 inline-flex items-center justify-center rounded-full bg-glod-dim text-[color:var(--glod)]">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
@@ -151,14 +145,14 @@ export default function OmOlaPage() {
                 ))}
               </ul>
 
-              <div className="reveal reveal-d5 mt-10 flex flex-wrap gap-3">
+              <div className="reveal reveal-d5 mt-10 flex flex-wrap justify-center gap-3">
                 <a
                   href="https://calendly.com/olawallstrom/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary"
                 >
-                  Boka ett samtal
+                  Boka ett samtal med mig
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="13 6 19 12 13 18" />
@@ -175,7 +169,8 @@ export default function OmOlaPage() {
 
       <PainStory
         tone="sand"
-        eyebrow="Jag har själv suttit på andra sidan bordet"
+        eyebrow={null}
+        align="center"
         heading={
           <>
             Jag vet hur det känns när <em>allt landar på dig</em>.
@@ -184,19 +179,19 @@ export default function OmOlaPage() {
         body={
           <>
             <p>
-              Det har hänt mig flera gånger i mina egna bolag. Teamet växte, strukturen släpade,
-              och plötsligt var jag flaskhalsen i varje beslut. Jag jobbade kvällar och helger och
-              fortfarande var det jag som var skillnaden mellan att något blev gjort eller inte.
+              Jag har själv varit där, flera gånger. Teamet växte, strukturen hängde inte med och
+              plötsligt var jag flaskhalsen i varje beslut. Jag jobbade kvällar och helger, och
+              ändå var det fortfarande jag som avgjorde om något blev gjort eller inte.
             </p>
             <p>
-              Problemet var inte teamet. Problemet var att jag inte hade släppt taget om saker som
-              borde ha legat någon annanstans. Varje gång jag försökte delegera så blev det ofta
-              sämre först, och då tog jag tillbaka. Och så var jag tillbaka i samma mönster.
+              Problemet var inte teamet. Problemet var att jag inte hade släppt saker som borde ha
+              legat hos någon annan. När jag väl delegerade blev det ofta sämre först, så jag tog
+              tillbaka det. Och så var jag där igen.
             </p>
             <p>
-              Den resan tar jag med mig in i varje mentorrelation. Det är därför jag inte talar om
-              för dig vad du ska göra, utan hjälper dig att se vad som faktiskt händer, och vad du
-              måste släppa för att komma vidare.
+              Därför kommer jag inte att tala om för dig vad du ska göra. Jag hjälper dig att se
+              klart vad som faktiskt händer i ditt bolag och vad du behöver släppa för att komma
+              vidare. Sedan finns jag med tills det är gjort.
             </p>
           </>
         }
@@ -205,48 +200,38 @@ export default function OmOlaPage() {
       <CoreValues />
       <StatsBand tone="himmel" />
 
-      <Testimonials tone="sand" />
-
-      <MiniCtaBand
-        headline="Vill du prata med mig direkt?"
-        subline="30 min på Zoom, kostnadsfritt. Du behöver inte ha allt klart för dig, det är därför vi pratar."
-        ctaLabel="Boka 30 min med Ola"
-        tone="marin"
-      />
-
       <section className="py-[var(--section-y)] sec-sand">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-14">
-            <p className="reveal eyebrow mb-4 justify-center">Två sätt att jobba med mig</p>
-            <h2 className="reveal reveal-d1">Program eller 1:1. Du väljer.</h2>
+            <h2 className="reveal">Två sätt att jobba med mig.</h2>
+            <p className="reveal reveal-d1 mt-5 text-[1.05rem] md:text-[1.15rem] text-ink-soft leading-relaxed">
+              Tillsammans med andra ägare runt samma bord, eller bara du och jag.
+            </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
+          <div className="grid gap-6 md:gap-8 md:grid-cols-2 max-w-5xl mx-auto">
             <Link
               href="/boardroom"
-              className="reveal reveal-d2 group relative overflow-hidden rounded-3xl sec-marin p-8 md:p-10 flex flex-col"
+              className="reveal reveal-d2 group flex flex-col overflow-hidden rounded-3xl bg-white border border-[color:var(--border-soft)] text-center shadow-[0_18px_44px_-34px_rgba(23,59,96,0.4)] transition-shadow duration-300 hover:shadow-[0_26px_56px_-30px_rgba(23,59,96,0.45)]"
             >
-              <div
-                aria-hidden
-                className="absolute -top-16 -right-16 w-[280px] h-[280px] rounded-full pointer-events-none"
-                style={{ background: "radial-gradient(circle, rgba(242,106,46,0.22) 0%, transparent 65%)" }}
-              />
-              <div className="relative flex-1">
-                <p className="eyebrow-upper text-[color:var(--glod)] mb-4">Primärt program</p>
-                <h3 className="font-[family-name:var(--font-lora)] font-semibold text-[1.6rem] md:text-[1.8rem] leading-tight text-[color:var(--papper)]">
-                  Boardroom 2027
-                </h3>
-                <p className="mt-4 text-[0.98rem] text-[color:var(--papper)]/80 leading-relaxed">
-                  12 månader med 14 andra ägare runt bordet. Fyra workshopdagar,
-                  19 Boardroom-sessioner, personligt stöd hela vägen.
-                </p>
+              <div className="relative aspect-[16/10] overflow-hidden bg-sand">
+                <Image
+                  src="/images/ola-runda-bordet-grupp.jpg"
+                  alt="Ola Wallström med bolagsägare runt det runda bordet"
+                  fill
+                  quality={85}
+                  sizes="(min-width: 768px) 500px, 92vw"
+                  className="object-cover object-[50%_45%] transition-transform duration-700 group-hover:scale-[1.03]"
+                />
               </div>
-              <div className="relative mt-6 flex items-center justify-between text-[color:var(--papper)]">
-                <span className="text-[0.85rem] text-[color:var(--papper)]/60">
-                  195 000 kr, max 15 deltagare
-                </span>
-                <span className="inline-flex items-center gap-2 text-[0.95rem] font-semibold group-hover:text-[color:var(--glod)] transition-colors">
+              <div className="flex flex-1 flex-col items-center px-7 md:px-10 pt-8 pb-9">
+                <h3 style={{ fontSize: "clamp(1.5rem, 2.2vw, 1.8rem)" }}>Boardroom 2027</h3>
+                <p className="mt-3 flex-1 text-[1rem] text-ink-soft leading-relaxed max-w-sm">
+                  Ett år med 14 andra ägare runt samma bord. Fyra workshopdagar, 19 Boardroom-sessioner och personligt stöd från mig hela vägen.
+                </p>
+                <p className="mt-6 text-[0.85rem] text-muted">Max 15 deltagare</p>
+                <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-[color:var(--marin)]/25 px-5 py-2.5 text-[0.92rem] font-semibold text-[color:var(--marin)] transition-colors group-hover:border-[color:var(--glod)] group-hover:bg-[color:var(--glod)] group-hover:text-white">
                   Se programmet
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="13 6 19 12 13 18" />
                   </svg>
@@ -256,23 +241,27 @@ export default function OmOlaPage() {
 
             <Link
               href="/metod"
-              className="reveal reveal-d3 group relative overflow-hidden rounded-3xl bg-white border border-[color:var(--border-soft)] p-8 md:p-10 flex flex-col"
+              className="reveal reveal-d3 group flex flex-col overflow-hidden rounded-3xl bg-white border border-[color:var(--border-soft)] text-center shadow-[0_18px_44px_-34px_rgba(23,59,96,0.4)] transition-shadow duration-300 hover:shadow-[0_26px_56px_-30px_rgba(23,59,96,0.45)]"
             >
-              <div className="flex-1">
-                <p className="eyebrow-upper text-[color:var(--glod)] mb-4">Sekundärt</p>
-                <h3 className="font-[family-name:var(--font-lora)] font-semibold text-[1.6rem] md:text-[1.8rem] leading-tight text-[color:var(--marin)]">
-                  VIP-coaching
-                </h3>
-                <p className="mt-4 text-[0.98rem] text-ink-soft leading-relaxed">
-                  1:1 med mig genom fyra principer och sex steg. Tempo och fokus
-                  anpassat efter ditt bolag. Begränsat antal platser 2027.
-                </p>
+              <div className="relative aspect-[16/10] overflow-hidden bg-sand">
+                <Image
+                  src="/images/ola-tre-vid-bordet.jpg"
+                  alt="Ola Wallström arbetar nära med två bolagsägare vid ett bord"
+                  fill
+                  quality={85}
+                  sizes="(min-width: 768px) 500px, 92vw"
+                  className="object-cover object-[45%_40%] transition-transform duration-700 group-hover:scale-[1.03]"
+                />
               </div>
-              <div className="mt-6 flex items-center justify-between text-[color:var(--marin)]">
-                <span className="text-[0.85rem] text-muted">Begränsat antal platser</span>
-                <span className="inline-flex items-center gap-2 text-[0.95rem] font-semibold group-hover:text-[color:var(--glod)] transition-colors">
+              <div className="flex flex-1 flex-col items-center px-7 md:px-10 pt-8 pb-9">
+                <h3 style={{ fontSize: "clamp(1.5rem, 2.2vw, 1.8rem)" }}>VIP-coaching</h3>
+                <p className="mt-3 flex-1 text-[1rem] text-ink-soft leading-relaxed max-w-sm">
+                  Bara du och jag. Vi jobbar i ditt tempo och med fokus på det som faktiskt driver just ditt bolag framåt.
+                </p>
+                <p className="mt-6 text-[0.85rem] text-muted">Ett fåtal platser 2027</p>
+                <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-[color:var(--marin)]/25 px-5 py-2.5 text-[0.92rem] font-semibold text-[color:var(--marin)] transition-colors group-hover:border-[color:var(--glod)] group-hover:bg-[color:var(--glod)] group-hover:text-white">
                   Läs om VIP-coaching
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="13 6 19 12 13 18" />
                   </svg>
@@ -283,7 +272,11 @@ export default function OmOlaPage() {
         </div>
       </section>
 
-      <CtaBand tone="marin" />
+      <CtaBand
+        tone="marin"
+        heading="Ditt bolag kan växa utan att du blir någon annan."
+        intro="Boka 30 minuter med mig. Inget säljtryck. Oavsett om jag blir rätt mentor för dig eller inte går du därifrån med något konkret att göra."
+      />
     </>
   );
 }

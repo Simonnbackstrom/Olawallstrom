@@ -4,17 +4,11 @@ import Image from "next/image";
 export default function ConsultHero() {
   return (
     <section className="relative pt-28 md:pt-32 pb-20 md:pb-28 bg-papper overflow-hidden">
-      {/* Subtle Himmel wash top-right as brand accent */}
-      <div
-        aria-hidden
-        className="absolute -top-24 -right-24 w-[560px] h-[560px] rounded-full bg-himmel/60 blur-3xl pointer-events-none"
-      />
-
       <div className="container-site relative">
         <div className="grid lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-20 items-center">
           {/* Text */}
-          <div className="order-2 lg:order-1 max-w-2xl">
-            <h1 className="reveal reveal-d1 text-left text-[color:var(--marin)]">
+          <div className="order-2 lg:order-1 max-w-2xl mx-auto text-center lg:pt-16">
+            <h1 className="reveal reveal-d1 text-[color:var(--marin)]">
               Äkta, rakt{" "}
               <em className="text-[color:var(--glod)] not-italic font-[family-name:var(--font-lora)]">
                 och med
@@ -22,13 +16,13 @@ export default function ConsultHero() {
               <span className="italic">riktning framåt.</span>
             </h1>
 
-            <p className="reveal reveal-d2 mt-8 text-[1.1rem] md:text-[1.15rem] text-ink-soft leading-relaxed max-w-xl">
+            <p className="reveal reveal-d2 mt-8 text-[1.1rem] md:text-[1.15rem] text-ink-soft leading-relaxed max-w-xl mx-auto">
               Jag är Ola. Du är inte först som fastnat vid ett omsättningstak eller blivit
-              flaskhals i ditt eget bolag. Jag pratar rakt och på du, utan konsultspråk, och
-              vi mäter framgång i det som faktiskt blir gjort, så du kan äga din tid och ditt företag.
+              flaskhals i ditt eget bolag. Jag säger som det är, utan konsultspråk, och vi mäter
+              framgång i det som faktiskt blir gjort. Ditt bolag kan växa utan att du blir någon annan.
             </p>
 
-            <div className="reveal reveal-d3 mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="reveal reveal-d3 mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="https://calendly.com/olawallstrom/30min"
                 target="_blank"
@@ -64,22 +58,20 @@ export default function ConsultHero() {
             </div>
 
             {/* Proof row */}
-            <div className="reveal reveal-d4 mt-14 pt-8 border-t border-[color:var(--border-soft)] grid grid-cols-3 gap-6 max-w-lg">
+            <dl className="reveal reveal-d4 mt-12 grid grid-cols-3 gap-4 sm:flex sm:justify-center sm:gap-14 text-center">
               {[
-                { n: "650+", l: "Bolagsägare\njag coachat" },
-                { n: "25 år", l: "Som serie-\nentreprenör" },
-                { n: "8", l: "Bolag jag\nbyggt själv" },
+                { n: "650+", l: "coachade ägare" },
+                { n: "25 år", l: "som entreprenör" },
+                { n: "8", l: "egna bolag" },
               ].map((p) => (
-                <div key={p.n}>
-                  <div className="font-[family-name:var(--font-lora)] font-semibold text-[2rem] md:text-[2.25rem] leading-none text-[color:var(--marin)]">
+                <div key={p.n} className="flex flex-col-reverse justify-end">
+                  <dt className="mt-2 text-[0.85rem] text-muted leading-snug sm:whitespace-nowrap">{p.l}</dt>
+                  <dd className="font-[family-name:var(--font-lora)] font-semibold text-[2rem] md:text-[2.3rem] leading-none text-[color:var(--marin)]">
                     {p.n}
-                  </div>
-                  <div className="mt-2 text-[0.78rem] text-muted leading-snug whitespace-pre-line">
-                    {p.l}
-                  </div>
+                  </dd>
                 </div>
               ))}
-            </div>
+            </dl>
           </div>
 
           {/* Portrait */}
@@ -99,12 +91,13 @@ export default function ConsultHero() {
 
             <div className="relative aspect-[4/5] max-w-[520px] mx-auto">
               <Image
-                src="/images/ola-studio.jpg"
-                alt="Ola Wallström – mentor och serieentreprenör"
+                src="/images/ola-portratt-leende.jpg"
+                alt="Ola Wallström ler i brun kavaj"
                 fill
+                quality={85}
                 priority
                 sizes="(min-width: 1024px) 520px, 90vw"
-                className="object-cover object-top rounded-[2rem]"
+                className="object-cover object-[50%_20%] rounded-[2rem]"
               />
             </div>
           </div>

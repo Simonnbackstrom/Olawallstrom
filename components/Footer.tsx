@@ -24,9 +24,10 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-[color:var(--marin)]/20 text-[color:var(--marin)] hover:border-[color:var(--glod)] hover:text-[color:var(--glod)] transition-colors"
+                className="h-10 w-10 inline-flex items-center justify-center rounded-full text-white shadow-[0_6px_16px_-8px_rgba(214,41,118,0.7)] transition-[translate,box-shadow] hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-8px_rgba(214,41,118,0.75)]"
+                style={{ background: "radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)" }}
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <rect x="3" y="3" width="18" height="18" rx="5" />
                   <circle cx="12" cy="12" r="4" />
                   <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
@@ -37,7 +38,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-[color:var(--marin)]/20 text-[color:var(--marin)] hover:border-[color:var(--glod)] hover:text-[color:var(--glod)] transition-colors"
+                className="h-10 w-10 inline-flex items-center justify-center rounded-full bg-[#0A66C2] text-white shadow-[0_6px_16px_-8px_rgba(10,102,194,0.7)] transition-[translate,box-shadow] hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-8px_rgba(10,102,194,0.75)]"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5z" />

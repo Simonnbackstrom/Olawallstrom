@@ -35,7 +35,7 @@ export default function BoardroomTeaser() {
                   </svg>
                 </Link>
                 <span className="text-[0.85rem] text-[color:var(--papper)]/60">
-                  195 000 kr, max 15 deltagare
+                  Max 15 deltagare
                 </span>
               </div>
             </div>

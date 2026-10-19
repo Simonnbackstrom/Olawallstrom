@@ -6,7 +6,7 @@ const STATS = [
   { num: "650+", label: "Coachade bolagsägare" },
   { num: "25 år", label: "Som serieentreprenör" },
   { num: "8", label: "Egna bolag byggda" },
-  { num: "19 Mkr → 1,9 Mdr", label: "Ett klientresultat" },
+  { num: "1,9 Mdr", label: "Klientresultat, från 19 Mkr" },
 ];
 
 export default function StatsBand({ tone = "himmel" }: Props) {
@@ -17,20 +17,16 @@ export default function StatsBand({ tone = "himmel" }: Props) {
   const labelColor = isDark ? "text-[color:var(--papper)]/65" : "text-muted";
 
   return (
-    <section className={`py-16 md:py-20 ${sectionClass}`}>
+    <section className={`py-14 md:py-20 ${sectionClass}`}>
       <div className="container-site">
-        <dl className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 text-center">
+        <dl className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 max-w-5xl mx-auto text-center">
           {STATS.map((s, i) => (
-            <div key={s.label} className={`reveal reveal-d${(i % 5) + 1}`}>
-              <dt
-                className={`font-[family-name:var(--font-lora)] font-semibold leading-tight ${
-                  s.num.length > 10 ? "text-[1.3rem] md:text-[1.55rem]" : "text-[2.4rem] md:text-[3rem]"
-                } ${numColor}`}
+            <div key={s.label} className={`reveal reveal-d${(i % 5) + 1} flex flex-col-reverse justify-end`}>
+              <dt className={`mt-3 text-[0.85rem] md:text-[0.92rem] ${labelColor}`}>{s.label}</dt>
+              <dd
+                className={`font-[family-name:var(--font-lora)] font-semibold leading-none whitespace-nowrap text-[2.4rem] md:text-[3rem] ${numColor}`}
               >
                 {s.num}
-              </dt>
-              <dd className={`mt-3 text-[0.85rem] md:text-[0.9rem] tracking-wide ${labelColor}`}>
-                {s.label}
               </dd>
             </div>
           ))}

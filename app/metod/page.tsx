@@ -1,12 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import MethodGrid from "@/components/MethodGrid";
 import PainPoints from "@/components/PainPoints";
 import ResultsGrid from "@/components/ResultsGrid";
-import Testimonials from "@/components/Testimonials";
-import MiniCtaBand from "@/components/MiniCtaBand";
-import CtaBand from "@/components/CtaBand";
+import TestimonialsClean from "@/components/TestimonialsClean";
 import JsonLd from "@/components/JsonLd";
 
 const SITE_URL = "https://olawallstrom.com";
@@ -18,7 +17,7 @@ const serviceSchema = {
   name: "VIP-coaching",
   serviceType: "Business Mentorship",
   description:
-    "VIP-coaching för bolagsägare i segmentet 10-50 Mkr. Fyra principer och sex konkreta steg som tar bolaget framåt utan att offra livet runt omkring.",
+    "Personlig 1:1-coaching för bolagsägare i segmentet 10-50 Mkr. Två samtal i månaden, stöd när det brinner och uppföljning tills det är gjort.",
   provider: { "@id": `${SITE_URL}#person` },
   areaServed: "SE",
   audience: {
@@ -29,10 +28,6 @@ const serviceSchema = {
     "@type": "Offer",
     availability: "https://schema.org/LimitedAvailability",
     url: `${SITE_URL}/metod`,
-    priceSpecification: {
-      "@type": "PriceSpecification",
-      priceCurrency: "SEK",
-    },
   },
   url: `${SITE_URL}/metod`,
 };
@@ -47,24 +42,43 @@ const breadcrumbSchema = {
 };
 
 export const metadata: Metadata = {
-  title: "VIP-coaching: autentisk affärsutveckling",
+  title: "VIP-coaching: du och jag, en och en",
   description:
-    "VIP-coaching för bolagsägare som vill äga ett självgående bolag. Fyra principer och sex konkreta steg som tar bolaget från 10 till 50 Mkr.",
+    "Personlig 1:1-coaching för dig som äger ett bolag mellan 10 och 50 Mkr och vill ut ur det operativa. Två samtal i månaden och stöd hela vägen.",
   alternates: { canonical: "/metod" },
 };
 
 const PRINCIPLES = [
-  { num: "01", key: "Äkta", q: "Utgår från vem du är. Ingen mall, inga lånade ord." },
-  { num: "02", key: "Klarhet", q: "Du vet alltid vad nästa steg är. Varje gång." },
-  { num: "03", key: "Genomförande", q: "Ord blir handling. Det som syns blir gjort." },
-  { num: "04", key: "Frihet", q: "Allt pekar mot ett bolag som inte äger dig." },
+  { num: "01", key: "Äkta", q: "Jag är närvarande i varje samtal och säger som det är. Vi utgår från vem du är, inte från en mall." },
+  { num: "02", key: "Klarhet", q: "Jag gör det krångliga enkelt, så att det blir tydligt vad som är viktigt och vad nästa steg är." },
+  { num: "03", key: "Genomförande", q: "En bra plan räcker inte. Jag följer upp tills sakerna faktiskt är gjorda." },
+  { num: "04", key: "Frihet", q: "Allt vi gör pekar mot ett bolag som inte äger dig, och mer frihet i din vardag." },
+];
+
+const HOW = [
+  {
+    title: "Vi börjar med ditt bolag",
+    body: "Första veckorna gör vi en ärlig bolagsdiagnos och bestämmer vad som ska flyttas först.",
+  },
+  {
+    title: "Två samtal i månaden",
+    body: "Bara du och jag. Vi stämmer av, planerar framåt och bestämmer nästa steg innan vi lägger på.",
+  },
+  {
+    title: "Stöd när det brinner",
+    body: "Händer något akut hör jag av mig inom 24 timmar. En dålig vecka ska inte stoppa dig.",
+  },
+  {
+    title: "Uppföljning tills det är gjort",
+    body: "En plan räcker inte. Jag följer upp det vi bestämt, så att det faktiskt blir av.",
+  },
 ];
 
 const FOR_WHOM = [
-  "Omsätter 10-50 Mkr och vill växa vidare.",
-  "Är själv flaskhals i det dagliga.",
-  "Är öppen för att ändra på sig själv, inte bara teamet.",
-  "Vill fatta beslut på data och känsla, inte bara känsla.",
+  "Driver ett bolag på 10-50 Mkr och vill växa vidare.",
+  "Har blivit flaskhals i det dagliga.",
+  "Är redo att ändra på dig själv, inte bara på teamet.",
+  "Vill fatta beslut på både siffror och magkänsla.",
 ];
 
 export default function MetodPage() {
@@ -72,78 +86,103 @@ export default function MetodPage() {
     <>
       <JsonLd id="metod-schema" data={[serviceSchema, breadcrumbSchema]} />
       <PageHero
-        eyebrow="VIP-coaching, begränsat antal platser 2027"
+        align="center"
+        plain
         title={
           <>
-            Autentisk affärsutveckling. <em>Enkel att förstå.</em>
-            <br />
-            Svår att göra ensam.
+            VIP-coaching. <em>Du och jag, en och en.</em>
           </>
         }
-        intro="VIP-coachingen vilar på fyra principer och genomförs i sex konkreta steg tillsammans med mig. Hela upplägget är designat för bolag i spannet 10-50 Mkr där ägaren vill ut ur det operativa."
+        intro="Ett personligt mentorskap för dig som äger ett bolag mellan 10 och 50 miljoner och vill ut ur det operativa. Vi ses två gånger i månaden, jobbar med det som faktiskt bromsar bolaget och följer upp tills det är gjort."
+        cta={{
+          label: "Boka ett samtal med mig",
+          href: "https://calendly.com/olawallstrom/30min",
+          sub: "30 minuter, kostnadsfritt. Ett fåtal platser 2027.",
+        }}
       />
 
-      <PainPoints />
-
-      <section className="py-16 md:py-20 sec-papper border-b border-[color:var(--border-soft)]">
+      <section className="sec-papper pb-[var(--section-y)]">
         <div className="container-site">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="reveal eyebrow mb-5 justify-center">Varför VIP-coaching?</p>
-            <p className="reveal reveal-d1 text-[1.15rem] md:text-[1.25rem] text-ink leading-relaxed font-[family-name:var(--font-lora)] italic">
-              &ldquo;Jag har inte hittat på VIP-coachingen från scratch. Den har växt fram under 25
-              år med 650+ bolagsägare, och jag har plockat bort allt som inte funkar i
-              verkligheten. Det som är kvar är fyra principer och sex steg som faktiskt flyttar
-              bolag.&rdquo;
-            </p>
-            <p className="reveal reveal-d2 mt-6 text-[0.95rem] text-muted font-semibold tracking-wide">
-              Ola Wallström
-            </p>
+          <div className="reveal relative mx-auto max-w-6xl aspect-[4/3] md:aspect-[21/9] rounded-3xl overflow-hidden bg-sand">
+            <Image
+              src="/images/ola-forklarar-nara.jpg"
+              alt="Ola Wallström förklarar något i ett samtal på tu man hand"
+              fill
+              quality={85}
+              priority
+              sizes="(min-width: 1200px) 1120px, 92vw"
+              className="object-cover object-[30%_25%]"
+            />
           </div>
         </div>
       </section>
 
+      <PainPoints />
+
+      {/* HOW IT WORKS */}
       <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
-          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-center">
-            <div className="reveal relative">
-              <div
-                aria-hidden
-                className="absolute -top-5 -right-5 w-[85%] h-[85%] rounded-3xl pointer-events-none"
-                style={{ border: "2px solid var(--glod)", clipPath: "polygon(0 0, 100% 0, 100% 72%, 70% 100%, 0 100%)" }}
+          <div className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
+            <h2 className="reveal">Så fungerar VIP-coachingen.</h2>
+            <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.1rem] text-ink-soft leading-relaxed">
+              Ett enkelt upplägg, byggt för att saker ska bli gjorda. Du har mig vid din sida, inte en
+              mall.
+            </p>
+          </div>
+          <ol className="grid gap-5 md:gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+            {HOW.map((h, i) => (
+              <li
+                key={h.title}
+                className={`reveal reveal-d${i + 1} flex flex-col items-center rounded-3xl bg-white px-7 py-9 text-center shadow-[0_18px_44px_-34px_rgba(23,59,96,0.4)]`}
+              >
+                <span className="h-11 w-11 inline-flex items-center justify-center rounded-full border-2 border-[color:var(--glod)] font-[family-name:var(--font-lora)] font-semibold text-[1.05rem] text-[color:var(--glod)]">
+                  {i + 1}
+                </span>
+                <h3 className="mt-5 leading-tight" style={{ fontSize: "1.25rem" }}>{h.title}</h3>
+                <p className="mt-3 text-[0.98rem] text-ink-soft leading-relaxed">{h.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <MethodGrid variant="steps" />
+
+      <ResultsGrid heading="Så här känns det efter sex månader." />
+
+      <section className="py-[var(--section-y)] sec-papper">
+        <div className="container-site">
+          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+            <div className="reveal relative rounded-3xl overflow-hidden aspect-[4/5] bg-sand max-w-[520px] w-full mx-auto">
+              <Image
+                src="/images/ola-antecknar.jpg"
+                alt="Ola Wallström antecknar tillsammans med en bolagsägare"
+                fill
+                quality={85}
+                sizes="(min-width: 1024px) 980px, 170vw"
+                className="object-cover object-[35%_40%]"
               />
-              <div className="relative rounded-3xl overflow-hidden border border-[color:var(--border-soft)] aspect-[4/5] bg-sand">
-                <Image
-                  src="/images/ola-metod.jpg"
-                  alt="Ola Wallström i arbete"
-                  fill
-                  sizes="(min-width: 1024px) 520px, 90vw"
-                  className="object-cover"
-                />
-              </div>
             </div>
-            <div>
-              <p className="reveal eyebrow mb-5">De fyra principerna</p>
-              <h2 className="reveal reveal-d1">Fyra ord som styr allt.</h2>
-              <p className="reveal reveal-d2 mt-6 text-[1.02rem] text-ink-soft leading-relaxed">
-                Jag har sett över 650 bolag och nästan allt kokar ner till fyra frågor. Får du dem
-                rätt växer bolaget, nästan oavsett bransch och konjunktur.
+            <div className="text-center">
+              <h2 className="reveal">Så här jobbar jag.</h2>
+              <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.1rem] text-ink-soft leading-relaxed max-w-lg mx-auto">
+                25 år och fler än 650 bolagsägare har lärt mig vad som fungerar. Det kokar ner till
+                fyra saker jag står för i varje samtal.
               </p>
 
-              <div className="reveal reveal-d3 mt-10 space-y-4">
+              <div className="reveal reveal-d2 mt-10 grid gap-4 sm:grid-cols-2">
                 {PRINCIPLES.map((item) => (
                   <div
                     key={item.num}
-                    className="flex gap-6 items-start rounded-xl bg-white border border-[color:var(--border-soft)] p-6"
+                    className="rounded-2xl bg-sand px-6 py-8 text-center shadow-[0_18px_40px_-32px_rgba(23,59,96,0.35)]"
                   >
-                    <div className="font-[family-name:var(--font-lora)] italic font-semibold text-[color:var(--glod)] text-[2rem] md:text-[2.3rem] leading-none min-w-[52px]">
+                    <div className="font-[family-name:var(--font-lora)] italic font-semibold text-[color:var(--glod)] text-[1.8rem] leading-none">
                       {item.num}
                     </div>
-                    <div>
-                      <div className="font-[family-name:var(--font-lora)] font-semibold text-[1.2rem] text-[color:var(--marin)] mb-1.5">
-                        {item.key}
-                      </div>
-                      <p className="text-[0.95rem] text-ink-soft">{item.q}</p>
+                    <div className="mt-3 font-[family-name:var(--font-lora)] font-semibold text-[1.25rem] text-[color:var(--marin)]">
+                      {item.key}
                     </div>
+                    <p className="mt-2 text-[0.95rem] text-ink-soft leading-relaxed">{item.q}</p>
                   </div>
                 ))}
               </div>
@@ -152,31 +191,20 @@ export default function MetodPage() {
         </div>
       </section>
 
-      <MethodGrid variant="steps" />
+      <TestimonialsClean tone="sand" />
 
-      <ResultsGrid heading="Så här känns det efter sex månader." />
-
-      <Testimonials tone="papper" />
-
-      <MiniCtaBand
-        headline="Känns det här som ditt nästa steg?"
-        subline="30 min på Zoom med mig, kostnadsfritt. Oavsett om vi fortsätter jobba ihop eller inte går du därifrån med något konkret."
-        ctaLabel="Boka 30 min med Ola"
-        tone="marin"
-      />
-
-      <section className="py-[var(--section-y)] sec-sand">
+      <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="reveal reveal-d1">Jag jobbar bäst med bolagsägare som:</h2>
-            <ul className="reveal reveal-d2 mt-10 grid gap-3 max-w-xl mx-auto text-left">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="reveal">Jag jobbar bäst med dig som:</h2>
+            <ul className="reveal reveal-d1 mt-12 grid gap-4 md:gap-5 sm:grid-cols-2">
               {FOR_WHOM.map((p) => (
                 <li
                   key={p}
-                  className="flex gap-3 items-start text-[1rem] text-ink rounded-xl bg-white px-6 py-5 border border-[color:var(--border-soft)]"
+                  className="flex flex-col items-center gap-4 rounded-2xl bg-sand px-7 py-8 text-[1.02rem] text-ink leading-relaxed shadow-[0_18px_40px_-34px_rgba(23,59,96,0.35)]"
                 >
-                  <span className="shrink-0 mt-1 h-5 w-5 inline-flex items-center justify-center rounded-full bg-[color:var(--glod-dim)] text-[color:var(--glod)]">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <span className="h-9 w-9 inline-flex items-center justify-center rounded-full bg-glod-dim text-[color:var(--glod)]">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </span>
@@ -188,40 +216,41 @@ export default function MetodPage() {
         </div>
       </section>
 
-      <section className="py-[var(--section-y)] sec-papper">
+      {/* CLOSING: the one booking CTA */}
+      <section className="py-[var(--section-y)] sec-marin">
         <div className="container-site">
-          <div className="reveal relative overflow-hidden rounded-3xl sec-marin p-8 md:p-12">
-            <div
-              aria-hidden
-              className="absolute -top-20 -right-20 w-[380px] h-[380px] rounded-full pointer-events-none"
-              style={{ background: "radial-gradient(circle, rgba(242,106,46,0.2) 0%, transparent 65%)" }}
-            />
-            <div className="relative grid md:grid-cols-[1.3fr_1fr] gap-8 md:gap-12 items-center">
-              <div>
-                <p className="eyebrow-upper text-[color:var(--glod)] mb-4">Hellre i grupp?</p>
-                <h3 className="font-[family-name:var(--font-lora)] font-semibold text-[clamp(1.6rem,3.4vw,2.3rem)] leading-tight text-[color:var(--papper)]">
-                  Boardroom 2027. Samma principer, 14 andra ägare runt bordet.
-                </h3>
-                <p className="mt-5 text-[1rem] text-[color:var(--papper)]/80 leading-relaxed max-w-xl">
-                  Mitt 12-månadersprogram för VD/ägare som vill jobba igenom samma ramverk
-                  tillsammans med andra erfarna ägare. Begränsat antal platser 2027.
-                </p>
-              </div>
-              <div className="flex md:justify-end">
-                <a href="/boardroom" className="btn-primary">
-                  Se Boardroom
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="13 6 19 12 13 18" />
-                  </svg>
-                </a>
-              </div>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="reveal">Ska vi ta första samtalet?</h2>
+            <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.15rem] text-[color:var(--papper)]/80 leading-relaxed">
+              30 minuter, du och jag. Vi tittar på var ditt bolag står i dag, vad som bromsar och om
+              VIP-coachingen är rätt för dig. Du går därifrån med något konkret oavsett.
+            </p>
+            <div className="reveal reveal-d2 mt-10 flex flex-col sm:flex-row justify-center gap-3">
+              <a
+                href="https://calendly.com/olawallstrom/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
+                Boka ett samtal med mig
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="13 6 19 12 13 18" />
+                </svg>
+              </a>
+              <Link href="/kontakt" className="btn-dark-ghost">
+                Skicka ett meddelande
+              </Link>
             </div>
+            <p className="reveal reveal-d3 mt-6 text-[0.88rem] text-[color:var(--papper)]/60">
+              Kostnadsfritt och utan säljtryck. Hellre i grupp?{" "}
+              <Link href="/boardroom" className="font-semibold text-[color:var(--papper)] underline underline-offset-4 hover:text-[color:var(--glod)] transition-colors">
+                Läs om Boardroom 2027
+              </Link>
+            </p>
           </div>
         </div>
       </section>
-
-      <CtaBand tone="marin" />
     </>
   );
 }

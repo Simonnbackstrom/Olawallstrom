@@ -4,12 +4,17 @@ type Props = {
   heading?: string;
   intro?: string;
   tone?: "marin" | "sand" | "olabla";
+  /** Hide the gradient wash behind the content. */
+  plain?: boolean;
+  ctaLabel?: string;
 };
 
 export default function CtaBand({
   heading = "Boka ett samtal. 30 minuter, direkt med mig.",
   intro = "Inget säljtryck. Oavsett om jag blir rätt mentor för dig eller inte lämnar du samtalet med något konkret att göra på måndag.",
   tone = "marin",
+  plain = false,
+  ctaLabel = "Boka ett samtal med mig",
 }: Props) {
   const sectionClass =
     tone === "sand" ? "sec-sand" : tone === "olabla" ? "sec-olabla" : "sec-marin";
@@ -19,7 +24,7 @@ export default function CtaBand({
 
   return (
     <section className={`py-[var(--section-y)] ${sectionClass} relative overflow-hidden`}>
-      {tone === "marin" && (
+      {tone === "marin" && !plain && (
         <div
           aria-hidden
           className="absolute inset-0 pointer-events-none"
@@ -42,7 +47,7 @@ export default function CtaBand({
             rel="noopener noreferrer"
             className="btn-primary"
           >
-            Boka strategisamtal
+            {ctaLabel}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="13 6 19 12 13 18" />
