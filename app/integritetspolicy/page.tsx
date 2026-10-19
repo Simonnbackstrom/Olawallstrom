@@ -6,6 +6,13 @@ export const metadata: Metadata = {
   description:
     "Hur Ola Wallström / Perspektivo i Sverige AB hanterar personuppgifter i enlighet med GDPR.",
   alternates: { canonical: "/integritetspolicy" },
+  openGraph: {
+    title: "Integritetspolicy",
+    description:
+      "Hur Ola Wallström / Perspektivo i Sverige AB hanterar personuppgifter enligt GDPR.",
+    url: "/integritetspolicy",
+    type: "website",
+  },
 };
 
 export default function IntegritetspolicyPage() {

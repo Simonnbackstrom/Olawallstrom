@@ -46,6 +46,13 @@ export const metadata: Metadata = {
   description:
     "Personlig 1:1-coaching för dig som äger ett bolag mellan 10 och 50 Mkr och vill ut ur det operativa. Två samtal i månaden och stöd hela vägen.",
   alternates: { canonical: "/metod" },
+  openGraph: {
+    title: "VIP-coaching: du och jag, en och en",
+    description:
+      "Personlig 1:1-coaching för bolagsägare 10–50 Mkr. Två samtal i månaden och stöd hela vägen.",
+    url: "/metod",
+    type: "website",
+  },
 };
 
 const PRINCIPLES = [

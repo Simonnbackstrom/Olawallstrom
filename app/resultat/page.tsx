@@ -50,6 +50,13 @@ export const metadata: Metadata = {
   description:
     "Riktiga resultat från bolag jag coachat. Case, testimonials och nyckeltal från mitt arbete som mentor för bolagsägare i segmentet 10-50 Mkr.",
   alternates: { canonical: "/resultat" },
+  openGraph: {
+    title: "Resultat",
+    description:
+      "Riktiga resultat från bolag jag coachat — case, testimonials och nyckeltal.",
+    url: "/resultat",
+    type: "website",
+  },
 };
 
 export default function ResultatPage() {

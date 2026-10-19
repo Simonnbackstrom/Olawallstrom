@@ -29,6 +29,13 @@ export const metadata: Metadata = {
   description:
     "Hör av dig. Jag läser alla meddelanden själv och återkommer så fort jag kan.",
   alternates: { canonical: "/kontakt" },
+  openGraph: {
+    title: "Kontakt",
+    description:
+      "Hör av dig. Jag läser alla meddelanden själv och återkommer så fort jag kan.",
+    url: "/kontakt",
+    type: "website",
+  },
 };
 
 /* Dividers for the 2×2 step panel: stacked on mobile, grid lines from sm up. */
