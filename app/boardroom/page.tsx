@@ -13,6 +13,13 @@ export const metadata: Metadata = {
   description:
     "Tolv månader för dig som VD eller ägare. Fyra teman, 19 Boardroom sessions, 4 kvartalsavstamp, 4 workshopdagar och personligt stöd hela vägen. Max 15 deltagare.",
   alternates: { canonical: "/boardroom" },
+  openGraph: {
+    title: "Boardroom 2027. Ett år. Fyra teman.",
+    description:
+      "Tolv månader för VD och ägare: fyra teman, 19 sessions och personligt stöd hela vägen. Max 15 deltagare.",
+    url: "/boardroom",
+    type: "website",
+  },
 };
 
 const THEMES = [

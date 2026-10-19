@@ -54,6 +54,13 @@ export const metadata: Metadata = {
   description:
     "Ola Wallström är civilekonom, serieentreprenör och mentor. 25 års erfarenhet, 650+ coachade bolagsägare och åtta egna bolag byggda i olika branscher.",
   alternates: { canonical: "/om-ola" },
+  openGraph: {
+    title: "Om Ola",
+    description:
+      "Civilekonom, serieentreprenör och mentor. 25 års erfarenhet och 650+ coachade bolagsägare.",
+    url: "/om-ola",
+    type: "profile",
+  },
 };
 
 const CRED = [

@@ -47,6 +47,13 @@ export const metadata: Metadata = {
   description:
     "30 min direkt med Ola Wallström. Konkreta nästa steg för din tillväxt, oavsett om vi fortsätter jobba ihop eller inte.",
   alternates: { canonical: "/strategisession" },
+  openGraph: {
+    title: "Boka ett strategisamtal",
+    description:
+      "30 min direkt med Ola. Konkreta nästa steg för din tillväxt — kostnadsfritt och förutsättningslöst.",
+    url: "/strategisession",
+    type: "website",
+  },
 };
 
 const CREDS = [

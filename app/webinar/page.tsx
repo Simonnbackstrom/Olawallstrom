@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   description:
     "Live på Zoom i november. 60 minuter för bolagsägare i segmentet 10-50 Mkr. Ola Wallström delar de fyra principerna bakom 650+ coachade bolag. Kostnadsfritt.",
   alternates: { canonical: "/webinar" },
-  robots: { index: false, follow: true },
   openGraph: {
     title: "Gratis webinar: så bygger du ett bolag som inte äger dig",
     description:
