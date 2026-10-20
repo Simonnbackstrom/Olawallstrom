@@ -18,7 +18,7 @@ export default function PageHero({ eyebrow, title, intro, tone = "papper", align
 
   return (
     <section
-      className={`relative pt-32 md:pt-40 pb-20 md:pb-24 overflow-hidden ${sectionClass}`}
+      className={`relative pt-28 md:pt-40 pb-16 md:pb-24 overflow-hidden ${sectionClass}`}
     >
       {!plain && (
         <>

@@ -48,7 +48,7 @@ export default function SharedPainPoints({
             src={image.src}
             alt={image.alt}
             fill
-            quality={85}
+            quality={90}
             sizes="(min-width: 1024px) 100vw, 200vw"
             className="object-cover object-[50%_45%]"
           />
@@ -102,11 +102,11 @@ export default function SharedPainPoints({
                     : "bg-white ring-1 ring-[color:var(--border-soft)]"
                 }`}
               >
-                <span aria-hidden className="font-[family-name:var(--font-lora)] text-[3.2rem] leading-[0.55] text-[color:var(--glod)]">
+                <span aria-hidden className="font-[family-name:var(--font-heading)] text-[3.2rem] leading-[0.55] text-[color:var(--glod)]">
                   &ldquo;
                 </span>
                 <p
-                  className={`mt-5 font-[family-name:var(--font-lora)] italic text-[1.18rem] md:text-[1.35rem] leading-relaxed ${itemText}`}
+                  className={`mt-5 font-[family-name:var(--font-heading)] text-[1.18rem] md:text-[1.35rem] leading-relaxed ${itemText}`}
                 >
                   {p}
                 </p>
@@ -139,7 +139,7 @@ export default function SharedPainPoints({
           <div className="mt-14 text-center">
             <p
               className={`reveal reveal-d2 max-w-2xl mx-auto ${closerColor} ${
-                plain ? "font-[family-name:var(--font-lora)] text-[1.35rem] md:text-[1.6rem] leading-snug" : "text-[1.1rem] md:text-[1.2rem]"
+                plain ? "font-[family-name:var(--font-heading)] text-[1.35rem] md:text-[1.6rem] leading-snug" : "text-[1.1rem] md:text-[1.2rem]"
               }`}
             >
               {closer}

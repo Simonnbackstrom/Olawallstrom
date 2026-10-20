@@ -19,7 +19,7 @@ const personSchema = {
   description:
     "Civilekonom, tidigare marknadschef på Affärsvärlden, serieentreprenör med åtta egna bolag och mentor för 650+ bolagsägare under 25 år.",
   url: `${SITE_URL}/om-ola`,
-  image: `${SITE_URL}/images/ola-portratt.jpg`,
+  image: `${SITE_URL}/images/ola-leende-ute.jpg`,
   alumniOf: {
     "@type": "Organization",
     name: "Affärsvärlden",
@@ -95,12 +95,12 @@ export default function OmOlaPage() {
               />
               <div className="relative rounded-3xl overflow-hidden border border-[color:var(--border-soft)] aspect-[4/5] bg-sand">
                 <Image
-                  src="/images/ola-hamn.jpg"
-                  alt="Ola Wallström vid hamnen"
+                  src="/images/ola-terrass.jpg"
+                  alt="Ola Wallström på en terrass med utsikt över sjön"
                   fill
-                  quality={85}
-                  sizes="(min-width: 1024px) 1040px, 170vw"
-                  className="object-cover"
+                  quality={90}
+                  sizes="(min-width: 1024px) 560px, 90vw"
+                  className="object-cover object-[50%_30%]"
                   priority
                 />
               </div>
@@ -118,11 +118,11 @@ export default function OmOlaPage() {
                 Sedan blev jag själv entreprenör. Jag har byggt och varit med i åtta bolag i olika
                 branscher, och jag har gjort de flesta misstagen själv. Anställt fel. Skalat för
                 tidigt. Byggt system som bara jag förstod. Kört slut på mig själv i jakten på nästa
-                miljon.
+                tillväxtsteg.
               </p>
               <p className="reveal reveal-d2 mt-5 text-[1.05rem] text-ink-soft leading-relaxed">
-                I 25 år har jag nu coachat fler än 650 bolagsägare, de flesta med bolag mellan 10
-                och 50 miljoner. Jag vet varför vissa fastnar där och andra tar sig vidare. Oftast
+                I 25 år har jag nu coachat fler än 650 bolagsägare, de flesta med bolag som har
+                vuxit förbi startfasen. Jag vet varför vissa fastnar där och andra tar sig vidare. Oftast
                 handlar det mindre om strategi och mer om vad du som ägare är beredd att släppa.
               </p>
 
@@ -165,7 +165,7 @@ export default function OmOlaPage() {
                     <polyline points="13 6 19 12 13 18" />
                   </svg>
                 </a>
-                <Link href="/metod" className="btn-ghost">
+                <Link href="/vip-coaching" className="btn-ghost">
                   Läs om VIP-coachingen
                 </Link>
               </div>
@@ -217,7 +217,7 @@ export default function OmOlaPage() {
           </div>
           <div className="grid gap-6 md:gap-8 md:grid-cols-2 max-w-5xl mx-auto">
             <Link
-              href="/boardroom"
+              href="/agarklivet"
               className="reveal reveal-d2 group flex flex-col overflow-hidden rounded-3xl bg-white border border-[color:var(--border-soft)] text-center shadow-[0_18px_44px_-34px_rgba(23,59,96,0.4)] transition-shadow duration-300 hover:shadow-[0_26px_56px_-30px_rgba(23,59,96,0.45)]"
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-sand">
@@ -225,15 +225,15 @@ export default function OmOlaPage() {
                   src="/images/ola-runda-bordet-grupp.jpg"
                   alt="Ola Wallström med bolagsägare runt det runda bordet"
                   fill
-                  quality={85}
+                  quality={90}
                   sizes="(min-width: 768px) 500px, 92vw"
                   className="object-cover object-[50%_45%] transition-transform duration-700 group-hover:scale-[1.03]"
                 />
               </div>
               <div className="flex flex-1 flex-col items-center px-7 md:px-10 pt-8 pb-9">
-                <h3 style={{ fontSize: "clamp(1.5rem, 2.2vw, 1.8rem)" }}>Boardroom 2027</h3>
+                <h3 style={{ fontSize: "clamp(1.5rem, 2.2vw, 1.8rem)" }}>Ägarklivet 2027</h3>
                 <p className="mt-3 flex-1 text-[1rem] text-ink-soft leading-relaxed max-w-sm">
-                  Ett år med 14 andra ägare runt samma bord. Fyra workshopdagar, 19 Boardroom-sessioner och personligt stöd från mig hela vägen.
+                  Ett år med 14 andra ägare runt samma bord. Fyra workshopdagar, 19 gruppträffar och personligt stöd från mig hela vägen.
                 </p>
                 <p className="mt-6 text-[0.85rem] text-muted">Max 15 deltagare</p>
                 <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-[color:var(--marin)]/25 px-5 py-2.5 text-[0.92rem] font-semibold text-[color:var(--marin)] transition-colors group-hover:border-[color:var(--glod)] group-hover:bg-[color:var(--glod)] group-hover:text-white">
@@ -247,7 +247,7 @@ export default function OmOlaPage() {
             </Link>
 
             <Link
-              href="/metod"
+              href="/vip-coaching"
               className="reveal reveal-d3 group flex flex-col overflow-hidden rounded-3xl bg-white border border-[color:var(--border-soft)] text-center shadow-[0_18px_44px_-34px_rgba(23,59,96,0.4)] transition-shadow duration-300 hover:shadow-[0_26px_56px_-30px_rgba(23,59,96,0.45)]"
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-sand">
@@ -255,7 +255,7 @@ export default function OmOlaPage() {
                   src="/images/ola-tre-vid-bordet.jpg"
                   alt="Ola Wallström arbetar nära med två bolagsägare vid ett bord"
                   fill
-                  quality={85}
+                  quality={90}
                   sizes="(min-width: 768px) 500px, 92vw"
                   className="object-cover object-[45%_40%] transition-transform duration-700 group-hover:scale-[1.03]"
                 />

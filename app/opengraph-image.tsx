@@ -18,7 +18,7 @@ export default async function OGImage() {
           justifyContent: "space-between",
           padding: "72px",
           position: "relative",
-          fontFamily: "serif",
+          fontFamily: "sans-serif",
         }}
       >
         <div
@@ -45,7 +45,6 @@ export default async function OGImage() {
           />
           <div
             style={{
-              fontStyle: "italic",
               fontSize: 24,
               color: "#F26A2E",
             }}

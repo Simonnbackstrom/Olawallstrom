@@ -4,8 +4,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://olawallstrom.com";
   const routes: { path: string; priority: number; changeFrequency: "weekly" | "monthly" | "yearly" }[] = [
     { path: "", priority: 1, changeFrequency: "weekly" },
-    { path: "/boardroom", priority: 0.9, changeFrequency: "monthly" },
-    { path: "/metod", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/agarklivet", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/vip-coaching", priority: 0.9, changeFrequency: "monthly" },
     { path: "/strategisession", priority: 0.9, changeFrequency: "monthly" },
     { path: "/om-ola", priority: 0.8, changeFrequency: "monthly" },
     { path: "/resultat", priority: 0.8, changeFrequency: "monthly" },

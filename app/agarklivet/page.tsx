@@ -9,40 +9,40 @@ import TestimonialsClean from "@/components/TestimonialsClean";
 import PageFAQ from "@/components/PageFAQ";
 
 export const metadata: Metadata = {
-  title: "Boardroom 2027. Ett år. Fyra teman.",
+  title: "Ägarklivet 2027. Ett år. Fyra teman.",
   description:
-    "Tolv månader för dig som VD eller ägare. Fyra teman, 19 Boardroom sessions, 4 kvartalsavstamp, 4 workshopdagar och personligt stöd hela vägen. Max 15 deltagare.",
-  alternates: { canonical: "/boardroom" },
+    "Tolv månader för dig som VD eller ägare som vill ta klivet från att driva allt själv till att leda som ägare. Fyra teman, 19 gruppträffar, 4 kvartalsavstamp, 4 workshopdagar och personligt stöd hela vägen. Max 15 deltagare.",
+  alternates: { canonical: "/agarklivet" },
   openGraph: {
-    title: "Boardroom 2027. Ett år. Fyra teman.",
+    title: "Ägarklivet 2027. Ett år. Fyra teman.",
     description:
-      "Tolv månader för VD och ägare: fyra teman, 19 sessions och personligt stöd hela vägen. Max 15 deltagare.",
-    url: "/boardroom",
+      "Tolv månader för VD och ägare: fyra teman, 19 gruppträffar och personligt stöd hela vägen. Max 15 deltagare.",
+    url: "/agarklivet",
     type: "website",
   },
 };
 
 const THEMES = [
   {
-    q: "Q1 (jan-mar)",
+    q: "Q1 (jan–mar)",
     title: "Mental klarhet",
     body: "Du ser vad som verkligen är viktigt och tar tillbaka kontrollen över din tid och energi.",
     dot: "bg-[color:var(--marin)]",
   },
   {
-    q: "Q2 (apr-jun)",
+    q: "Q2 (apr–jun)",
     title: "Stjärnledarskap",
     body: "Du får människor att ta ansvar, tänka själva och fungera bättre tillsammans, utan att allt går via dig.",
     dot: "bg-[color:var(--olabla)]",
   },
   {
-    q: "Q3 (jul-sep)",
+    q: "Q3 (jul–sep)",
     title: "Autentisk affärsutveckling",
     body: "Du utvecklar affären utifrån dina egna styrkor och det kunderna faktiskt värdesätter.",
     dot: "bg-[color:var(--glod)]",
   },
   {
-    q: "Q4 (okt-dec)",
+    q: "Q4 (okt–dec)",
     title: "Smart säljstrategi",
     body: "Du bygger ett sälj som är tydligt, hållbart och inte hänger på dig.",
     dot: "bg-[color:var(--sand)] ring-1 ring-[color:var(--glod)]/40",
@@ -53,44 +53,44 @@ const LOOP_STEPS = [
   { n: "01", title: "Frågebatteri", body: "Du reflekterar i lugn och ro inför kvartalets tema." },
   { n: "02", title: "Kvartalsavstamp", body: "Två timmars digital fördjupning tillsammans med gruppen." },
   { n: "03", title: "Workshopdag", body: "En heldag tillsammans, med fullt fokus på temat." },
-  { n: "04", title: "Boardroom sessions", body: "4-5 digitala träffar på ungefär en timme var." },
+  { n: "04", title: "Gruppträffar", body: "4–5 digitala träffar på ungefär en timme var." },
 ];
 
 const JOURNEY = [
   {
     tag: "Start",
     title: "Personlig startworkshop",
-    meta: "4 tim i Stockholm",
     body: "Riktning, viktigaste förflyttningar och en personlig plan.",
+    meta: ["4 timmar", "I Stockholm"],
     dot: "bg-white ring-2 ring-[color:var(--marin)]",
   },
   {
-    tag: "Q1 (jan-mar)",
+    tag: "Q1 · jan–mar",
     title: "Mental klarhet",
-    meta: "Avstamp 12 jan, WS 21 jan, 5 sessions",
     body: "Riktning, fokus och kontroll över tid och energi.",
+    meta: ["Avstamp 12 jan", "Workshop 21 jan", "5 gruppträffar"],
     dot: "bg-[color:var(--marin)]",
   },
   {
-    tag: "Q2 (apr-jun)",
+    tag: "Q2 · apr–jun",
     title: "Stjärnledarskap",
-    meta: "Avstamp 6 apr, WS 15 apr, 5 sessions",
     body: "Få människor att ta ansvar och fungera tillsammans.",
+    meta: ["Avstamp 6 apr", "Workshop 15 apr", "5 gruppträffar"],
     dot: "bg-[color:var(--olabla)]",
   },
   {
-    tag: "Q3 (jul-sep)",
+    tag: "Q3 · jul–sep",
     title: "Autentisk affärsutveckling",
-    meta: "Avstamp 29 jun, WS 7 okt, 4 sessions",
     body: "Utveckla affären utifrån egna styrkor och kundvärde.",
+    meta: ["Avstamp 29 jun", "Workshop 7 okt", "4 gruppträffar"],
     dot: "bg-[color:var(--glod)]",
   },
   {
-    tag: "Q4 (okt-dec)",
+    tag: "Q4 · okt–dec",
     title: "Smart säljstrategi",
-    meta: "Avstamp 28 sep, WS 8 okt, 5 sessions",
     body: "Ett sälj som är tydligt, hållbart och mindre personberoende.",
-    dot: "bg-[color:var(--sand)] ring-2 ring-[color:var(--glod)]/50",
+    meta: ["Avstamp 28 sep", "Workshop 8 okt", "5 gruppträffar"],
+    dot: "bg-[color:var(--sand)] ring-2 ring-[color:var(--glod)]",
   },
 ];
 
@@ -118,7 +118,7 @@ const ONGOING = [
     ),
   },
   {
-    title: "19 Boardroom sessions",
+    title: "19 gruppträffar",
     body: "Ungefär en timme var, digitalt. Här tar vi upp frågor, utmaningar och beslut.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -135,21 +135,21 @@ const SITE_URL = "https://olawallstrom.com";
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": `${SITE_URL}/boardroom#service`,
-  name: "Boardroom 2027",
+  "@id": `${SITE_URL}/agarklivet#service`,
+  name: "Ägarklivet 2027",
   serviceType: "Mentorship Program",
   description:
-    "Tolv månader för VD och ägare i segmentet 10-50 Mkr. Fyra teman, 19 Boardroom sessions, 4 kvartalsavstamp, 4 workshopdagar och personligt stöd hela vägen.",
+    "Tolv månader för VD och ägare i etablerade bolag. Fyra teman, 19 gruppträffar, 4 kvartalsavstamp, 4 workshopdagar och personligt stöd hela vägen.",
   provider: { "@id": `${SITE_URL}#person` },
   areaServed: "SE",
   audience: {
     "@type": "BusinessAudience",
-    audienceType: "Bolagsägare och VD i segmentet 10-50 Mkr",
+    audienceType: "Bolagsägare och VD i etablerade bolag",
   },
   offers: {
     "@type": "Offer",
     availability: "https://schema.org/LimitedAvailability",
-    url: `${SITE_URL}/boardroom`,
+    url: `${SITE_URL}/agarklivet`,
     eligibleQuantity: {
       "@type": "QuantitativeValue",
       maxValue: 15,
@@ -157,7 +157,7 @@ const serviceSchema = {
     },
     validFrom: "2027-01-01",
   },
-  url: `${SITE_URL}/boardroom`,
+  url: `${SITE_URL}/agarklivet`,
 };
 
 const breadcrumbSchema = {
@@ -165,37 +165,37 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Hem", item: SITE_URL },
-    { "@type": "ListItem", position: 2, name: "Boardroom 2027", item: `${SITE_URL}/boardroom` },
+    { "@type": "ListItem", position: 2, name: "Ägarklivet 2027", item: `${SITE_URL}/agarklivet` },
   ],
 };
 
-export default function BoardroomPage() {
+export default function AgarklivetPage() {
   return (
     <>
-      <JsonLd id="boardroom-schema" data={[serviceSchema, breadcrumbSchema]} />
+      <JsonLd id="agarklivet-schema" data={[serviceSchema, breadcrumbSchema]} />
       <PageHero
         align="center"
         plain
         title={
           <>
-            Boardroom 2027.<br />
+            Ägarklivet 2027.<br />
             <em>Ett år. Fyra teman.</em>
           </>
         }
-        intro="Det är ensamt högst upp. Därför samlar jag ett litet rum av erfarna ägare under ett helt år. Här får du några att tänka högt med, en gemensam rytm och personligt stöd från mig hela vägen. Max 15 platser."
+        intro="Det är ensamt högst upp. I Ägarklivet samlar jag ett litet rum av erfarna ägare under ett helt år, för att ta klivet från att driva allt själv till att leda som ägare. Du får några att tänka högt med, en gemensam rytm och personligt stöd från mig hela vägen. Max 15 platser."
       />
 
       <section className="sec-papper pb-[var(--section-y)]">
         <div className="container-site">
           <div className="reveal relative mx-auto max-w-6xl aspect-[4/3] md:aspect-[21/9] rounded-3xl overflow-hidden bg-sand">
             <Image
-              src="/images/ola-runda-bordet.jpg"
-              alt="Ola Wallström och bolagsägare runt det runda bordet under en Boardroom-dag"
+              src="/images/ola-grusvagen.jpg"
+              alt="Ola Wallström går på en grusväg genom sommarfälten"
               fill
-              quality={85}
+              quality={90}
               priority
               sizes="(min-width: 1200px) 1120px, 92vw"
-              className="object-cover object-[50%_45%]"
+              className="object-cover object-[50%_20%]"
             />
           </div>
         </div>
@@ -216,7 +216,7 @@ export default function BoardroomPage() {
           "Någonstans har jag blivit flaskhalsen, och ingen säger det rakt ut.",
           "Jag har byggt ett bra team, men det är ändå ensamt högst upp.",
         ]}
-        closer="Det är därför Boardroom finns. Ett rum där du inte behöver bära allt ensam."
+        closer="Det är därför Ägarklivet finns. Ett rum där du inte behöver bära allt ensam."
         ctaLabel="Boka ett samtal med mig"
       />
 
@@ -271,11 +271,8 @@ export default function BoardroomPage() {
               >
                 <span
                   aria-hidden
-                  className="relative mx-auto mb-5 flex h-12 w-12 items-center justify-center font-[family-name:var(--font-lora)] italic text-[1.15rem] text-[color:var(--marin)]"
+                  className="mx-auto mb-5 h-11 w-11 inline-flex items-center justify-center rounded-full border-2 border-[color:var(--glod)] font-semibold text-[1.05rem] text-[color:var(--glod)]"
                 >
-                  <svg viewBox="0 0 48 48" fill="none" className="absolute inset-0 h-full w-full text-[color:var(--glod)]">
-                    <path d="M 33 7 A 19 19 0 1 0 42 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-                  </svg>
                   {i + 1}
                 </span>
                 <h3 className="leading-tight" style={{ fontSize: "1.2rem" }}>{s.title}</h3>
@@ -307,28 +304,37 @@ export default function BoardroomPage() {
       {/* CUSTOMER JOURNEY */}
       <section className="py-[var(--section-y)] sec-sand">
         <div className="container-site">
-          <div className="max-w-2xl mx-auto text-center mb-14 md:mb-20">
-            <h2 className="reveal">Din resa i Boardroom.</h2>
+          <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
+            <h2 className="reveal">Din resa i Ägarklivet.</h2>
             <p className="reveal reveal-d1 mt-6 text-[1.05rem] text-ink-soft leading-relaxed max-w-xl mx-auto">
               Tolv månader, från en personlig start med mig till fyra teman tillsammans med andra
               erfarna ägare.
             </p>
           </div>
 
-          <ol className="relative grid gap-12 md:gap-6 md:grid-cols-5">
-            <span
-              aria-hidden
-              className="hidden md:block absolute top-[7px] left-[10%] right-[10%] h-px bg-[color:var(--marin)]/30"
-            />
+          <ol className="relative mx-auto grid max-w-md gap-6 sm:max-w-none sm:grid-cols-2 sm:gap-x-5 sm:gap-y-8 lg:grid-cols-5 lg:gap-4 sm:[&>li:last-child]:col-span-2 lg:[&>li:last-child]:col-span-1">
+            {/* Connecting line: vertical on phones, horizontal through the dots on desktop. */}
+            <span aria-hidden className="sm:hidden absolute left-1/2 top-4 bottom-4 w-px -translate-x-1/2 bg-[color:var(--marin)]/20" />
+            <span aria-hidden className="hidden lg:block absolute top-[18px] left-[10%] right-[10%] h-px bg-[color:var(--marin)]/25" />
             {JOURNEY.map((j, i) => (
-              <li key={j.tag} className={`reveal reveal-d${(i % 5) + 1} relative flex flex-col items-center text-center`}>
-                <span aria-hidden className={`h-[15px] w-[15px] rounded-full ${j.dot}`} />
-                <p className="mt-5 text-[0.82rem] text-muted">{j.tag}</p>
-                <h3 className="mt-2 leading-tight" style={{ fontSize: "1.15rem" }}>
-                  {j.title}
-                </h3>
-                <p className="mt-3 text-[0.94rem] leading-relaxed text-ink-soft max-w-[15rem]">{j.body}</p>
-                <p className="mt-3 text-[0.8rem] text-muted max-w-[15rem]">{j.meta}</p>
+              <li key={j.tag} className={`reveal reveal-d${(i % 5) + 1} relative flex flex-col items-center`}>
+                <span aria-hidden className="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sand">
+                  <span className={`h-4 w-4 rounded-full ${j.dot}`} />
+                </span>
+                <div className="relative z-10 mt-3 flex h-full w-full flex-col items-center rounded-2xl bg-white px-6 pt-6 pb-6 text-center shadow-[0_18px_40px_-30px_rgba(23,59,96,0.4)] sm:max-w-sm lg:max-w-none lg:px-5">
+                  <p className="text-[0.8rem] font-semibold tracking-wide text-[color:var(--glod)]">{j.tag}</p>
+                  <h3 className="mt-2 leading-tight" style={{ fontSize: "1.15rem" }}>
+                    {j.title}
+                  </h3>
+                  <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-soft">{j.body}</p>
+                  <ul className="mt-auto pt-5 flex w-full flex-wrap justify-center gap-1.5">
+                    {j.meta.map((m) => (
+                      <li key={m} className="rounded-full bg-papper px-2.5 py-1 text-[0.78rem] text-ink-soft whitespace-nowrap">
+                        {m}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </li>
             ))}
           </ol>
@@ -347,7 +353,7 @@ export default function BoardroomPage() {
                   <span className="h-14 w-14 inline-flex items-center justify-center rounded-full bg-glod-dim text-[color:var(--glod)]">
                     {o.icon}
                   </span>
-                  <h4 className="mt-6 font-[family-name:var(--font-lora)] font-semibold text-[1.25rem] leading-tight text-[color:var(--marin)]">
+                  <h4 className="mt-6 font-[family-name:var(--font-heading)] font-semibold text-[1.25rem] leading-tight text-[color:var(--marin)]">
                     {o.title}
                   </h4>
                   <p className="mt-3 text-[0.98rem] leading-relaxed text-ink-soft max-w-[16rem]">{o.body}</p>
@@ -364,16 +370,17 @@ export default function BoardroomPage() {
         eyebrow={null}
         centered
         hideCta
-        heading="Vanliga frågor innan du bokar samtal"
-        intro="De vanligaste frågorna jag får innan vi börjar. Hittar du inte svaret, boka 30 min så pratar vi."
+        heading="Vanliga frågor innan du bokar ett samtal"
+        intro="De vanligaste frågorna jag får innan vi börjar. Hittar du inte svaret, boka ett samtal på 30 minuter så pratar vi."
         items={[
           {
-            q: "Hur mycket tid tar Boardroom i anspråk under året?",
+            q: "Hur mycket tid tar Ägarklivet under året?",
             a: (
               <>
-                Räkna med ungefär 3-4 timmar i månaden: 19 Boardroom sessions på ungefär en timme
-                digitalt, 4 workshopdagar och en personlig startworkshop. Upplägget ska spara mer tid än
-                det kostar, genom att ta bort det som i dag äter upp din vecka.
+                Räkna med 2–3 timmar i månaden för de digitala träffarna: 19 gruppträffar på ungefär en
+                timme och 4 kvartalsavstamp på två timmar. Till det kommer 4 workshopdagar och en
+                personlig startworkshop på fyra timmar. Upplägget ska spara mer tid än det kostar,
+                genom att ta bort det som i dag äter upp din vecka.
               </>
             ),
           },
@@ -381,7 +388,7 @@ export default function BoardroomPage() {
             q: "Vem passar programmet för?",
             a: (
               <>
-                VD eller ägare i bolag mellan 10 och 50 Mkr som vill växa tillsammans med andra erfarna
+                VD eller ägare i ett etablerat bolag som vill växa tillsammans med andra erfarna
                 ägare. Du är redo att ändra på dig själv, inte bara teamet, och vill ha ett rum där du både får
                 hjälp och bidrar.
               </>
@@ -392,16 +399,16 @@ export default function BoardroomPage() {
             a: (
               <>
                 Vi tar ett samtal på 30 minuter, du och jag, kostnadsfritt. Vi tittar på var ditt bolag
-                står i dag och om Boardroom är rätt för dig. Tycker vi båda det bokar vi in din
+                står i dag och om Ägarklivet är rätt för dig. Tycker vi båda det bokar vi in din
                 startworkshop. Om inte går du ändå därifrån med något konkret.
               </>
             ),
           },
           {
-            q: "Vad kostar Boardroom?",
+            q: "Vad kostar Ägarklivet?",
             a: (
               <>
-                Investeringen går vi igenom på samtalet, när vi vet om Boardroom är rätt för dig.
+                Investeringen går vi igenom på samtalet, när vi vet om Ägarklivet är rätt för dig.
                 Allt under året ingår, och betalningen går att dela upp.
               </>
             ),
@@ -410,10 +417,10 @@ export default function BoardroomPage() {
             q: "Vad är skillnaden mot VIP-coaching (1:1)?",
             a: (
               <>
-                Boardroom är ett år tillsammans med 14 andra ägare. VIP-coaching är 1:1 med mig direkt.
-                Många väljer Boardroom för att få andras perspektiv och lärande, och VIP när de vill ha
+                Ägarklivet är ett år tillsammans med 14 andra ägare. VIP-coaching är 1:1 med mig direkt.
+                Många väljer Ägarklivet för att få andras perspektiv och lärande, och VIP när de vill ha
                 maximal personlig djupgång.{" "}
-                <Link href="/metod" className="font-semibold text-[color:var(--marin)] underline underline-offset-4 hover:text-[color:var(--glod)]">
+                <Link href="/vip-coaching" className="font-semibold text-[color:var(--marin)] underline underline-offset-4 hover:text-[color:var(--glod)]">
                   Läs om VIP-coaching
                 </Link>
                 .
@@ -429,7 +436,7 @@ export default function BoardroomPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="reveal">Vill du ha en plats vid bordet?</h2>
             <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.15rem] text-[color:var(--papper)]/80 leading-relaxed">
-              Boardroom är för dig som leder ett bolag mellan 10 och 50 miljoner och är redo att ändra
+              Ägarklivet är för dig som leder ett etablerat bolag och är redo att ändra
               på dig själv, inte bara på teamet. Börja med 30 minuter med mig, så ser vi tillsammans om
               det är rätt för dig.
             </p>
@@ -452,7 +459,7 @@ export default function BoardroomPage() {
             </div>
             <p className="reveal reveal-d3 mt-6 text-[0.88rem] text-[color:var(--papper)]/60">
               Kostnadsfritt och utan säljtryck. Vill du hellre jobba 1:1?{" "}
-              <Link href="/metod" className="font-semibold text-[color:var(--papper)] underline underline-offset-4 hover:text-[color:var(--glod)] transition-colors">
+              <Link href="/vip-coaching" className="font-semibold text-[color:var(--papper)] underline underline-offset-4 hover:text-[color:var(--glod)] transition-colors">
                 Läs om VIP-coaching
               </Link>
             </p>

@@ -45,7 +45,7 @@ export default function MiniCtaBand({
         >
           <div className="flex-1">
             <h3
-              className={`font-[family-name:var(--font-lora)] font-semibold leading-tight ${headingColor} ${centered ? "" : "text-[1.3rem] md:text-[1.5rem]"}`}
+              className={`font-[family-name:var(--font-heading)] font-semibold leading-tight ${headingColor} ${centered ? "" : "text-[1.3rem] md:text-[1.5rem]"}`}
               style={centered ? { fontSize: "clamp(1.7rem, 3vw, 2.3rem)" } : undefined}
             >
               {headline}

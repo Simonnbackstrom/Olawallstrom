@@ -19,7 +19,7 @@ export default function QuoteBlock() {
             <path d="M 40 10 A 30 30 0 1 1 15 60" />
           </svg>
 
-          <blockquote className="reveal font-[family-name:var(--font-lora)] italic font-medium text-[clamp(1.5rem,3vw,2.1rem)] leading-[1.35] text-[color:var(--marin)]">
+          <blockquote className="reveal font-[family-name:var(--font-heading)] font-medium text-[clamp(1.5rem,3vw,2.1rem)] leading-[1.35] text-[color:var(--marin)]">
             Det jag uppskattar med Ola är kombinationen av skärpa och värme. Han är
             konkret och hjälper oss snabbt att se vad som faktiskt är viktigt.
           </blockquote>
@@ -35,7 +35,7 @@ export default function QuoteBlock() {
               />
             </div>
             <div>
-              <div className="font-[family-name:var(--font-raleway)] font-bold text-[1rem] text-[color:var(--marin)]">
+              <div className="font-[family-name:var(--font-text)] font-bold text-[1rem] text-[color:var(--marin)]">
                 Fredrik Birath
               </div>
               <div className="text-[0.85rem] text-muted">Beras International</div>

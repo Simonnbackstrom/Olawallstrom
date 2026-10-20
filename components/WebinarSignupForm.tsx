@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
+import { sendForm } from "@/lib/formsubmit";
+import { WEBINAR, googleCalendarUrl, webinarAutoresponse, webinarIcs } from "@/lib/webinar";
 
 type Props = {
   /** Render on a dark (marin) background. */
@@ -16,18 +18,13 @@ export default function WebinarSignupForm({ dark = false }: Props) {
     setStatus("loading");
     setErrorMsg(null);
     const form = e.currentTarget;
-    const payload = Object.fromEntries(new FormData(form));
+    const name = String(new FormData(form).get("name") || "").trim();
 
     try {
-      const res = await fetch("/api/webinar", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+      await sendForm(form, {
+        subject: `Ny webinaranmälan: ${name} (${WEBINAR.dateLabel})`,
+        autoresponse: webinarAutoresponse(),
       });
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error || "Något gick fel");
-      }
       setStatus("success");
       form.reset();
     } catch (err) {
@@ -46,15 +43,25 @@ export default function WebinarSignupForm({ dark = false }: Props) {
         </div>
         <h3 className="mb-3">Tack. Du är anmäld.</h3>
         <p className="text-[1rem] text-ink-soft max-w-sm mx-auto">
-          Jag mejlar Zoom-länken samma morgon som webinaret. Kan du inte vara med live skickar
-          jag inspelningen efteråt.
+          {WEBINAR.dateLabel} kl. {WEBINAR.timeLabel}. Bekräftelsen ligger i din mejl, och
+          Zoom-länken får du före webinaret. Hittar du inget mejl, titta i skräpposten.
         </p>
+        <div className="mt-6 flex flex-col sm:flex-row justify-center gap-3">
+          <a href={googleCalendarUrl()} target="_blank" rel="noopener noreferrer" className="btn-primary justify-center">
+            Lägg till i Google Kalender
+          </a>
+          <button type="button" onClick={downloadIcs} className="btn-ghost justify-center">
+            Ladda ner kalenderfil
+          </button>
+        </div>
       </div>
     );
   }
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+      {/* Honeypot: hidden from people, bots fill it in and FormSubmit drops the message. */}
+      <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
       <div className="grid gap-3 sm:grid-cols-2">
         <Field name="name" label="Namn" autoComplete="name" />
         <Field name="email" label="E-post" type="email" autoComplete="email" />
@@ -84,6 +91,19 @@ export default function WebinarSignupForm({ dark = false }: Props) {
   );
 }
 
+/** Calendar file for Outlook and Apple Calendar, made in the browser. */
+function downloadIcs() {
+  const blob = new Blob([webinarIcs()], { type: "text/calendar;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "webinar-ola-wallstrom.ics";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
 type FieldProps = {
   name: string;
   label: string;
@@ -93,7 +113,8 @@ type FieldProps = {
 
 /* Input with a label that sits inside the field and floats up on focus or when filled. */
 function Field({ name, label, type = "text", autoComplete }: FieldProps) {
-  const id = `webinar-${name}`;
+  // The page has two signup forms, so ids must be unique per field instance.
+  const id = `webinar-${name}-${useId()}`;
   return (
     <div className="relative">
       <input

@@ -13,23 +13,23 @@ const SITE_URL = "https://olawallstrom.com";
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": `${SITE_URL}/metod#service`,
+  "@id": `${SITE_URL}/vip-coaching#service`,
   name: "VIP-coaching",
   serviceType: "Business Mentorship",
   description:
-    "Personlig 1:1-coaching för bolagsägare i segmentet 10-50 Mkr. Två samtal i månaden, stöd när det brinner och uppföljning tills det är gjort.",
+    "Personlig 1:1-coaching för bolagsägare i etablerade bolag. Två samtal i månaden, stöd när det brinner och uppföljning tills det är gjort.",
   provider: { "@id": `${SITE_URL}#person` },
   areaServed: "SE",
   audience: {
     "@type": "BusinessAudience",
-    audienceType: "Bolagsägare i segmentet 10-50 Mkr",
+    audienceType: "Bolagsägare i etablerade bolag",
   },
   offers: {
     "@type": "Offer",
     availability: "https://schema.org/LimitedAvailability",
-    url: `${SITE_URL}/metod`,
+    url: `${SITE_URL}/vip-coaching`,
   },
-  url: `${SITE_URL}/metod`,
+  url: `${SITE_URL}/vip-coaching`,
 };
 
 const breadcrumbSchema = {
@@ -37,20 +37,20 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Hem", item: SITE_URL },
-    { "@type": "ListItem", position: 2, name: "VIP-coaching", item: `${SITE_URL}/metod` },
+    { "@type": "ListItem", position: 2, name: "VIP-coaching", item: `${SITE_URL}/vip-coaching` },
   ],
 };
 
 export const metadata: Metadata = {
   title: "VIP-coaching: du och jag, en och en",
   description:
-    "Personlig 1:1-coaching för dig som äger ett bolag mellan 10 och 50 Mkr och vill ut ur det operativa. Två samtal i månaden och stöd hela vägen.",
-  alternates: { canonical: "/metod" },
+    "Personlig 1:1-coaching för dig som äger ett etablerat bolag och vill ut ur det operativa. Två samtal i månaden och stöd hela vägen.",
+  alternates: { canonical: "/vip-coaching" },
   openGraph: {
     title: "VIP-coaching: du och jag, en och en",
     description:
-      "Personlig 1:1-coaching för bolagsägare 10–50 Mkr. Två samtal i månaden och stöd hela vägen.",
-    url: "/metod",
+      "Personlig 1:1-coaching för bolagsägare i etablerade bolag. Två samtal i månaden och stöd hela vägen.",
+    url: "/vip-coaching",
     type: "website",
   },
 };
@@ -82,16 +82,16 @@ const HOW = [
 ];
 
 const FOR_WHOM = [
-  "Driver ett bolag på 10-50 Mkr och vill växa vidare.",
+  "Driver ett etablerat bolag och vill växa vidare.",
   "Har blivit flaskhals i det dagliga.",
   "Är redo att ändra på dig själv, inte bara på teamet.",
   "Vill fatta beslut på både siffror och magkänsla.",
 ];
 
-export default function MetodPage() {
+export default function VipCoachingPage() {
   return (
     <>
-      <JsonLd id="metod-schema" data={[serviceSchema, breadcrumbSchema]} />
+      <JsonLd id="vip-coaching-schema" data={[serviceSchema, breadcrumbSchema]} />
       <PageHero
         align="center"
         plain
@@ -100,7 +100,7 @@ export default function MetodPage() {
             VIP-coaching. <em>Du och jag, en och en.</em>
           </>
         }
-        intro="Ett personligt mentorskap för dig som äger ett bolag mellan 10 och 50 miljoner och vill ut ur det operativa. Vi ses två gånger i månaden, jobbar med det som faktiskt bromsar bolaget och följer upp tills det är gjort."
+        intro="Ett personligt mentorskap för dig som äger ett etablerat bolag och vill ut ur det operativa. Vi ses två gånger i månaden, jobbar med det som faktiskt bromsar bolaget och följer upp tills det är gjort."
         cta={{
           label: "Boka ett samtal med mig",
           href: "https://calendly.com/olawallstrom/30min",
@@ -115,7 +115,7 @@ export default function MetodPage() {
               src="/images/ola-forklarar-nara.jpg"
               alt="Ola Wallström förklarar något i ett samtal på tu man hand"
               fill
-              quality={85}
+              quality={90}
               priority
               sizes="(min-width: 1200px) 1120px, 92vw"
               className="object-cover object-[30%_25%]"
@@ -142,7 +142,7 @@ export default function MetodPage() {
                 key={h.title}
                 className={`reveal reveal-d${i + 1} flex flex-col items-center rounded-3xl bg-white px-7 py-9 text-center shadow-[0_18px_44px_-34px_rgba(23,59,96,0.4)]`}
               >
-                <span className="h-11 w-11 inline-flex items-center justify-center rounded-full border-2 border-[color:var(--glod)] font-[family-name:var(--font-lora)] font-semibold text-[1.05rem] text-[color:var(--glod)]">
+                <span className="h-11 w-11 inline-flex items-center justify-center rounded-full border-2 border-[color:var(--glod)] font-[family-name:var(--font-heading)] font-semibold text-[1.05rem] text-[color:var(--glod)]">
                   {i + 1}
                 </span>
                 <h3 className="mt-5 leading-tight" style={{ fontSize: "1.25rem" }}>{h.title}</h3>
@@ -165,7 +165,7 @@ export default function MetodPage() {
                 src="/images/ola-antecknar.jpg"
                 alt="Ola Wallström antecknar tillsammans med en bolagsägare"
                 fill
-                quality={85}
+                quality={90}
                 sizes="(min-width: 1024px) 980px, 170vw"
                 className="object-cover object-[35%_40%]"
               />
@@ -183,10 +183,10 @@ export default function MetodPage() {
                     key={item.num}
                     className="rounded-2xl bg-sand px-6 py-8 text-center shadow-[0_18px_40px_-32px_rgba(23,59,96,0.35)]"
                   >
-                    <div className="font-[family-name:var(--font-lora)] italic font-semibold text-[color:var(--glod)] text-[1.8rem] leading-none">
+                    <div className="font-[family-name:var(--font-heading)] font-semibold text-[color:var(--glod)] text-[1.8rem] leading-none">
                       {item.num}
                     </div>
-                    <div className="mt-3 font-[family-name:var(--font-lora)] font-semibold text-[1.25rem] text-[color:var(--marin)]">
+                    <div className="mt-3 font-[family-name:var(--font-heading)] font-semibold text-[1.25rem] text-[color:var(--marin)]">
                       {item.key}
                     </div>
                     <p className="mt-2 text-[0.95rem] text-ink-soft leading-relaxed">{item.q}</p>
@@ -251,8 +251,8 @@ export default function MetodPage() {
             </div>
             <p className="reveal reveal-d3 mt-6 text-[0.88rem] text-[color:var(--papper)]/60">
               Kostnadsfritt och utan säljtryck. Hellre i grupp?{" "}
-              <Link href="/boardroom" className="font-semibold text-[color:var(--papper)] underline underline-offset-4 hover:text-[color:var(--glod)] transition-colors">
-                Läs om Boardroom 2027
+              <Link href="/agarklivet" className="font-semibold text-[color:var(--papper)] underline underline-offset-4 hover:text-[color:var(--glod)] transition-colors">
+                Läs om Ägarklivet 2027
               </Link>
             </p>
           </div>

@@ -33,7 +33,7 @@ export default function Home() {
             Du är där taket inte går att <em>prata bort</em>.
           </>
         }
-        intro="Du driver ett bolag mellan 10 och 50 Mkr. Det du byggde fungerade hit, men inte dit du vill. Känner du igen någon av de här tankarna?"
+        intro="Du driver ett etablerat bolag. Det du byggde fungerade hit, men inte dit du vill. Känner du igen någon av de här tankarna?"
         points={HOME_PAINS}
         image={{ src: "/images/ola-fatolj-tanker.jpg", alt: "Ola Wallström sitter eftertänksam i en läderfåtölj" }}
       />

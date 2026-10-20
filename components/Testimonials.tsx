@@ -98,8 +98,8 @@ export default function Testimonials({ items = TESTIMONIALS, tone = "sand" }: Pr
             className={`rounded-3xl p-8 md:p-12 ${cardBg} transition-opacity duration-300`}
           >
             <Stars />
-            <div className="eyebrow mb-5">{t.result}</div>
-            <p className={`font-[family-name:var(--font-lora)] italic text-[1.15rem] md:text-[1.35rem] leading-relaxed mb-8 ${quoteColor}`}>
+            <div className="mb-5 text-[0.95rem] font-semibold text-[color:var(--glod)]">{t.result}</div>
+            <p className={`font-[family-name:var(--font-heading)] text-[1.15rem] md:text-[1.35rem] leading-relaxed mb-8 ${quoteColor}`}>
               &ldquo;{t.text}&rdquo;
             </p>
             <div className="flex items-center gap-4">
@@ -113,7 +113,7 @@ export default function Testimonials({ items = TESTIMONIALS, tone = "sand" }: Pr
                 />
               </div>
               <div>
-                <div className={`font-[family-name:var(--font-raleway)] font-bold text-[1rem] ${authorColor}`}>
+                <div className={`font-[family-name:var(--font-text)] font-bold text-[1rem] ${authorColor}`}>
                   {t.author}
                 </div>
                 <div className={`text-[0.85rem] ${roleColor}`}>{t.role}</div>

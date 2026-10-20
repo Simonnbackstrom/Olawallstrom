@@ -23,7 +23,7 @@ export default function CoreValues() {
       <div className="container-site">
         <div className="max-w-5xl mx-auto text-center mb-14 md:mb-16">
           <h2 className="reveal reveal-d1 md:whitespace-nowrap">
-            Fyra ord som styr <em>allt</em> jag gör.
+            <em>Fyra ord</em> som styr allt jag gör.
           </h2>
         </div>
 
@@ -35,7 +35,7 @@ export default function CoreValues() {
             >
               <span
                 aria-hidden
-                className="relative mx-auto mb-6 flex h-12 w-12 items-center justify-center font-[family-name:var(--font-lora)] italic text-[1.15rem] text-[color:var(--marin)]"
+                className="relative mx-auto mb-6 flex h-12 w-12 items-center justify-center font-[family-name:var(--font-heading)] text-[1.15rem] text-[color:var(--marin)]"
               >
                 <svg viewBox="0 0 48 48" fill="none" className="absolute inset-0 h-full w-full text-[color:var(--glod)]">
                   <path d="M 33 7 A 19 19 0 1 0 42 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />

@@ -43,7 +43,7 @@ export default function MethodTeaser() {
               key={key.n}
               className={`reveal reveal-d${(i % 4) + 1} bg-[color:var(--marin)] px-8 py-10 md:px-10 md:py-12 text-center`}
             >
-              <div className="font-[family-name:var(--font-lora)] font-semibold italic text-[2.6rem] md:text-[3rem] leading-none text-[color:var(--glod)]">
+              <div className="font-[family-name:var(--font-heading)] font-semibold text-[2.6rem] md:text-[3rem] leading-none text-[color:var(--glod)]">
                 {key.n}
               </div>
               <h3 className="mt-4 text-[color:var(--papper)]">{key.title}</h3>
@@ -56,8 +56,8 @@ export default function MethodTeaser() {
 
         <div className="mt-12 flex justify-center">
           <Link
-            href="/metod"
-            className="group inline-flex items-center gap-2 text-[0.95rem] font-semibold text-[color:var(--papper)] hover:text-[color:var(--glod)] transition-colors"
+            href="/vip-coaching"
+            className="group inline-flex items-center gap-2 py-2.5 text-[0.95rem] font-semibold text-[color:var(--papper)] hover:text-[color:var(--glod)] transition-colors"
           >
             Läs mer om VIP-coachingen
             <svg

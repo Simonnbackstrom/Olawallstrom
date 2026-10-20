@@ -2,53 +2,84 @@ type Marker = { angle: number; type: "session" | "avstamp" | "workshop" };
 
 const MONTHS = ["JAN", "FEB", "MAR", "APR", "MAJ", "JUN", "JUL", "AUG", "SEP", "OKT", "NOV", "DEC"];
 
+// Angles follow the calendar (30° per month). Per quarter: 5, 5, 4 and 5 group sessions = 19.
 const MARKERS: Marker[] = [
-  { angle: 11, type: "avstamp" },
-  { angle: 20, type: "workshop" },
-  { angle: 35, type: "session" },
-  { angle: 50, type: "session" },
-  { angle: 65, type: "session" },
+  { angle: 11, type: "avstamp" }, // 12 jan
+  { angle: 20, type: "workshop" }, // 21 jan
+  { angle: 32, type: "session" },
+  { angle: 44, type: "session" },
+  { angle: 56, type: "session" },
+  { angle: 68, type: "session" },
   { angle: 80, type: "session" },
 
-  { angle: 95, type: "avstamp" },
-  { angle: 105, type: "workshop" },
-  { angle: 120, type: "session" },
-  { angle: 135, type: "session" },
-  { angle: 150, type: "session" },
+  { angle: 95, type: "avstamp" }, // 6 apr
+  { angle: 105, type: "workshop" }, // 15 apr
+  { angle: 117, type: "session" },
+  { angle: 129, type: "session" },
+  { angle: 141, type: "session" },
+  { angle: 153, type: "session" },
   { angle: 165, type: "session" },
 
-  { angle: 180, type: "avstamp" },
+  { angle: 179, type: "avstamp" }, // 29 jun
   { angle: 200, type: "session" },
-  { angle: 220, type: "session" },
-  { angle: 240, type: "session" },
+  { angle: 215, type: "session" },
+  { angle: 230, type: "session" },
+  { angle: 245, type: "session" },
 
-  { angle: 265, type: "avstamp" },
-  { angle: 278, type: "workshop" },
-  { angle: 290, type: "session" },
-  { angle: 305, type: "session" },
-  { angle: 320, type: "session" },
+  { angle: 267, type: "avstamp" }, // 28 sep
+  { angle: 276, type: "workshop" }, // 7 okt
+  { angle: 283, type: "workshop" }, // 8 okt
+  { angle: 296, type: "session" },
+  { angle: 309, type: "session" },
+  { angle: 322, type: "session" },
   { angle: 335, type: "session" },
-  { angle: 350, type: "session" },
+  { angle: 348, type: "session" },
 ];
 
 const LEGEND = [
   {
-    title: "19 Boardroom sessions",
+    count: "19",
+    title: "gruppträffar",
     body: "Digitala träffar på ungefär en timme. Här tar vi upp frågor, utmaningar och beslut tillsammans med de andra ägarna.",
-    marker: <span className="h-2 w-2 rounded-full bg-[color:var(--marin)]" />,
+    marker: "session" as const,
   },
   {
-    title: "4 kvartalsavstamp",
+    count: "4",
+    title: "kvartalsavstamp",
     body: "Ett frågebatteri och två timmars digital fördjupning.",
     dates: "12 jan, 6 apr, 29 jun, 28 sep",
-    marker: <span className="h-3 w-3 rounded-full border-2 border-[color:var(--glod)]" />,
+    marker: "avstamp" as const,
   },
   {
-    title: "4 workshopdagar",
-    body: "21 jan Mental klarhet, 15 apr Stjärnledarskap, 7-8 okt Affärsutveckling och Säljstrategi.",
-    marker: <span className="h-2.5 w-2.5 bg-[color:var(--olabla)] rotate-45" />,
+    count: "4",
+    title: "workshopdagar",
+    body: "21 jan Mental klarhet, 15 apr Stjärnledarskap, 7–8 okt Autentisk affärsutveckling och Smart säljstrategi.",
+    marker: "workshop" as const,
   },
 ];
+
+/* The count inside the brand's open circle (same mark as the logo and the values). */
+function CountMark({ count }: { count: string }) {
+  return (
+    <span className="relative mx-auto flex h-14 w-14 items-center justify-center font-bold text-[1.25rem] text-[color:var(--marin)]">
+      <svg viewBox="0 0 48 48" fill="none" aria-hidden className="absolute inset-0 h-full w-full text-[color:var(--glod)]">
+        <path d="M 33 7 A 19 19 0 1 0 42 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      </svg>
+      {count}
+    </span>
+  );
+}
+
+/* Tiny key that matches the markers on the wheel. */
+function WheelKey({ type }: { type: Marker["type"] }) {
+  return (
+    <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden className="shrink-0">
+      {type === "session" && <circle cx="6" cy="6" r="3" fill="#173B60" />}
+      {type === "avstamp" && <circle cx="6" cy="6" r="4.2" fill="none" stroke="#F26A2E" strokeWidth="1.8" />}
+      {type === "workshop" && <rect x="2.5" y="2.5" width="7" height="7" fill="#2A62A0" transform="rotate(45 6 6)" />}
+    </svg>
+  );
+}
 
 const polar = (angle: number, radius: number) => {
   const rad = ((angle - 90) * Math.PI) / 180;
@@ -104,20 +135,20 @@ export default function BoardroomWheel() {
                 strokeWidth="4"
               />
 
-              <g fontFamily="var(--font-lora), serif" fontWeight="600" textAnchor="middle">
+              <g fontFamily="var(--font-heading), sans-serif" fontWeight="600" textAnchor="middle">
                 <text x="275" y="112" fill="#F7F3EC" fontSize="14">Mental klarhet</text>
-                <text x="275" y="128" fill="#F7F3EC" fontSize="10" fontWeight="400" opacity="0.75" fontStyle="italic">Q1 (jan-mar)</text>
+                <text x="275" y="128" fill="#F7F3EC" fontSize="10" fontWeight="400" opacity="0.75">Q1 (jan–mar)</text>
 
                 <text x="275" y="275" fill="#F7F3EC" fontSize="14">Stjärnledarskap</text>
-                <text x="275" y="291" fill="#F7F3EC" fontSize="10" fontWeight="400" opacity="0.75" fontStyle="italic">Q2 (apr-jun)</text>
+                <text x="275" y="291" fill="#F7F3EC" fontSize="10" fontWeight="400" opacity="0.75">Q2 (apr–jun)</text>
 
                 <text x="125" y="268" fill="#F7F3EC" fontSize="12">Autentisk</text>
                 <text x="125" y="283" fill="#F7F3EC" fontSize="12">affärsutveckling</text>
-                <text x="125" y="299" fill="#F7F3EC" fontSize="10" fontWeight="400" opacity="0.85" fontStyle="italic">Q3 (jul-sep)</text>
+                <text x="125" y="299" fill="#F7F3EC" fontSize="10" fontWeight="400" opacity="0.85">Q3 (jul–sep)</text>
 
                 <text x="125" y="112" fill="#173B60" fontSize="12">Smart sälj­</text>
                 <text x="125" y="127" fill="#173B60" fontSize="12">strategi</text>
-                <text x="125" y="143" fill="#173B60" fontSize="10" fontWeight="400" opacity="0.7" fontStyle="italic">Q4 (okt-dec)</text>
+                <text x="125" y="143" fill="#173B60" fontSize="10" fontWeight="400" opacity="0.7">Q4 (okt–dec)</text>
               </g>
 
               <circle cx="200" cy="200" r={centerR} fill="#F7F3EC" />
@@ -125,18 +156,18 @@ export default function BoardroomWheel() {
                 x="200"
                 y="195"
                 textAnchor="middle"
-                fontFamily="var(--font-lora), serif"
+                fontFamily="var(--font-heading), sans-serif"
                 fontWeight="600"
                 fontSize="18"
                 fill="#173B60"
               >
-                Boardroom
+                Ägarklivet
               </text>
               <text
                 x="200"
                 y="214"
                 textAnchor="middle"
-                fontFamily="var(--font-raleway), sans-serif"
+                fontFamily="var(--font-text), sans-serif"
                 fontSize="10"
                 fill="#6B6B6B"
               >
@@ -152,7 +183,7 @@ export default function BoardroomWheel() {
                     x={p.x}
                     y={p.y + 3}
                     textAnchor="middle"
-                    fontFamily="var(--font-raleway), sans-serif"
+                    fontFamily="var(--font-text), sans-serif"
                     fontSize="9"
                     fontWeight="700"
                     fill="#6B6B6B"
@@ -198,7 +229,7 @@ export default function BoardroomWheel() {
 
           <div className="text-center">
             <h2 className="reveal">
-              Ett år. <em>Fyra teman.</em>
+              Så ser <em>året</em> ut.
             </h2>
             <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.1rem] text-ink-soft leading-relaxed max-w-md mx-auto">
               Tolv månader i ett litet rum av erfarna ägare, med mig vid din sida hela vägen.
@@ -206,13 +237,12 @@ export default function BoardroomWheel() {
 
             <ul className="reveal reveal-d2 mt-10 rounded-3xl bg-white border border-[color:var(--border-soft)] divide-y divide-[color:var(--border-soft)] text-center">
               {LEGEND.map((l) => (
-                <li key={l.title} className="px-6 py-6 md:px-8">
-                  <div className="inline-flex items-center gap-3 font-semibold text-[1.02rem] text-[color:var(--marin)]">
-                    <span aria-hidden className="h-7 w-7 inline-flex items-center justify-center rounded-full bg-[color:var(--sand)]">
-                      {l.marker}
-                    </span>
-                    {l.title}
-                  </div>
+                <li key={l.title} className="px-6 py-7 md:px-8">
+                  <CountMark count={l.count} />
+                  <p className="mt-3 inline-flex items-center gap-2 font-semibold text-[1.05rem] text-[color:var(--marin)]">
+                    <WheelKey type={l.marker} />
+                    {l.title.charAt(0).toUpperCase() + l.title.slice(1)}
+                  </p>
                   <p className="mt-2 text-[0.96rem] text-ink-soft leading-relaxed max-w-sm mx-auto">
                     {l.body}
                     {l.dates && <span className="block mt-1 text-[0.86rem] text-muted">{l.dates}</span>}
@@ -243,7 +273,7 @@ export default function BoardroomWheel() {
                   <polyline points="13 6 19 12 13 18" />
                 </svg>
               </a>
-              <span className="text-[0.88rem] text-muted">Max 15 deltagare. 30 minuter, kostnadsfritt.</span>
+              <span className="text-[0.88rem] text-muted">Samtalet är kostnadsfritt och tar 30 minuter.</span>
             </div>
           </div>
         </div>

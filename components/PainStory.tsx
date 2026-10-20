@@ -37,6 +37,7 @@ export default function PainStory({
                   src={image.src}
                   alt={image.alt}
                   fill
+                  quality={90}
                   sizes="(min-width: 1024px) 460px, 90vw"
                   className="object-cover"
                 />

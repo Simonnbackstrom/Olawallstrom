@@ -3,11 +3,12 @@ import type { Metadata } from "next";
 import WebinarSignupForm from "@/components/WebinarSignupForm";
 import TestimonialsClean from "@/components/TestimonialsClean";
 import JsonLd from "@/components/JsonLd";
+import { WEBINAR } from "@/lib/webinar";
 
 export const metadata: Metadata = {
   title: "Gratis webinar: så bygger du ett bolag som inte äger dig",
   description:
-    "Live på Zoom i november. 60 minuter för bolagsägare i segmentet 10-50 Mkr. Ola Wallström delar de fyra principerna bakom 650+ coachade bolag. Kostnadsfritt.",
+    "Live på Zoom i november. 60 minuter för bolagsägare. Ola Wallström delar de fyra principerna bakom 650+ coachade bolag. Kostnadsfritt.",
   alternates: { canonical: "/webinar" },
   openGraph: {
     title: "Gratis webinar: så bygger du ett bolag som inte äger dig",
@@ -18,16 +19,16 @@ export const metadata: Metadata = {
   },
 };
 
-const EVENT_DATE_ISO = "2026-11-11T09:00:00+01:00";
-const EVENT_DATE_LABEL = "Onsdag 11 november";
-const EVENT_TIME_LABEL = "09.00–10.00";
-const SEATS_LIMIT = 100;
+const EVENT_DATE_ISO = WEBINAR.startISO;
+const EVENT_DATE_LABEL = WEBINAR.dateLabel;
+const EVENT_TIME_LABEL = WEBINAR.timeLabel;
+const SEATS_LIMIT = WEBINAR.seats;
 
 const DETAILS = [
   { label: "Datum", value: EVENT_DATE_LABEL },
   { label: "Tid", value: EVENT_TIME_LABEL },
   { label: "Format", value: "Live på Zoom" },
-  { label: "Pris", value: "Kostnadsfritt" },
+  { label: "Kostnad", value: "Kostnadsfritt" },
 ];
 
 const PAIN_POINTS = [
@@ -41,8 +42,8 @@ const PAIN_POINTS = [
 const LESSONS = [
   {
     n: "01",
-    title: "Varför bolag stannar vid 10 Mkr",
-    body: "De tre mönstren som gör att du blir flaskhals när omsättningen passerar 10 miljoner, och exakt var i din vecka de syns.",
+    title: "Varför bolag slutar växa",
+    body: "De tre mönstren som gör att du blir flaskhals när bolaget växer, och exakt var i din vecka de syns.",
   },
   {
     n: "02",
@@ -57,14 +58,14 @@ const LESSONS = [
   {
     n: "04",
     title: "Öppen frågestund",
-    body: "Sista 15 minuterna är dina. Ta med en konkret knut i ditt bolag så svarar jag live.",
+    body: "De sista 15 minuterna är dina. Ta med en konkret knut i ditt bolag så svarar jag live.",
   },
 ];
 
 const BONUSES = [
   {
     title: "Bolagsdiagnosen (PDF)",
-    body: "Min 1-sidors självutvärdering som visar var tiden läcker ut. Mejlas ut direkt efter anmälan.",
+    body: "Min självutvärdering på en sida, som visar var tiden läcker ut. Du får den till din mejl före webinaret.",
   },
   {
     title: "Inspelning i efterhand",
@@ -77,19 +78,19 @@ const BONUSES = [
 ];
 
 const FOR_WHOM = [
-  "Du äger ett bolag i segmentet 10-50 Mkr.",
+  "Du äger ett etablerat bolag som vill växa.",
   "Du är själv flaskhals i det dagliga.",
   "Du vill växa vidare utan att offra livet runt omkring.",
   "Du är öppen för att ändra på dig själv, inte bara teamet.",
 ];
 
 const NOT_FOR_WHOM = [
-  "Du söker en quick-fix eller en ny marknadsföringskanal.",
+  "Du söker en snabb lösning eller en ny marknadsföringskanal.",
   "Du vill bli underhållen snarare än utmanad.",
   "Du är inte beredd att göra jobbet själv.",
 ];
 
-const FAQ = [
+const FAQ: { q: string; a: string; link?: { href: string; label: string } }[] = [
   {
     q: "Är det verkligen gratis?",
     a: "Ja. Inga uppsäljningar under webinaret, inget köptvång efteråt. Vill du jobba vidare med mig får du höra av dig själv.",
@@ -100,19 +101,20 @@ const FAQ = [
   },
   {
     q: "Hur många deltagare?",
-    a: `Jag håller det runt ${SEATS_LIMIT} personer så att frågestunden faktiskt fungerar. När det är fullt stängs anmälan.`,
+    a: `Max ${SEATS_LIMIT} platser, så att frågestunden faktiskt fungerar. När det är fullt stängs anmälan.`,
   },
   {
-    q: "Är det för mig som bara ligger på 3-5 Mkr?",
-    a: "Du får ut något, men ramverket är byggt för bolag mellan 10 och 50 Mkr. Är du mindre, vänta och väx först, eller läs om mina andra program på sajten.",
+    q: "Är det för mig som precis har startat?",
+    a: "Du får ut något, men ramverket är byggt för etablerade bolag som vill växa vidare. Är du i början, väx först, eller läs om mina andra program på sajten.",
   },
   {
-    q: "Spelas kameran in?",
+    q: "Spelas deltagarna in?",
     a: "Bara min skärm och min bild spelas in. Deltagare syns inte i inspelningen.",
   },
   {
-    q: "Vad om jag inte vill vänta till 11 november?",
-    a: "Boka ett 30 min samtal med mig direkt istället. Kostnadsfritt, inget säljtryck: https://calendly.com/olawallstrom/30min.",
+    q: "Vad gör jag om jag inte vill vänta till 11 november?",
+    a: "Boka ett kostnadsfritt samtal på 30 minuter med mig i stället. Inget säljtryck.",
+    link: { href: "https://calendly.com/olawallstrom/30min", label: "Boka ett samtal" },
   },
 ];
 
@@ -123,9 +125,9 @@ const EVENT_LD = {
   "@type": "Event",
   name: "Så bygger du ett bolag som inte äger dig",
   description:
-    "Kostnadsfritt live-webinar för bolagsägare i segmentet 10-50 Mkr. 60 minuter om de fyra principerna bakom 650+ coachade bolag.",
+    "Kostnadsfritt live-webinar för bolagsägare. 60 minuter om de fyra principerna bakom 650+ coachade bolag.",
   startDate: EVENT_DATE_ISO,
-  endDate: "2026-11-11T10:00:00+01:00",
+  endDate: WEBINAR.endISO,
   eventStatus: "https://schema.org/EventScheduled",
   eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
   location: {
@@ -173,7 +175,7 @@ export default function WebinarPage() {
     <>
       <JsonLd id="webinar-schema" data={[EVENT_LD, faqSchema, breadcrumbSchema]} />
 
-      <section className="pt-32 md:pt-40 pb-16 md:pb-20 sec-papper">
+      <section className="pt-28 md:pt-40 pb-16 md:pb-20 sec-papper">
         <div className="container-site">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-stretch max-w-6xl mx-auto">
             <div className="flex flex-col justify-center text-center">
@@ -182,7 +184,7 @@ export default function WebinarPage() {
               </h1>
               <p className="reveal reveal-d1 mt-6 text-[1.1rem] md:text-[1.2rem] leading-relaxed text-ink-soft max-w-xl mx-auto">
                 60 minuter där jag delar de fyra principerna jag har använt med fler än 650
-                bolagsägare för att ta sig förbi taket vid 10 Mkr. Live på Zoom, kostnadsfritt och
+                bolagsägare för att ta sig förbi omsättningstaket. Live på Zoom, kostnadsfritt och
                 med öppen frågestund.
               </p>
               <p className="reveal reveal-d2 mt-5 text-[0.98rem] font-semibold text-[color:var(--marin)]">
@@ -193,13 +195,13 @@ export default function WebinarPage() {
                 {[
                   "De tre mönstren som gör dig till flaskhals",
                   "Hela ramverket på en A4, samma som mina VIP-klienter får",
-                  "Bolagsdiagnosen (PDF) direkt efter anmälan",
+                  "Bolagsdiagnosen (PDF) till din mejl före webinaret",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-[1rem] text-ink leading-relaxed">
                     <span className="mt-[0.2rem] shrink-0 h-5 w-5 inline-flex items-center justify-center rounded-full bg-glod-dim text-[color:var(--glod)]">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
                     </span>
                     {item}
                   </li>
@@ -213,7 +215,7 @@ export default function WebinarPage() {
                   Säkra din plats. Gratis.
                 </h2>
                 <p className="mt-3 mb-7 text-[0.98rem] text-[color:var(--papper)]/70">
-                  Du får Zoom-länken och bolagsdiagnosen direkt till din mejl.
+                  Du får en bekräftelse direkt till din mejl.
                 </p>
                 <WebinarSignupForm dark />
               </div>
@@ -230,9 +232,10 @@ export default function WebinarPage() {
               <div key={slug} className="relative h-8 w-24 md:h-10 md:w-28">
                 <Image
                   src={`/logos/logo-${slug}.png`}
-                  alt={slug}
+                  alt={`Logotyp ${slug}`}
                   fill
                   sizes="120px"
+                  quality={90}
                   className="object-contain grayscale"
                 />
               </div>
@@ -250,7 +253,7 @@ export default function WebinarPage() {
                 className="reveal flex flex-col-reverse justify-end rounded-2xl bg-white px-5 py-7 text-center shadow-[0_14px_36px_-30px_rgba(23,59,96,0.35)]"
               >
                 <dt className="mt-1.5 text-[0.88rem] text-muted">{d.label}</dt>
-                <dd className="font-[family-name:var(--font-lora)] font-semibold text-[1.25rem] md:text-[1.35rem] text-[color:var(--marin)] leading-tight">
+                <dd className="font-[family-name:var(--font-heading)] font-semibold text-[1.25rem] md:text-[1.35rem] text-[color:var(--marin)] leading-tight">
                   {d.value}
                 </dd>
               </div>
@@ -263,7 +266,7 @@ export default function WebinarPage() {
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-14">
             <h2 className="reveal">
-              Du leder ett miljonbolag på <em>samma sätt</em> som när du startade.
+              Du leder ett växande bolag på <em>samma sätt</em> som när du startade.
             </h2>
             <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.15rem] text-[color:var(--papper)]/75 leading-relaxed">
               Då är problemet inte att du behöver jobba hårdare. Känner du igen någon av de här
@@ -276,16 +279,16 @@ export default function WebinarPage() {
                 key={p}
                 className={`reveal reveal-d${(i % 4) + 1} w-full md:w-[calc(50%-0.625rem)] flex flex-col items-center justify-center text-center rounded-2xl bg-white/[0.06] ring-1 ring-white/12 px-8 py-10 md:px-11`}
               >
-                <span aria-hidden className="font-[family-name:var(--font-lora)] text-[3.2rem] leading-[0.55] text-[color:var(--glod)]">
+                <span aria-hidden className="font-[family-name:var(--font-heading)] text-[3.2rem] leading-[0.55] text-[color:var(--glod)]">
                   &ldquo;
                 </span>
-                <p className="mt-5 font-[family-name:var(--font-lora)] italic text-[1.18rem] md:text-[1.3rem] leading-relaxed text-[color:var(--papper)]/90">
+                <p className="mt-5 font-[family-name:var(--font-heading)] text-[1.18rem] md:text-[1.3rem] leading-relaxed text-[color:var(--papper)]/90">
                   {p}
                 </p>
               </li>
             ))}
           </ul>
-          <p className="reveal reveal-d3 mt-14 text-center max-w-2xl mx-auto font-[family-name:var(--font-lora)] text-[1.35rem] md:text-[1.6rem] leading-snug text-[color:var(--papper)]">
+          <p className="reveal reveal-d3 mt-14 text-center max-w-2xl mx-auto font-[family-name:var(--font-heading)] text-[1.35rem] md:text-[1.6rem] leading-snug text-[color:var(--papper)]">
             Det går att komma ur. Inte med fler att göra-listor, utan genom <em className="text-[color:var(--glod)]">hur du leder</em>.
           </p>
         </div>
@@ -296,7 +299,7 @@ export default function WebinarPage() {
           <div className="max-w-3xl mx-auto text-center mb-14 md:mb-16">
             <h2 className="reveal">Det här går jag igenom under de 60 minuterna.</h2>
             <p className="reveal reveal-d1 mt-6 text-[1.05rem] text-ink-soft leading-relaxed">
-              Inga powerpoint-föreläsningar. Jag delar det jag faktiskt säger till bolagsägare när vi
+              Inga PowerPoint-föreläsningar. Jag delar det jag faktiskt säger till bolagsägare när vi
               sitter öga mot öga, och visar exempel från mitt klientarbete.
             </p>
           </div>
@@ -307,7 +310,7 @@ export default function WebinarPage() {
                 key={l.n}
                 className={`reveal reveal-d${(i % 4) + 1} rounded-2xl bg-white border border-[color:var(--border-soft)] px-7 py-9 md:px-10 text-center`}
               >
-                <div className="font-[family-name:var(--font-lora)] italic font-semibold text-[2.2rem] leading-none text-[color:var(--glod)]">
+                <div className="font-[family-name:var(--font-heading)] font-semibold text-[2.2rem] leading-none text-[color:var(--glod)]">
                   {l.n}
                 </div>
                 <h3 className="mt-4 mb-3 leading-tight" style={{ fontSize: "1.25rem" }}>{l.title}</h3>
@@ -349,19 +352,20 @@ export default function WebinarPage() {
           <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
             <div className="reveal relative rounded-3xl overflow-hidden aspect-[4/5] bg-sand max-w-[480px] w-full mx-auto">
               <Image
-                src="/images/ola-biljard-ko.jpg"
-                alt="Ola Wallström vid ett biljardbord"
+                src="/images/ola-staende.jpg"
+                alt="Ola Wallström står i ett rum med en tavla bakom sig"
                 fill
+                quality={90}
                 sizes="(min-width: 1024px) 480px, 90vw"
-                className="object-cover"
+                className="object-cover object-[50%_30%]"
               />
             </div>
             <div className="text-center">
               <h2 className="reveal">25 år som entreprenör. Fler än 650 coachade bolagsägare.</h2>
               <p className="reveal reveal-d1 mt-6 text-[1.05rem] text-ink-soft leading-relaxed max-w-lg mx-auto">
                 Jag är Ola Wallström. Civilekonom, tidigare marknadschef på Affärsvärlden och med
-                åtta egna bolag bakom mig. Jag jobbar främst med bolagsägare med bolag mellan 10 och
-                50 miljoner som vill växa vidare utan att offra livet runt omkring.
+                åtta egna bolag bakom mig. Jag jobbar främst med bolagsägare med etablerade bolag
+                som vill växa vidare utan att offra livet runt omkring.
               </p>
               <p className="reveal reveal-d2 mt-5 text-[1.05rem] text-ink-soft leading-relaxed max-w-lg mx-auto">
                 Det jag delar på webinaret är ingen teaser. Det är samma ramverk som mina VIP-klienter
@@ -376,7 +380,7 @@ export default function WebinarPage() {
                 ].map((st) => (
                   <div key={st.l} className="flex flex-col-reverse justify-end">
                     <dt className="mt-2 text-[0.85rem] text-muted">{st.l}</dt>
-                    <dd className="font-[family-name:var(--font-lora)] font-semibold text-[1.9rem] md:text-[2.2rem] leading-none text-[color:var(--marin)]">
+                    <dd className="font-[family-name:var(--font-heading)] font-semibold text-[1.9rem] md:text-[2.2rem] leading-none text-[color:var(--marin)]">
                       {st.n}
                     </dd>
                   </div>
@@ -399,8 +403,8 @@ export default function WebinarPage() {
                   <li key={p} className="flex items-start gap-3 text-[1rem] text-ink leading-relaxed">
                     <span className="mt-[0.2rem] shrink-0 h-5 w-5 inline-flex items-center justify-center rounded-full bg-glod-dim text-[color:var(--glod)]">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
                     </span>
                     {p.replace(/^Du /, "")}
                   </li>
@@ -439,7 +443,7 @@ export default function WebinarPage() {
                   key={item.q}
                   className={`reveal reveal-d${(i % 4) + 1} group rounded-2xl bg-white border border-[color:var(--border-soft)] overflow-hidden open:border-[color:var(--glod)]/40 transition-colors`}
                 >
-                  <summary className="cursor-pointer list-none px-6 py-5 flex items-center justify-between gap-4 font-[family-name:var(--font-lora)] font-semibold text-[1.05rem] md:text-[1.1rem] text-[color:var(--marin)]">
+                  <summary className="cursor-pointer list-none px-6 py-5 flex items-center justify-between gap-4 font-[family-name:var(--font-heading)] font-semibold text-[1.05rem] md:text-[1.1rem] text-[color:var(--marin)]">
                     <span aria-hidden className="shrink-0 w-8" />
                     <span className="flex-1 text-center">{item.q}</span>
                     <span className="shrink-0 h-8 w-8 inline-flex items-center justify-center rounded-full bg-glod-dim text-[color:var(--glod)] transition-transform group-open:rotate-45">
@@ -451,6 +455,19 @@ export default function WebinarPage() {
                   </summary>
                   <div className="px-6 md:px-14 pb-6 text-center text-[0.98rem] text-ink-soft leading-relaxed">
                     {item.a}
+                    {item.link && (
+                      <>
+                        {" "}
+                        <a
+                          href={item.link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-semibold text-[color:var(--marin)] underline underline-offset-4 hover:text-[color:var(--glod)] transition-colors"
+                        >
+                          {item.link.label}
+                        </a>
+                      </>
+                    )}
                   </div>
                 </details>
               ))}
@@ -465,8 +482,8 @@ export default function WebinarPage() {
             <h2 className="reveal text-[color:var(--papper)]">Säkra din plats innan den är tagen.</h2>
             <p className="reveal reveal-d1 mt-5 text-[1.05rem] text-[color:var(--papper)]/75 leading-relaxed">
               {EVENT_DATE_LABEL} kl. {EVENT_TIME_LABEL}, max {SEATS_LIMIT} platser. Fyll i namn och
-              e-post så får du Zoom-länken och bolagsdiagnosen direkt. Kan du inte vara med live
-              skickar jag inspelningen efteråt.
+              e-post så får du en bekräftelse direkt, och Zoom-länken före
+              webinaret. Kan du inte vara med live skickar jag inspelningen efteråt.
             </p>
           </div>
 

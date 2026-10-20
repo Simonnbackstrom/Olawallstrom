@@ -3,9 +3,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import StrategyHero from "@/components/StrategyHero";
 import LogoCarousel from "@/components/LogoCarousel";
-import Testimonials from "@/components/Testimonials";
+import TestimonialsClean from "@/components/TestimonialsClean";
 import PageFAQ from "@/components/PageFAQ";
 import JsonLd from "@/components/JsonLd";
+import CalendlyEmbed from "@/components/CalendlyEmbed";
 
 const SITE_URL = "https://olawallstrom.com";
 
@@ -21,7 +22,7 @@ const serviceSchema = {
   areaServed: "SE",
   audience: {
     "@type": "BusinessAudience",
-    audienceType: "Bolagsägare i segmentet 10-50 Mkr",
+    audienceType: "Bolagsägare i etablerade bolag",
   },
   offers: {
     "@type": "Offer",
@@ -65,7 +66,7 @@ const CREDS = [
 const WALKTHROUGH = [
   {
     n: "01",
-    title: "Var står bolaget idag?",
+    title: "Var står bolaget i dag?",
     body: "Du berättar var ni är, vad som funkar och vad som skaver. Inga perfekta svar krävs.",
   },
   {
@@ -76,7 +77,7 @@ const WALKTHROUGH = [
   {
     n: "03",
     title: "Vad står i vägen?",
-    body: "Vi plockar ut de två till tre grejer som bromsar mest just nu, och vad som ska göras först.",
+    body: "Vi ringar in de två, tre saker som bromsar mest just nu, och vad som ska göras först.",
   },
 ];
 
@@ -91,7 +92,7 @@ const SHIFTS = [
   },
   {
     title: "Du får kontroll på siffrorna",
-    body: "Du läser bolaget på rätt nyckeltal, ser var marginalerna läcker och fattar beslut på fakta istället för magkänsla.",
+    body: "Du läser bolaget på rätt nyckeltal, ser var marginalerna läcker och fattar beslut på fakta, inte bara magkänsla.",
   },
   {
     title: "Tid tillbaka till det som räknas",
@@ -112,15 +113,14 @@ export default function Strategisession() {
     <>
       <JsonLd id="strategisession-schema" data={[serviceSchema, breadcrumbSchema]} />
       <StrategyHero />
-      <LogoCarousel />
+      <LogoCarousel plainHeading />
 
       {/* VAD VI GÅR IGENOM */}
       <section className="py-[var(--section-y)] sec-sand">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-14">
-            <p className="reveal eyebrow mb-5 justify-center">Vad vi går igenom under 30 min</p>
             <h2 className="reveal reveal-d1">
-              Tre frågor. <em>Konkret output.</em>
+              Tre frågor. <em>Konkreta svar.</em>
             </h2>
             <p className="reveal reveal-d2 mt-6 text-[1.05rem] text-ink-soft leading-relaxed">
               Du behöver inte förbereda något. Vi pratar som två bolagsägare, inte som konsult och klient.
@@ -131,15 +131,15 @@ export default function Strategisession() {
             {WALKTHROUGH.map((step, i) => (
               <article
                 key={step.n}
-                className={`reveal reveal-d${i + 1} rounded-3xl bg-white border border-[color:var(--border-soft)] p-7 md:p-8 shadow-[0_18px_42px_-24px_rgba(23,59,96,0.18)]`}
+                className={`reveal reveal-d${i + 1} flex flex-col items-center rounded-3xl bg-white px-7 py-9 md:px-8 text-center shadow-[0_18px_44px_-34px_rgba(23,59,96,0.4)]`}
               >
-                <div className="font-[family-name:var(--font-lora)] font-semibold italic text-[2.3rem] md:text-[2.6rem] leading-none text-[color:var(--glod)] mb-5">
-                  {step.n}
-                </div>
-                <h3 className="font-[family-name:var(--font-lora)] font-semibold text-[1.2rem] md:text-[1.3rem] leading-tight text-[color:var(--marin)]">
+                <span className="mb-5 h-11 w-11 inline-flex items-center justify-center rounded-full border-2 border-[color:var(--glod)] font-semibold text-[1.05rem] text-[color:var(--glod)]">
+                  {i + 1}
+                </span>
+                <h3 className="leading-tight" style={{ fontSize: "1.3rem" }}>
                   {step.title}
                 </h3>
-                <p className="mt-4 text-[0.98rem] text-ink-soft leading-relaxed">{step.body}</p>
+                <p className="mt-3 text-[0.98rem] text-ink-soft leading-relaxed">{step.body}</p>
               </article>
             ))}
           </div>
@@ -154,7 +154,6 @@ export default function Strategisession() {
       <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-14">
-            <p className="reveal eyebrow mb-5 justify-center">Förflyttningar som jag hjälper till med</p>
             <h2 className="reveal reveal-d1">
               Sex månader från nu <em>känner du skillnaden</em> i vardagen.
             </h2>
@@ -167,50 +166,46 @@ export default function Strategisession() {
             {SHIFTS.map((s, i) => (
               <article
                 key={s.title}
-                className={`reveal reveal-d${(i % 5) + 1} rounded-2xl bg-white border border-[color:var(--border-soft)] p-7 shadow-[0_18px_42px_-30px_rgba(23,59,96,0.22)]`}
+                className={`reveal reveal-d${(i % 5) + 1} flex flex-col items-center rounded-2xl bg-white px-7 py-9 text-center shadow-[0_18px_44px_-34px_rgba(23,59,96,0.4)]`}
               >
-                <div className="mb-5 h-10 w-10 rounded-full bg-[color:var(--glod-dim)] inline-flex items-center justify-center text-[color:var(--glod)]">
+                <div className="mb-5 h-10 w-10 rounded-full bg-glod-dim inline-flex items-center justify-center text-[color:var(--glod)]">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
-                <h3 className="font-[family-name:var(--font-lora)] font-semibold text-[1.15rem] leading-tight text-[color:var(--marin)]">
+                <h3 className="leading-tight" style={{ fontSize: "1.2rem" }}>
                   {s.title}
                 </h3>
-                <p className="mt-4 text-[0.98rem] text-ink-soft leading-relaxed">{s.body}</p>
+                <p className="mt-3 text-[0.98rem] text-ink-soft leading-relaxed max-w-xs">{s.body}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <Testimonials tone="papper" />
+      <TestimonialsClean tone="papper" />
 
       {/* ABOUT */}
       <section className="py-[var(--section-y)] sec-sand">
         <div className="container-site">
           <div className="grid lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-20 items-center">
             <div className="reveal relative">
-              <div
-                aria-hidden
-                className="absolute inset-0 -z-10 translate-x-4 translate-y-4 rounded-[3rem] bg-white"
-              />
-              <div className="relative rounded-3xl overflow-hidden border border-[color:var(--border-soft)] aspect-[4/5] max-w-[480px] mx-auto">
+              <div className="relative rounded-3xl overflow-hidden aspect-[4/5] max-w-[480px] mx-auto bg-papper">
                 <Image
-                  src="/images/ola-fatolj.jpg"
-                  alt="Ola Wallström i fåtölj"
+                  src="/images/ola-leende-ute.jpg"
+                  alt="Ola Wallström ler, utomhus i brun skinnjacka"
                   fill
+                  quality={90}
                   sizes="(min-width: 1024px) 480px, 90vw"
-                  className="object-cover"
+                  className="object-cover object-[50%_25%]"
                 />
               </div>
             </div>
-            <div>
-              <p className="reveal eyebrow mb-5">Vem är det som ringer upp</p>
+            <div className="text-center">
               <h2 className="reveal reveal-d1">
                 25 års erfarenhet som serieentreprenör och mentor.
               </h2>
-              <div className="reveal reveal-d2 mt-6 space-y-4 text-[1.02rem] text-ink-soft leading-relaxed">
+              <div className="reveal reveal-d2 mt-6 space-y-4 text-[1.02rem] text-ink-soft leading-relaxed max-w-xl mx-auto">
                 <p>
                   Jag är civilekonom och har en bakgrund som marknadschef på Affärsvärlden.
                   Serieentreprenör med åtta egna bolag i olika branscher, så jag vet av egen
@@ -219,17 +214,17 @@ export default function Strategisession() {
                 <p>
                   Under 25 år har jag coachat över 650 bolagsägare och ledare. Min VIP-coaching bygger på
                   fyra principer: <em>Äkta, Klarhet, Genomförande och Frihet</em>. De hjälper dig
-                  att gå från 10 till 50 Mkr utan att offra livet runt omkring.
+                  att växa utan att offra livet runt omkring.
                 </p>
                 <p>
                   Jag tar emot ett begränsat antal klienter per år för att hålla kvaliteten hög i
                   varje samarbete.
                 </p>
               </div>
-              <ul className="reveal reveal-d3 mt-10 space-y-3">
+              <ul className="reveal reveal-d3 mt-10 mx-auto w-fit flex flex-col gap-3 text-left">
                 {CREDS.map((c) => (
                   <li key={c} className="flex items-start gap-3 text-[1rem] text-ink">
-                    <span className="shrink-0 mt-0.5 h-6 w-6 inline-flex items-center justify-center rounded-full bg-[color:var(--glod-dim)] text-[color:var(--glod)]">
+                    <span className="shrink-0 mt-0.5 h-6 w-6 inline-flex items-center justify-center rounded-full bg-glod-dim text-[color:var(--glod)]">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
@@ -244,23 +239,14 @@ export default function Strategisession() {
       </section>
 
       {/* CALENDLY EMBED */}
-      <section id="boka" className="py-[var(--section-y)] sec-marin relative overflow-hidden">
-        <div
-          aria-hidden
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(circle at 20% 20%, rgba(242,106,46,0.2) 0%, transparent 55%), radial-gradient(circle at 80% 80%, rgba(242,106,46,0.12) 0%, transparent 55%)",
-          }}
-        />
-        <div className="container-site relative">
+      <section id="boka" className="py-[var(--section-y)] sec-marin">
+        <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-10">
-            <p className="reveal eyebrow mb-5 justify-center text-[color:var(--glod)]">För dig som vill äga ditt bolag på riktigt</p>
             <h2 className="reveal reveal-d1 text-[color:var(--papper)]">
               Välj en tid som <em>passar dig</em>.
             </h2>
             <p className="reveal reveal-d2 mt-5 text-[1.05rem] text-[color:var(--papper)]/80 leading-relaxed max-w-2xl mx-auto">
-              Boka ett kostnadsfritt 30 minuters samtal med mig. Jag ger dig konkreta insikter oavsett om jag blir rätt mentor för dig eller inte.
+              Boka ett kostnadsfritt samtal på 30 minuter med mig. Jag ger dig konkreta insikter oavsett om jag blir rätt mentor för dig eller inte.
             </p>
             <div className="reveal reveal-d3 mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-[0.9rem] text-[color:var(--papper)]/80">
               {["Kostnadsfritt", "30 minuter", "Direkt med mig", "Inget säljtryck"].map((m) => (
@@ -275,13 +261,9 @@ export default function Strategisession() {
           </div>
 
           <div className="reveal reveal-d4 max-w-4xl mx-auto rounded-3xl overflow-hidden bg-papper shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)]">
-            <iframe
-              src="https://calendly.com/olawallstrom/30min?hide_gdpr_banner=1"
+            <CalendlyEmbed
+              url="https://calendly.com/olawallstrom/30min"
               title="Boka strategisamtal med Ola Wallström"
-              width="100%"
-              height="720"
-              frameBorder="0"
-              className="block"
             />
           </div>
         </div>
@@ -289,6 +271,10 @@ export default function Strategisession() {
 
       <PageFAQ
         tone="papper"
+        eyebrow={null}
+        centered
+        ctaLabel="Boka ett samtal med mig"
+        ctaHref="#boka"
         heading="Vanliga frågor"
         intro="Det här är frågorna jag får oftast innan ett strategisamtal. Hittar du inte svaret, boka ett samtal så pratar vi."
         items={[
@@ -296,7 +282,7 @@ export default function Strategisession() {
             q: "Är det verkligen gratis?",
             a: (
               <>
-                Ja. 30 min, inget säljtryck. Jag tar betalt för uppdrag, inte för första samtalet.
+                Ja. 30 minuter, inget säljtryck. Jag tar betalt för uppdrag, inte för första samtalet.
                 Om vi båda tycker att det passar att jobba vidare pratar vi upplägg och pris då.
               </>
             ),
@@ -305,7 +291,7 @@ export default function Strategisession() {
             q: "Måste jag förbereda något?",
             a: (
               <>
-                Nej. Kom precis som du är. Vi börjar med var ditt bolag står idag, jag ställer de
+                Nej. Kom precis som du är. Vi börjar med var ditt bolag står i dag, och jag ställer de
                 frågor jag behöver. Du behöver inte ha ett tydligt problem definierat, det är
                 ofta därför vi pratar.
               </>
@@ -315,8 +301,8 @@ export default function Strategisession() {
             q: "Vem är det för?",
             a: (
               <>
-                VD och ägare i bolag mellan 10 och 50 Mkr som vill växa vidare utan att offra livet
-                runt omkring. Om du är i ett annat segment eller läge: boka ändå, jag säger till om
+                VD och ägare i etablerade bolag som vill växa vidare utan att offra livet
+                runt omkring. Är du i ett annat läge? Boka ändå. Jag säger till om
                 jag inte är rätt person och tipsar om någon annan.
               </>
             ),
@@ -326,7 +312,7 @@ export default function Strategisession() {
             a: (
               <>
                 Du går därifrån med konkreta nästa steg du kan agera på direkt. Om det känns rätt
-                för oss båda pratar vi om fortsättning, antingen Boardroom 2027 eller VIP-coaching
+                för oss båda pratar vi om fortsättning, antingen Ägarklivet 2027 eller VIP-coaching
                 1:1. Om inte, har du ändå fått något med dig.
               </>
             ),
@@ -335,7 +321,7 @@ export default function Strategisession() {
             q: "Hur bokar jag?",
             a: (
               <>
-                Scrolla upp till kalendern här på sidan och välj en tid som passar. Du får ett Zoom-link
+                Scrolla upp till kalendern här på sidan och välj en tid som passar. Du får en Zoom-länk
                 direkt. Det är allt.
               </>
             ),
@@ -343,45 +329,35 @@ export default function Strategisession() {
         ]}
       />
 
-      {/* BOARDROOM TEASER */}
+      {/* ÄGARKLIVET TEASER */}
       <section className="py-[var(--section-y)] sec-sand">
         <div className="container-site">
-          <div className="reveal relative overflow-hidden rounded-3xl sec-marin p-8 md:p-12">
-            <div
-              aria-hidden
-              className="absolute -top-20 -right-20 w-[380px] h-[380px] rounded-full pointer-events-none"
-              style={{ background: "radial-gradient(circle, rgba(242,106,46,0.22) 0%, transparent 65%)" }}
-            />
-            <div className="relative grid md:grid-cols-[1.4fr_1fr] gap-8 md:gap-12 items-center">
-              <div>
-                <p className="eyebrow-upper mb-5">Ola erbjuder också</p>
-                <h3 className="font-[family-name:var(--font-lora)] font-semibold text-[clamp(1.6rem,3.4vw,2.4rem)] leading-tight text-[color:var(--papper)]">
-                  Boardroom 2027. Ett år, fyra teman.
-                </h3>
-                <p className="mt-5 text-[1rem] text-[color:var(--papper)]/80 leading-relaxed max-w-xl">
-                  Vill du gå in i ett helt program? Boardroom är Olas 12-månaders upplägg för
-                  VD/ägare, i ett litet rum av erfarna ägare, med personligt stöd hela vägen.
-                </p>
-                <div className="mt-7 flex flex-wrap items-center gap-4">
-                  <Link href="/boardroom" className="btn-primary">
-                    Se programmet
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <polyline points="13 6 19 12 13 18" />
-                    </svg>
-                  </Link>
-                  <span className="text-[0.85rem] text-[color:var(--papper)]/60">
-                    195 000 kr, max 15 deltagare, begränsat antal platser 2027
-                  </span>
-                </div>
-              </div>
-              <div className="hidden md:flex flex-wrap gap-2 justify-end">
-                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-[color:var(--papper)] text-[0.78rem] font-semibold">Q1 Mental klarhet</span>
-                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-[color:var(--olabla)] text-[color:var(--papper)] text-[0.78rem] font-semibold">Q2 Stjärnledarskap</span>
-                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-[color:var(--glod)] text-white text-[0.78rem] font-semibold">Q3 Affärsutveckling</span>
-                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-[color:var(--sand)] text-[color:var(--marin)] text-[0.78rem] font-semibold">Q4 Säljstrategi</span>
-              </div>
+          <div className="reveal max-w-4xl mx-auto rounded-3xl sec-marin px-8 py-12 md:px-14 md:py-14 text-center">
+            <h3 className="text-[color:var(--papper)]" style={{ fontSize: "clamp(1.6rem, 3.2vw, 2.2rem)" }}>
+              Ägarklivet 2027. Ett år, fyra teman.
+            </h3>
+            <p className="mt-5 text-[1.02rem] md:text-[1.08rem] text-[color:var(--papper)]/80 leading-relaxed max-w-xl mx-auto">
+              Vill du gå in i ett helt program? Ägarklivet är mitt upplägg på tolv månader för
+              VD och ägare, i ett litet rum av erfarna ägare, med personligt stöd hela vägen.
+            </p>
+            <div className="mt-7 flex flex-wrap justify-center gap-2">
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-[color:var(--papper)] text-[0.78rem] font-semibold">Q1 Mental klarhet</span>
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-[color:var(--olabla)] text-[color:var(--papper)] text-[0.78rem] font-semibold">Q2 Stjärnledarskap</span>
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-[color:var(--glod)] text-white text-[0.78rem] font-semibold">Q3 Affärsutveckling</span>
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-[color:var(--sand)] text-[color:var(--marin)] text-[0.78rem] font-semibold">Q4 Säljstrategi</span>
             </div>
+            <div className="mt-8 flex justify-center">
+              <Link href="/agarklivet" className="btn-primary">
+                Se programmet
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="13 6 19 12 13 18" />
+                </svg>
+              </Link>
+            </div>
+            <p className="mt-5 text-[0.85rem] text-[color:var(--papper)]/60">
+              Max 15 deltagare. Begränsat antal platser 2027.
+            </p>
           </div>
         </div>
       </section>
