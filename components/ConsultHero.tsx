@@ -3,17 +3,13 @@ import Image from "next/image";
 
 export default function ConsultHero() {
   return (
-    <section className="relative pt-28 md:pt-32 pb-20 md:pb-28 bg-papper overflow-hidden">
+    <section className="relative pt-24 md:pt-32 pb-20 md:pb-28 bg-papper overflow-hidden">
       <div className="container-site relative">
-        <div className="grid lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-20 items-center">
           {/* Text */}
           <div className="order-2 lg:order-1 max-w-2xl mx-auto text-center lg:pt-16">
             <h1 className="reveal reveal-d1 text-[color:var(--marin)]">
-              Äkta, rakt{" "}
-              <em className="text-[color:var(--glod)] not-italic font-[family-name:var(--font-lora)]">
-                och med
-              </em>{" "}
-              <span className="italic">riktning framåt.</span>
+              Äkta, rakt och med <em>riktning framåt.</em>
             </h1>
 
             <p className="reveal reveal-d2 mt-8 text-[1.1rem] md:text-[1.15rem] text-ink-soft leading-relaxed max-w-xl mx-auto">
@@ -36,10 +32,10 @@ export default function ConsultHero() {
                 </svg>
               </a>
               <Link
-                href="/boardroom"
+                href="/agarklivet"
                 className="group inline-flex items-center gap-2 text-[0.95rem] font-semibold text-[color:var(--marin)] hover:text-[color:var(--glod)] transition-colors px-2 py-3"
               >
-                Se Boardroom 2027
+                Se Ägarklivet 2027
                 <svg
                   width="14"
                   height="14"
@@ -66,7 +62,7 @@ export default function ConsultHero() {
               ].map((p) => (
                 <div key={p.n} className="flex flex-col-reverse justify-end">
                   <dt className="mt-2 text-[0.85rem] text-muted leading-snug sm:whitespace-nowrap">{p.l}</dt>
-                  <dd className="font-[family-name:var(--font-lora)] font-semibold text-[2rem] md:text-[2.3rem] leading-none text-[color:var(--marin)]">
+                  <dd className="font-[family-name:var(--font-heading)] font-semibold text-[2rem] md:text-[2.3rem] leading-none text-[color:var(--marin)]">
                     {p.n}
                   </dd>
                 </div>
@@ -76,25 +72,12 @@ export default function ConsultHero() {
 
           {/* Portrait */}
           <div className="order-1 lg:order-2 relative">
-            {/* Open-circle brand accent behind */}
-            <svg
-              aria-hidden
-              viewBox="0 0 400 400"
-              className="absolute -top-6 -left-6 md:-top-10 md:-left-10 w-[110%] h-auto -z-0 text-[color:var(--glod)]"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="6"
-              strokeLinecap="round"
-            >
-              <path d="M 200 30 A 170 170 0 1 1 330 320" />
-            </svg>
-
             <div className="relative aspect-[4/5] max-w-[520px] mx-auto">
               <Image
-                src="/images/ola-portratt-leende.jpg"
+                src="/images/ola-portratt-leende-hd.jpg"
                 alt="Ola Wallström ler i brun kavaj"
                 fill
-                quality={85}
+                quality={90}
                 priority
                 sizes="(min-width: 1024px) 520px, 90vw"
                 className="object-cover object-[50%_20%] rounded-[2rem]"

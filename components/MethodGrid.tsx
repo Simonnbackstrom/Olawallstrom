@@ -72,7 +72,7 @@ export default function MethodGrid({
               key={item.num}
               className={`reveal reveal-d${(i % 5) + 1} relative rounded-2xl px-7 py-9 md:px-10 md:py-10 bg-white border border-[color:var(--border-soft)] text-center transition-colors hover:border-[color:var(--glod)]`}
             >
-              <div className="font-[family-name:var(--font-lora)] italic font-semibold text-[2.2rem] md:text-[2.5rem] leading-none text-[color:var(--glod)]">
+              <div className="font-[family-name:var(--font-heading)] font-semibold text-[2.2rem] md:text-[2.5rem] leading-none text-[color:var(--glod)]">
                 {item.num}
               </div>
               <h3 className="mt-4 mb-3" style={{ fontSize: "clamp(1.2rem, 1.8vw, 1.35rem)" }}>{item.title}</h3>

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Boardroom 2027. Ett år. Fyra teman. Max 15 deltagare.";
+export const alt = "Ägarklivet 2027. Ett år. Fyra teman. Max 15 deltagare.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -18,7 +18,7 @@ export default async function OGImage() {
           justifyContent: "space-between",
           padding: "72px",
           position: "relative",
-          fontFamily: "serif",
+          fontFamily: "sans-serif",
         }}
       >
         <div
@@ -36,7 +36,7 @@ export default async function OGImage() {
 
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <div style={{ width: 44, height: 2, background: "#F26A2E", borderRadius: 2 }} />
-          <div style={{ fontStyle: "italic", fontSize: 24, color: "#F26A2E" }}>
+          <div style={{ fontSize: 24, color: "#F26A2E" }}>
             Primärt program 2027
           </div>
         </div>
@@ -51,13 +51,12 @@ export default async function OGImage() {
               fontWeight: 600,
             }}
           >
-            Boardroom 2027.
+            Ägarklivet 2027.
           </div>
           <div
             style={{
               display: "flex",
               fontSize: 44,
-              fontStyle: "italic",
               color: "rgba(247,243,236,0.9)",
               lineHeight: 1.1,
             }}
@@ -74,8 +73,6 @@ export default async function OGImage() {
               color: "rgba(247,243,236,0.75)",
             }}
           >
-            <span>195 000 kr</span>
-            <span style={{ color: "rgba(247,243,236,0.4)" }}>·</span>
             <span>Max 15 deltagare</span>
             <span style={{ color: "rgba(247,243,236,0.4)" }}>·</span>
             <span>Begränsat antal platser</span>
@@ -101,7 +98,7 @@ export default async function OGImage() {
             Ola Wallström
           </div>
           <div style={{ fontSize: 20, color: "rgba(247,243,236,0.65)" }}>
-            olawallstrom.com/boardroom
+            olawallstrom.com/agarklivet
           </div>
         </div>
       </div>

@@ -49,7 +49,7 @@ export default function PageFAQ({
                 <details className="group rounded-2xl bg-white border border-[color:var(--border-soft)] open:border-[color:var(--glod)]/40 transition-colors">
                   <summary className="list-none cursor-pointer px-6 py-5 flex items-center justify-between gap-4">
                     {centered && <span aria-hidden className="shrink-0 w-8" />}
-                    <span className={`font-[family-name:var(--font-lora)] font-semibold text-[1.05rem] md:text-[1.1rem] text-[color:var(--marin)] leading-snug${centered ? " flex-1 text-center" : ""}`}>
+                    <span className={`font-[family-name:var(--font-heading)] font-semibold text-[1.05rem] md:text-[1.1rem] text-[color:var(--marin)] leading-snug${centered ? " flex-1 text-center" : ""}`}>
                       {item.q}
                     </span>
                     <span className="shrink-0 h-8 w-8 inline-flex items-center justify-center rounded-full bg-[color:var(--glod-dim)] text-[color:var(--glod)] transition-transform group-open:rotate-45">

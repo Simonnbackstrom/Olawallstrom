@@ -4,7 +4,8 @@ const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
   images: {
-    qualities: [75, 85],
+    qualities: [75, 90],
+    formats: ["image/avif", "image/webp"],
   },
   partialPrefetching: true,
   turbopack: {
@@ -20,6 +21,16 @@ const nextConfig: NextConfig = {
       {
         source: "/nyhetsbrev",
         destination: "/inspiration",
+        permanent: true,
+      },
+      {
+        source: "/boardroom",
+        destination: "/agarklivet",
+        permanent: true,
+      },
+      {
+        source: "/metod",
+        destination: "/vip-coaching",
         permanent: true,
       },
     ];

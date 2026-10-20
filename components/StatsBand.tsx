@@ -6,7 +6,7 @@ const STATS = [
   { num: "650+", label: "Coachade bolagsägare" },
   { num: "25 år", label: "Som serieentreprenör" },
   { num: "8", label: "Egna bolag byggda" },
-  { num: "1,9 Mdr", label: "Klientresultat, från 19 Mkr" },
+  { num: "100×", label: "Tillväxt i ett klientcase" },
 ];
 
 export default function StatsBand({ tone = "himmel" }: Props) {
@@ -24,7 +24,7 @@ export default function StatsBand({ tone = "himmel" }: Props) {
             <div key={s.label} className={`reveal reveal-d${(i % 5) + 1} flex flex-col-reverse justify-end`}>
               <dt className={`mt-3 text-[0.85rem] md:text-[0.92rem] ${labelColor}`}>{s.label}</dt>
               <dd
-                className={`font-[family-name:var(--font-lora)] font-semibold leading-none whitespace-nowrap text-[2.4rem] md:text-[3rem] ${numColor}`}
+                className={`font-[family-name:var(--font-heading)] font-semibold leading-none whitespace-nowrap text-[2.4rem] md:text-[3rem] ${numColor}`}
               >
                 {s.num}
               </dd>

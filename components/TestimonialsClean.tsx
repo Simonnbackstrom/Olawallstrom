@@ -42,13 +42,13 @@ function ReviewCard({ t }: { t: Testimonial }) {
       <Stars />
       <blockquote
         className="mt-5 flex-1 text-[0.98rem] leading-relaxed text-ink-soft"
-        style={{ fontFamily: "var(--font-raleway), system-ui, sans-serif", fontStyle: "normal" }}
+        style={{ fontFamily: "var(--font-text), system-ui, sans-serif", fontStyle: "normal" }}
       >
         {t.text}
       </blockquote>
       <figcaption className="mt-8 flex items-center gap-3.5">
         <span className="h-11 w-11 shrink-0 rounded-full overflow-hidden bg-[color:var(--glod-dim)]">
-          <Image src={t.photo} alt="" width={44} height={44} className="h-full w-full object-cover" />
+          <Image src={t.photo} alt="" width={44} height={44} quality={90} className="h-full w-full object-cover" />
         </span>
         <span className="min-w-0">
           <span className="block font-semibold text-[0.98rem] text-[color:var(--marin)]">{t.author}</span>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { sendForm } from "@/lib/formsubmit";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -11,19 +12,23 @@ export default function ContactForm() {
     setStatus("loading");
     setErrorMsg(null);
     const form = e.currentTarget;
-    const data = new FormData(form);
-    const payload = Object.fromEntries(data);
+    const name = String(new FormData(form).get("name") || "").trim();
 
     try {
-      const res = await fetch("/api/kontakt", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+      await sendForm(form, {
+        subject: `Nytt meddelande från ${name}, olawallstrom.com`,
+        autoresponse: [
+          "Hej!",
+          "",
+          "Tack för ditt meddelande. Jag läser det själv och återkommer så snart jag kan.",
+          "",
+          "Vill du hellre prata direkt? Boka 30 minuter med mig här: https://calendly.com/olawallstrom/30min",
+          "",
+          "Vänliga hälsningar,",
+          "Ola Wallström",
+          "Autentisk affärsutveckling",
+        ].join("\n"),
       });
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error || "Något gick fel");
-      }
       setStatus("success");
       form.reset();
     } catch (err) {
@@ -59,6 +64,8 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-1 flex-col gap-3">
+      {/* Honeypot: hidden from people, bots fill it in and FormSubmit drops the message. */}
+      <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
       <div className="grid gap-3 sm:grid-cols-2">
         <Field name="name" label="Namn" autoComplete="name" />
         <Field name="company" label="Företag" autoComplete="organization" />

@@ -33,7 +33,7 @@ export default function NeedsAnalysis() {
               src="/images/ola-samtal-skratt.jpg"
               alt="Ola Wallström antecknar och skrattar tillsammans med två bolagsägare"
               fill
-              quality={85}
+              quality={90}
               sizes="(min-width: 1024px) 900px, 100vw"
               className="object-cover object-[55%_40%]"
             />
@@ -46,12 +46,12 @@ export default function NeedsAnalysis() {
                   key={item.q}
                   className={`flex items-start gap-5 py-6 first:pt-0 ${i > 0 ? "border-t border-[color:var(--border-soft)]" : ""}`}
                 >
-                  <span className="shrink-0 inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-[color:var(--glod)] font-[family-name:var(--font-lora)] font-semibold text-[1.05rem] text-[color:var(--glod)]">
+                  <span className="shrink-0 inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-[color:var(--glod)] font-[family-name:var(--font-heading)] font-semibold text-[1.05rem] text-[color:var(--glod)]">
                     {i + 1}
                   </span>
                   <div className="text-left">
                     <h3
-                      className="font-[family-name:var(--font-lora)] font-semibold leading-snug"
+                      className="font-[family-name:var(--font-heading)] font-semibold leading-snug"
                       style={{ fontSize: "1.3rem" }}
                     >
                       {item.q}

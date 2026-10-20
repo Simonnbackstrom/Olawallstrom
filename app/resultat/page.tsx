@@ -21,11 +21,11 @@ const caseListSchema = {
       position: 1,
       item: {
         "@type": "Review",
-        name: "Från 19 Mkr till 1,9 Mdr",
+        name: "Från tjänstebolag till hundra gånger större",
         reviewBody:
-          "Från ett tjänstebolag runt tjugo miljoner till ett bolag som idag omsätter nära två miljarder, med en ägare som fortfarande har tid för familjen.",
+          "Från ett tjänstebolag till ett bolag som i dag är hundra gånger större, med en ägare som fortfarande har tid för familjen.",
         author: { "@type": "Person", name: "Alex" },
-        itemReviewed: { "@id": `${SITE_URL}/metod#service` },
+        itemReviewed: { "@id": `${SITE_URL}/vip-coaching#service` },
         reviewRating: {
           "@type": "Rating",
           ratingValue: 5,
@@ -48,7 +48,7 @@ const breadcrumbSchema = {
 export const metadata: Metadata = {
   title: "Resultat",
   description:
-    "Riktiga resultat från bolag jag coachat. Case, testimonials och nyckeltal från mitt arbete som mentor för bolagsägare i segmentet 10-50 Mkr.",
+    "Riktiga resultat från bolag jag coachat. Case, testimonials och nyckeltal från mitt arbete som mentor för bolagsägare som vill växa.",
   alternates: { canonical: "/resultat" },
   openGraph: {
     title: "Resultat",
@@ -113,8 +113,8 @@ export default function ResultatPage() {
               <div className="mt-8 grid grid-cols-[1fr_auto_1fr] items-center gap-4 md:gap-6">
                 <div>
                   <p className="text-[0.85rem] text-[color:var(--papper)]/55">Då</p>
-                  <p className="mt-1 font-[family-name:var(--font-lora)] font-semibold leading-none text-[color:var(--papper)] whitespace-nowrap" style={{ fontSize: "clamp(1.9rem, 3.4vw, 2.8rem)" }}>
-                    19 Mkr
+                  <p className="mt-1 font-[family-name:var(--font-heading)] font-semibold leading-none text-[color:var(--papper)] whitespace-nowrap" style={{ fontSize: "clamp(1.9rem, 3.4vw, 2.8rem)" }}>
+                    1×
                   </p>
                   <p className="mt-2 text-[0.88rem] text-[color:var(--papper)]/60">ett tjänstebolag</p>
                 </div>
@@ -123,14 +123,14 @@ export default function ResultatPage() {
                 </svg>
                 <div>
                   <p className="text-[0.85rem] text-[color:var(--papper)]/55">I dag</p>
-                  <p className="mt-1 font-[family-name:var(--font-lora)] font-semibold leading-none text-[color:var(--glod)] whitespace-nowrap" style={{ fontSize: "clamp(1.9rem, 3.4vw, 2.8rem)" }}>
-                    1,9 Mdr
+                  <p className="mt-1 font-[family-name:var(--font-heading)] font-semibold leading-none text-[color:var(--glod)] whitespace-nowrap" style={{ fontSize: "clamp(1.9rem, 3.4vw, 2.8rem)" }}>
+                    100×
                   </p>
-                  <p className="mt-2 text-[0.88rem] text-[color:var(--papper)]/60">hundra gånger större</p>
+                  <p className="mt-2 text-[0.88rem] text-[color:var(--papper)]/60">samma ägare, större bolag</p>
                 </div>
               </div>
 
-              <p className="mt-10 font-[family-name:var(--font-lora)] italic text-[1.15rem] md:text-[1.3rem] leading-relaxed text-[color:var(--papper)]/90 max-w-md mx-auto">
+              <p className="mt-10 font-[family-name:var(--font-heading)] text-[1.15rem] md:text-[1.3rem] leading-relaxed text-[color:var(--papper)]/90 max-w-md mx-auto">
                 Med en ägare som fortfarande har tid för familjen.
               </p>
               <p className="mt-4 text-[0.95rem] text-[color:var(--papper)]/60">
@@ -142,7 +142,7 @@ export default function ResultatPage() {
                 src="/images/ola-bordet-kaffe.jpg"
                 alt="Ola Wallström i samtal vid bordet med en kaffekopp i handen"
                 fill
-                quality={85}
+                quality={90}
                 sizes="(min-width: 768px) 720px, 140vw"
                 className="object-cover object-[45%_35%]"
               />

@@ -45,6 +45,7 @@ export default function LogoCarousel({
                   alt={set === 0 ? logo.alt : ""}
                   width={160}
                   height={64}
+                  quality={90}
                   className="h-full w-auto object-contain"
                 />
               </div>

@@ -52,7 +52,7 @@ export default function KontaktPage() {
   return (
     <>
       <JsonLd id="kontakt-schema" data={[contactSchema, breadcrumbSchema]} />
-      <section className="sec-papper pt-32 md:pt-40 pb-14 md:pb-16">
+      <section className="sec-papper pt-28 md:pt-40 pb-14 md:pb-16">
         <div className="container-site">
           <div className="max-w-2xl mx-auto text-center">
             <h1 className="reveal" style={{ fontSize: "clamp(2.5rem, 5vw, 3.9rem)" }}>
@@ -75,12 +75,13 @@ export default function KontaktPage() {
                   src="/images/ola-arbete.jpg"
                   alt="Ola Wallström"
                   fill
+                  quality={90}
                   sizes="64px"
                   className="object-cover object-[50%_22%]"
                 />
               </div>
               <h2 className="mt-5 text-[color:var(--papper)]" style={{ fontSize: "clamp(1.7rem, 2.6vw, 2.1rem)" }}>
-                Boka 30 minuter på <em>Zoom</em>
+                Boka <em>30 minuter</em> på Zoom
               </h2>
               <p className="mt-3 text-[1rem] text-[color:var(--papper)]/75 leading-relaxed max-w-sm">
                 Välj en tid i min kalender, så får du en Zoom-länk direkt. På 30 minuter får du:
@@ -140,11 +141,12 @@ export default function KontaktPage() {
           <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-14 items-stretch max-w-6xl mx-auto">
             <div className="reveal relative rounded-3xl overflow-hidden aspect-[4/5] lg:aspect-auto lg:min-h-[520px] bg-sand w-full max-w-[460px] lg:max-w-none mx-auto">
               <Image
-                src="/images/ola-biljard-ko.jpg"
-                alt="Ola Wallström vid ett biljardbord"
+                src="/images/ola-soffa.jpg"
+                alt="Ola Wallström sitter avslappnat i en soffa"
                 fill
+                quality={90}
                 sizes="(min-width: 1024px) 460px, 90vw"
-                className="object-cover object-[50%_35%]"
+                className="object-cover object-[50%_40%]"
               />
             </div>
 
@@ -162,7 +164,7 @@ export default function KontaktPage() {
                     key={step.title}
                     className={`flex flex-col items-center px-6 py-8 md:px-8 text-center border-[color:var(--border-soft)] ${STEP_BORDERS[i]}`}
                   >
-                    <span className="h-9 w-9 inline-flex items-center justify-center rounded-full bg-[color:var(--glod)] font-[family-name:var(--font-lora)] font-semibold text-[0.98rem] text-white">
+                    <span className="h-9 w-9 inline-flex items-center justify-center rounded-full bg-[color:var(--glod)] font-[family-name:var(--font-heading)] font-semibold text-[0.98rem] text-white">
                       {i + 1}
                     </span>
                     <h3 className="mt-4 leading-tight" style={{ fontSize: "1.12rem" }}>{step.title}</h3>
@@ -185,6 +187,7 @@ export default function KontaktPage() {
                 src="/images/ola-kontakt.jpg"
                 alt="Ola Wallström"
                 fill
+                quality={90}
                 sizes="96px"
                 className="object-cover object-[50%_25%]"
               />
@@ -195,7 +198,7 @@ export default function KontaktPage() {
             </p>
             <a
               href="mailto:ola@olawallstrom.com"
-              className="mt-8 inline-block font-[family-name:var(--font-lora)] font-semibold text-[1.5rem] md:text-[1.8rem] text-[color:var(--papper)] underline decoration-[color:var(--glod)] decoration-2 underline-offset-8 hover:text-[color:var(--glod)] transition-colors"
+              className="mt-8 inline-block font-[family-name:var(--font-heading)] font-semibold text-[1.5rem] md:text-[1.8rem] text-[color:var(--papper)] underline decoration-[color:var(--glod)] decoration-2 underline-offset-8 hover:text-[color:var(--glod)] transition-colors"
             >
               ola@olawallstrom.com
             </a>

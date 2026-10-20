@@ -1,21 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Lora, Raleway } from "next/font/google";
+import { Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import StructuredData from "@/components/StructuredData";
 
-const lora = Lora({
-  variable: "--font-lora",
-  subsets: ["latin"],
-  weight: "variable",
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const raleway = Raleway({
-  variable: "--font-raleway",
+const sourceSans = Source_Sans_3({
+  variable: "--font-source-sans",
   subsets: ["latin"],
   weight: "variable",
   display: "swap",
@@ -46,7 +38,7 @@ export const metadata: Metadata = {
     "autentisk affärsutveckling",
     "mentor",
     "serieentreprenör",
-    "Boardroom",
+    "Ägarklivet",
     "VIP-coaching",
     "bolagsägare",
     "ledarskap",
@@ -86,7 +78,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="sv" className={`${lora.variable} ${raleway.variable}`}>
+    <html lang="sv" className={sourceSans.variable}>
       <body className="min-h-screen flex flex-col bg-papper text-ink">
         <StructuredData />
         <Navbar />

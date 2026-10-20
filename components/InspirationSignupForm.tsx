@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
+import { sendForm } from "@/lib/formsubmit";
 
 export default function InspirationSignupForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -11,18 +13,29 @@ export default function InspirationSignupForm() {
     setStatus("loading");
     setErrorMsg(null);
     const form = e.currentTarget;
-    const payload = Object.fromEntries(new FormData(form));
+    const fd = new FormData(form);
+    const name = String(fd.get("name") || "").trim();
+    const company = String(fd.get("company") || "").trim();
 
     try {
-      const res = await fetch("/api/nyhetsbrev", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+      await sendForm(form, {
+        subject: `Ny prenumerant på Vd-tipset: ${name}${company ? `, ${company}` : ""}`,
+        autoresponse: [
+          "Hej!",
+          "",
+          "Tack, nu är du med på Vd-tipset.",
+          "",
+          "En gång i månaden får du konkreta tips, verktyg och nya perspektiv på hur du kan växa ditt bolag på ett enkelt, effektivt och roligt sätt.",
+          "",
+          "Under tiden finns mina samtal i poddar och livesändningar här: https://olawallstrom.com/inspiration",
+          "",
+          "Vill du sluta få Vd-tipset räcker det att mejla ola@olawallstrom.com.",
+          "",
+          "Vänliga hälsningar,",
+          "Ola Wallström",
+          "Autentisk affärsutveckling",
+        ].join("\n"),
       });
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error || "Något gick fel");
-      }
       setStatus("success");
       form.reset();
     } catch (err) {
@@ -40,17 +53,36 @@ export default function InspirationSignupForm() {
           </svg>
         </div>
         <h3 className="mb-2" style={{ fontSize: "1.25rem" }}>Tack. Du är med.</h3>
-        <p className="text-[0.95rem] text-ink-soft">Nästa inspirationsbrev landar i din inkorg i veckan.</p>
+        <p className="text-[0.95rem] text-ink-soft">Vd-tipset kommer en gång i månaden. Håll utkik i inkorgen.</p>
       </div>
     );
   }
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+      {/* Honeypot: hidden from people, bots fill it in and FormSubmit drops the message. */}
+      <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
       <div className="grid gap-3 sm:grid-cols-2">
         <Field name="name" label="Namn" autoComplete="name" />
         <Field name="email" label="E-post" type="email" autoComplete="email" />
       </div>
+      <Field name="company" label="Företag" autoComplete="organization" />
+      <label className="flex items-start justify-center gap-2.5 pt-1 text-[0.88rem] text-ink-soft leading-snug cursor-pointer">
+        <input
+          type="checkbox"
+          name="samtycke"
+          value="Ja"
+          required
+          className="mt-0.5 h-4 w-4 shrink-0 accent-[color:var(--glod)]"
+        />
+        <span>
+          Jag samtycker till att mina uppgifter lagras enligt{" "}
+          <Link href="/integritetspolicy" className="font-semibold text-[color:var(--marin)] underline underline-offset-2 hover:text-[color:var(--glod)]">
+            integritetspolicyn
+          </Link>
+          .
+        </span>
+      </label>
       <button
         type="submit"
         disabled={status === "loading"}
@@ -68,7 +100,7 @@ export default function InspirationSignupForm() {
         <p className="text-sm text-red-600 text-center">{errorMsg || "Något gick fel. Försök igen."}</p>
       )}
       <p className="pt-1 text-[0.8rem] text-muted text-center">
-        Ett brev i veckan. Avprenumerera när du vill.
+        En gång i månaden. Avsluta när du vill.
       </p>
     </form>
   );

@@ -20,8 +20,14 @@
   --color-border-soft: #E2D9CA;
   --color-border-dark: rgba(247, 243, 236, 0.14);
 
-  --font-display: var(--font-lora);
-  --font-body: var(--font-raleway);
+  --font-display: var(--font-heading);
+  --font-body: var(--font-text);
+}
+
+/* Text and heading font: Source Sans 3 per the brand profile. */
+:root {
+  --font-text: var(--font-source-sans);
+  --font-heading: var(--font-source-sans);
 }
 
 :root {
@@ -51,7 +57,7 @@ html {
 body {
   background: var(--papper);
   color: var(--ink);
-  font-family: var(--font-raleway), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-text), system-ui, -apple-system, sans-serif;
   font-weight: 400;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
@@ -59,20 +65,28 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-lora), Georgia, serif;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-family: var(--font-heading), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.015em;
   color: var(--marin);
   line-height: 1.15;
 }
 
-h1 { font-size: clamp(2.9rem, 6.4vw, 5.2rem); }
-h2 { font-size: clamp(2.2rem, 4.2vw, 3.3rem); }
+h1 { font-size: clamp(2.5rem, 5vw, 4.2rem); }
+h2 { font-size: clamp(1.9rem, 4.2vw, 3.3rem); }
+h1, h2, h3, h4 {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
 h3 { font-size: clamp(1.45rem, 2.3vw, 1.85rem); }
 
+/* Emphasis is upright and easy to read; in headings it is marked with the Glöd accent. */
 em, blockquote {
-  font-family: var(--font-lora), Georgia, serif;
-  font-style: italic;
+  font-family: inherit;
+  font-style: normal;
+}
+:is(h1, h2, h3) em {
+  color: var(--glod);
 }
 
 a {
@@ -92,14 +106,13 @@ a {
   padding-inline: clamp(20px, 4vw, 40px);
 }
 
-/* Eyebrow — italic Lora with orange hairline */
+/* Eyebrow — small label with orange hairline */
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--font-lora), Georgia, serif;
-  font-style: italic;
-  font-weight: 500;
+  font-family: var(--font-heading), system-ui, sans-serif;
+  font-weight: 600;
   font-size: 0.95rem;
   color: var(--glod);
   letter-spacing: 0.01em;
@@ -115,7 +128,7 @@ a {
 
 .eyebrow-upper {
   display: inline-block;
-  font-family: var(--font-raleway), system-ui, sans-serif;
+  font-family: var(--font-text), system-ui, sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.22em;
   font-weight: 700;
@@ -134,7 +147,7 @@ a {
   padding: 14px 28px;
   background: var(--glod);
   color: #fff;
-  font-family: var(--font-raleway), system-ui, sans-serif;
+  font-family: var(--font-text), system-ui, sans-serif;
   font-weight: 600;
   font-size: 0.95rem;
   border-radius: 999px;
@@ -156,7 +169,7 @@ a {
   padding: 14px 28px;
   background: var(--olabla);
   color: #fff;
-  font-family: var(--font-raleway), system-ui, sans-serif;
+  font-family: var(--font-text), system-ui, sans-serif;
   font-weight: 600;
   font-size: 0.95rem;
   border-radius: 999px;
@@ -171,10 +184,11 @@ a {
 .btn-ghost {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 13px 24px;
   color: var(--marin);
-  font-family: var(--font-raleway), system-ui, sans-serif;
+  font-family: var(--font-text), system-ui, sans-serif;
   font-weight: 600;
   font-size: 0.95rem;
   border: 1.5px solid var(--marin);
@@ -191,10 +205,11 @@ a {
 .btn-dark-ghost {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 13px 24px;
   color: var(--papper);
-  font-family: var(--font-raleway), system-ui, sans-serif;
+  font-family: var(--font-text), system-ui, sans-serif;
   font-weight: 600;
   font-size: 0.95rem;
   border: 1.5px solid rgba(247, 243, 236, 0.4);
@@ -312,7 +327,7 @@ a {
 /* Form fields */
 .field-label {
   display: block;
-  font-family: var(--font-raleway), system-ui, sans-serif;
+  font-family: var(--font-text), system-ui, sans-serif;
   font-weight: 600;
   font-size: 0.85rem;
   color: var(--marin);
@@ -326,7 +341,7 @@ a {
   background: #fff;
   border: 1.5px solid var(--border-soft);
   border-radius: 10px;
-  font-family: var(--font-raleway), system-ui, sans-serif;
+  font-family: var(--font-text), system-ui, sans-serif;
   font-size: 1rem;
   color: var(--ink);
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -342,4 +357,26 @@ a {
 .field-textarea {
   min-height: 140px;
   resize: vertical;
+}
+
+/* Mobile menu: soft fade, links slide up one by one */
+.mobile-menu {
+  animation: mobile-menu-in 0.22s ease-out both;
+}
+.mobile-menu-item {
+  animation: mobile-menu-item-in 0.35s ease-out both;
+}
+@keyframes mobile-menu-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes mobile-menu-item-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu,
+  .mobile-menu-item {
+    animation: none;
+  }
 }

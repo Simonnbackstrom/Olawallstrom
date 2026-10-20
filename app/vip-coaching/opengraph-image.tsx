@@ -18,7 +18,7 @@ export default async function OGImage() {
           justifyContent: "space-between",
           padding: "72px",
           position: "relative",
-          fontFamily: "serif",
+          fontFamily: "sans-serif",
         }}
       >
         <div
@@ -36,7 +36,7 @@ export default async function OGImage() {
 
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <div style={{ width: 44, height: 2, background: "#F26A2E", borderRadius: 2 }} />
-          <div style={{ fontStyle: "italic", fontSize: 24, color: "#F26A2E" }}>
+          <div style={{ fontSize: 24, color: "#F26A2E" }}>
             VIP-coaching
           </div>
         </div>
@@ -87,7 +87,7 @@ export default async function OGImage() {
             Ola Wallström
           </div>
           <div style={{ fontSize: 20, color: "rgba(23,59,96,0.6)" }}>
-            olawallstrom.com/metod
+            olawallstrom.com/vip-coaching
           </div>
         </div>
       </div>
