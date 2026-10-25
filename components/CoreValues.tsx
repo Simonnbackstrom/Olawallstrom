@@ -23,7 +23,7 @@ export default function CoreValues() {
       <div className="container-site">
         <div className="max-w-5xl mx-auto text-center mb-14 md:mb-16">
           <h2 className="reveal reveal-d1 md:whitespace-nowrap">
-            <em>Fyra ord</em> som styr allt jag gör.
+            <em>Fyra ord</em> som genomsyrar allt jag gör.
           </h2>
         </div>
 

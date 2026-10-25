@@ -79,6 +79,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="sv" className={sourceSans.variable}>
+      <head>
+        <link rel="preconnect" href="https://calendly.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://calendly.com" />
+      </head>
       <body className="min-h-screen flex flex-col bg-papper text-ink">
         <StructuredData />
         <Navbar />

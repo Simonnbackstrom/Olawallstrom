@@ -31,12 +31,12 @@ export default function BoardroomPrimary() {
 
             <div className="relative p-8 md:p-14 flex flex-col justify-center text-center">
               <h2 className="reveal text-[color:var(--papper)]">
-                Ägarklivet. <em>Ett år, fyra teman,</em> 14 andra ägare runt bordet.
+                Ägarklivet. <em>Ett år, fyra teman,</em> andra ägare runt bordet.
               </h2>
 
               <p className="reveal reveal-d2 mt-6 text-[1.05rem] md:text-[1.1rem] text-[color:var(--papper)]/80 leading-relaxed max-w-xl mx-auto">
-                Ett år av ägararbete tillsammans med mig och ett litet rum av erfarna bolagsägare.
-                Fyra workshopdagar, 19 gruppträffar, en personlig startworkshop och tre
+                Ett år av ägararbete tillsammans med mig och ett rum av erfarna bolagsägare.
+                Fyra workshopdagar, 19 gemensamma sessioner, en personlig startworkshop och tre
                 1:1-samtal med mig under året.
               </p>
 
@@ -65,12 +65,12 @@ export default function BoardroomPrimary() {
                   rel="noopener noreferrer"
                   className="inline-block py-2.5 text-[0.95rem] font-semibold text-[color:var(--papper)]/90 hover:text-[color:var(--glod)] transition-colors"
                 >
-                  Eller boka ett samtal om Ägarklivet
+                  Eller boka ett strategisamtal om Ägarklivet
                 </a>
               </div>
 
               <p className="reveal reveal-d5 mt-6 text-[0.85rem] text-[color:var(--papper)]/60">
-                Max 15 deltagare. Begränsat antal platser 2027.
+                Begränsat antal platser 2027.
               </p>
             </div>
           </div>

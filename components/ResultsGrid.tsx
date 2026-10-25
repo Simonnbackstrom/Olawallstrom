@@ -30,7 +30,7 @@ type Props = {
 };
 
 export default function ResultsGrid({
-  heading = "Sex månader från nu känner du skillnaden i vardagen.",
+  heading = "Åtta månader från nu känner du skillnaden i vardagen.",
 }: Props) {
   return (
     <section className="py-[var(--section-y)] sec-sand">

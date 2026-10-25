@@ -15,25 +15,25 @@ export const metadata: Metadata = {
 };
 
 const HOME_PAINS = [
-  "Inget rullar vidare utan mig. Jag är flaskhalsen i nästan varje viktigt beslut.",
-  "Omsättningen har fastnat, och jag vet inte vad som ska flyttas först.",
-  "Teamet gör sitt, men ingen tar ägarskap som en delägare skulle göra.",
-  "Jag jobbar fler timmar nu än när bolaget var hälften så stort, och ändå räcker tiden inte.",
+  "Alla frågor landar på ditt bord. Även de som andra borde kunna svara på.",
+  "Du fastnar i problemlösning och längtar efter att få tid att tänka strategiskt.",
+  "Du älskar ditt bolag. Men du vet inte hur länge till du orkar.",
+  "Du har ett helt team. Ändå har du ingen att bolla de svåra besluten med.",
 ];
 
 export default function Home() {
   return (
     <>
       <ConsultHero />
-      <LogoCarousel plainHeading />
+      <LogoCarousel />
       <SharedPainPoints
         plain
         heading={
           <>
-            Du är där taket inte går att <em>prata bort</em>.
+            Du är där taket inte går att <em>prata bort.</em>
           </>
         }
-        intro="Du driver ett etablerat bolag. Det du byggde fungerade hit, men inte dit du vill. Känner du igen någon av de här tankarna?"
+        intro="Du är ägare i ett bolag som omsätter minst 10 miljoner. Det du byggde fungerade hit, men inte dit du vill. Känner du igen någon av de här tankarna?"
         points={HOME_PAINS}
         image={{ src: "/images/ola-fatolj-tanker.jpg", alt: "Ola Wallström sitter eftertänksam i en läderfåtölj" }}
       />
@@ -43,7 +43,7 @@ export default function Home() {
       <CtaBand
         tone="olabla"
         plain
-        heading="Börja med ett samtal."
+        heading="Börja med ett strategisamtal."
         intro="30 minuter, direkt med mig. Vi tittar på var ditt bolag står i dag och vad som bromsar. Inget säljtryck, och du går därifrån med något konkret oavsett."
       />
     </>

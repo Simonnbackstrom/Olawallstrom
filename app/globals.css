@@ -152,13 +152,18 @@ a {
   font-size: 0.95rem;
   border-radius: 999px;
   transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 6px 18px -8px rgba(242, 106, 46, 0.5);
+  box-shadow: 0 10px 24px -8px rgba(242, 106, 46, 0.55);
 }
 
 .btn-primary:hover {
   background: var(--glod-dark);
   transform: translateY(-1px);
-  box-shadow: 0 10px 22px -8px rgba(242, 106, 46, 0.55);
+  box-shadow: 0 14px 32px -8px rgba(242, 106, 46, 0.65);
+}
+
+/* On warm/beige backgrounds the orange CTA can muddy. Lift it with extra depth. */
+.sec-sand .btn-primary {
+  box-shadow: 0 14px 28px -10px rgba(242, 106, 46, 0.5), 0 2px 0 rgba(23, 59, 96, 0.08);
 }
 
 .btn-secondary {
@@ -278,8 +283,8 @@ a {
 .marquee {
   display: flex;
   overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, #000 0%, #000 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 90%, transparent);
 }
 
 .marquee-track {

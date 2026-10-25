@@ -87,7 +87,7 @@ export default function Footer() {
                         <rect x="3.5" y="5" width="17" height="15" rx="2.5" />
                         <path d="M3.5 10h17M8 3v4M16 3v4" />
                       </svg>
-                      Boka ett samtal
+                      Boka ett strategisamtal
                     </span>
                   </a>
                 </li>
@@ -149,7 +149,7 @@ export default function Footer() {
             <h4 className={headingClass}>Kontakt</h4>
             <ul className="space-y-1 text-[0.95rem] text-ink-soft">
               <li><a href={`mailto:${EMAIL}`} className={linkClass}>{EMAIL}</a></li>
-              <li><a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className={linkClass}>Boka ett samtal</a></li>
+              <li><a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className={linkClass}>Boka ett strategisamtal</a></li>
               <li><Link href="/kontakt" className={linkClass}>Kontaktformulär</Link></li>
             </ul>
           </div>

@@ -80,7 +80,7 @@ export default function ResultatPage() {
         align="center"
         heading={
           <>
-            De flesta kom hit med samma <em>känsla</em>.
+            De flesta kom hit med samma <em>känsla.</em>
           </>
         }
         body={
@@ -91,7 +91,7 @@ export default function ResultatPage() {
               för att det ska se annorlunda ut.&rdquo;
             </p>
             <p>
-              Det är ungefär där mina klienter står när vi börjar. Omsättningen är inte problemet,
+              Det är där mina kunder står när vi börjar. Omsättningen är inte problemet,
               och inte produkten heller. Det är ägaren som har fastnat i ett mönster som byggdes när
               bolaget var hälften så stort.
             </p>
@@ -108,7 +108,7 @@ export default function ResultatPage() {
         <div className="container-site">
           <div className="reveal max-w-6xl mx-auto rounded-3xl overflow-hidden sec-marin grid md:grid-cols-[1.15fr_1fr]">
             <div className="px-8 py-12 md:px-14 md:py-14 flex flex-col justify-center text-center">
-              <p className="text-[1rem] text-[color:var(--papper)]/70">Alex, ett av mina klientcase</p>
+              <p className="text-[1rem] text-[color:var(--papper)]/70">Alex, ett av mina kundcase</p>
 
               <div className="mt-8 grid grid-cols-[1fr_auto_1fr] items-center gap-4 md:gap-6">
                 <div>
@@ -155,13 +155,13 @@ export default function ResultatPage() {
 
       <StatsBand tone="himmel" />
 
-      <LogoCarousel heading="Bolag jag har arbetat med" plainHeading />
+      <LogoCarousel />
 
       <CtaBand
         tone="marin"
         plain
         heading="Ska vi titta på ditt bolag?"
-        intro="Jag tar bara emot ett fåtal klienter per år. Boka 30 minuter med mig, så tittar vi på var ditt bolag står i dag och om vi är rätt för varandra. Inget säljtryck, och du går därifrån med något konkret oavsett."
+        intro="Jag tar bara emot ett fåtal kunder per år. Boka 30 minuter med mig, så tittar vi på var ditt bolag står i dag och om vi är rätt för varandra. Inget säljtryck, och du går därifrån med något konkret oavsett."
       />
     </>
   );

@@ -6,7 +6,7 @@ const STATS = [
   { num: "650+", label: "Coachade bolagsägare" },
   { num: "25 år", label: "Som serieentreprenör" },
   { num: "8", label: "Egna bolag byggda" },
-  { num: "100×", label: "Tillväxt i ett klientcase" },
+  { num: "100×", label: "Tillväxt hos en kund" },
 ];
 
 export default function StatsBand({ tone = "himmel" }: Props) {

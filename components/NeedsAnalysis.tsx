@@ -11,7 +11,7 @@ const QUESTIONS = [
   },
   {
     q: "Vad står i vägen?",
-    a: "De två, tre saker som bromsar mest, och vad som ska göras först.",
+    a: "Identifierar de två, tre saker som bromsar mest.",
   },
 ];
 
@@ -20,9 +20,9 @@ export default function NeedsAnalysis() {
     <section className="py-[var(--section-y)] sec-sand">
       <div className="container-site">
         <div className="max-w-2xl mx-auto text-center mb-12 md:mb-14">
-          <h2 className="reveal">Vi börjar med att ta reda på vad du behöver.</h2>
+          <h2 className="reveal">Vi börjar med att ta reda på vad som är viktigt för dig.</h2>
           <p className="reveal reveal-d1 mt-6 text-[1.08rem] text-ink leading-relaxed">
-            Jag säljer inga färdiga paket. Första steget är alltid ett kostnadsfritt samtal på 30
+            Jag säljer inga färdiga lösningar. Första steget är alltid ett kostnadsfritt strategisamtal på 30
             minuter, där vi går igenom tre frågor.
           </p>
         </div>
@@ -69,7 +69,7 @@ export default function NeedsAnalysis() {
                 rel="noopener noreferrer"
                 className="btn-primary w-full justify-center !py-4"
               >
-                Boka ett samtal med mig
+                Boka ett strategisamtal med mig
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="13 6 19 12 13 18" />

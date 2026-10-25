@@ -7,6 +7,10 @@ import TestimonialsClean from "@/components/TestimonialsClean";
 import PageFAQ from "@/components/PageFAQ";
 import JsonLd from "@/components/JsonLd";
 import CalendlyEmbed from "@/components/CalendlyEmbed";
+import SharedPainPoints from "@/components/SharedPainPoints";
+import PageQualifier from "@/components/PageQualifier";
+import NextSlotsChips from "@/components/NextSlotsChips";
+import BookingReminderPill from "@/components/BookingReminderPill";
 
 const SITE_URL = "https://olawallstrom.com";
 
@@ -51,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Boka ett strategisamtal",
     description:
-      "30 min direkt med Ola. Konkreta nästa steg för din tillväxt — kostnadsfritt och förutsättningslöst.",
+      "30 min direkt med Ola. Konkreta nästa steg för din tillväxt. Kostnadsfritt och förutsättningslöst.",
     url: "/strategisession",
     type: "website",
   },
@@ -67,44 +71,44 @@ const WALKTHROUGH = [
   {
     n: "01",
     title: "Var står bolaget i dag?",
-    body: "Du berättar var ni är, vad som funkar och vad som skaver. Inga perfekta svar krävs.",
+    body: "Du berättar vad som funkar och vad som skaver. Inga perfekta svar krävs.",
   },
   {
     n: "02",
     title: "Vart vill du?",
-    body: "Vi sätter en riktning du tror på, baserat på vad som faktiskt matchar ditt liv och dina mål.",
+    body: "Vi sätter en riktning som matchar både bolaget och ditt liv.",
   },
   {
     n: "03",
     title: "Vad står i vägen?",
-    body: "Vi ringar in de två, tre saker som bromsar mest just nu, och vad som ska göras först.",
+    body: "Vi ringar in de två, tre saker som bromsar mest.",
   },
 ];
 
 const SHIFTS = [
   {
     title: "Bolaget växer utan att kräva mer av dig",
-    body: "Du går från att vara i varje beslut till att leda strategiskt. Teamet rör sig framåt även när du inte är i rummet.",
+    body: "Du går från att sitta i varje beslut till att leda. Teamet rör sig framåt även när du inte är i rummet.",
   },
   {
     title: "Rätt person på rätt plats",
-    body: "Du vet vem som ska rekryteras, vem som ska lyftas och vem som bromsar. Teamet tar ägarskap, inte bara uppgifter.",
+    body: "Du vet vem som ska rekryteras, lyftas eller bytas ut. Teamet tar ägarskap, inte bara uppgifter.",
   },
   {
     title: "Du får kontroll på siffrorna",
-    body: "Du läser bolaget på rätt nyckeltal, ser var marginalerna läcker och fattar beslut på fakta, inte bara magkänsla.",
+    body: "Du läser bolaget på rätt nyckeltal. Besluten vilar på fakta, inte magkänsla.",
   },
   {
     title: "Tid tillbaka till det som räknas",
-    body: "Du jobbar färre timmar men mer av rätt sort. Helgerna är dina igen, familjen får dig närvarande.",
+    body: "Du jobbar färre timmar. Rätt sort. Helgerna är dina igen.",
   },
   {
     title: "Du leder med mer säkerhet",
-    body: "Du har en sparringpartner som ser bolaget utifrån. Besluten blir skarpare och tveksamheten mindre.",
+    body: "Du har en sparringpartner som ser bolaget utifrån. Besluten blir skarpare.",
   },
   {
     title: "Ett bolag som inte äger dig",
-    body: "Bolaget är byggt för att leva utan att du står i mitten. Du äger det, det äger inte dig.",
+    body: "Bolaget är byggt för att leva utan att du står i mitten. Du äger det. Det äger inte dig.",
   },
 ];
 
@@ -113,17 +117,50 @@ export default function Strategisession() {
     <>
       <JsonLd id="strategisession-schema" data={[serviceSchema, breadcrumbSchema]} />
       <StrategyHero />
-      <LogoCarousel plainHeading />
+
+      <SharedPainPoints
+        tone="sand"
+        warningIcon
+        heading={
+          <>
+            Känner du <em>igen det här?</em>
+          </>
+        }
+        points={[
+          "”Jag ska bara svara på en grej” blir hela eftermiddagen.",
+          "Teamet frågar om beslut de borde ta själva. Allt landar hos mig.",
+          "Söndagen försvinner i oro inför måndagen.",
+          "Omsättningen växer. Marginalen krymper. Jag vet inte varför.",
+        ]}
+        closer={<>Du är inte ensam. Och det löser sig inte av att jobba hårdare.</>}
+      />
+
+      <LogoCarousel />
+
+      <PageQualifier
+        tone="papper"
+        heading={
+          <>
+            Det här är <em>för dig som:</em>
+          </>
+        }
+        points={[
+          "Äger ett bolag som omsätter 10–30 miljoner.",
+          "Jobbar mer än du vill, fast teamet är på plats.",
+          "Vet att nästa kliv kräver något annat än mer av dig.",
+          "Vill ha någon som säger rakt vad som bromsar.",
+        ]}
+      />
 
       {/* VAD VI GÅR IGENOM */}
       <section className="py-[var(--section-y)] sec-sand">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-14">
             <h2 className="reveal reveal-d1">
-              Tre frågor. <em>Konkreta svar.</em>
+              Ett samtal som kan vara värt <em>miljoner.</em>
             </h2>
             <p className="reveal reveal-d2 mt-6 text-[1.05rem] text-ink-soft leading-relaxed">
-              Du behöver inte förbereda något. Vi pratar som två bolagsägare, inte som konsult och klient.
+              Ett rakt samtal mellan två bolagsägare. Vi ringar in det som bromsar mest just nu, och vad du kan göra åt det.
             </p>
           </div>
 
@@ -145,20 +182,65 @@ export default function Strategisession() {
           </div>
 
           <p className="reveal reveal-d4 mt-10 max-w-xl mx-auto text-center text-[0.95rem] text-ink-soft">
-            Du går därifrån med konkreta nästa steg, oavsett om vi fortsätter jobba ihop eller inte.
+            Du går därifrån med konkreta nästa steg. Oavsett om vi jobbar vidare eller inte.
           </p>
+
+          <div className="reveal reveal-d5 mt-10 flex justify-center">
+            <a href="#boka" className="btn-primary">
+              Boka 30 min, kostnadsfritt
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="13 6 19 12 13 18" />
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* SEX MÅNADER FRÅN NU */}
+      {/* CALENDLY EMBED — placerad högt för att fånga de som är klara att boka */}
+      <section id="boka" className="py-[var(--section-y)] sec-marin">
+        <div className="container-site">
+          <div className="max-w-3xl mx-auto text-center mb-10">
+            <h2 className="reveal reveal-d1 text-[color:var(--papper)]" style={{ fontSize: "clamp(2.1rem, 4.6vw, 3.6rem)" }}>
+              Välj en tid som <em>passar dig.</em>
+            </h2>
+            <p className="reveal reveal-d2 mt-5 text-[1.05rem] text-[color:var(--papper)]/90 leading-relaxed max-w-xl mx-auto">
+              30 minuter, kostnadsfritt. Du går därifrån med konkreta insikter — oavsett om vi jobbar vidare eller inte.
+            </p>
+            <div className="reveal reveal-d3 mt-7">
+              <NextSlotsChips />
+            </div>
+          </div>
+
+          <div className="reveal reveal-d5 relative max-w-4xl mx-auto">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -inset-1 rounded-[28px]"
+              style={{
+                background:
+                  "radial-gradient(ellipse at top, rgba(242,106,46,0.35), transparent 60%)",
+                filter: "blur(14px)",
+              }}
+            />
+            <div className="relative rounded-3xl overflow-hidden bg-papper shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] ring-2 ring-[color:var(--glod)]/30">
+              <CalendlyEmbed
+                url="https://calendly.com/olawallstrom/30min"
+                title="Boka strategisamtal med Ola Wallström"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ÅTTA MÅNADER FRÅN NU */}
       <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-14">
             <h2 className="reveal reveal-d1">
-              Sex månader från nu <em>känner du skillnaden</em> i vardagen.
+              Åtta månader från nu <br className="md:hidden" /><em>känner du skillnaden</em> i vardagen.
             </h2>
             <p className="reveal reveal-d2 mt-6 text-[1.05rem] text-ink-soft leading-relaxed">
-              Det här är det jag ser hända med bolagsägare jag jobbar med. Inte över en natt, men stadigt och på riktigt.
+              Det här är det jag ser hända hos ägare jag jobbar med. Inte över en natt, men på riktigt.
             </p>
           </div>
 
@@ -183,7 +265,7 @@ export default function Strategisession() {
         </div>
       </section>
 
-      <TestimonialsClean tone="papper" />
+      <TestimonialsClean tone="himmel" />
 
       {/* ABOUT */}
       <section className="py-[var(--section-y)] sec-sand">
@@ -203,22 +285,20 @@ export default function Strategisession() {
             </div>
             <div className="text-center">
               <h2 className="reveal reveal-d1">
-                25 års erfarenhet som serieentreprenör och mentor.
+                Jag har stått <em>där du står.</em>
               </h2>
-              <div className="reveal reveal-d2 mt-6 space-y-4 text-[1.02rem] text-ink-soft leading-relaxed max-w-xl mx-auto">
+              <div className="reveal reveal-d2 mt-6 space-y-5 text-[1.05rem] text-ink-soft leading-relaxed max-w-xl mx-auto">
                 <p>
-                  Jag är civilekonom och har en bakgrund som marknadschef på Affärsvärlden.
-                  Serieentreprenör med åtta egna bolag i olika branscher, så jag vet av egen
-                  erfarenhet vad som krävs för att skala ett bolag lönsamt.
+                  Jag har byggt åtta bolag.
                 </p>
                 <p>
-                  Under 25 år har jag coachat över 650 bolagsägare och ledare. Min VIP-coaching bygger på
-                  fyra principer: <em>Äkta, Klarhet, Genomförande och Frihet</em>. De hjälper dig
-                  att växa utan att offra livet runt omkring.
+                  På 25 år har jag coachat 650+ ägare och sett samma mönster om och om igen:
+                </p>
+                <p className="font-[family-name:var(--font-heading)] text-[1.15rem] md:text-[1.25rem] text-[color:var(--marin)] leading-snug">
+                  Det är sällan strategin som sinkar. Det är ägaren som fastnat i rollen hon hade när bolaget var hälften så stort.
                 </p>
                 <p>
-                  Jag tar emot ett begränsat antal klienter per år för att hålla kvaliteten hög i
-                  varje samarbete.
+                  Jag tar bara emot ett fåtal kunder per år. Så du får mig som sparringpartner, inte konsult.
                 </p>
               </div>
               <ul className="reveal reveal-d3 mt-10 mx-auto w-fit flex flex-col gap-3 text-left">
@@ -238,52 +318,52 @@ export default function Strategisession() {
         </div>
       </section>
 
-      {/* CALENDLY EMBED */}
-      <section id="boka" className="py-[var(--section-y)] sec-marin">
-        <div className="container-site">
-          <div className="max-w-3xl mx-auto text-center mb-10">
-            <h2 className="reveal reveal-d1 text-[color:var(--papper)]">
-              Välj en tid som <em>passar dig</em>.
-            </h2>
-            <p className="reveal reveal-d2 mt-5 text-[1.05rem] text-[color:var(--papper)]/80 leading-relaxed max-w-2xl mx-auto">
-              Boka ett kostnadsfritt samtal på 30 minuter med mig. Jag ger dig konkreta insikter oavsett om jag blir rätt mentor för dig eller inte.
-            </p>
-            <div className="reveal reveal-d3 mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-[0.9rem] text-[color:var(--papper)]/80">
-              {["Kostnadsfritt", "30 minuter", "Direkt med mig", "Inget säljtryck"].map((m) => (
-                <span key={m} className="inline-flex items-center gap-1.5">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--glod)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  {m}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="reveal reveal-d4 max-w-4xl mx-auto rounded-3xl overflow-hidden bg-papper shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)]">
-            <CalendlyEmbed
-              url="https://calendly.com/olawallstrom/30min"
-              title="Boka strategisamtal med Ola Wallström"
-            />
-          </div>
-        </div>
-      </section>
-
       <PageFAQ
         tone="papper"
         eyebrow={null}
         centered
-        ctaLabel="Boka ett samtal med mig"
+        ctaLabel="Boka 30 min, kostnadsfritt"
         ctaHref="#boka"
         heading="Vanliga frågor"
-        intro="Det här är frågorna jag får oftast innan ett strategisamtal. Hittar du inte svaret, boka ett samtal så pratar vi."
+        intro="Frågorna jag får oftast. Hittar du inte svaret? Boka, så pratar vi."
         items={[
+          {
+            q: "Kommer du sälja in något på samtalet?",
+            a: (
+              <>
+                Nej. Mitt enda mål är att du går därifrån med något du kan agera på. Fortsättning bokar vi i ett eget samtal, aldrig på det första.
+              </>
+            ),
+          },
           {
             q: "Är det verkligen gratis?",
             a: (
               <>
-                Ja. 30 minuter, inget säljtryck. Jag tar betalt för uppdrag, inte för första samtalet.
-                Om vi båda tycker att det passar att jobba vidare pratar vi upplägg och pris då.
+                Ja. 30 minuter, inget säljtryck. Passar det att jobba vidare pratar vi pris då, inte innan.
+              </>
+            ),
+          },
+          {
+            q: "Är inte 30 minuter för kort för att säga något vettigt?",
+            a: (
+              <>
+                Tvärtom. 25 års erfarenhet gör att jag ser mönstren snabbt. Vi hinner identifiera det som bromsar mest. Och en konkret första åtgärd.
+              </>
+            ),
+          },
+          {
+            q: "Jag har redan en coach, revisor eller styrelse. Vad är det här?",
+            a: (
+              <>
+                Bra, de behövs. Men revisorn räknar bakåt och styrelsen möts kvartalsvis. Jag är sparring i vardagen. Någon som sett det du står i och vågar säga det du inte vill höra.
+              </>
+            ),
+          },
+          {
+            q: "Jag är inte redo att investera i något stort nu.",
+            a: (
+              <>
+                Det behöver du inte vara. Samtalet kostar inget. Passar det inte säger jag det rakt, och du går ändå därifrån med något du kan använda.
               </>
             ),
           },
@@ -291,9 +371,7 @@ export default function Strategisession() {
             q: "Måste jag förbereda något?",
             a: (
               <>
-                Nej. Kom precis som du är. Vi börjar med var ditt bolag står i dag, och jag ställer de
-                frågor jag behöver. Du behöver inte ha ett tydligt problem definierat, det är
-                ofta därför vi pratar.
+                Nej. Kom som du är. Du behöver inte ha problemet definierat. Det är ofta därför vi pratar.
               </>
             ),
           },
@@ -301,9 +379,7 @@ export default function Strategisession() {
             q: "Vem är det för?",
             a: (
               <>
-                VD och ägare i etablerade bolag som vill växa vidare utan att offra livet
-                runt omkring. Är du i ett annat läge? Boka ändå. Jag säger till om
-                jag inte är rätt person och tipsar om någon annan.
+                Ägare i bolag som omsätter 10 miljoner eller mer. Är du i ett annat läge? Boka ändå. Jag säger till om jag inte är rätt och tipsar om någon annan.
               </>
             ),
           },
@@ -311,9 +387,7 @@ export default function Strategisession() {
             q: "Vad händer efter samtalet?",
             a: (
               <>
-                Du går därifrån med konkreta nästa steg du kan agera på direkt. Om det känns rätt
-                för oss båda pratar vi om fortsättning, antingen Ägarklivet 2027 eller VIP-coaching
-                1:1. Om inte, har du ändå fått något med dig.
+                Du går därifrån med konkreta nästa steg. Känns det rätt för oss båda pratar vi fortsättning. Antingen Ägarklivet 2027 eller VIP-coaching.
               </>
             ),
           },
@@ -321,13 +395,34 @@ export default function Strategisession() {
             q: "Hur bokar jag?",
             a: (
               <>
-                Scrolla upp till kalendern här på sidan och välj en tid som passar. Du får en Zoom-länk
-                direkt. Det är allt.
+                Välj en tid i kalendern här på sidan. Du får en Zoom-länk direkt.
               </>
             ),
           },
         ]}
       />
+
+      {/* ANDRA CHANSEN ATT BOKA — scrollar upp till enda kalendern */}
+      <section id="boka-cta" className="py-16 md:py-20 sec-marin">
+        <div className="container-site">
+          <div className="reveal max-w-2xl mx-auto text-center">
+            <h2 className="text-[color:var(--papper)]" style={{ fontSize: "clamp(1.7rem, 3.4vw, 2.4rem)" }}>
+              Redo? <em>Boka en tid.</em>
+            </h2>
+            <p className="mt-5 text-[1.02rem] text-[color:var(--papper)]/85 leading-relaxed">
+              30 minuter, kostnadsfritt. Du går därifrån med konkreta nästa steg.
+            </p>
+            <div className="mt-8 flex justify-center">
+              <a href="#boka" className="btn-primary">
+                Välj en tid
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <polyline points="18 15 12 9 6 15" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ÄGARKLIVET TEASER */}
       <section className="py-[var(--section-y)] sec-sand">
@@ -337,8 +432,7 @@ export default function Strategisession() {
               Ägarklivet 2027. Ett år, fyra teman.
             </h3>
             <p className="mt-5 text-[1.02rem] md:text-[1.08rem] text-[color:var(--papper)]/80 leading-relaxed max-w-xl mx-auto">
-              Vill du gå in i ett helt program? Ägarklivet är mitt upplägg på tolv månader för
-              VD och ägare, i ett litet rum av erfarna ägare, med personligt stöd hela vägen.
+              Tolv månader tillsammans med andra erfarna ägare. Fyra teman, personligt stöd hela vägen.
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-2">
               <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-[color:var(--papper)] text-[0.78rem] font-semibold">Q1 Mental klarhet</span>
@@ -347,7 +441,7 @@ export default function Strategisession() {
               <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-[color:var(--sand)] text-[color:var(--marin)] text-[0.78rem] font-semibold">Q4 Säljstrategi</span>
             </div>
             <div className="mt-8 flex justify-center">
-              <Link href="/agarklivet" className="btn-primary">
+              <Link href="/agarklivet" className="btn-dark-ghost">
                 Se programmet
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                   <line x1="5" y1="12" x2="19" y2="12" />
@@ -356,11 +450,13 @@ export default function Strategisession() {
               </Link>
             </div>
             <p className="mt-5 text-[0.85rem] text-[color:var(--papper)]/60">
-              Max 15 deltagare. Begränsat antal platser 2027.
+              Begränsat antal platser 2027.
             </p>
           </div>
         </div>
       </section>
+
+      <BookingReminderPill />
     </>
   );
 }

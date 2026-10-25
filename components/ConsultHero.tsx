@@ -13,9 +13,9 @@ export default function ConsultHero() {
             </h1>
 
             <p className="reveal reveal-d2 mt-8 text-[1.1rem] md:text-[1.15rem] text-ink-soft leading-relaxed max-w-xl mx-auto">
-              Jag är Ola. Du är inte först som fastnat vid ett omsättningstak eller blivit
-              flaskhals i ditt eget bolag. Jag säger som det är, utan konsultspråk, och vi mäter
-              framgång i det som faktiskt blir gjort. Ditt bolag kan växa utan att du blir någon annan.
+              Du är inte först som fastnat vid ett omsättningstak eller känt att allt landar på dig.
+              Här får du raka samtal utan konsultspråk, och fokus på det som faktiskt blir gjort.
+              Så att bolaget kan växa utan att det äter upp dig.
             </p>
 
             <div className="reveal reveal-d3 mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -25,7 +25,7 @@ export default function ConsultHero() {
                 rel="noopener noreferrer"
                 className="btn-primary"
               >
-                Boka ett samtal med mig
+                Boka ett strategisamtal med mig
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="13 6 19 12 13 18" />
