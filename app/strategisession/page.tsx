@@ -205,7 +205,7 @@ export default function Strategisession() {
               Välj en tid som <em>passar dig.</em>
             </h2>
             <p className="reveal reveal-d2 mt-5 text-[1.05rem] text-[color:var(--papper)]/90 leading-relaxed max-w-xl mx-auto">
-              30 minuter, kostnadsfritt. Du går därifrån med konkreta insikter — oavsett om vi jobbar vidare eller inte.
+              30 minuter, kostnadsfritt. Du går därifrån med konkreta insikter, oavsett om vi jobbar vidare eller inte.
             </p>
             <div className="reveal reveal-d3 mt-7">
               <NextSlotsChips />
