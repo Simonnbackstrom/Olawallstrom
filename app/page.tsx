@@ -30,7 +30,7 @@ export default function Home() {
         plain
         heading={
           <>
-            Du är där taket inte går att <em>prata bort.</em>
+            Du är där hårdare arbete <em>inte räcker.</em>
           </>
         }
         intro="Du är ägare i ett bolag som omsätter minst 10 miljoner. Det du byggde fungerade hit, men inte dit du vill. Känner du igen någon av de här tankarna?"

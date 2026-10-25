@@ -474,9 +474,9 @@ export default function AgarklivetPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="reveal">Vill du ha en plats vid bordet?</h2>
             <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.15rem] text-[color:var(--papper)]/80 leading-relaxed">
-              Ägarklivet är för dig som leder ett etablerat bolag och är redo att ändra
-              på dig själv, inte bara på teamet. Börja med 30 minuter med mig, så ser vi tillsammans om
-              det är rätt för dig.
+              Ägarklivet är för dig som är ägare i ett bolag som omsätter minst 10 miljoner och
+              som vill växa utan att behöva offra sin hälsa, sina relationer eller all sin fritid.
+              Börja med 30 minuter med mig, så ser vi tillsammans om det är rätt för dig.
             </p>
             <div className="reveal reveal-d2 mt-10 flex flex-col sm:flex-row justify-center gap-3">
               <a
