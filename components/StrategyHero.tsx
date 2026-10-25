@@ -192,7 +192,7 @@ export default function StrategyHero() {
             href="#boka"
             className="btn-primary !px-9 !py-[18px] !text-[1rem] md:!text-[1.05rem] shadow-[0_14px_32px_-10px_rgba(242,106,46,0.55)] hover:shadow-[0_18px_38px_-10px_rgba(242,106,46,0.65)]"
           >
-            Boka 30 min, kostnadsfritt
+            Boka kostnadsfritt strategisamtal
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="13 6 19 12 13 18" />
