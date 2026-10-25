@@ -19,17 +19,17 @@ export default function InspirationSignupForm() {
 
     try {
       await sendForm(form, {
-        subject: `Ny prenumerant på Vd-tipset: ${name}${company ? `, ${company}` : ""}`,
+        subject: `Ny prenumerant på Ägartipset: ${name}${company ? `, ${company}` : ""}`,
         autoresponse: [
           "Hej!",
           "",
-          "Tack, nu är du med på Vd-tipset.",
+          "Tack, nu är du med på Ägartipset.",
           "",
           "En gång i månaden får du konkreta tips, verktyg och nya perspektiv på hur du kan växa ditt bolag på ett enkelt, effektivt och roligt sätt.",
           "",
           "Under tiden finns mina samtal i poddar och livesändningar här: https://olawallstrom.com/inspiration",
           "",
-          "Vill du sluta få Vd-tipset räcker det att mejla ola@olawallstrom.com.",
+          "Vill du sluta få Ägartipset räcker det att mejla ola@olawallstrom.com.",
           "",
           "Vänliga hälsningar,",
           "Ola Wallström",
@@ -53,7 +53,7 @@ export default function InspirationSignupForm() {
           </svg>
         </div>
         <h3 className="mb-2" style={{ fontSize: "1.25rem" }}>Tack. Du är med.</h3>
-        <p className="text-[0.95rem] text-ink-soft">Vd-tipset kommer en gång i månaden. Håll utkik i inkorgen.</p>
+        <p className="text-[0.95rem] text-ink-soft">Ägartipset kommer en gång i månaden. Håll utkik i inkorgen.</p>
       </div>
     );
   }

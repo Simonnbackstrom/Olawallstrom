@@ -24,7 +24,7 @@ export default function NotFound() {
 
         <p className="eyebrow mb-6 justify-center">404</p>
         <h1>
-          Den här sidan <em>finns inte</em>.
+          Den här sidan <em>finns inte.</em>
         </h1>
         <p className="mt-6 text-[1.1rem] text-ink-soft leading-relaxed">
           Länken kan vara gammal eller fel. Hoppa tillbaka till starten så hittar du rätt.

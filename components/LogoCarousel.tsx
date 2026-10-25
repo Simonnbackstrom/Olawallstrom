@@ -13,25 +13,20 @@ const LOGOS = [
   { src: "/logos/logo-viredo.svg", alt: "ViRedo" },
 ];
 
-export default function LogoCarousel({
-  heading = "Några av bolagen jag jobbat med",
-  plainHeading = false,
-}: {
-  heading?: string;
-  /** Render the heading as quiet text instead of the orange uppercase label. */
-  plainHeading?: boolean;
-}) {
+type Props = {
+  eyebrow?: string;
+};
+
+export default function LogoCarousel({ eyebrow = "Några av bolagen jag jobbat med" }: Props) {
   return (
     <section className="py-16 md:py-20 bg-sand">
-      <div className="container-site text-center">
-        {plainHeading ? (
-          <p className="reveal mb-10 text-[1rem] text-ink-soft">{heading}</p>
-        ) : (
-          <h2 className="reveal inline-block eyebrow-upper mb-10 !border-t-0 !pt-0">
-            {heading}
-          </h2>
-        )}
-      </div>
+      {eyebrow && (
+        <div className="container-site mb-10 flex justify-center">
+          <p className="reveal font-[family-name:var(--font-heading)] font-semibold text-[0.95rem] text-[color:var(--glod)]">
+            {eyebrow}
+          </p>
+        </div>
+      )}
       <div className="marquee" aria-label="Kundlogotyper">
         {[0, 1].map((set) => (
           <div className="marquee-track" aria-hidden={set === 1} key={set}>
@@ -46,6 +41,8 @@ export default function LogoCarousel({
                   width={160}
                   height={64}
                   quality={90}
+                  priority={set === 0 && i < 5}
+                  loading={set === 0 && i < 5 ? "eager" : "lazy"}
                   className="h-full w-auto object-contain"
                 />
               </div>

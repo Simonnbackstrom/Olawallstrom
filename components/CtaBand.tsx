@@ -10,11 +10,11 @@ type Props = {
 };
 
 export default function CtaBand({
-  heading = "Boka ett samtal. 30 minuter, direkt med mig.",
+  heading = "Boka ett strategisamtal. 30 minuter, direkt med mig.",
   intro = "Inget säljtryck. Oavsett om jag blir rätt mentor för dig eller inte lämnar du samtalet med något konkret att göra på måndag.",
   tone = "marin",
   plain = false,
-  ctaLabel = "Boka ett samtal med mig",
+  ctaLabel = "Boka ett strategisamtal med mig",
 }: Props) {
   const sectionClass =
     tone === "sand" ? "sec-sand" : tone === "olabla" ? "sec-olabla" : "sec-marin";

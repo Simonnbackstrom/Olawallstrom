@@ -67,7 +67,7 @@ const CRED = [
   "Civilekonom, tidigare marknadschef på Affärsvärlden",
   "Har byggt och drivit åtta egna bolag",
   "Har coachat fler än 650 bolagsägare under 25 år",
-  "Medlem i flera svenska entreprenörsnätverk",
+  "Hundratals ägare i mina program och coachingrum sedan 2010",
 ];
 
 export default function OmOlaPage() {
@@ -78,10 +78,10 @@ export default function OmOlaPage() {
         align="center"
         title={
           <>
-            Hej, jag är Ola. Jag har stått <em>där du står</em>.
+            Hej, jag är Ola. Jag har stått <em>där du står.</em>
           </>
         }
-        intro="Jag har byggt egna bolag, gjort de flesta misstagen och suttit med fler än 650 bolagsägare. Jag vet hur det känns när allt landar på dig, och hur ensamt det kan bli högst upp. Men jag vet också att ditt bolag kan växa utan att du blir någon annan."
+        intro="Jag har byggt egna bolag, gjort de flesta misstagen och suttit med fler än 650 bolagsägare. Jag vet hur det känns när allt landar på dig, och hur ensamt det kan bli högst upp. Men jag vet också att bolaget kan växa utan att det äter upp dig."
       />
 
       <section className="py-[var(--section-y)] sec-papper">
@@ -95,8 +95,8 @@ export default function OmOlaPage() {
               />
               <div className="relative rounded-3xl overflow-hidden border border-[color:var(--border-soft)] aspect-[4/5] bg-sand">
                 <Image
-                  src="/images/ola-terrass.jpg"
-                  alt="Ola Wallström på en terrass med utsikt över sjön"
+                  src="/images/ola-fatolj.jpg"
+                  alt="Ola Wallström sitter i en fåtölj vid fönstret"
                   fill
                   quality={90}
                   sizes="(min-width: 1024px) 560px, 90vw"
@@ -133,7 +133,7 @@ export default function OmOlaPage() {
                 jag upp tills sakerna faktiskt är gjorda.
               </p>
               <p className="reveal reveal-d4 mt-4 text-[1.05rem] text-ink-soft leading-relaxed">
-                Jag tar bara emot ett fåtal klienter per år, så att jag kan vara närvarande på
+                Jag tar bara emot ett fåtal kunder per år, så att jag kan vara närvarande på
                 riktigt. Vi börjar med att titta på var ditt bolag står i dag och gör sedan en
                 tydlig plan. Jag finns med både i de planerade samtalen och när något oväntat
                 händer.
@@ -159,7 +159,7 @@ export default function OmOlaPage() {
                   rel="noopener noreferrer"
                   className="btn-primary"
                 >
-                  Boka ett samtal med mig
+                  Boka ett strategisamtal med mig
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="13 6 19 12 13 18" />
@@ -180,14 +180,14 @@ export default function OmOlaPage() {
         align="center"
         heading={
           <>
-            Jag vet hur det känns när <em>allt landar på dig</em>.
+            Jag vet hur det känns när <em>allt landar på dig.</em>
           </>
         }
         body={
           <>
             <p>
               Jag har själv varit där, flera gånger. Teamet växte, strukturen hängde inte med och
-              plötsligt var jag flaskhalsen i varje beslut. Jag jobbade kvällar och helger, och
+              plötsligt satt jag mitt i varje beslut. Jag jobbade kvällar och helger, och
               ändå var det fortfarande jag som avgjorde om något blev gjort eller inte.
             </p>
             <p>
@@ -212,7 +212,7 @@ export default function OmOlaPage() {
           <div className="max-w-3xl mx-auto text-center mb-14">
             <h2 className="reveal">Två sätt att jobba med mig.</h2>
             <p className="reveal reveal-d1 mt-5 text-[1.05rem] md:text-[1.15rem] text-ink-soft leading-relaxed">
-              Tillsammans med andra ägare runt samma bord, eller bara du och jag.
+              Tillsammans med andra ägare runt samma bord, eller direkt med dig som ägare.
             </p>
           </div>
           <div className="grid gap-6 md:gap-8 md:grid-cols-2 max-w-5xl mx-auto">
@@ -233,9 +233,8 @@ export default function OmOlaPage() {
               <div className="flex flex-1 flex-col items-center px-7 md:px-10 pt-8 pb-9">
                 <h3 style={{ fontSize: "clamp(1.5rem, 2.2vw, 1.8rem)" }}>Ägarklivet 2027</h3>
                 <p className="mt-3 flex-1 text-[1rem] text-ink-soft leading-relaxed max-w-sm">
-                  Ett år med 14 andra ägare runt samma bord. Fyra workshopdagar, 19 gruppträffar och personligt stöd från mig hela vägen.
+                  Ett år tillsammans med andra erfarna ägare runt samma bord. Fyra workshopdagar, gemensamma sessioner och personligt stöd från mig hela vägen.
                 </p>
-                <p className="mt-6 text-[0.85rem] text-muted">Max 15 deltagare</p>
                 <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-[color:var(--marin)]/25 px-5 py-2.5 text-[0.92rem] font-semibold text-[color:var(--marin)] transition-colors group-hover:border-[color:var(--glod)] group-hover:bg-[color:var(--glod)] group-hover:text-white">
                   Se programmet
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1">
@@ -263,7 +262,7 @@ export default function OmOlaPage() {
               <div className="flex flex-1 flex-col items-center px-7 md:px-10 pt-8 pb-9">
                 <h3 style={{ fontSize: "clamp(1.5rem, 2.2vw, 1.8rem)" }}>VIP-coaching</h3>
                 <p className="mt-3 flex-1 text-[1rem] text-ink-soft leading-relaxed max-w-sm">
-                  Bara du och jag. Vi jobbar i ditt tempo och med fokus på det som faktiskt driver just ditt bolag framåt.
+                  Direkt med dig som ägare, eller tillsammans med dina medägare. Vi jobbar i ert tempo och med fokus på det som faktiskt driver just ert bolag framåt.
                 </p>
                 <p className="mt-6 text-[0.85rem] text-muted">Ett fåtal platser 2027</p>
                 <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-[color:var(--marin)]/25 px-5 py-2.5 text-[0.92rem] font-semibold text-[color:var(--marin)] transition-colors group-hover:border-[color:var(--glod)] group-hover:bg-[color:var(--glod)] group-hover:text-white">
@@ -281,7 +280,7 @@ export default function OmOlaPage() {
 
       <CtaBand
         tone="marin"
-        heading="Ditt bolag kan växa utan att du blir någon annan."
+        heading="Så att bolaget kan växa utan att det äter upp dig."
         intro="Boka 30 minuter med mig. Inget säljtryck. Oavsett om jag blir rätt mentor för dig eller inte går du därifrån med något konkret att göra."
       />
     </>

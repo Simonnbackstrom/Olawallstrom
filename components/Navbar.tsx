@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { href: "/agarklivet", label: "Ägarklivet" },
   { href: "/vip-coaching", label: "VIP-coaching" },
   { href: "/strategisession", label: "Strategisession" },
-  { href: "/kontakt", label: "Kontakt" },
+  { href: "/kontakt", label: "Kontakta mig" },
 ];
 
 /* Shown only in the mobile menu, so every page is reachable from a phone. */
@@ -32,7 +32,7 @@ export default function Navbar() {
   }
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
-  const ctaLabel = "Boka ett samtal";
+  const ctaLabel = "Boka ett strategisamtal";
   // Strategisession has the calendar on the page itself.
   const onStrategy = pathname === "/strategisession";
   const ctaProps = onStrategy
@@ -106,7 +106,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   aria-current={active ? "page" : undefined}
-                  className={`text-sm font-semibold transition-colors ${
+                  className={`text-[15px] font-semibold transition-colors ${
                     active
                       ? "text-[color:var(--glod)]"
                       : "text-[color:var(--marin)] hover:text-[color:var(--glod)]"
@@ -124,6 +124,11 @@ export default function Navbar() {
             </a>
           </div>
 
+          <div className="lg:hidden flex items-center gap-2">
+            <a {...ctaProps} className="btn-primary !py-2 !px-4 !text-[13px]">
+              Boka strategisamtal
+            </a>
+
           <button
             ref={toggleRef}
             type="button"
@@ -131,7 +136,7 @@ export default function Navbar() {
             aria-expanded={open}
             aria-controls="mobilmeny"
             aria-label={open ? "Stäng meny" : "Öppna meny"}
-            className={`lg:hidden h-11 w-11 inline-flex items-center justify-center rounded-full border transition-colors ${
+            className={`h-11 w-11 inline-flex items-center justify-center rounded-full border transition-colors ${
               open
                 ? "border-[color:var(--marin)] bg-[color:var(--marin)] text-[color:var(--papper)]"
                 : "border-[color:var(--marin)]/20 text-[color:var(--marin)]"
@@ -152,6 +157,7 @@ export default function Navbar() {
               )}
             </svg>
           </button>
+          </div>
         </div>
       </header>
 

@@ -23,7 +23,7 @@ const EXTRA: Testimonial[] = [
 
 type Props = {
   items?: Testimonial[];
-  tone?: "papper" | "sand";
+  tone?: "papper" | "sand" | "himmel";
 };
 
 const Stars = () => (
@@ -60,7 +60,8 @@ function ReviewCard({ t }: { t: Testimonial }) {
 }
 
 export default function TestimonialsClean({ items = [...TESTIMONIALS, ...EXTRA], tone = "papper" }: Props) {
-  const sectionClass = tone === "sand" ? "sec-sand" : "sec-papper";
+  const sectionClass =
+    tone === "sand" ? "sec-sand" : tone === "himmel" ? "sec-himmel" : "sec-papper";
 
   return (
     <section className={`py-[var(--section-y)] ${sectionClass} overflow-hidden`}>

@@ -40,10 +40,10 @@ function loadVimeoApi(): Promise<void> {
 }
 
 const STATS = [
-  { num: "650+", label: "Coachade bolagsägare" },
-  { num: "25 år", label: "Som serieentreprenör" },
-  { num: "8", label: "Egna bolag byggda" },
-  { num: "100×", label: "Tillväxt i ett klientcase", accent: true },
+  { num: "650+", label: "Coachade bolagsägare", mobile: true },
+  { num: "25 år", label: "Som serieentreprenör", mobile: true, accent: true },
+  { num: "8", label: "Egna bolag byggda", mobile: false },
+  { num: "100×", label: "Tillväxt hos en kund", mobile: false },
 ];
 
 export default function StrategyHero() {
@@ -118,11 +118,11 @@ export default function StrategyHero() {
       <div className="container-site relative text-center">
         <h1 className="reveal reveal-d1 max-w-4xl mx-auto">
           Fullt huvud, team som väntar, och allt{" "}
-          <em>landar på dig</em>.
+          <em>landar på dig.</em>
         </h1>
 
         <p className="reveal reveal-d2 mt-7 text-[1.15rem] md:text-[1.25rem] text-ink-soft max-w-2xl mx-auto leading-relaxed">
-          För dig som äger ett etablerat bolag och har kört på autopilot för länge.
+          För dig som äger ett bolag på 10–30 miljoner. Och känner att du står ensam med det som spelar roll.
         </p>
 
         <div className="reveal reveal-d3 mt-12 max-w-4xl mx-auto">
@@ -187,10 +187,13 @@ export default function StrategyHero() {
           </div>
         </div>
 
-        <div className="reveal reveal-d4 mt-10 flex justify-center">
-          <a href="#boka" className="btn-primary">
-            Boka ett samtal med mig
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <div className="reveal reveal-d4 mt-10 flex flex-col items-center gap-5">
+          <a
+            href="#boka"
+            className="btn-primary !px-9 !py-[18px] !text-[1rem] md:!text-[1.05rem] shadow-[0_14px_32px_-10px_rgba(242,106,46,0.55)] hover:shadow-[0_18px_38px_-10px_rgba(242,106,46,0.65)]"
+          >
+            Boka 30 min, kostnadsfritt
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="13 6 19 12 13 18" />
             </svg>
@@ -199,7 +202,12 @@ export default function StrategyHero() {
 
         <dl className="reveal reveal-d5 mt-14 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 max-w-4xl mx-auto">
           {STATS.map((st) => (
-            <div key={st.label} className="flex flex-col-reverse justify-end text-center">
+            <div
+              key={st.label}
+              className={`flex flex-col-reverse justify-end text-center ${
+                st.mobile ? "" : "hidden md:flex"
+              }`}
+            >
               <dt className="mt-3 text-[0.85rem] text-muted">{st.label}</dt>
               <dd
                 className={`font-bold text-[2.2rem] md:text-[2.6rem] leading-none ${

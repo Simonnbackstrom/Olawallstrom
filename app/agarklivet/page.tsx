@@ -11,12 +11,12 @@ import PageFAQ from "@/components/PageFAQ";
 export const metadata: Metadata = {
   title: "Ägarklivet 2027. Ett år. Fyra teman.",
   description:
-    "Tolv månader för dig som VD eller ägare som vill ta klivet från att driva allt själv till att leda som ägare. Fyra teman, 19 gruppträffar, 4 kvartalsavstamp, 4 workshopdagar och personligt stöd hela vägen. Max 15 deltagare.",
+    "Tolv månader för dig som är ägare i ett bolag som omsätter minst 10 miljoner och vill ta klivet från att driva allt själv till att leda som ägare. Fyra teman, 19 gemensamma sessioner, 4 kvartalsavstamp, 4 workshopdagar och personligt stöd hela vägen.",
   alternates: { canonical: "/agarklivet" },
   openGraph: {
     title: "Ägarklivet 2027. Ett år. Fyra teman.",
     description:
-      "Tolv månader för VD och ägare: fyra teman, 19 gruppträffar och personligt stöd hela vägen. Max 15 deltagare.",
+      "Tolv månader för ägare: fyra teman, 19 gemensamma sessioner och personligt stöd hela vägen.",
     url: "/agarklivet",
     type: "website",
   },
@@ -51,9 +51,9 @@ const THEMES = [
 
 const LOOP_STEPS = [
   { n: "01", title: "Frågebatteri", body: "Du reflekterar i lugn och ro inför kvartalets tema." },
-  { n: "02", title: "Kvartalsavstamp", body: "Två timmars digital fördjupning tillsammans med gruppen." },
+  { n: "02", title: "Kvartalsavstamp", body: "Två timmars digital fördjupning tillsammans med de andra ägarna." },
   { n: "03", title: "Workshopdag", body: "En heldag tillsammans, med fullt fokus på temat." },
-  { n: "04", title: "Gruppträffar", body: "4–5 digitala träffar på ungefär en timme var." },
+  { n: "04", title: "Gemensamma sessioner", body: "4–5 digitala sessioner på en timme var." },
 ];
 
 const JOURNEY = [
@@ -68,28 +68,28 @@ const JOURNEY = [
     tag: "Q1 · jan–mar",
     title: "Mental klarhet",
     body: "Riktning, fokus och kontroll över tid och energi.",
-    meta: ["Avstamp 12 jan", "Workshop 21 jan", "5 gruppträffar"],
+    meta: ["Avstamp 12 jan", "Workshop 21 jan", "5 gemensamma sessioner"],
     dot: "bg-[color:var(--marin)]",
   },
   {
     tag: "Q2 · apr–jun",
     title: "Stjärnledarskap",
     body: "Få människor att ta ansvar och fungera tillsammans.",
-    meta: ["Avstamp 6 apr", "Workshop 15 apr", "5 gruppträffar"],
+    meta: ["Avstamp 6 apr", "Workshop 15 apr", "5 gemensamma sessioner"],
     dot: "bg-[color:var(--olabla)]",
   },
   {
     tag: "Q3 · jul–sep",
     title: "Autentisk affärsutveckling",
     body: "Utveckla affären utifrån egna styrkor och kundvärde.",
-    meta: ["Avstamp 29 jun", "Workshop 7 okt", "4 gruppträffar"],
+    meta: ["Avstamp 29 jun", "Workshop 7 okt", "4 gemensamma sessioner"],
     dot: "bg-[color:var(--glod)]",
   },
   {
     tag: "Q4 · okt–dec",
     title: "Smart säljstrategi",
     body: "Ett sälj som är tydligt, hållbart och mindre personberoende.",
-    meta: ["Avstamp 28 sep", "Workshop 8 okt", "5 gruppträffar"],
+    meta: ["Avstamp 28 sep", "Workshop 8 okt", "5 gemensamma sessioner"],
     dot: "bg-[color:var(--sand)] ring-2 ring-[color:var(--glod)]",
   },
 ];
@@ -108,7 +108,7 @@ const ONGOING = [
     ),
   },
   {
-    title: "Signal-kanal",
+    title: "Chatt-kanal",
     body: "Med mig och de andra ägarna, så att du har stöd även mellan träffarna.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -118,8 +118,8 @@ const ONGOING = [
     ),
   },
   {
-    title: "19 gruppträffar",
-    body: "Ungefär en timme var, digitalt. Här tar vi upp frågor, utmaningar och beslut.",
+    title: "19 gemensamma sessioner",
+    body: "En timme var, digitalt. Här tar vi upp frågor, utmaningar och beslut.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <rect x="3.5" y="5" width="17" height="15" rx="2.5" />
@@ -139,22 +139,17 @@ const serviceSchema = {
   name: "Ägarklivet 2027",
   serviceType: "Mentorship Program",
   description:
-    "Tolv månader för VD och ägare i etablerade bolag. Fyra teman, 19 gruppträffar, 4 kvartalsavstamp, 4 workshopdagar och personligt stöd hela vägen.",
+    "Tolv månader för ägare i bolag som omsätter minst 10 miljoner. Fyra teman, 19 gemensamma sessioner, 4 kvartalsavstamp, 4 workshopdagar och personligt stöd hela vägen.",
   provider: { "@id": `${SITE_URL}#person` },
   areaServed: "SE",
   audience: {
     "@type": "BusinessAudience",
-    audienceType: "Bolagsägare och VD i etablerade bolag",
+    audienceType: "Ägare i bolag som omsätter minst 10 miljoner",
   },
   offers: {
     "@type": "Offer",
     availability: "https://schema.org/LimitedAvailability",
     url: `${SITE_URL}/agarklivet`,
-    eligibleQuantity: {
-      "@type": "QuantitativeValue",
-      maxValue: 15,
-      unitText: "deltagare",
-    },
     validFrom: "2027-01-01",
   },
   url: `${SITE_URL}/agarklivet`,
@@ -182,7 +177,7 @@ export default function AgarklivetPage() {
             <em>Ett år. Fyra teman.</em>
           </>
         }
-        intro="Det är ensamt högst upp. I Ägarklivet samlar jag ett litet rum av erfarna ägare under ett helt år, för att ta klivet från att driva allt själv till att leda som ägare. Du får några att tänka högt med, en gemensam rytm och personligt stöd från mig hela vägen. Max 15 platser."
+        intro="Det är ensamt högst upp. I Ägarklivet samlar jag ett rum av erfarna ägare under ett helt år, för att ta klivet från att driva allt själv till att leda som ägare. Du får några att tänka högt med, en gemensam rytm och personligt stöd från mig hela vägen."
       />
 
       <section className="sec-papper pb-[var(--section-y)]">
@@ -206,18 +201,18 @@ export default function AgarklivetPage() {
         image={{ src: "/images/ola-ensam-fatolj.jpg", alt: "Ola Wallström sitter ensam i en fåtölj" }}
         heading={
           <>
-            Du leder, men du är <em>själv i rummet</em> med besluten.
+            Du leder, men du är <em>ensam i rummet</em> med besluten.
           </>
         }
         intro="Jag har suttit där själv. Ingen i teamet står där du står, och styrelsen, om du har en, pratar sällan om det du faktiskt brottas med. Känner du igen någon av de här tankarna?"
         points={[
           "Varje viktigt beslut landar hos mig, och jag har ingen på samma nivå att bolla det med.",
           "Jag vet att jag borde tänka ett år framåt, men den här veckan tar all min tid.",
-          "Någonstans har jag blivit flaskhalsen, och ingen säger det rakt ut.",
+          "Någonstans har jag börjat sinka hela bolaget, och ingen säger det rakt ut.",
           "Jag har byggt ett bra team, men det är ändå ensamt högst upp.",
         ]}
         closer="Det är därför Ägarklivet finns. Ett rum där du inte behöver bära allt ensam."
-        ctaLabel="Boka ett samtal med mig"
+        ctaLabel="Boka ett strategisamtal med mig"
       />
 
       <BoardroomWheel />
@@ -310,6 +305,13 @@ export default function AgarklivetPage() {
               Tolv månader, från en personlig start med mig till fyra teman tillsammans med andra
               erfarna ägare.
             </p>
+            <p className="reveal reveal-d2 mt-5 inline-flex items-center gap-2 rounded-full border border-[color:var(--glod)]/40 bg-[color:var(--glod)]/10 px-4 py-2 text-[0.9rem] font-semibold text-[color:var(--marin)]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <circle cx="12" cy="12" r="9" />
+                <polyline points="12 7 12 12 15 15" />
+              </svg>
+              Du kan ansluta när som helst under året. Vi plockar in dig vid närmaste kvartalsstart.
+            </p>
           </div>
 
           <ol className="relative mx-auto grid max-w-md gap-6 sm:max-w-none sm:grid-cols-2 sm:gap-x-5 sm:gap-y-8 lg:grid-cols-5 lg:gap-4 sm:[&>li:last-child]:col-span-2 lg:[&>li:last-child]:col-span-1">
@@ -342,7 +344,7 @@ export default function AgarklivetPage() {
           <div className="mt-24 text-center">
             <h3 style={{ fontSize: "clamp(1.6rem, 2.6vw, 2rem)" }}>Löpande under hela året</h3>
             <p className="mt-4 text-[1.05rem] text-ink-soft leading-relaxed max-w-xl mx-auto">
-              Mellan kvartalen är du aldrig ensam. Jag och gruppen finns där hela vägen.
+              Mellan kvartalen är du aldrig ensam. Jag och de andra ägarna finns där hela vägen.
             </p>
             <ul className="mt-12 grid gap-5 md:gap-6 md:grid-cols-3 max-w-5xl mx-auto">
               {ONGOING.map((o, i) => (
@@ -370,14 +372,14 @@ export default function AgarklivetPage() {
         eyebrow={null}
         centered
         hideCta
-        heading="Vanliga frågor innan du bokar ett samtal"
-        intro="De vanligaste frågorna jag får innan vi börjar. Hittar du inte svaret, boka ett samtal på 30 minuter så pratar vi."
+        heading="Vanliga frågor innan du bokar ett strategisamtal"
+        intro="De vanligaste frågorna jag får innan vi börjar. Hittar du inte svaret, boka ett strategisamtal på 30 minuter så pratar vi."
         items={[
           {
             q: "Hur mycket tid tar Ägarklivet under året?",
             a: (
               <>
-                Räkna med 2–3 timmar i månaden för de digitala träffarna: 19 gruppträffar på ungefär en
+                Räkna med 2–3 timmar i månaden för de digitala träffarna: 19 gemensamma sessioner på en
                 timme och 4 kvartalsavstamp på två timmar. Till det kommer 4 workshopdagar och en
                 personlig startworkshop på fyra timmar. Upplägget ska spara mer tid än det kostar,
                 genom att ta bort det som i dag äter upp din vecka.
@@ -388,17 +390,17 @@ export default function AgarklivetPage() {
             q: "Vem passar programmet för?",
             a: (
               <>
-                VD eller ägare i ett etablerat bolag som vill växa tillsammans med andra erfarna
-                ägare. Du är redo att ändra på dig själv, inte bara teamet, och vill ha ett rum där du både får
+                Ägare i bolag som omsätter minst 10 miljoner och som vill växa utan att behöva offra sin hälsa, sina relationer eller all sin fritid.
+                Du är redo att ändra på dig själv, inte bara teamet, och vill ha ett rum där du både får
                 hjälp och bidrar.
               </>
             ),
           },
           {
-            q: "Vad händer efter att jag bokat ett samtal?",
+            q: "Vad händer efter att jag bokat ett strategisamtal?",
             a: (
               <>
-                Vi tar ett samtal på 30 minuter, du och jag, kostnadsfritt. Vi tittar på var ditt bolag
+                Vi tar ett strategisamtal på 30 minuter, du och jag, kostnadsfritt. Vi tittar på var ditt bolag
                 står i dag och om Ägarklivet är rätt för dig. Tycker vi båda det bokar vi in din
                 startworkshop. Om inte går du ändå därifrån med något konkret.
               </>
@@ -408,7 +410,7 @@ export default function AgarklivetPage() {
             q: "Vad kostar Ägarklivet?",
             a: (
               <>
-                Investeringen går vi igenom på samtalet, när vi vet om Ägarklivet är rätt för dig.
+                Investeringen går vi igenom på strategisamtalet, när vi vet om Ägarklivet är rätt för dig.
                 Allt under året ingår, och betalningen går att dela upp.
               </>
             ),
@@ -417,7 +419,7 @@ export default function AgarklivetPage() {
             q: "Vad är skillnaden mot VIP-coaching (1:1)?",
             a: (
               <>
-                Ägarklivet är ett år tillsammans med 14 andra ägare. VIP-coaching är 1:1 med mig direkt.
+                Ägarklivet är ett år tillsammans med andra erfarna ägare. VIP-coaching är 1:1 med mig direkt.
                 Många väljer Ägarklivet för att få andras perspektiv och lärande, och VIP när de vill ha
                 maximal personlig djupgång.{" "}
                 <Link href="/vip-coaching" className="font-semibold text-[color:var(--marin)] underline underline-offset-4 hover:text-[color:var(--glod)]">
@@ -447,7 +449,7 @@ export default function AgarklivetPage() {
                 rel="noopener noreferrer"
                 className="btn-primary"
               >
-                Boka ett samtal med mig
+                Boka ett strategisamtal med mig
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="13 6 19 12 13 18" />

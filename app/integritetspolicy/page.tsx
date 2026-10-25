@@ -38,7 +38,7 @@ export default function IntegritetspolicyPage() {
 
           <h2 className="mt-12 mb-4 text-[1.4rem] text-left">Vilka uppgifter samlar vi in?</h2>
           <p>
-            När du bokar ett strategisamtal eller anmäler dig till Vd-tipset samlar vi in: namn,
+            När du bokar ett strategisamtal eller anmäler dig till Ägartipset samlar vi in: namn,
             e-postadress, företagsnamn och, när du skriver till oss via kontaktformuläret,
             telefonnummer. Vi samlar in uppgifterna
             direkt från dig via formulär på webbplatsen.
@@ -47,7 +47,7 @@ export default function IntegritetspolicyPage() {
           <h2 className="mt-12 mb-4 text-[1.4rem] text-left">Så här använder vi uppgifterna</h2>
           <ul className="list-disc pl-6 space-y-2">
             <li>För att kunna kontakta dig och boka tid för strategisamtal.</li>
-            <li>För att skicka ut Vd-tipset om du valt att prenumerera.</li>
+            <li>För att skicka ut Ägartipset om du valt att prenumerera.</li>
             <li>För att följa upp och förbättra våra tjänster.</li>
           </ul>
 
@@ -73,7 +73,7 @@ export default function IntegritetspolicyPage() {
             Vi delar aldrig dina uppgifter med tredje part för marknadsföring. Vi använder
             följande personuppgiftsbiträden som hjälper oss med drift av webbplatsen och utskick:
             Vercel (hosting), FormSubmit (vidarebefordran av formulär och bekräftelsemejl) och
-            Calendly (bokning av samtal).
+            Calendly (bokning av strategisamtal).
           </p>
 
           <p className="text-[0.85rem] text-muted mt-12 pt-6 border-t border-[color:var(--border-soft)]">

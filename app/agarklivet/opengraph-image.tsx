@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Ägarklivet 2027. Ett år. Fyra teman. Max 15 deltagare.";
+export const alt = "Ägarklivet 2027. Ett år. Fyra teman.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -73,8 +73,6 @@ export default async function OGImage() {
               color: "rgba(247,243,236,0.75)",
             }}
           >
-            <span>Max 15 deltagare</span>
-            <span style={{ color: "rgba(247,243,236,0.4)" }}>·</span>
             <span>Begränsat antal platser</span>
           </div>
         </div>

@@ -43,7 +43,7 @@ const LESSONS = [
   {
     n: "01",
     title: "Varför bolag slutar växa",
-    body: "De tre mönstren som gör att du blir flaskhals när bolaget växer, och exakt var i din vecka de syns.",
+    body: "De tre mönstren som fastkör dig när bolaget växer, och exakt var i din vecka de syns.",
   },
   {
     n: "02",
@@ -73,13 +73,13 @@ const BONUSES = [
   },
   {
     title: "A4:n med de fyra principerna",
-    body: "Hela ramverket på en sida, samma underlag som mina VIP-klienter får.",
+    body: "Hela ramverket på en sida, samma underlag som mina VIP-kunder får.",
   },
 ];
 
 const FOR_WHOM = [
   "Du äger ett etablerat bolag som vill växa.",
-  "Du är själv flaskhals i det dagliga.",
+  "Du håller själv ihop det dagliga.",
   "Du vill växa vidare utan att offra livet runt omkring.",
   "Du är öppen för att ändra på dig själv, inte bara teamet.",
 ];
@@ -113,8 +113,8 @@ const FAQ: { q: string; a: string; link?: { href: string; label: string } }[] = 
   },
   {
     q: "Vad gör jag om jag inte vill vänta till 11 november?",
-    a: "Boka ett kostnadsfritt samtal på 30 minuter med mig i stället. Inget säljtryck.",
-    link: { href: "https://calendly.com/olawallstrom/30min", label: "Boka ett samtal" },
+    a: "Boka ett kostnadsfritt strategisamtal på 30 minuter med mig i stället. Inget säljtryck.",
+    link: { href: "https://calendly.com/olawallstrom/30min", label: "Boka ett strategisamtal" },
   },
 ];
 
@@ -180,7 +180,7 @@ export default function WebinarPage() {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-stretch max-w-6xl mx-auto">
             <div className="flex flex-col justify-center text-center">
               <h1 className="reveal" style={{ fontSize: "clamp(2.5rem, 4.6vw, 3.9rem)" }}>
-                Så bygger du ett bolag <em>som inte äger dig</em>.
+                Så bygger du ett bolag <em>som inte äger dig.</em>
               </h1>
               <p className="reveal reveal-d1 mt-6 text-[1.1rem] md:text-[1.2rem] leading-relaxed text-ink-soft max-w-xl mx-auto">
                 60 minuter där jag delar de fyra principerna jag har använt med fler än 650
@@ -193,8 +193,8 @@ export default function WebinarPage() {
 
               <ul className="reveal reveal-d3 mt-8 mx-auto w-fit max-w-md flex flex-col gap-3 text-left">
                 {[
-                  "De tre mönstren som gör dig till flaskhals",
-                  "Hela ramverket på en A4, samma som mina VIP-klienter får",
+                  "De tre mönstren som fastkör dig",
+                  "Hela ramverket på en A4, samma som mina VIP-kunder får",
                   "Bolagsdiagnosen (PDF) till din mejl före webinaret",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-[1rem] text-ink leading-relaxed">
@@ -300,7 +300,7 @@ export default function WebinarPage() {
             <h2 className="reveal">Det här går jag igenom under de 60 minuterna.</h2>
             <p className="reveal reveal-d1 mt-6 text-[1.05rem] text-ink-soft leading-relaxed">
               Inga PowerPoint-föreläsningar. Jag delar det jag faktiskt säger till bolagsägare när vi
-              sitter öga mot öga, och visar exempel från mitt klientarbete.
+              sitter öga mot öga, och visar exempel från mitt kundarbete.
             </p>
           </div>
 
@@ -368,7 +368,7 @@ export default function WebinarPage() {
                 som vill växa vidare utan att offra livet runt omkring.
               </p>
               <p className="reveal reveal-d2 mt-5 text-[1.05rem] text-ink-soft leading-relaxed max-w-lg mx-auto">
-                Det jag delar på webinaret är ingen teaser. Det är samma ramverk som mina VIP-klienter
+                Det jag delar på webinaret är ingen teaser. Det är samma ramverk som mina VIP-kunder
                 jobbar med, förtätat till 60 minuter.
               </p>
 

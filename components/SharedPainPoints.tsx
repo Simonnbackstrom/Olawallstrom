@@ -15,6 +15,8 @@ type Props = {
   plain?: boolean;
   /** Photo behind the section, under a marin overlay (dark tone). */
   image?: { src: string; alt: string };
+  /** Swap the info circle for a red exclamation mark (varningssignal) on each item. */
+  warningIcon?: boolean;
 };
 
 export default function SharedPainPoints({
@@ -23,12 +25,13 @@ export default function SharedPainPoints({
   intro,
   points,
   closer,
-  ctaLabel = "Boka ett samtal",
+  ctaLabel = "Boka ett strategisamtal",
   ctaHref = "https://calendly.com/olawallstrom/30min",
   tone = "marin",
   centered = false,
   plain = false,
   image,
+  warningIcon = false,
 }: Props) {
   const dark = tone === "marin";
   const sectionClass = dark ? "sec-marin" : "sec-sand";
@@ -120,12 +123,27 @@ export default function SharedPainPoints({
                 key={p}
                 className={`reveal reveal-d${(i % 5) + 1} flex gap-4 rounded-2xl ${itemBg} px-6 py-5 md:px-7 md:py-6 ${centered ? "flex-col items-center text-center gap-3" : "items-start"}`}
               >
-                <span className={`shrink-0 mt-0.5 h-8 w-8 inline-flex items-center justify-center rounded-full ${dark ? "bg-[color:var(--glod)]/20 text-[color:var(--glod)]" : "bg-[color:var(--glod-dim)] text-[color:var(--glod)]"}`}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="12" y1="8" x2="12" y2="12" />
-                    <line x1="12" y1="16" x2="12.01" y2="16" />
-                  </svg>
+                <span
+                  className={`shrink-0 mt-0.5 h-8 w-8 inline-flex items-center justify-center rounded-full ${
+                    warningIcon
+                      ? "bg-[#e53935]/15 text-[#e53935]"
+                      : dark
+                        ? "bg-[color:var(--glod)]/20 text-[color:var(--glod)]"
+                        : "bg-[color:var(--glod-dim)] text-[color:var(--glod)]"
+                  }`}
+                >
+                  {warningIcon ? (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                      <line x1="12" y1="4" x2="12" y2="14" />
+                      <line x1="12" y1="18" x2="12.01" y2="18" />
+                    </svg>
+                  ) : (
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="12" y1="8" x2="12" y2="12" />
+                      <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg>
+                  )}
                 </span>
                 <p className={`text-[1rem] md:text-[1.05rem] leading-relaxed ${itemText}`}>
                   {p}

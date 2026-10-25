@@ -43,7 +43,7 @@ const STEP_BORDERS = ["border-b sm:border-r", "border-b", "border-b sm:border-b-
 
 const STEPS = [
   { title: "Du berättar", body: "Var bolaget står i dag, vad som går bra, vad som skaver och vart du vill." },
-  { title: "Vi hittar flaskhalsen", body: "Tillsammans ringar vi in det som bromsar mest just nu." },
+  { title: "Vi hittar det som bromsar", body: "Tillsammans ringar vi in det som bromsar mest just nu." },
   { title: "Du får konkreta råd", body: "Saker du kan ta med dig och göra något åt direkt." },
   { title: "Vi ser om det klickar", body: "Känns det rätt för oss båda pratar vi om hur vi kan fortsätta." },
 ];
@@ -90,7 +90,7 @@ export default function KontaktPage() {
               <ul className="mt-7 mx-auto w-fit flex flex-col gap-3.5 text-left text-[1rem] text-[color:var(--papper)]/90">
                 {[
                   "En tydlig bild av var bolaget står",
-                  "Den största flaskhalsen just nu",
+                  "Det som bromsar mest just nu",
                   "Ett konkret nästa steg",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3">

@@ -39,8 +39,8 @@ const MARKERS: Marker[] = [
 const LEGEND = [
   {
     count: "19",
-    title: "gruppträffar",
-    body: "Digitala träffar på ungefär en timme. Här tar vi upp frågor, utmaningar och beslut tillsammans med de andra ägarna.",
+    title: "gemensamma sessioner",
+    body: "Digitala träffar på en timme. Här tar vi upp frågor, utmaningar och beslut tillsammans med de andra ägarna.",
     marker: "session" as const,
   },
   {
@@ -232,7 +232,7 @@ export default function BoardroomWheel() {
               Så ser <em>året</em> ut.
             </h2>
             <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.1rem] text-ink-soft leading-relaxed max-w-md mx-auto">
-              Tolv månader i ett litet rum av erfarna ägare, med mig vid din sida hela vägen.
+              Tolv månader i ett rum av erfarna ägare, med mig vid din sida hela vägen.
             </p>
 
             <ul className="reveal reveal-d2 mt-10 rounded-3xl bg-white border border-[color:var(--border-soft)] divide-y divide-[color:var(--border-soft)] text-center">
@@ -256,7 +256,7 @@ export default function BoardroomWheel() {
               <ul className="mt-3 space-y-1.5 text-[0.98rem] text-ink-soft">
                 <li>En startworkshop på 4 timmar i Stockholm</li>
                 <li>3 coachingsamtal på 45 minuter, bara du och jag</li>
-                <li>En Signal-kanal med mig och de andra ägarna, hela året</li>
+                <li>En chatt-kanal med mig och de andra ägarna, hela året</li>
               </ul>
             </div>
 
@@ -267,13 +267,13 @@ export default function BoardroomWheel() {
                 rel="noopener noreferrer"
                 className="btn-primary"
               >
-                Boka ett samtal med mig
+                Boka ett strategisamtal med mig
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="13 6 19 12 13 18" />
                 </svg>
               </a>
-              <span className="text-[0.88rem] text-muted">Samtalet är kostnadsfritt och tar 30 minuter.</span>
+              <span className="text-[0.88rem] text-muted">Strategisamtalet är kostnadsfritt och tar 30 minuter.</span>
             </div>
           </div>
         </div>

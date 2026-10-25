@@ -42,14 +42,14 @@ const breadcrumbSchema = {
 };
 
 export const metadata: Metadata = {
-  title: "VIP-coaching: du och jag, en och en",
+  title: "VIP-coaching direkt med dig som ägare",
   description:
-    "Personlig 1:1-coaching för dig som äger ett etablerat bolag och vill ut ur det operativa. Två samtal i månaden och stöd hela vägen.",
+    "Personlig mentorskap för dig som äger ett bolag tillsammans med medägare, eller vill ha djup 1:1-rådgivning. Två samtal i månaden och stöd hela vägen.",
   alternates: { canonical: "/vip-coaching" },
   openGraph: {
-    title: "VIP-coaching: du och jag, en och en",
+    title: "VIP-coaching direkt med dig som ägare",
     description:
-      "Personlig 1:1-coaching för bolagsägare i etablerade bolag. Två samtal i månaden och stöd hela vägen.",
+      "Personlig mentorskap för bolagsägare. Två samtal i månaden och stöd hela vägen.",
     url: "/vip-coaching",
     type: "website",
   },
@@ -69,7 +69,7 @@ const HOW = [
   },
   {
     title: "Två samtal i månaden",
-    body: "Bara du och jag. Vi stämmer av, planerar framåt och bestämmer nästa steg innan vi lägger på.",
+    body: "Du, eller ni om ni är flera ägare. Vi stämmer av, planerar framåt och bestämmer nästa steg innan vi lägger på.",
   },
   {
     title: "Stöd när det brinner",
@@ -82,10 +82,10 @@ const HOW = [
 ];
 
 const FOR_WHOM = [
-  "Driver ett etablerat bolag och vill växa vidare.",
-  "Har blivit flaskhals i det dagliga.",
-  "Är redo att ändra på dig själv, inte bara på teamet.",
-  "Vill fatta beslut på både siffror och magkänsla.",
+  "Är ägare i ett bolag som omsätter minst 10 miljoner.",
+  "Aldrig hinner stanna upp och tänka framåt.",
+  "Vill få mer ansvarstagande medarbetare.",
+  "Vill växa utan att behöva offra fritiden eller hälsan.",
 ];
 
 export default function VipCoachingPage() {
@@ -97,12 +97,12 @@ export default function VipCoachingPage() {
         plain
         title={
           <>
-            VIP-coaching. <em>Du och jag, en och en.</em>
+            VIP-coaching. <em>Direkt med dig som ägare.</em>
           </>
         }
-        intro="Ett personligt mentorskap för dig som äger ett etablerat bolag och vill ut ur det operativa. Vi ses två gånger i månaden, jobbar med det som faktiskt bromsar bolaget och följer upp tills det är gjort."
+        intro="Ett personligt mentorskap för dig som äger ett etablerat bolag tillsammans med medägare, eller som vill ha djup 1:1-rådgivning. Vi ses två gånger i månaden, jobbar med det som faktiskt bromsar bolaget och följer upp tills det är gjort."
         cta={{
-          label: "Boka ett samtal med mig",
+          label: "Boka ett strategisamtal med mig",
           href: "https://calendly.com/olawallstrom/30min",
           sub: "30 minuter, kostnadsfritt. Ett fåtal platser 2027.",
         }}
@@ -155,7 +155,7 @@ export default function VipCoachingPage() {
 
       <MethodGrid variant="steps" />
 
-      <ResultsGrid heading="Så här känns det efter sex månader." />
+      <ResultsGrid heading="Så här känns det efter åtta månader." />
 
       <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
@@ -239,7 +239,7 @@ export default function VipCoachingPage() {
                 rel="noopener noreferrer"
                 className="btn-primary"
               >
-                Boka ett samtal med mig
+                Boka ett strategisamtal med mig
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="13 6 19 12 13 18" />
@@ -250,9 +250,9 @@ export default function VipCoachingPage() {
               </Link>
             </div>
             <p className="reveal reveal-d3 mt-6 text-[0.88rem] text-[color:var(--papper)]/60">
-              Kostnadsfritt och utan säljtryck. Hellre i grupp?{" "}
+              Kostnadsfritt och utan säljtryck. Är du ensamägare? Då passar oftast Ägarklivet bättre. Där får du andra ägare runt bordet att bolla med.{" "}
               <Link href="/agarklivet" className="font-semibold text-[color:var(--papper)] underline underline-offset-4 hover:text-[color:var(--glod)] transition-colors">
-                Läs om Ägarklivet 2027
+                Läs om Ägarklivet 2027 →
               </Link>
             </p>
           </div>

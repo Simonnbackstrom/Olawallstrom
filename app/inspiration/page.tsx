@@ -11,7 +11,7 @@ const LINKEDIN_URL = "https://se.linkedin.com/in/olawallstrom";
 export const metadata: Metadata = {
   title: "Inspiration: Ola Wallström i poddar och samtal",
   description:
-    "Lyssna på Ola Wallström i poddar och LinkedIn Live. Samtal om ledarskap, tillväxt och att driva bolag utan att tappa sig själv. Prenumerera på Vd-tipset en gång i månaden.",
+    "Lyssna på Ola Wallström i poddar och LinkedIn Live. Samtal om ledarskap, tillväxt och att driva bolag utan att tappa sig själv. Prenumerera på Ägartipset en gång i månaden.",
   alternates: { canonical: "/inspiration" },
   openGraph: {
     title: "Inspiration: Ola Wallström i poddar och samtal",
@@ -290,8 +290,8 @@ export default function InspirationPage() {
         </div>
       </section>
 
-      {/* VD-TIPSET */}
-      <section id="vd-tipset" className="py-[var(--section-y)] sec-papper scroll-mt-20">
+      {/* ÄGARTIPSET */}
+      <section id="agartipset" className="py-[var(--section-y)] sec-papper scroll-mt-20">
         <div className="container-site">
           <div className="grid gap-5 md:gap-6 lg:grid-cols-2 items-stretch max-w-5xl mx-auto">
             <div className="reveal relative aspect-[4/3] lg:aspect-auto lg:min-h-[520px] rounded-3xl overflow-hidden bg-sand">
@@ -306,7 +306,7 @@ export default function InspirationPage() {
             </div>
             <div className="reveal reveal-d1 flex flex-col justify-center rounded-3xl bg-white px-7 py-9 md:px-10 md:py-10 shadow-[0_24px_60px_-38px_rgba(23,59,96,0.45)]">
               <h2 className="text-center" style={{ fontSize: "clamp(1.7rem, 2.6vw, 2.1rem)" }}>
-                Vd-tipset
+                Ägartipset
               </h2>
               <p className="mt-3 mb-7 text-center text-[1rem] text-ink-soft leading-relaxed">
                 Konkreta tips, verktyg och nya perspektiv i din inkorg en gång i månaden. Om hur du
@@ -348,7 +348,7 @@ export default function InspirationPage() {
         tone="marin"
         plain
         heading="Vill du prata direkt med mig?"
-        intro="Boka ett kostnadsfritt samtal på 30 minuter. Vi tittar på var ditt bolag står i dag och vad som skulle flytta det mest. Inget säljtryck."
+        intro="Boka ett kostnadsfritt strategisamtal på 30 minuter. Vi tittar på var ditt bolag står i dag och vad som skulle flytta det mest. Inget säljtryck."
       />
     </>
   );
