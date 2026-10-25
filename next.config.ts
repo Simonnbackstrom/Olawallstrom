@@ -3,6 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
+  experimental: {
+    agentUpgrade: "security",
+  },
   images: {
     qualities: [75, 90],
     formats: ["image/avif", "image/webp"],
