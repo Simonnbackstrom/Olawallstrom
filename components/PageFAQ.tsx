@@ -1,3 +1,5 @@
+import JsonLd from "./JsonLd";
+
 type Item = { q: string; a: React.ReactNode };
 
 type Props = {
@@ -13,7 +15,21 @@ type Props = {
   centered?: boolean;
   /** Leave out the booking button under the list (when a CTA section follows directly). */
   hideCta?: boolean;
+  /** Stable id used in the emitted FAQPage JSON-LD schema id. */
+  schemaId?: string;
 };
+
+type NodeLike = { props?: { children?: unknown } };
+
+function nodeToText(node: unknown): string {
+  if (node == null || typeof node === "boolean") return "";
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(nodeToText).join("");
+  if (typeof node === "object" && "props" in (node as NodeLike)) {
+    return nodeToText((node as NodeLike).props?.children);
+  }
+  return "";
+}
 
 export default function PageFAQ({
   eyebrow = "Vanliga frågor",
@@ -26,11 +42,26 @@ export default function PageFAQ({
   ctaSub = "Kostnadsfritt. Inget säljtryck.",
   centered = false,
   hideCta = false,
+  schemaId = "faq",
 }: Props) {
   const sectionClass = tone === "sand" ? "sec-sand" : "sec-papper";
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: nodeToText(item.a).replace(/\s+/g, " ").trim(),
+      },
+    })),
+  };
+
   return (
     <section className={`py-[var(--section-y)] ${sectionClass}`}>
+      <JsonLd id={`${schemaId}-faq-schema`} data={faqSchema} />
       <div className="container-site">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-14">

@@ -13,21 +13,25 @@ const SITE_URL = "https://olawallstrom.com";
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": `${SITE_URL}/om-ola#person`,
+  "@id": `${SITE_URL}#person`,
   name: "Ola Wallström",
+  givenName: "Ola",
+  familyName: "Wallström",
   jobTitle: "Mentor och serieentreprenör",
   description:
     "Civilekonom, tidigare marknadschef på Affärsvärlden, serieentreprenör med åtta egna bolag och mentor för 650+ bolagsägare under 25 år.",
   url: `${SITE_URL}/om-ola`,
-  image: `${SITE_URL}/images/ola-leende-ute.jpg`,
+  image: {
+    "@type": "ImageObject",
+    url: `${SITE_URL}/images/ola-leende-ute.jpg`,
+    caption: "Ola Wallström",
+  },
+  mainEntityOfPage: `${SITE_URL}/om-ola`,
   alumniOf: {
     "@type": "Organization",
     name: "Affärsvärlden",
   },
-  worksFor: {
-    "@type": "Organization",
-    name: "Perspektivo i Sverige AB",
-  },
+  worksFor: { "@id": `${SITE_URL}#organization` },
   knowsAbout: [
     "Affärsutveckling",
     "Ledarskap",
@@ -36,8 +40,22 @@ const personSchema = {
     "Säljstrategi",
     "Tillväxt",
   ],
+  knowsLanguage: ["sv", "en"],
   award: "25 års erfarenhet som mentor för bolagsägare",
-  nationality: "SE",
+  email: "ola@olawallstrom.com",
+  sameAs: [
+    "https://se.linkedin.com/in/olawallstrom",
+    "https://www.instagram.com/ola.wallstrom/",
+  ],
+};
+
+const profilePageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": `${SITE_URL}/om-ola#profile`,
+  url: `${SITE_URL}/om-ola`,
+  mainEntity: { "@id": `${SITE_URL}#person` },
+  inLanguage: "sv-SE",
 };
 
 const breadcrumbSchema = {
@@ -73,7 +91,7 @@ const CRED = [
 export default function OmOlaPage() {
   return (
     <>
-      <JsonLd id="om-ola-schema" data={[personSchema, breadcrumbSchema]} />
+      <JsonLd id="om-ola-schema" data={[personSchema, profilePageSchema, breadcrumbSchema]} />
       <PageHero
         align="center"
         title={

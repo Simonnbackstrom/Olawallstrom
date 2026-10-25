@@ -155,6 +155,42 @@ const serviceSchema = {
   url: `${SITE_URL}/agarklivet`,
 };
 
+const courseSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": `${SITE_URL}/agarklivet#course`,
+  name: "Ägarklivet 2027",
+  description:
+    "Tolv månader för ägare som vill ta klivet från att driva allt själv till att leda som ägare. Fyra teman, 19 gemensamma sessioner, 4 workshopdagar.",
+  provider: { "@id": `${SITE_URL}#organization` },
+  educationalLevel: "Professional",
+  inLanguage: "sv-SE",
+  audience: {
+    "@type": "BusinessAudience",
+    audienceType: "Ägare i bolag som omsätter minst 10 miljoner",
+  },
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    courseMode: "Blended",
+    courseWorkload: "PT12M",
+    startDate: "2027-01-01",
+    endDate: "2027-12-31",
+    location: {
+      "@type": "Place",
+      name: "Sverige",
+      address: { "@type": "PostalAddress", addressCountry: "SE" },
+    },
+    instructor: { "@id": `${SITE_URL}#person` },
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/LimitedAvailability",
+      url: `${SITE_URL}/agarklivet`,
+      validFrom: "2026-10-01",
+    },
+  },
+  url: `${SITE_URL}/agarklivet`,
+};
+
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -167,7 +203,7 @@ const breadcrumbSchema = {
 export default function AgarklivetPage() {
   return (
     <>
-      <JsonLd id="agarklivet-schema" data={[serviceSchema, breadcrumbSchema]} />
+      <JsonLd id="agarklivet-schema" data={[serviceSchema, courseSchema, breadcrumbSchema]} />
       <PageHero
         align="center"
         plain

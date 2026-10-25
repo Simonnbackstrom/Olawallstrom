@@ -148,19 +148,6 @@ const EVENT_LD = {
   },
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ.map((item) => ({
-    "@type": "Question",
-    name: item.q,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.a,
-    },
-  })),
-};
-
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -173,7 +160,7 @@ const breadcrumbSchema = {
 export default function WebinarPage() {
   return (
     <>
-      <JsonLd id="webinar-schema" data={[EVENT_LD, faqSchema, breadcrumbSchema]} />
+      <JsonLd id="webinar-schema" data={[EVENT_LD, breadcrumbSchema]} />
 
       <section className="pt-28 md:pt-40 pb-16 md:pb-20 sec-papper">
         <div className="container-site">
