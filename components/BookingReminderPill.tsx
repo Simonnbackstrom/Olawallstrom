@@ -46,7 +46,7 @@ export default function BookingReminderPill() {
           <line x1="8" y1="2" x2="8" y2="6" />
           <line x1="3" y1="10" x2="21" y2="10" />
         </svg>
-        Boka 30 min, kostnadsfritt
+        Boka kostnadsfritt strategisamtal
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
           <polyline points="18 15 12 9 6 15" />
         </svg>
