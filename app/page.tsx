@@ -33,7 +33,7 @@ export default function Home() {
             Du är där hårdare arbete <em>inte räcker.</em>
           </>
         }
-        intro="Du är ägare i ett bolag som omsätter minst 10 miljoner. Det du byggde fungerade hit, men inte dit du vill. Känner du igen någon av de här tankarna?"
+        intro="Du äger ett bolag som omsätter minst 10 miljoner. Det du byggde har fungerat fram tills nu, men det är inte det som kommer att ta bolaget vidare. Känner du igen någon av de här tankarna?"
         points={HOME_PAINS}
         image={{ src: "/images/ola-fatolj-tanker.jpg", alt: "Ola Wallström sitter eftertänksam i en läderfåtölj" }}
       />
@@ -43,8 +43,8 @@ export default function Home() {
       <CtaBand
         tone="olabla"
         plain
-        heading="Börja med ett strategisamtal."
-        intro="30 minuter, direkt med mig. Vi tittar på var ditt bolag står i dag och vad som bromsar. Inget säljtryck, och du går därifrån med något konkret oavsett."
+        heading="Nästa tillväxtsteg börjar med ett samtal."
+        intro="30 minuter, direkt med mig. Vi tittar på var ditt bolag står i dag och vad som bromsar. Inget säljtryck, och oavsett går du därifrån med något konkret."
       />
     </>
   );

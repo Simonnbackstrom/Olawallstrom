@@ -85,7 +85,9 @@ const CRED = [
   "Civilekonom, tidigare marknadschef på Affärsvärlden",
   "Har byggt och drivit åtta egna bolag",
   "Har coachat fler än 650 bolagsägare under 25 år",
-  "Hundratals ägare i mina program och coachingrum sedan 2010",
+  "Författare till fyra böcker om ledarskap och entreprenörskap",
+  "Över 1 000 genomförda utbildningsdagar i ledarskap, sälj och entreprenörskap",
+  "Tävlar i Hinderbana (OCR), SM-guld och VM 5:a i veteranklassen",
 ];
 
 export default function OmOlaPage() {
@@ -99,7 +101,7 @@ export default function OmOlaPage() {
             Hej, jag är Ola. Jag har stått <em>där du står.</em>
           </>
         }
-        intro="Jag har byggt egna bolag, gjort de flesta misstagen och suttit med fler än 650 bolagsägare. Jag vet hur det känns när allt landar på dig, och hur ensamt det kan bli högst upp. Men jag vet också att bolaget kan växa utan att det äter upp dig."
+        intro="Jag har byggt egna bolag, gjort de flesta misstagen och suttit med fler än 650 bolagsägare. Jag vet hur det känns när allt landar på dig, och hur ensamt det kan bli i toppen. Men jag vet också att bolaget kan växa utan att det tar all din tid och energi."
       />
 
       <section className="py-[var(--section-y)] sec-papper">
@@ -127,21 +129,25 @@ export default function OmOlaPage() {
             <div className="text-center">
               <h2 className="reveal text-[clamp(1.9rem,3.4vw,2.6rem)]">Min väg hit.</h2>
               <p className="reveal reveal-d1 mt-6 text-[1.1rem] md:text-[1.15rem] text-ink leading-relaxed">
-                Jag är civilekonom och började som marknadschef på Affärsvärlden. Där träffade jag
-                entreprenörer varje vecka, och jag såg samma sak gång på gång. Bolaget växte, och
-                sedan stannade det. Inte för att marknaden tog slut, utan för att allt fortfarande
-                gick genom ägaren.
+                Jag är serieentreprenör och civilekonom. Mitt första bolag startade jag som
+                19-åring. Efter studierna följde tio år som anställd, bland annat som säljchef på
+                Talentum Media och marknadschef på tidningen Affärsvärlden. Sedan sa jag upp mig
+                för att åter bli entreprenör.
               </p>
               <p className="reveal reveal-d1 mt-5 text-[1.05rem] text-ink-soft leading-relaxed">
-                Sedan blev jag själv entreprenör. Jag har byggt och varit med i åtta bolag i olika
-                branscher, och jag har gjort de flesta misstagen själv. Anställt fel. Skalat för
-                tidigt. Byggt system som bara jag förstod. Kört slut på mig själv i jakten på nästa
-                tillväxtsteg.
+                Sedan dess har jag byggt och varit med i åtta bolag i olika branscher. Jag har
+                gjort de flesta misstagen själv: anställt fel, skalat för tidigt, byggt system
+                som bara jag förstod och kört slut på mig i jakten på nästa tillväxtsteg.
               </p>
               <p className="reveal reveal-d2 mt-5 text-[1.05rem] text-ink-soft leading-relaxed">
-                I 25 år har jag nu coachat fler än 650 bolagsägare, de flesta med bolag som har
-                vuxit förbi startfasen. Jag vet varför vissa fastnar där och andra tar sig vidare. Oftast
-                handlar det mindre om strategi och mer om vad du som ägare är beredd att släppa.
+                Under mer än 25 år har jag coachat över 650 bolagsägare. I mötet med dem har jag
+                sett samma mönster många gånger: bolaget växer, men till slut stannar
+                utvecklingen. Ofta beror det inte på att marknaden tagit slut, utan på att allt
+                fortfarande går genom ägaren.
+              </p>
+              <p className="reveal reveal-d2 mt-5 text-[1.05rem] text-ink-soft leading-relaxed">
+                Jag vet hur svårt det kan vara att ta nästa steg. Oftast handlar det om att
+                utveckla både sin strategi och sitt mindset. Och då går det snabbare att ta hjälp.
               </p>
 
               <h3 className="reveal reveal-d3 mt-12">Så jobbar jag med dig</h3>
@@ -183,9 +189,6 @@ export default function OmOlaPage() {
                     <polyline points="13 6 19 12 13 18" />
                   </svg>
                 </a>
-                <Link href="/vip-coaching" className="btn-ghost">
-                  Läs om VIP-coachingen
-                </Link>
               </div>
             </div>
           </div>
@@ -249,9 +252,9 @@ export default function OmOlaPage() {
                 />
               </div>
               <div className="flex flex-1 flex-col items-center px-7 md:px-10 pt-8 pb-9">
-                <h3 style={{ fontSize: "clamp(1.5rem, 2.2vw, 1.8rem)" }}>Ägarklivet 2027</h3>
+                <h3 style={{ fontSize: "clamp(1.5rem, 2.2vw, 1.8rem)" }}>Ägarklivet</h3>
                 <p className="mt-3 flex-1 text-[1rem] text-ink-soft leading-relaxed max-w-sm">
-                  Ett år tillsammans med andra erfarna ägare runt samma bord. Fyra workshopdagar, gemensamma sessioner och personligt stöd från mig hela vägen.
+                  Ett år tillsammans med mig och andra erfarna ägare runt samma bord. Fyra workshopdagar, gemensamma sessioner och personligt stöd från mig hela vägen.
                 </p>
                 <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-[color:var(--marin)]/25 px-5 py-2.5 text-[0.92rem] font-semibold text-[color:var(--marin)] transition-colors group-hover:border-[color:var(--glod)] group-hover:bg-[color:var(--glod)] group-hover:text-white">
                   Se programmet
@@ -280,9 +283,9 @@ export default function OmOlaPage() {
               <div className="flex flex-1 flex-col items-center px-7 md:px-10 pt-8 pb-9">
                 <h3 style={{ fontSize: "clamp(1.5rem, 2.2vw, 1.8rem)" }}>VIP-coaching</h3>
                 <p className="mt-3 flex-1 text-[1rem] text-ink-soft leading-relaxed max-w-sm">
-                  Direkt med dig som ägare, eller tillsammans med dina medägare. Vi jobbar i ert tempo och med fokus på det som faktiskt driver just ert bolag framåt.
+                  Direkt med dig som ägare, eller tillsammans med dina medägare. Vi jobbar med fokus på det som faktiskt driver just ert bolag framåt.
                 </p>
-                <p className="mt-6 text-[0.85rem] text-muted">Ett fåtal platser 2027</p>
+                <p className="mt-6 text-[0.85rem] text-muted">Ett fåtal platser</p>
                 <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-[color:var(--marin)]/25 px-5 py-2.5 text-[0.92rem] font-semibold text-[color:var(--marin)] transition-colors group-hover:border-[color:var(--glod)] group-hover:bg-[color:var(--glod)] group-hover:text-white">
                   Läs om VIP-coaching
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1">
@@ -298,7 +301,7 @@ export default function OmOlaPage() {
 
       <CtaBand
         tone="marin"
-        heading="Så att bolaget kan växa utan att det äter upp dig."
+        heading="Nästa tillväxtsteg börjar med ett samtal."
         intro="Boka 30 minuter med mig. Inget säljtryck. Oavsett om jag blir rätt mentor för dig eller inte går du därifrån med något konkret att göra."
       />
     </>

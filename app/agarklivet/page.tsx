@@ -9,12 +9,12 @@ import TestimonialsClean from "@/components/TestimonialsClean";
 import PageFAQ from "@/components/PageFAQ";
 
 export const metadata: Metadata = {
-  title: "Ägarklivet 2027. Ett år. Fyra teman.",
+  title: "Ägarklivet. Ett år. Fyra teman.",
   description:
     "Tolv månader för dig som är ägare i ett bolag som omsätter minst 10 miljoner och vill ta klivet från att driva allt själv till att leda som ägare. Fyra teman, 19 gemensamma sessioner, 4 kvartalsavstamp, 4 workshopdagar och personligt stöd hela vägen.",
   alternates: { canonical: "/agarklivet" },
   openGraph: {
-    title: "Ägarklivet 2027. Ett år. Fyra teman.",
+    title: "Ägarklivet. Ett år. Fyra teman.",
     description:
       "Tolv månader för ägare: fyra teman, 19 gemensamma sessioner och personligt stöd hela vägen.",
     url: "/agarklivet",
@@ -68,28 +68,28 @@ const JOURNEY = [
     tag: "Q1 · jan–mar",
     title: "Mental klarhet",
     body: "Riktning, fokus och kontroll över tid och energi.",
-    meta: ["Avstamp 12 jan", "Workshop 21 jan", "5 gemensamma sessioner"],
+    meta: ["Kvartalsavstamp", "Workshopdag", "5 gemensamma sessioner"],
     dot: "bg-[color:var(--marin)]",
   },
   {
     tag: "Q2 · apr–jun",
     title: "Stjärnledarskap",
     body: "Få människor att ta ansvar och fungera tillsammans.",
-    meta: ["Avstamp 6 apr", "Workshop 15 apr", "5 gemensamma sessioner"],
+    meta: ["Kvartalsavstamp", "Workshopdag", "5 gemensamma sessioner"],
     dot: "bg-[color:var(--olabla)]",
   },
   {
     tag: "Q3 · jul–sep",
     title: "Autentisk affärsutveckling",
     body: "Utveckla affären utifrån egna styrkor och kundvärde.",
-    meta: ["Avstamp 29 jun", "Workshop 7 okt", "4 gemensamma sessioner"],
+    meta: ["Kvartalsavstamp", "Workshopdag", "4 gemensamma sessioner"],
     dot: "bg-[color:var(--glod)]",
   },
   {
     tag: "Q4 · okt–dec",
     title: "Smart säljstrategi",
     body: "Ett sälj som är tydligt, hållbart och mindre personberoende.",
-    meta: ["Avstamp 28 sep", "Workshop 8 okt", "5 gemensamma sessioner"],
+    meta: ["Kvartalsavstamp", "Workshopdag", "5 gemensamma sessioner"],
     dot: "bg-[color:var(--sand)] ring-2 ring-[color:var(--glod)]",
   },
 ];
@@ -136,10 +136,10 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": `${SITE_URL}/agarklivet#service`,
-  name: "Ägarklivet 2027",
+  name: "Ägarklivet",
   serviceType: "Mentorship Program",
   description:
-    "Tolv månader för ägare i bolag som omsätter minst 10 miljoner. Fyra teman, 19 gemensamma sessioner, 4 kvartalsavstamp, 4 workshopdagar och personligt stöd hela vägen.",
+    "Tolv månader för ägare i bolag som omsätter minst 10 miljoner. Fyra teman, 19 gemensamma sessioner, 4 kvartalsavstamp, 4 workshopdagar och personligt stöd hela vägen. Du kan ansluta när som helst under året.",
   provider: { "@id": `${SITE_URL}#person` },
   areaServed: "SE",
   audience: {
@@ -150,7 +150,6 @@ const serviceSchema = {
     "@type": "Offer",
     availability: "https://schema.org/LimitedAvailability",
     url: `${SITE_URL}/agarklivet`,
-    validFrom: "2027-01-01",
   },
   url: `${SITE_URL}/agarklivet`,
 };
@@ -159,7 +158,7 @@ const courseSchema = {
   "@context": "https://schema.org",
   "@type": "Course",
   "@id": `${SITE_URL}/agarklivet#course`,
-  name: "Ägarklivet 2027",
+  name: "Ägarklivet",
   description:
     "Tolv månader för ägare som vill ta klivet från att driva allt själv till att leda som ägare. Fyra teman, 19 gemensamma sessioner, 4 workshopdagar.",
   provider: { "@id": `${SITE_URL}#organization` },
@@ -173,8 +172,6 @@ const courseSchema = {
     "@type": "CourseInstance",
     courseMode: "Blended",
     courseWorkload: "PT12M",
-    startDate: "2027-01-01",
-    endDate: "2027-12-31",
     location: {
       "@type": "Place",
       name: "Sverige",
@@ -185,7 +182,6 @@ const courseSchema = {
       "@type": "Offer",
       availability: "https://schema.org/LimitedAvailability",
       url: `${SITE_URL}/agarklivet`,
-      validFrom: "2026-10-01",
     },
   },
   url: `${SITE_URL}/agarklivet`,
@@ -196,7 +192,7 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Hem", item: SITE_URL },
-    { "@type": "ListItem", position: 2, name: "Ägarklivet 2027", item: `${SITE_URL}/agarklivet` },
+    { "@type": "ListItem", position: 2, name: "Ägarklivet", item: `${SITE_URL}/agarklivet` },
   ],
 };
 
@@ -209,11 +205,11 @@ export default function AgarklivetPage() {
         plain
         title={
           <>
-            Ägarklivet 2027.<br />
+            Ägarklivet.<br />
             <em>Ett år. Fyra teman.</em>
           </>
         }
-        intro="Det är ensamt högst upp. I Ägarklivet samlar jag ett rum av erfarna ägare under ett helt år, för att ta klivet från att driva allt själv till att leda som ägare. Du får några att tänka högt med, en gemensam rytm och personligt stöd från mig hela vägen."
+        intro="Det är ensamt i toppen. I Ägarklivet samlar jag ett sammanhang av erfarna ägare under ett helt år, för att ta klivet från att driva allt själv till att leda som ägare. Du får andra att tänka högt med, en gemensam rytm och personligt stöd från mig hela vägen."
       />
 
       <section className="sec-papper pb-[var(--section-y)]">
@@ -245,9 +241,9 @@ export default function AgarklivetPage() {
           "Varje viktigt beslut landar hos mig, och jag har ingen på samma nivå att bolla det med.",
           "Jag vet att jag borde tänka ett år framåt, men den här veckan tar all min tid.",
           "Någonstans har jag börjat sinka hela bolaget, och ingen säger det rakt ut.",
-          "Jag har byggt ett bra team, men det är ändå ensamt högst upp.",
+          "Jag har byggt ett bra team, men det är ändå ensamt i toppen.",
         ]}
-        closer="Det är därför Ägarklivet finns. Ett rum där du inte behöver bära allt ensam."
+        closer="Det är därför Ägarklivet finns. Ett sammanhang där du inte behöver bära allt ensam."
         ctaLabel="Boka ett strategisamtal med mig"
       />
 
@@ -409,16 +405,15 @@ export default function AgarklivetPage() {
         centered
         hideCta
         heading="Vanliga frågor innan du bokar ett strategisamtal"
-        intro="De vanligaste frågorna jag får innan vi börjar. Hittar du inte svaret, boka ett strategisamtal på 30 minuter så pratar vi."
         items={[
           {
             q: "Hur mycket tid tar Ägarklivet under året?",
             a: (
               <>
-                Räkna med 2–3 timmar i månaden för de digitala träffarna: 19 gemensamma sessioner på en
-                timme och 4 kvartalsavstamp på två timmar. Till det kommer 4 workshopdagar och en
-                personlig startworkshop på fyra timmar. Upplägget ska spara mer tid än det kostar,
-                genom att ta bort det som i dag äter upp din vecka.
+                Räkna med 2–3 timmar i månaden för de digitala träffarna. Totalt under året är det
+                19 gemensamma sessioner på en timme och 4 kvartalsavstamp på två timmar. Till det
+                kommer 4 workshopdagar och en personlig startworkshop på fyra timmar. Upplägget
+                spar mer tid än det kostar genom att du fokuserar på det som ger bäst resultat.
               </>
             ),
           },
@@ -427,8 +422,8 @@ export default function AgarklivetPage() {
             a: (
               <>
                 Ägare i bolag som omsätter minst 10 miljoner och som vill växa utan att behöva offra sin hälsa, sina relationer eller all sin fritid.
-                Du är redo att ändra på dig själv, inte bara teamet, och vill ha ett rum där du både får
-                hjälp och bidrar.
+                Du är redo att utveckla dig själv och vill vara i ett sammanhang där du både får hjälp
+                av andra och bidrar med din erfarenhet.
               </>
             ),
           },
@@ -452,12 +447,12 @@ export default function AgarklivetPage() {
             ),
           },
           {
-            q: "Vad är skillnaden mot VIP-coaching (1:1)?",
+            q: "Vad är skillnaden mot VIP-coaching?",
             a: (
               <>
-                Ägarklivet är ett år tillsammans med andra erfarna ägare. VIP-coaching är 1:1 med mig direkt.
-                Många väljer Ägarklivet för att få andras perspektiv och lärande, och VIP när de vill ha
-                maximal personlig djupgång.{" "}
+                Ägarklivet är ett år tillsammans med mig och andra erfarna ägare. VIP-coaching är
+                personligen med mig och passar bättre för bolag där flera personer är inblandade,
+                som till exempel flera delägare, generationsskifte eller familjeföretag.{" "}
                 <Link href="/vip-coaching" className="font-semibold text-[color:var(--marin)] underline underline-offset-4 hover:text-[color:var(--glod)]">
                   Läs om VIP-coaching
                 </Link>
@@ -472,7 +467,7 @@ export default function AgarklivetPage() {
       <section className="py-[var(--section-y)] sec-marin">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="reveal">Vill du ha en plats vid bordet?</h2>
+            <h2 className="reveal">Bolaget växer, men måste allt hänga på dig?</h2>
             <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.15rem] text-[color:var(--papper)]/80 leading-relaxed">
               Ägarklivet är för dig som är ägare i ett bolag som omsätter minst 10 miljoner och
               som vill växa utan att behöva offra sin hälsa, sina relationer eller all sin fritid.
@@ -496,7 +491,7 @@ export default function AgarklivetPage() {
               </Link>
             </div>
             <p className="reveal reveal-d3 mt-6 text-[0.88rem] text-[color:var(--papper)]/60">
-              Kostnadsfritt och utan säljtryck. Vill du hellre jobba 1:1?{" "}
+              Kostnadsfritt. Är ni flera delägare?{" "}
               <Link href="/vip-coaching" className="font-semibold text-[color:var(--papper)] underline underline-offset-4 hover:text-[color:var(--glod)] transition-colors">
                 Läs om VIP-coaching
               </Link>

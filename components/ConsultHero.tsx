@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 
 export default function ConsultHero() {
@@ -13,9 +12,9 @@ export default function ConsultHero() {
             </h1>
 
             <p className="reveal reveal-d2 mt-8 text-[1.1rem] md:text-[1.15rem] text-ink-soft leading-relaxed max-w-xl mx-auto">
-              Du är inte först som fastnat vid ett omsättningstak eller känt att allt landar på dig.
+              Du är inte den enda som fastnat vid ett omsättningstak eller känt att allt landar på dig.
               Här får du raka samtal utan konsultspråk, och fokus på det som faktiskt blir gjort.
-              Så att bolaget kan växa utan att det äter upp dig.
+              Så att bolaget kan växa utan att det tar all din tid och energi.
             </p>
 
             <div className="reveal reveal-d3 mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -31,26 +30,6 @@ export default function ConsultHero() {
                   <polyline points="13 6 19 12 13 18" />
                 </svg>
               </a>
-              <Link
-                href="/agarklivet"
-                className="group inline-flex items-center gap-2 text-[0.95rem] font-semibold text-[color:var(--marin)] hover:text-[color:var(--glod)] transition-colors px-2 py-3"
-              >
-                Se Ägarklivet 2027
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="transition-transform group-hover:translate-x-1"
-                >
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="13 6 19 12 13 18" />
-                </svg>
-              </Link>
             </div>
 
             {/* Proof row */}

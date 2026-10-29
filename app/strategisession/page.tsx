@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
 import StrategyHero from "@/components/StrategyHero";
 import LogoCarousel from "@/components/LogoCarousel";
@@ -65,6 +64,9 @@ const CREDS = [
   "Civilekonom och tidigare marknadschef på Affärsvärlden",
   "Byggt och drivit åtta egna bolag i olika branscher",
   "Coachat 650+ bolagsägare under 25 år",
+  "Författare till fyra böcker om ledarskap och entreprenörskap",
+  "Över 1 000 genomförda utbildningsdagar i ledarskap, sälj och entreprenörskap",
+  "Tävlar i Hinderbana (OCR), SM guld och VM 5:a i veteranklassen",
 ];
 
 const WALKTHROUGH = [
@@ -75,13 +77,13 @@ const WALKTHROUGH = [
   },
   {
     n: "02",
-    title: "Vart vill du?",
-    body: "Vi sätter en riktning som matchar både bolaget och ditt liv.",
+    title: "Vad vill du?",
+    body: "Vi identifierar vad du egentligen vill skapa.",
   },
   {
     n: "03",
     title: "Vad står i vägen?",
-    body: "Vi ringar in de två, tre saker som bromsar mest.",
+    body: "Vi ringar in de saker som bromsar mest.",
   },
 ];
 
@@ -100,7 +102,7 @@ const SHIFTS = [
   },
   {
     title: "Tid tillbaka till det som räknas",
-    body: "Du jobbar färre timmar. Rätt sort. Helgerna är dina igen.",
+    body: "Du jobbar färre timmar där du gör rätt saker. Fritiden är din igen.",
   },
   {
     title: "Du leder med mer säkerhet",
@@ -145,10 +147,10 @@ export default function Strategisession() {
           </>
         }
         points={[
-          "Äger ett bolag som omsätter 10–30 miljoner.",
+          "Är ägare i ett bolag som omsätter minst 10 miljoner.",
           "Jobbar mer än du vill, fast teamet är på plats.",
-          "Vet att nästa kliv kräver något annat än mer av dig.",
-          "Vill ha någon som säger rakt vad som bromsar.",
+          "Förstår att nästa kliv kräver något annat än att jobba hårdare.",
+          "Vill ha någon som är rak och tydlig med vad som bromsar.",
         ]}
       />
 
@@ -160,7 +162,7 @@ export default function Strategisession() {
               Ett samtal som kan vara värt <em>miljoner.</em>
             </h2>
             <p className="reveal reveal-d2 mt-6 text-[1.05rem] text-ink-soft leading-relaxed">
-              Ett rakt samtal mellan två bolagsägare. Vi ringar in det som bromsar mest just nu, och vad du kan göra åt det.
+              Ett rakt och ärligt samtal. Vi ringar in det som bromsar mest just nu, och vad du kan göra åt det.
             </p>
           </div>
 
@@ -240,7 +242,7 @@ export default function Strategisession() {
               Åtta månader från nu <br className="md:hidden" /><em>känner du skillnaden</em> i vardagen.
             </h2>
             <p className="reveal reveal-d2 mt-6 text-[1.05rem] text-ink-soft leading-relaxed">
-              Det här är det jag ser hända hos ägare jag jobbar med. Inte över en natt, men på riktigt.
+              Det här är det jag ser hända hos ägare jag jobbar med. Inte alltid över en natt, men långsiktigt och hållbart.
             </p>
           </div>
 
@@ -295,10 +297,7 @@ export default function Strategisession() {
                   På 25 år har jag coachat 650+ ägare och sett samma mönster om och om igen:
                 </p>
                 <p className="font-[family-name:var(--font-heading)] text-[1.15rem] md:text-[1.25rem] text-[color:var(--marin)] leading-snug">
-                  Det är sällan strategin som sinkar. Det är ägaren som fastnat i rollen hon hade när bolaget var hälften så stort.
-                </p>
-                <p>
-                  Jag tar bara emot ett fåtal kunder per år. Så du får mig som sparringpartner, inte konsult.
+                  Mönstret jag ser är att ägaren har fastnat i samma roll som när bolaget var hälften så stort. Det behövs en utveckling av både strategi och mindset.
                 </p>
               </div>
               <ul className="reveal reveal-d3 mt-10 mx-auto w-fit flex flex-col gap-3 text-left">
@@ -325,16 +324,8 @@ export default function Strategisession() {
         ctaLabel="Boka kostnadsfritt strategisamtal"
         ctaHref="#boka"
         heading="Vanliga frågor"
-        intro="Frågorna jag får oftast. Hittar du inte svaret? Boka, så pratar vi."
+        intro="Frågorna jag får oftast. Boka, så pratar vi."
         items={[
-          {
-            q: "Kommer du sälja in något på samtalet?",
-            a: (
-              <>
-                Nej. Mitt enda mål är att du går därifrån med något du kan agera på. Fortsättning bokar vi i ett eget samtal, aldrig på det första.
-              </>
-            ),
-          },
           {
             q: "Är det verkligen gratis?",
             a: (
@@ -352,7 +343,7 @@ export default function Strategisession() {
             ),
           },
           {
-            q: "Jag har redan en coach, revisor eller styrelse. Vad är det här?",
+            q: "Jag har redan en coach, revisor eller styrelse. Vad ger det här?",
             a: (
               <>
                 Bra, de behövs. Men revisorn räknar bakåt och styrelsen möts kvartalsvis. Jag är sparring i vardagen. Någon som sett det du står i och vågar säga det du inte vill höra.
@@ -379,7 +370,7 @@ export default function Strategisession() {
             q: "Vem är det för?",
             a: (
               <>
-                Ägare i bolag som omsätter 10 miljoner eller mer. Är du i ett annat läge? Boka ändå. Jag säger till om jag inte är rätt och tipsar om någon annan.
+                Ägare i bolag som omsätter 10 miljoner eller mer som är redo att utveckla sitt bolag.
               </>
             ),
           },
@@ -387,7 +378,7 @@ export default function Strategisession() {
             q: "Vad händer efter samtalet?",
             a: (
               <>
-                Du går därifrån med konkreta nästa steg. Känns det rätt för oss båda pratar vi fortsättning. Antingen Ägarklivet 2027 eller VIP-coaching.
+                Du går därifrån med konkreta nästa steg. Känns det rätt för oss båda pratar vi fortsättning. Antingen Ägarklivet eller VIP-coaching.
               </>
             ),
           },
@@ -420,38 +411,6 @@ export default function Strategisession() {
                 </svg>
               </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ÄGARKLIVET TEASER */}
-      <section className="py-[var(--section-y)] sec-sand">
-        <div className="container-site">
-          <div className="reveal max-w-4xl mx-auto rounded-3xl sec-marin px-8 py-12 md:px-14 md:py-14 text-center">
-            <h3 className="text-[color:var(--papper)]" style={{ fontSize: "clamp(1.6rem, 3.2vw, 2.2rem)" }}>
-              Ägarklivet 2027. Ett år, fyra teman.
-            </h3>
-            <p className="mt-5 text-[1.02rem] md:text-[1.08rem] text-[color:var(--papper)]/80 leading-relaxed max-w-xl mx-auto">
-              Tolv månader tillsammans med andra erfarna ägare. Fyra teman, personligt stöd hela vägen.
-            </p>
-            <div className="mt-7 flex flex-wrap justify-center gap-2">
-              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-[color:var(--papper)] text-[0.78rem] font-semibold">Q1 Mental klarhet</span>
-              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-[color:var(--olabla)] text-[color:var(--papper)] text-[0.78rem] font-semibold">Q2 Stjärnledarskap</span>
-              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-[color:var(--glod)] text-white text-[0.78rem] font-semibold">Q3 Affärsutveckling</span>
-              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-[color:var(--sand)] text-[color:var(--marin)] text-[0.78rem] font-semibold">Q4 Säljstrategi</span>
-            </div>
-            <div className="mt-8 flex justify-center">
-              <Link href="/agarklivet" className="btn-dark-ghost">
-                Se programmet
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="13 6 19 12 13 18" />
-                </svg>
-              </Link>
-            </div>
-            <p className="mt-5 text-[0.85rem] text-[color:var(--papper)]/60">
-              Begränsat antal platser 2027.
-            </p>
           </div>
         </div>
       </section>

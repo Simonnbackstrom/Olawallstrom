@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const KEYS = [
   {
     n: "01",
@@ -32,8 +30,9 @@ export default function MethodTeaser() {
             Fyra principer som bygger <em>självgående</em> bolag.
           </h2>
           <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.1rem] text-[color:var(--papper)]/75 leading-relaxed">
-            VIP-coachingen har vuxit fram i åtta egna bolag och fler än 650 mentorskap. Allt vilar
-            på fyra principer, enkla att förstå men svåra att hoppa över.
+            Tillväxthjulet har vuxit fram genom mina erfarenheter från åtta egna bolag och de 650+
+            företag jag har jobbat med. Allt vilar på fyra principer. Enkla att förstå, men inte
+            alltid så lätta att genomföra.
           </p>
         </div>
 
@@ -54,28 +53,6 @@ export default function MethodTeaser() {
           ))}
         </div>
 
-        <div className="mt-12 flex justify-center">
-          <Link
-            href="/vip-coaching"
-            className="group inline-flex items-center gap-2 py-2.5 text-[0.95rem] font-semibold text-[color:var(--papper)] hover:text-[color:var(--glod)] transition-colors"
-          >
-            Läs mer om VIP-coachingen
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="transition-transform group-hover:translate-x-1"
-            >
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="13 6 19 12 13 18" />
-            </svg>
-          </Link>
-        </div>
       </div>
     </section>
   );

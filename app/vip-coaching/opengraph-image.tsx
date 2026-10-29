@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "VIP-coaching. Fyra principer. Begränsat antal platser 2027.";
+export const alt = "VIP-coaching. Fyra principer. Begränsat antal platser.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -64,7 +64,7 @@ export default async function OGImage() {
               maxWidth: 820,
             }}
           >
-            Fyra principer, sex steg. Begränsat antal platser 2027.
+            Fyra principer, sex steg. Begränsat antal platser.
           </div>
         </div>
 
