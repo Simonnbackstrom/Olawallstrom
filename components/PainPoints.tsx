@@ -15,7 +15,7 @@ export default function PainPoints() {
             Du leder ett växande bolag på <em>samma sätt</em> som när du startade.
           </h2>
           <p className="reveal reveal-d1 mt-6 text-[color:var(--papper)]/75 text-[1.05rem] md:text-[1.15rem] leading-relaxed">
-            Då är problemet inte att du behöver jobba hårdare. Känner du igen någon av de här
+            Då är lösningen inte att du behöver jobba hårdare. Känner du igen någon av de här
             tankarna?
           </p>
         </div>

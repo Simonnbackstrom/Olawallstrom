@@ -24,8 +24,8 @@ export default function StructuredData() {
     },
     image: `${SITE_URL}/images/ola-leende-ute.jpg`,
     description:
-      "Autentisk affärsutveckling. Mentor och coach för bolagsägare som vill växa utan att det äter upp dem.",
-    slogan: "Så att bolaget kan växa utan att det äter upp dig.",
+      "Autentisk affärsutveckling. Mentor och coach för bolagsägare som vill växa utan att det tar all deras tid och energi.",
+    slogan: "Nästa tillväxtsteg börjar med ett samtal.",
     areaServed: {
       "@type": "Country",
       name: "Sverige",

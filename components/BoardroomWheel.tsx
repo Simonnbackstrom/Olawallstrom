@@ -46,14 +46,13 @@ const LEGEND = [
   {
     count: "4",
     title: "kvartalsavstamp",
-    body: "Ett frågebatteri och två timmars digital fördjupning.",
-    dates: "12 jan, 6 apr, 29 jun, 28 sep",
+    body: "Ett frågebatteri och två timmars digital fördjupning per kvartal.",
     marker: "avstamp" as const,
   },
   {
     count: "4",
     title: "workshopdagar",
-    body: "21 jan Mental klarhet, 15 apr Stjärnledarskap, 7–8 okt Autentisk affärsutveckling och Smart säljstrategi.",
+    body: "En heldag per kvartal — Mental klarhet, Stjärnledarskap, Autentisk affärsutveckling och Smart säljstrategi.",
     marker: "workshop" as const,
   },
 ];
@@ -102,7 +101,7 @@ export default function BoardroomWheel() {
               viewBox="-28 -28 456 456"
               className="w-full h-auto"
               role="img"
-              aria-label="Årshjul 2027 med fyra kvartalsteman"
+              aria-label="Årshjul med fyra kvartalsteman"
             >
               <circle cx="200" cy="200" r={outerR} fill="var(--papper)" stroke="var(--border-soft)" strokeWidth="1" />
 
@@ -171,7 +170,7 @@ export default function BoardroomWheel() {
                 fontSize="10"
                 fill="#6B6B6B"
               >
-                2027, 12 månader
+                12 månader
               </text>
 
               {MONTHS.map((m, i) => {
@@ -232,7 +231,7 @@ export default function BoardroomWheel() {
               Så ser <em>året</em> ut.
             </h2>
             <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.1rem] text-ink-soft leading-relaxed max-w-md mx-auto">
-              Tolv månader i ett rum av erfarna ägare, med mig vid din sida hela vägen.
+              Tolv månader i ett sammanhang av erfarna ägare och med mig vid din sida hela vägen.
             </p>
 
             <ul className="reveal reveal-d2 mt-10 rounded-3xl bg-white border border-[color:var(--border-soft)] divide-y divide-[color:var(--border-soft)] text-center">
@@ -245,7 +244,6 @@ export default function BoardroomWheel() {
                   </p>
                   <p className="mt-2 text-[0.96rem] text-ink-soft leading-relaxed max-w-sm mx-auto">
                     {l.body}
-                    {l.dates && <span className="block mt-1 text-[0.86rem] text-muted">{l.dates}</span>}
                   </p>
                 </li>
               ))}

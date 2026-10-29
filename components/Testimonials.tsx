@@ -89,7 +89,7 @@ export default function Testimonials({ items = TESTIMONIALS, tone = "sand" }: Pr
     <section className={`py-[var(--section-y)] ${sectionClass}`}>
       <div className="container-site">
         <div className="max-w-3xl mx-auto text-center mb-14 md:mb-16">
-          <h2 className="reveal reveal-d1">Det här säger några av dem jag jobbat med.</h2>
+          <h2 className="reveal reveal-d1">Det här säger några av de jag jobbat med.</h2>
         </div>
 
         <div className="reveal reveal-d2 relative max-w-3xl mx-auto">

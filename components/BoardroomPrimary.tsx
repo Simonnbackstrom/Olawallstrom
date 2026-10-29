@@ -35,9 +35,9 @@ export default function BoardroomPrimary() {
               </h2>
 
               <p className="reveal reveal-d2 mt-6 text-[1.05rem] md:text-[1.1rem] text-[color:var(--papper)]/80 leading-relaxed max-w-xl mx-auto">
-                Ett år av ägararbete tillsammans med mig och ett rum av erfarna bolagsägare.
+                Ett år av ägararbete tillsammans med mig och ett sammanhang av erfarna bolagsägare.
                 Fyra workshopdagar, 19 gemensamma sessioner, en personlig startworkshop och tre
-                1:1-samtal med mig under året.
+                coachingsamtal med mig under året.
               </p>
 
               <div className="reveal reveal-d3 mt-7 flex flex-wrap justify-center gap-2">
@@ -70,7 +70,7 @@ export default function BoardroomPrimary() {
               </div>
 
               <p className="reveal reveal-d5 mt-6 text-[0.85rem] text-[color:var(--papper)]/60">
-                Begränsat antal platser 2027.
+                Begränsat antal platser. Du kan ansluta när som helst under året.
               </p>
             </div>
           </div>

@@ -5,33 +5,46 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
-const NAV_LINKS = [
-  { href: "/om-ola", label: "Om Ola" },
-  { href: "/agarklivet", label: "Ägarklivet" },
-  { href: "/vip-coaching", label: "VIP-coaching" },
-  { href: "/strategisession", label: "Strategisession" },
-  { href: "/kontakt", label: "Kontakta mig" },
+type NavItem =
+  | { type: "link"; href: string; label: string }
+  | { type: "menu"; label: string; href?: never; children: { href: string; label: string; description?: string }[] };
+
+const NAV_LINKS: NavItem[] = [
+  { type: "link", href: "/om-ola", label: "Om Ola" },
+  {
+    type: "menu",
+    label: "Erbjudanden",
+    children: [
+      { href: "/agarklivet", label: "Ägarklivet", description: "Ett år tillsammans med andra erfarna ägare." },
+      { href: "/vip-coaching", label: "VIP-coaching", description: "Direkt med dig som ägare, eller era delägare." },
+    ],
+  },
+  { type: "link", href: "/inspiration", label: "Inspiration" },
+  { type: "link", href: "/strategisession", label: "Strategisession" },
+  { type: "link", href: "/kontakt", label: "Kontakta mig" },
 ];
 
 /* Shown only in the mobile menu, so every page is reachable from a phone. */
 const MORE_LINKS = [
   { href: "/resultat", label: "Resultat" },
   { href: "/webinar", label: "Webinar" },
-  { href: "/inspiration", label: "Inspiration" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
   const pathname = usePathname();
   // Close the menu whenever the page changes (also via the browser's back button).
   const [menuPath, setMenuPath] = useState(pathname);
   if (menuPath !== pathname) {
     setMenuPath(pathname);
     setOpen(false);
+    setOpenMenu(null);
   }
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const ctaLabel = "Boka ett strategisamtal";
   // Strategisession has the calendar on the page itself.
   const onStrategy = pathname === "/strategisession";
@@ -72,7 +85,34 @@ export default function Navbar() {
     };
   }, [open]);
 
-  const close = () => setOpen(false);
+  // Close the desktop dropdown on outside click or Escape.
+  useEffect(() => {
+    if (!openMenu) return;
+    const onDown = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setOpenMenu(null);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenMenu(null);
+    };
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [openMenu]);
+
+  const close = () => {
+    setOpen(false);
+    setOpenMenu(null);
+  };
+
+  const isMenuActive = (item: NavItem) => {
+    if (item.type === "link") return pathname === item.href;
+    return item.children.some((c) => pathname === c.href);
+  };
 
   return (
     <>
@@ -98,22 +138,86 @@ export default function Navbar() {
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-9" aria-label="Huvudmeny">
-            {NAV_LINKS.map((link) => {
-              const active = pathname === link.href;
+          <nav className="hidden lg:flex items-center gap-9" aria-label="Huvudmeny" ref={dropdownRef}>
+            {NAV_LINKS.map((item) => {
+              const active = isMenuActive(item);
+              if (item.type === "link") {
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    className={`text-[15px] font-semibold transition-colors ${
+                      active
+                        ? "text-[color:var(--glod)]"
+                        : "text-[color:var(--marin)] hover:text-[color:var(--glod)]"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
+              const isOpen = openMenu === item.label;
               return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  aria-current={active ? "page" : undefined}
-                  className={`text-[15px] font-semibold transition-colors ${
-                    active
-                      ? "text-[color:var(--glod)]"
-                      : "text-[color:var(--marin)] hover:text-[color:var(--glod)]"
-                  }`}
-                >
-                  {link.label}
-                </Link>
+                <div key={item.label} className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setOpenMenu(isOpen ? null : item.label)}
+                    aria-haspopup="menu"
+                    aria-expanded={isOpen}
+                    className={`inline-flex items-center gap-1 text-[15px] font-semibold transition-colors ${
+                      active
+                        ? "text-[color:var(--glod)]"
+                        : "text-[color:var(--marin)] hover:text-[color:var(--glod)]"
+                    }`}
+                  >
+                    {item.label}
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden
+                      className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </button>
+                  {isOpen && (
+                    <div
+                      role="menu"
+                      className="absolute left-1/2 top-full mt-3 -translate-x-1/2 w-[320px] rounded-2xl bg-white border border-[color:var(--border-soft)] shadow-[0_24px_60px_-24px_rgba(23,59,96,0.35)] p-2"
+                    >
+                      {item.children.map((child) => {
+                        const childActive = pathname === child.href;
+                        return (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            role="menuitem"
+                            onClick={close}
+                            className={`block rounded-xl px-4 py-3 transition-colors ${
+                              childActive
+                                ? "bg-[color:var(--glod)]/10 text-[color:var(--glod)]"
+                                : "hover:bg-sand text-[color:var(--marin)]"
+                            }`}
+                          >
+                            <div className="font-semibold text-[0.98rem]">{child.label}</div>
+                            {child.description && (
+                              <div className="mt-0.5 text-[0.82rem] text-ink-soft leading-snug">
+                                {child.description}
+                              </div>
+                            )}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
               );
             })}
           </nav>
@@ -173,25 +277,57 @@ export default function Navbar() {
         >
           <div className="container-site flex min-h-full flex-col pt-6 pb-10">
             <nav aria-label="Mobilmeny" className="flex flex-col">
-              {NAV_LINKS.map((link, i) => {
-                const active = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={close}
-                    aria-current={active ? "page" : undefined}
+              {NAV_LINKS.flatMap((item, i): React.ReactNode[] => {
+                if (item.type === "link") {
+                  const active = pathname === item.href;
+                  return [
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={close}
+                      aria-current={active ? "page" : undefined}
+                      style={{ animationDelay: `${60 + i * 40}ms` }}
+                      className={`mobile-menu-item flex items-center justify-between py-4 border-b border-white/10 font-[family-name:var(--font-heading)] font-semibold text-[1.6rem] leading-tight ${
+                        active ? "text-[color:var(--glod)]" : "text-[color:var(--papper)]"
+                      }`}
+                    >
+                      {item.label}
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="opacity-40">
+                        <polyline points="9 6 15 12 9 18" />
+                      </svg>
+                    </Link>,
+                  ];
+                }
+                return [
+                  <div
+                    key={item.label}
                     style={{ animationDelay: `${60 + i * 40}ms` }}
-                    className={`mobile-menu-item flex items-center justify-between py-4 border-b border-white/10 font-[family-name:var(--font-heading)] font-semibold text-[1.6rem] leading-tight ${
-                      active ? "text-[color:var(--glod)]" : "text-[color:var(--papper)]"
-                    }`}
+                    className="mobile-menu-item py-4 border-b border-white/10"
                   >
-                    {link.label}
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="opacity-40">
-                      <polyline points="9 6 15 12 9 18" />
-                    </svg>
-                  </Link>
-                );
+                    <div className="font-[family-name:var(--font-heading)] font-semibold text-[1.6rem] leading-tight text-[color:var(--papper)]/80">
+                      {item.label}
+                    </div>
+                    <ul className="mt-3 flex flex-col gap-2 pl-1">
+                      {item.children.map((c) => {
+                        const childActive = pathname === c.href;
+                        return (
+                          <li key={c.href}>
+                            <Link
+                              href={c.href}
+                              onClick={close}
+                              aria-current={childActive ? "page" : undefined}
+                              className={`inline-block py-2 text-[1.1rem] font-semibold ${
+                                childActive ? "text-[color:var(--glod)]" : "text-[color:var(--papper)]"
+                              }`}
+                            >
+                              {c.label}
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>,
+                ];
               })}
             </nav>
 

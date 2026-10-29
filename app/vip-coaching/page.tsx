@@ -17,7 +17,7 @@ const serviceSchema = {
   name: "VIP-coaching",
   serviceType: "Business Mentorship",
   description:
-    "Personlig 1:1-coaching för bolagsägare i etablerade bolag. Två samtal i månaden, stöd när det brinner och uppföljning tills det är gjort.",
+    "Personlig coaching för bolagsägare i etablerade bolag. Två sessioner i månaden, stöd när det är akut och uppföljning tills det är gjort.",
   provider: { "@id": `${SITE_URL}#person` },
   areaServed: "SE",
   audience: {
@@ -44,12 +44,12 @@ const breadcrumbSchema = {
 export const metadata: Metadata = {
   title: "VIP-coaching direkt med dig som ägare",
   description:
-    "Personlig mentorskap för dig som äger ett bolag tillsammans med medägare, eller vill ha djup 1:1-rådgivning. Två samtal i månaden och stöd hela vägen.",
+    "Personligt mentorskap för dig som äger ett bolag tillsammans med medägare, eller vill ha djup personlig rådgivning. Två sessioner i månaden och stöd hela vägen.",
   alternates: { canonical: "/vip-coaching" },
   openGraph: {
     title: "VIP-coaching direkt med dig som ägare",
     description:
-      "Personlig mentorskap för bolagsägare. Två samtal i månaden och stöd hela vägen.",
+      "Personligt mentorskap för bolagsägare. Två sessioner i månaden och stöd hela vägen.",
     url: "/vip-coaching",
     type: "website",
   },
@@ -64,20 +64,28 @@ const PRINCIPLES = [
 
 const HOW = [
   {
-    title: "Vi börjar med ditt bolag",
-    body: "Första veckorna gör vi en ärlig bolagsdiagnos och bestämmer vad som ska flyttas först.",
+    title: "Vi börjar med en strategiworkshop",
+    body: "Vi skapar full klarhet kring nuläge, hinder och vart du vill ta bolaget. Du får en konkret plan och tydliga aktiviteter att börja jobba med direkt.",
   },
   {
-    title: "Två samtal i månaden",
-    body: "Du, eller ni om ni är flera ägare. Vi stämmer av, planerar framåt och bestämmer nästa steg innan vi lägger på.",
+    title: "Två sessioner i månaden",
+    body: "Möte med dig eller er om ni är flera ägare. Vi stämmer av, justerar, planerar framåt och bestämmer nästa steg innan vi lägger på.",
   },
   {
-    title: "Stöd när det brinner",
-    body: "Händer något akut hör jag av mig inom 24 timmar. En dålig vecka ska inte stoppa dig.",
+    title: "Stöd när det är akut",
+    body: "Händer något oväntat återkommer jag inom 24 timmar. En dålig vecka ska inte stoppa dig.",
   },
   {
     title: "Uppföljning tills det är gjort",
     body: "En plan räcker inte. Jag följer upp det vi bestämt, så att det faktiskt blir av.",
+  },
+  {
+    title: "Avlastning och praktiskt stöd",
+    body: "En till två dagar vid behov, för avlastning, workshop eller utbildning. Vi bestämmer det löpande.",
+  },
+  {
+    title: "Boken ”Ledarskap utan ansträngning” av Ola Wallström ingår",
+    body: "Den används som diskussions- och reflektionsunderlag och fungerar som stöd i arbetet med att skapa mer ro och glädje i vardagen.",
   },
 ];
 
@@ -86,6 +94,8 @@ const FOR_WHOM = [
   "Aldrig hinner stanna upp och tänka framåt.",
   "Vill få mer ansvarstagande medarbetare.",
   "Vill växa utan att behöva offra fritiden eller hälsan.",
+  "Är redo att investera i din egen utveckling.",
+  "Vill ha en tydlig riktning för de kommande åren, inte bara nästa månad.",
 ];
 
 export default function VipCoachingPage() {
@@ -100,11 +110,11 @@ export default function VipCoachingPage() {
             VIP-coaching. <em>Direkt med dig som ägare.</em>
           </>
         }
-        intro="Ett personligt mentorskap för dig som äger ett etablerat bolag tillsammans med medägare, eller som vill ha djup 1:1-rådgivning. Vi ses två gånger i månaden, jobbar med det som faktiskt bromsar bolaget och följer upp tills det är gjort."
+        intro="Ett personligt mentorskap för dig som äger ett etablerat bolag tillsammans med medägare, eller som vill ha djup personlig rådgivning. Vi ses två gånger i månaden, jobbar med det som faktiskt bromsar bolaget och följer upp tills det är gjort."
         cta={{
           label: "Boka ett strategisamtal med mig",
           href: "https://calendly.com/olawallstrom/30min",
-          sub: "30 minuter, kostnadsfritt. Ett fåtal platser 2027.",
+          sub: "30 minuter, kostnadsfritt. Ett fåtal platser.",
         }}
       />
 
@@ -132,11 +142,11 @@ export default function VipCoachingPage() {
           <div className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
             <h2 className="reveal">Så fungerar VIP-coachingen.</h2>
             <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.1rem] text-ink-soft leading-relaxed">
-              Ett enkelt upplägg, byggt för att saker ska bli gjorda. Du har mig vid din sida, inte en
-              mall.
+              Ett enkelt upplägg, byggt för att saker ska bli gjorda. Du har mig vid din sida, hela
+              vägen.
             </p>
           </div>
-          <ol className="grid gap-5 md:gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+          <ol className="grid gap-5 md:gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
             {HOW.map((h, i) => (
               <li
                 key={h.title}
@@ -155,7 +165,7 @@ export default function VipCoachingPage() {
 
       <MethodGrid variant="steps" />
 
-      <ResultsGrid heading="Så här känns det efter åtta månader." />
+      <ResultsGrid heading="Så här brukar det kännas efter åtta månader." />
 
       <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
@@ -204,7 +214,10 @@ export default function VipCoachingPage() {
         <div className="container-site">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="reveal">Jag jobbar bäst med dig som:</h2>
-            <ul className="reveal reveal-d1 mt-12 grid gap-4 md:gap-5 sm:grid-cols-2">
+            <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.1rem] text-ink-soft leading-relaxed max-w-2xl mx-auto">
+              redan har lyckats, men upplever att det borde kännas lättare.
+            </p>
+            <ul className="reveal reveal-d2 mt-12 grid gap-4 md:gap-5 sm:grid-cols-2">
               {FOR_WHOM.map((p) => (
                 <li
                   key={p}
@@ -230,7 +243,8 @@ export default function VipCoachingPage() {
             <h2 className="reveal">Ska vi ta första samtalet?</h2>
             <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.15rem] text-[color:var(--papper)]/80 leading-relaxed">
               30 minuter, du och jag. Vi tittar på var ditt bolag står i dag, vad som bromsar och om
-              VIP-coachingen är rätt för dig. Du går därifrån med något konkret oavsett.
+              VIP-coachingen är rätt för dig. Oavsett om vi är rätt för varandra eller inte går du
+              därifrån med något konkret.
             </p>
             <div className="reveal reveal-d2 mt-10 flex flex-col sm:flex-row justify-center gap-3">
               <a
@@ -250,9 +264,9 @@ export default function VipCoachingPage() {
               </Link>
             </div>
             <p className="reveal reveal-d3 mt-6 text-[0.88rem] text-[color:var(--papper)]/60">
-              Kostnadsfritt och utan säljtryck. Är du ensamägare? Då passar oftast Ägarklivet bättre. Där får du andra ägare runt bordet att bolla med.{" "}
+              Kostnadsfritt och utan säljtryck. Är du ensamägare? Då passar oftast Ägarklivet bättre. Där får du andra ägare att bolla med.{" "}
               <Link href="/agarklivet" className="font-semibold text-[color:var(--papper)] underline underline-offset-4 hover:text-[color:var(--glod)] transition-colors">
-                Läs om Ägarklivet 2027 →
+                Läs om Ägarklivet →
               </Link>
             </p>
           </div>

@@ -11,7 +11,7 @@ const QUESTIONS = [
   },
   {
     q: "Vad står i vägen?",
-    a: "Identifierar de två, tre saker som bromsar mest.",
+    a: "Identifierar vad som bromsar mest.",
   },
 ];
 

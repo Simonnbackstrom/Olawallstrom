@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Ägarklivet 2027. Ett år. Fyra teman.";
+export const alt = "Ägarklivet. Ett år. Fyra teman.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -37,7 +37,7 @@ export default async function OGImage() {
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <div style={{ width: 44, height: 2, background: "#F26A2E", borderRadius: 2 }} />
           <div style={{ fontSize: 24, color: "#F26A2E" }}>
-            Primärt program 2027
+            Primärt program
           </div>
         </div>
 
@@ -51,7 +51,7 @@ export default async function OGImage() {
               fontWeight: 600,
             }}
           >
-            Ägarklivet 2027.
+            Ägarklivet.
           </div>
           <div
             style={{

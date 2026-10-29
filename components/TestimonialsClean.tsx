@@ -6,13 +6,6 @@ import { TESTIMONIALS, type Testimonial } from "@/components/Testimonials";
 /* Quotes from Ola's earlier site (olawallstrom.com), shown alongside the main set. */
 const EXTRA: Testimonial[] = [
   {
-    result: "Från osäkerhet till tillväxt",
-    text: "Olas pepp och vägledning har fått mig att våga expandera, anställa personal och flytta till större lokaler. Trots pandemin har vår omsättning ökat med 25%, och jag känner verkligen att investeringen har gett mig mångdubbelt tillbaka.",
-    author: "Katrin Larsson",
-    role: "VD, K4 Naprapati",
-    photo: "/testimonials/katrin.png",
-  },
-  {
     result: "Ökat vår försäljning avsevärt",
     text: "Vi har fått nya perspektiv och lyckats bryta gamla invanda beteenden, vilket har lett till en konkret förändring i våra resultat. Vår försäljning har ökat avsevärt.",
     author: "Johan Vanerell",
@@ -67,7 +60,7 @@ export default function TestimonialsClean({ items = [...TESTIMONIALS, ...EXTRA],
     <section className={`py-[var(--section-y)] ${sectionClass} overflow-hidden`}>
       <div className="container-site">
         <h2 className="reveal max-w-3xl mx-auto text-center mb-12 md:mb-14">
-          Det här säger några av dem jag jobbat med.
+          Det här säger några av de jag jobbat med.
         </h2>
       </div>
 
