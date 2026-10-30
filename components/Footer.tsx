@@ -63,6 +63,17 @@ function Brand({ className = "" }: { className?: string }) {
             <path d="M8 8h3.8v2.2h.1c.5-1 1.9-2.4 4.1-2.4 4.4 0 5.2 2.9 5.2 6.7V24h-4v-8.4c0-2-.1-4.5-2.8-4.5s-3.2 2.1-3.2 4.3V24H8z" />
           </svg>
         </a>
+        <a
+          href="https://www.tiktok.com/@olawallstrom"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok"
+          className="h-11 w-11 inline-flex items-center justify-center rounded-full bg-black text-white shadow-[0_6px_16px_-8px_rgba(0,0,0,0.7)] transition-[translate,box-shadow] hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-8px_rgba(0,0,0,0.75)]"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.07A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z" />
+          </svg>
+        </a>
       </div>
     </div>
   );

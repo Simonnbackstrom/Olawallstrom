@@ -6,6 +6,7 @@ export default function StructuredData() {
   const SOCIAL = [
     "https://se.linkedin.com/in/olawallstrom",
     "https://www.instagram.com/ola.wallstrom/",
+    "https://www.tiktok.com/@olawallstrom",
   ];
 
   const organization = {
