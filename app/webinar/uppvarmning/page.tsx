@@ -11,48 +11,26 @@ export const metadata: Metadata = {
 };
 
 const BREVO_FORM_HTML = `
-<style>
-  @font-face { font-display: block; font-family: Roboto; src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff") }
-  @font-face { font-display: fallback; font-family: Roboto; font-weight: 600; src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff") }
-  @font-face { font-display: fallback; font-family: Roboto; font-weight: 700; src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff") }
-  :where(.sib-form-message-panel) { display: none; }
-  :where(.sib-form-message-panel .sib-notification__icon) { width: 20px; height: 20px; }
-  #sib-container input:-ms-input-placeholder { font-family: Source Sans 3, webFonts; text-align: left; color: #c0ccda; }
-  #sib-container input::placeholder { font-family: Source Sans 3, webFonts; text-align: left; color: #c0ccda; }
-  #sib-container textarea::placeholder { font-family: Source Sans 3, webFonts; text-align: left; color: #c0ccda; }
-  #sib-container a { text-decoration: underline; color: #f75e15; }
-</style>
 <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora&family=Source Sans 3&&display=swap">
 
-<div class="sib-form" style="text-align: center; background-color: transparent;">
+<div class="ola-brevo-wrap sib-form" style="text-align:center; background-color:transparent;">
   <div id="sib-form-container" class="sib-form-container">
-    <div id="error-message" class="sib-form-message-panel" style="font-family:Futura, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px; max-width:540px;">
+    <div id="error-message" class="sib-form-message-panel ola-brevo-msg ola-brevo-msg--error">
       <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-        <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon"><path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" /></svg>
+        <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon" aria-hidden><path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" /></svg>
         <span class="sib-form-message-panel__inner-text">Något gick fel och dina svar kunde inte sparas. Försök igen om en liten stund.</span>
       </div>
     </div>
     <div></div>
-    <div id="success-message" class="sib-form-message-panel" style="font-family:Futura, sans-serif; font-size:16px; text-align:left; color:#085229; background-color:#e7faf0; border-color:#13ce66; border-radius:3px; max-width:540px;">
+    <div id="success-message" class="sib-form-message-panel ola-brevo-msg ola-brevo-msg--success">
       <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-        <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon"><path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" /></svg>
+        <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon" aria-hidden><path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" /></svg>
         <span class="sib-form-message-panel__inner-text">Tack för dina svar! De hjälper till att anpassa webinaret efter just dina utmaningar. Vi ses snart!</span>
       </div>
     </div>
     <div></div>
-    <div id="sib-container" class="sib-container--large sib-container--vertical" style="max-width:540px; text-align:center; background-color:rgba(247,243,236,1); border-width:0px; border-style:solid; border-color:#C0CCD9; border-radius:12px; direction:ltr">
+    <div id="sib-container" class="sib-container--large sib-container--vertical ola-brevo-container">
       <form id="sib-form" method="POST" action="https://2a8f6d4e.sibforms.com/serve/MUIFAMvjZY9fePnvdTY9XclOw3qeiNaucWugk2_QjrzaHw3sIQEzNEcLFsv6L3Znqthmx5hmkj1B00eByiL0VW4mb9MhdAlq3LAxnzjikaNG1TdbE71YpH7C0qnRqbjDmJpeViWKqTyvXEpRlhXTodtdrNx1EsiyZk3eYbuYadaz3u7iVXQaWJmuKV2M-4TeV5Lw-MiRrb8AoUylFQ==" data-type="subscription">
-        <div style="padding: 16px 0;">
-          <div class="sib-form-block" style="font-family:Lora, webFonts; font-size:22px; text-align:left; color:#173b60; background-color:transparent;">
-            <p>Inför webinar: Vägen från 10 till 50 miljoner utan att behöva jobba mer.</p>
-          </div>
-        </div>
-        <div style="padding: 16px 0;">
-          <div class="sib-form-block" style="font-family:Source Sans 3, webFonts; font-size:16px; text-align:left; color:#3C4858; background-color:transparent;">
-            <div class="sib-text-form-block"><p>Tack för att du tar dig tid att hjälpa mig förstå din verksamhet. Dina svar kommer vara underlag för att göra webinaret mer värdefullt.</p></div>
-          </div>
-        </div>
         <div style="padding: 16px 0;">
           <div class="sib-input sib-form-block">
             <div class="form__entry entry_block"><div class="form__label-row">
@@ -133,6 +111,103 @@ const BREVO_FORM_HTML = `
 </div>
 `;
 
+const BRAND_FORM_CSS = `
+.ola-brevo-wrap { max-width: 540px; margin-inline: auto; }
+.ola-brevo-container {
+  max-width: none !important;
+  background: var(--papper) !important;
+  border: 1px solid var(--border-soft) !important;
+  border-radius: 20px !important;
+  padding: 32px 28px !important;
+  box-shadow: 0 24px 60px -32px rgba(23, 59, 96, 0.25), 0 2px 6px rgba(23, 59, 96, 0.04);
+}
+@media (min-width: 640px) {
+  .ola-brevo-container { padding: 40px 36px !important; }
+}
+.ola-brevo-wrap #sib-form .sib-input,
+.ola-brevo-wrap #sib-form .sib-form-block { padding: 0 !important; }
+.ola-brevo-wrap #sib-form > div { padding: 10px 0 !important; }
+.ola-brevo-wrap .form__entry .form__label-row { display: block !important; }
+.ola-brevo-wrap .entry__label {
+  display: block !important;
+  margin-bottom: 6px !important;
+  font-family: var(--font-text), system-ui, sans-serif !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--marin) !important;
+  text-align: left !important;
+}
+.ola-brevo-wrap .entry__field {
+  background: #fff !important;
+  border: 1px solid var(--border-soft) !important;
+  border-radius: 12px !important;
+  padding: 0 !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.ola-brevo-wrap .entry__field:focus-within {
+  border-color: var(--glod) !important;
+  box-shadow: 0 0 0 4px rgba(242, 106, 46, 0.15) !important;
+}
+.ola-brevo-wrap .entry__field .input {
+  width: 100% !important;
+  height: 52px !important;
+  padding: 0 16px !important;
+  background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  font-family: var(--font-text), system-ui, sans-serif !important;
+  font-size: 1rem !important;
+  color: var(--ink) !important;
+  box-shadow: none !important;
+}
+.ola-brevo-wrap .entry__field .input::placeholder {
+  color: #9aa3af !important;
+  font-family: var(--font-text), system-ui, sans-serif !important;
+}
+.ola-brevo-wrap .entry__error { font-family: var(--font-text), system-ui, sans-serif !important; font-size: 0.85rem !important; border-radius: 10px !important; }
+.ola-brevo-wrap #sib-form .sib-form-block__button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+  padding: 16px 28px !important;
+  margin-top: 10px !important;
+  background: var(--glod) !important;
+  color: #fff !important;
+  font-family: var(--font-text), system-ui, sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.98rem !important;
+  text-align: center !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-shadow: 0 10px 24px -8px rgba(242, 106, 46, 0.55) !important;
+  transition: background 0.25s ease, transform 0.25s ease !important;
+  cursor: pointer;
+}
+.ola-brevo-wrap #sib-form .sib-form-block__button:hover {
+  background: var(--glod-dark) !important;
+  transform: translateY(-1px);
+}
+.ola-brevo-wrap #sib-form .sib-form-block__button .icon { display: none !important; }
+.ola-brevo-wrap .ola-brevo-msg {
+  display: none;
+  max-width: none !important;
+  margin: 0 0 16px !important;
+  padding: 14px 18px !important;
+  border-radius: 14px !important;
+  font-family: var(--font-text), system-ui, sans-serif !important;
+  font-size: 0.95rem !important;
+  text-align: left !important;
+}
+.ola-brevo-wrap .ola-brevo-msg--error { color: #7a1d1d !important; background: #fdecec !important; border: 1px solid #f3c4c4 !important; }
+.ola-brevo-wrap .ola-brevo-msg--success { color: #0b4a28 !important; background: #e7faf0 !important; border: 1px solid #b7ead1 !important; }
+.ola-brevo-wrap .sib-form-message-panel__inner-text { font-family: var(--font-text), system-ui, sans-serif !important; }
+.ola-brevo-wrap .sib-notification__icon { width: 20px !important; height: 20px !important; margin-right: 8px !important; }
+`;
+
 const BREVO_CONFIG_SCRIPT = `
 window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
 window.LOCALE = 'en';
@@ -151,19 +226,27 @@ export default function WebinarUppvarmningPage() {
     <>
       <PageHero
         eyebrow="Inför webinaret"
-        title="Hjälp Ola förbereda webinaret för dig."
+        title={
+          <span className="hyphens-none [word-break:keep-all]">
+            Hjälp Ola förbereda webinaret för dig.
+          </span>
+        }
         intro="Dina svar används för att anpassa innehållet efter de utmaningar du faktiskt möter. Tar ett par minuter."
         align="center"
       />
 
-      <section className="pb-24 md:pb-32 sec-papper">
+      <section className="pb-24 md:pb-32 sec-sand">
         <div className="container-site">
-          <div className="max-w-xl mx-auto">
+          <div className="max-w-xl mx-auto -mt-10 md:-mt-16 relative z-10">
             <div dangerouslySetInnerHTML={{ __html: BREVO_FORM_HTML }} />
           </div>
+          <p className="mt-10 text-center text-[0.85rem] text-muted max-w-md mx-auto">
+            Dina svar går enbart till Ola och används för att skräddarsy webinaret. Inget delas vidare.
+          </p>
         </div>
       </section>
 
+      <style dangerouslySetInnerHTML={{ __html: BRAND_FORM_CSS }} />
       <script dangerouslySetInnerHTML={{ __html: BREVO_CONFIG_SCRIPT }} />
       <Script
         src="https://sibforms.com/forms/end-form/build/main.js"
