@@ -13,7 +13,7 @@ export default function ConsultHero() {
             quality={92}
             priority
             sizes="100vw"
-            className="object-cover object-[center_20%] scale-110"
+            className="object-cover object-[center_28%] scale-[1.28]"
           />
           {/* Top fade så fixed navbar (marin-logo + burger) alltid syns mot bilden. */}
           <div
@@ -126,7 +126,7 @@ export default function ConsultHero() {
                   quality={92}
                   priority
                   sizes="520px"
-                  className="object-cover object-[50%_15%] scale-105"
+                  className="object-cover object-[50%_22%] scale-[1.18]"
                 />
               </div>
             </div>
