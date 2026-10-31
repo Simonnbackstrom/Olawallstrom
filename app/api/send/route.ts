@@ -8,8 +8,6 @@ type Payload = {
   honeypot?: string;
 };
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const FROM = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 const TO = process.env.RESEND_TO_EMAIL || "ola@olawallstrom.com";
 
@@ -39,12 +37,14 @@ function fieldsToText(fields: Record<string, string>) {
 }
 
 export async function POST(req: Request) {
-  if (!process.env.RESEND_API_KEY) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
     return NextResponse.json(
       { error: "Mejltjänsten är inte konfigurerad. Kontakta oss direkt på ola@olawallstrom.com." },
       { status: 500 },
     );
   }
+  const resend = new Resend(apiKey);
 
   let payload: Payload;
   try {
