@@ -74,7 +74,7 @@ export default async function OGImage() {
             {[
               { n: "25 år", l: "som mentor" },
               { n: "650+", l: "coachade" },
-              { n: "8", l: "egna bolag" },
+              { n: "8", l: "grundade bolag" },
             ].map((s) => (
               <div key={s.n} style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                 <div

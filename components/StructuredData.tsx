@@ -81,7 +81,7 @@ export default function StructuredData() {
       caption: "Ola Wallström",
     },
     description:
-      "Civilekonom, serieentreprenör med åtta egna bolag och mentor för över 650 bolagsägare under 25 år.",
+      "Civilekonom, serieentreprenör som grundat åtta bolag och mentor för över 650 bolagsägare under 25 år.",
     worksFor: { "@id": `${SITE_URL}#organization` },
     knowsAbout: [
       "Affärsutveckling",

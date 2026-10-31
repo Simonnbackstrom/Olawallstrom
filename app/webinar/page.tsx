@@ -299,7 +299,7 @@ export default function WebinarPage() {
               <h2 className="reveal">Vem är Ola?</h2>
               <p className="reveal reveal-d1 mt-6 text-[1.05rem] text-ink-soft leading-relaxed max-w-lg mx-auto">
                 Civilekonom, författare till fyra böcker om ledarskap och entreprenörskap, och med
-                åtta egna bolag i bagaget. Senaste 25 åren har jag jobbat med fler än 650
+                åtta grundade bolag i bagaget. Senaste 25 åren har jag jobbat med fler än 650
                 bolagsägare i över 100 branscher, bland annat med ett bolag som gick från 19 MSEK
                 till 1,9 miljarder på två år, utan att någon gick sönder.
               </p>
@@ -312,7 +312,7 @@ export default function WebinarPage() {
                 {[
                   { n: "650+", l: "coachade ägare" },
                   { n: "25 år", l: "som entreprenör" },
-                  { n: "8", l: "egna bolag" },
+                  { n: "8", l: "grundade bolag" },
                   { n: "4", l: "böcker" },
                 ].map((st) => (
                   <div key={st.l} className="flex flex-col-reverse justify-end">

@@ -30,7 +30,7 @@ export default function MethodTeaser() {
             Fyra principer som bygger <em>självgående</em> bolag.
           </h2>
           <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.1rem] text-[color:var(--papper)]/75 leading-relaxed">
-            Tillväxthjulet har vuxit fram genom mina erfarenheter från åtta egna bolag och de 650+
+            Tillväxthjulet har vuxit fram genom mina erfarenheter från de åtta bolag jag grundat och de 650+
             företag jag har jobbat med. Allt vilar på fyra principer. Enkla att förstå, men inte
             alltid så lätta att genomföra.
           </p>
