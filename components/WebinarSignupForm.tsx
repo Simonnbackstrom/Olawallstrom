@@ -144,7 +144,7 @@ export default function WebinarSignupForm({ dark = false }: Props) {
         </p>
       )}
       <p className={`pt-1 text-[0.8rem] leading-[1.65] text-center ${dark ? "text-[color:var(--papper)]/60" : "text-muted"}`}>
-        Jag använder bara din e-post för Zoom-länken och inspelningen. Inga listor.
+        Jag mejlar Zoom-länken, påminnelser och fortsatt tillväxtinspiration för bolagsägare. Avprenumerera när som helst.
       </p>
     </form>
   );
