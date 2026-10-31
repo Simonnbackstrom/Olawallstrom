@@ -25,7 +25,7 @@ export default function ConsultHero() {
                 Väx ditt bolag förbi 10 miljoner. <em>Utan att slita mer.</em>
               </h1>
               <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-soft">
-                För dig som vill växa vidare – utan att göra dig själv till flaskhals.
+                För dig som vill bygga ett bolag som rullar – även dagar du inte är där.
               </p>
             </div>
 
@@ -50,7 +50,7 @@ export default function ConsultHero() {
             {[
               { n: "650+", l: "coachade ägare" },
               { n: "25 år", l: "som entreprenör" },
-              { n: "8", l: "egna bolag" },
+              { n: "8", l: "grundade bolag" },
             ].map((p) => (
               <div key={p.n} className="flex flex-col-reverse justify-end">
                 <dt className="mt-1 text-[0.78rem] text-ink-soft leading-snug">{p.l}</dt>
@@ -98,7 +98,7 @@ export default function ConsultHero() {
                 {[
                   { n: "650+", l: "coachade ägare" },
                   { n: "25 år", l: "som entreprenör" },
-                  { n: "8", l: "egna bolag" },
+                  { n: "8", l: "grundade bolag" },
                 ].map((p) => (
                   <div key={p.n} className="flex flex-col-reverse justify-end">
                     <dt className="mt-2 text-[0.85rem] text-muted leading-snug whitespace-nowrap">{p.l}</dt>

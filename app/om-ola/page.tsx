@@ -19,7 +19,7 @@ const personSchema = {
   familyName: "Wallström",
   jobTitle: "Mentor och serieentreprenör",
   description:
-    "Civilekonom, tidigare marknadschef på Affärsvärlden, serieentreprenör med åtta egna bolag och mentor för 650+ bolagsägare under 25 år.",
+    "Civilekonom, tidigare marknadschef på Affärsvärlden, serieentreprenör som grundat åtta bolag och mentor för 650+ bolagsägare under 25 år.",
   url: `${SITE_URL}/om-ola`,
   image: {
     "@type": "ImageObject",
@@ -70,7 +70,7 @@ const breadcrumbSchema = {
 export const metadata: Metadata = {
   title: "Om Ola",
   description:
-    "Ola Wallström är civilekonom, serieentreprenör och mentor. 25 års erfarenhet, 650+ coachade bolagsägare och åtta egna bolag byggda i olika branscher.",
+    "Ola Wallström är civilekonom, serieentreprenör och mentor. 25 års erfarenhet, 650+ coachade bolagsägare och åtta grundade bolag i olika branscher.",
   alternates: { canonical: "/om-ola" },
   openGraph: {
     title: "Om Ola",
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
 
 const CRED = [
   "Civilekonom, tidigare marknadschef på Affärsvärlden",
-  "Har byggt och drivit åtta egna bolag",
+  "Har grundat åtta bolag i olika branscher",
   "Har coachat fler än 650 bolagsägare under 25 år",
   "Författare till fyra böcker om ledarskap och entreprenörskap",
   "Över 1 000 genomförda utbildningsdagar i ledarskap, sälj och entreprenörskap",
@@ -101,7 +101,7 @@ export default function OmOlaPage() {
             Hej, jag är Ola. Jag har stått <em>där du står.</em>
           </>
         }
-        intro="Jag har byggt egna bolag, gjort de flesta misstagen och suttit med fler än 650 bolagsägare. Jag vet hur det känns när allt landar på dig, och hur ensamt det kan bli i toppen. Men jag vet också att bolaget kan växa utan att det tar all din tid och energi."
+        intro="Jag har grundat egna bolag, gjort de flesta misstagen och suttit med fler än 650 bolagsägare. Jag vet hur det känns när allt landar på dig, och hur ensamt det kan bli i toppen. Men jag vet också att bolaget kan växa utan att det tar all din tid och energi."
       />
 
       <section className="py-[var(--section-y)] sec-papper">

@@ -62,7 +62,7 @@ export const metadata: Metadata = {
 
 const CREDS = [
   "Civilekonom och tidigare marknadschef på Affärsvärlden",
-  "Byggt och drivit åtta egna bolag i olika branscher",
+  "Grundat åtta bolag i olika branscher",
   "Coachat 650+ bolagsägare under 25 år",
   "Författare till fyra böcker om ledarskap och entreprenörskap",
   "Över 1 000 genomförda utbildningsdagar i ledarskap, sälj och entreprenörskap",
