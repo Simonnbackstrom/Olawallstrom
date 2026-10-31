@@ -13,11 +13,11 @@ export default function ConsultHero() {
             quality={92}
             priority
             sizes="100vw"
-            className="object-cover object-[50%_18%]"
+            className="object-cover object-[50%_18%] scale-105"
           />
           <div
             aria-hidden
-            className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-transparent to-[color:var(--papper)]"
+            className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent via-[color:var(--papper)]/60 to-[color:var(--papper)]"
           />
         </div>
 
@@ -113,7 +113,7 @@ export default function ConsultHero() {
             </div>
 
             <div className="relative">
-              <div className="relative aspect-[4/5] max-w-[520px] mx-auto">
+              <div className="relative aspect-[4/5] max-w-[520px] mx-auto overflow-hidden rounded-[2rem]">
                 <Image
                   src="/images/ola-hero-biljard.jpg"
                   alt="Ola Wallström ler, håller en biljardkö i ett industriellt rum"
@@ -121,7 +121,7 @@ export default function ConsultHero() {
                   quality={92}
                   priority
                   sizes="520px"
-                  className="object-cover object-[50%_15%] rounded-[2rem]"
+                  className="object-cover object-[50%_15%] scale-105"
                 />
               </div>
             </div>
