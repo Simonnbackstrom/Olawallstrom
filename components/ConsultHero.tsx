@@ -126,7 +126,7 @@ export default function ConsultHero() {
                   quality={92}
                   priority
                   sizes="520px"
-                  className="object-cover object-[50%_22%] scale-[1.18]"
+                  className="object-cover object-[50%_30%] scale-[1.35]"
                 />
               </div>
             </div>
