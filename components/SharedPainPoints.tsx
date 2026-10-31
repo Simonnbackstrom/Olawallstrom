@@ -95,21 +95,21 @@ export default function SharedPainPoints({
         </div>
 
         {plain ? (
-          <ul className="mx-auto max-w-4xl grid gap-4 md:gap-5 md:grid-cols-2">
+          <ul className="mx-auto max-w-4xl grid gap-3 md:gap-5 md:grid-cols-2">
             {points.map((p, i) => (
               <li
                 key={p}
-                className={`reveal reveal-d${(i % 5) + 1} flex flex-col items-center justify-center text-center rounded-2xl px-8 py-10 md:px-11 md:py-12 ${
+                className={`reveal reveal-d${(i % 5) + 1} flex flex-col items-center justify-center text-center rounded-2xl px-5 py-7 md:px-11 md:py-12 ${
                   dark
                     ? "bg-white/[0.06] ring-1 ring-white/12 backdrop-blur-sm"
                     : "bg-white ring-1 ring-[color:var(--border-soft)]"
                 }`}
               >
-                <span aria-hidden className="font-[family-name:var(--font-heading)] text-[3.2rem] leading-[0.55] text-[color:var(--glod)]">
+                <span aria-hidden className="font-[family-name:var(--font-heading)] text-[2.4rem] md:text-[3.2rem] leading-[0.55] text-[color:var(--glod)]">
                   &ldquo;
                 </span>
                 <p
-                  className={`mt-5 font-[family-name:var(--font-heading)] text-[1.18rem] md:text-[1.35rem] leading-relaxed ${itemText}`}
+                  className={`mt-4 md:mt-5 font-[family-name:var(--font-heading)] text-[1.05rem] md:text-[1.35rem] leading-relaxed ${itemText}`}
                 >
                   {p}
                 </p>
