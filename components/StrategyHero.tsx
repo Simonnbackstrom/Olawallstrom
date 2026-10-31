@@ -122,7 +122,7 @@ export default function StrategyHero() {
         </h1>
 
         <p className="reveal reveal-d2 mt-7 text-[1.15rem] md:text-[1.25rem] text-ink-soft max-w-2xl mx-auto leading-relaxed">
-          För ägare i bolag som omsätter minst 10 miljoner och tycker att det känns ensamt i toppen.
+          För dig som driver ett företag som omsätter mellan 10–50 miljoner och vill växa vidare.
         </p>
 
         <div className="reveal reveal-d3 mt-12 max-w-4xl mx-auto">
