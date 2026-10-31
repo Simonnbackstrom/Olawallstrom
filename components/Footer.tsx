@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import CookieSettingsButton from "@/components/CookieSettingsButton";
 
 const SITE_LINKS = [
   { href: "/om-ola", label: "Om Ola" },
@@ -141,8 +142,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Desktop: four columns. */}
-        <div className="hidden md:grid md:grid-cols-[1.5fr_1fr_1fr_1fr] md:gap-12">
+        {/* Desktop: three columns. */}
+        <div className="hidden md:grid md:grid-cols-[1.5fr_1fr_1fr] md:gap-12">
           <Brand />
 
           <div>
@@ -164,23 +165,21 @@ export default function Footer() {
               <li><Link href="/kontakt" className={linkClass}>Kontaktformulär</Link></li>
             </ul>
           </div>
-
-          <div>
-            <h4 className={headingClass}>Juridiskt</h4>
-            <ul className="space-y-1 text-[0.95rem] text-ink-soft">
-              <li><Link href="/integritetspolicy" className={linkClass}>Integritetspolicy</Link></li>
-            </ul>
-          </div>
         </div>
 
-        <div className="mt-10 md:mt-16 pt-6 md:pt-8 border-t border-[color:var(--marin)]/15 flex flex-col md:flex-row justify-between gap-2 md:gap-3 text-center md:text-left text-[0.8rem] text-muted">
+        <div className="mt-10 md:mt-16 pt-6 md:pt-8 border-t border-[color:var(--marin)]/15 flex flex-col md:flex-row md:items-center justify-between gap-3 text-center md:text-left text-[0.8rem] text-muted">
           <p>© 2026 Ola Wallström, Perspektivo i Sverige AB</p>
-          <p className="md:hidden">
+          <div className="flex flex-wrap justify-center md:justify-end gap-x-5 gap-y-1">
             <Link href="/integritetspolicy" className="inline-block py-2.5 underline underline-offset-4 hover:text-[color:var(--glod)]">
               Integritetspolicy
             </Link>
-          </p>
-          <p className="hidden md:block font-[family-name:var(--font-heading)] text-[color:var(--marin)]/70">Autentisk affärsutveckling</p>
+            <Link href="/anvandarvillkor" className="inline-block py-2.5 underline underline-offset-4 hover:text-[color:var(--glod)]">
+              Användarvillkor
+            </Link>
+            <CookieSettingsButton className="inline-block py-2.5 underline underline-offset-4 hover:text-[color:var(--glod)] cursor-pointer">
+              Cookie-inställningar
+            </CookieSettingsButton>
+          </div>
         </div>
       </div>
     </footer>

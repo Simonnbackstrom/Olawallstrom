@@ -45,12 +45,17 @@ export default function Navbar() {
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const ctaLabel = "Boka ett strategisamtal";
   // Strategisession has the calendar on the page itself.
   const onStrategy = pathname === "/strategisession";
-  const ctaProps = onStrategy
-    ? { href: "#boka" }
-    : { href: "https://calendly.com/olawallstrom/30min", target: "_blank", rel: "noopener noreferrer" };
+  // Webinar is a focused landing page — CTA points to the signup form on the same page.
+  const onWebinar = pathname === "/webinar";
+  const ctaLabel = onWebinar ? "Anmäl till kostnadsfritt webinar" : "Boka ett strategisamtal";
+  const ctaMobileLabel = onWebinar ? "Anmäl kostnadsfritt" : "Boka strategisamtal";
+  const ctaProps = onWebinar
+    ? { href: "#anmal" }
+    : onStrategy
+      ? { href: "#boka" }
+      : { href: "https://calendly.com/olawallstrom/30min", target: "_blank", rel: "noopener noreferrer" };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -138,7 +143,7 @@ export default function Navbar() {
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-9" aria-label="Huvudmeny" ref={dropdownRef}>
+          <nav className={`${onWebinar ? "hidden" : "hidden lg:flex"} items-center gap-9`} aria-label="Huvudmeny" ref={dropdownRef}>
             {NAV_LINKS.map((item) => {
               const active = isMenuActive(item);
               if (item.type === "link") {
@@ -230,37 +235,39 @@ export default function Navbar() {
 
           <div className="lg:hidden flex items-center gap-2">
             <a {...ctaProps} className="btn-primary !py-2 !px-4 !text-[13px]">
-              Boka strategisamtal
+              {ctaMobileLabel}
             </a>
 
-          <button
-            ref={toggleRef}
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="mobilmeny"
-            aria-label={open ? "Stäng meny" : "Öppna meny"}
-            className={`h-11 w-11 inline-flex items-center justify-center rounded-full border transition-colors ${
-              open
-                ? "border-[color:var(--marin)] bg-[color:var(--marin)] text-[color:var(--papper)]"
-                : "border-[color:var(--marin)]/20 text-[color:var(--marin)]"
-            }`}
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
-              {open ? (
-                <>
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                </>
-              ) : (
-                <>
-                  <line x1="4" y1="7" x2="20" y2="7" />
-                  <line x1="4" y1="12" x2="20" y2="12" />
-                  <line x1="4" y1="17" x2="20" y2="17" />
-                </>
-              )}
-            </svg>
-          </button>
+          {!onWebinar && (
+            <button
+              ref={toggleRef}
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              aria-controls="mobilmeny"
+              aria-label={open ? "Stäng meny" : "Öppna meny"}
+              className={`h-11 w-11 inline-flex items-center justify-center rounded-full border transition-colors ${
+                open
+                  ? "border-[color:var(--marin)] bg-[color:var(--marin)] text-[color:var(--papper)]"
+                  : "border-[color:var(--marin)]/20 text-[color:var(--marin)]"
+              }`}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
+                {open ? (
+                  <>
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                  </>
+                ) : (
+                  <>
+                    <line x1="4" y1="7" x2="20" y2="7" />
+                    <line x1="4" y1="12" x2="20" y2="12" />
+                    <line x1="4" y1="17" x2="20" y2="17" />
+                  </>
+                )}
+              </svg>
+            </button>
+          )}
           </div>
         </div>
       </header>

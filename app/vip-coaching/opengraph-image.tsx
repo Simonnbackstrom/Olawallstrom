@@ -1,10 +1,13 @@
 import { ImageResponse } from "next/og";
+import { loadOgFonts } from "@/lib/og-fonts";
 
 export const alt = "VIP-coaching. Fyra principer. Begränsat antal platser.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function OGImage() {
+  const fonts = await loadOgFonts();
+
   return new ImageResponse(
     (
       <div
@@ -18,7 +21,7 @@ export default async function OGImage() {
           justifyContent: "space-between",
           padding: "72px",
           position: "relative",
-          fontFamily: "sans-serif",
+          fontFamily: "Source Sans 3",
         }}
       >
         <div
@@ -36,7 +39,15 @@ export default async function OGImage() {
 
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <div style={{ width: 44, height: 2, background: "#F26A2E", borderRadius: 2 }} />
-          <div style={{ fontSize: 24, color: "#F26A2E" }}>
+          <div
+            style={{
+              fontSize: 24,
+              fontWeight: 600,
+              color: "#F26A2E",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+            }}
+          >
             VIP-coaching
           </div>
         </div>
@@ -45,6 +56,7 @@ export default async function OGImage() {
           <div
             style={{
               display: "flex",
+              fontFamily: "Lora",
               fontSize: 92,
               lineHeight: 1.05,
               fontWeight: 600,
@@ -59,7 +71,6 @@ export default async function OGImage() {
               display: "flex",
               fontSize: 32,
               color: "#5a6b80",
-              fontFamily: "sans-serif",
               lineHeight: 1.3,
               maxWidth: 820,
             }}
@@ -73,7 +84,6 @@ export default async function OGImage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            fontFamily: "sans-serif",
           }}
         >
           <div
@@ -92,6 +102,6 @@ export default async function OGImage() {
         </div>
       </div>
     ),
-    { ...size }
+    { ...size, fonts },
   );
 }

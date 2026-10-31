@@ -158,7 +158,10 @@ export default function Strategisession() {
       <section className="py-[var(--section-y)] sec-sand">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-14">
-            <h2 className="reveal reveal-d1">
+            <h2
+              className="reveal reveal-d1"
+              style={{ hyphens: "none", WebkitHyphens: "none" }}
+            >
               Ett samtal som kan vara värt <em>miljoner.</em>
             </h2>
             <p className="reveal reveal-d2 mt-6 text-[1.05rem] text-ink-soft leading-relaxed">
@@ -267,7 +270,10 @@ export default function Strategisession() {
         </div>
       </section>
 
-      <TestimonialsClean tone="himmel" />
+      <TestimonialsClean
+        tone="himmel"
+        cta={{ href: "#boka", label: "Boka kostnadsfritt strategisamtal" }}
+      />
 
       {/* ABOUT */}
       <section className="py-[var(--section-y)] sec-sand">

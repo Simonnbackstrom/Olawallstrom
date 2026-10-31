@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { TESTIMONIALS, type Testimonial } from "@/components/Testimonials";
 
 /* Quotes from Ola's earlier site (olawallstrom.com), shown alongside the main set. */
@@ -17,6 +18,7 @@ const EXTRA: Testimonial[] = [
 type Props = {
   items?: Testimonial[];
   tone?: "papper" | "sand" | "himmel";
+  cta?: { href: string; label: string } | false;
 };
 
 const Stars = () => (
@@ -52,7 +54,11 @@ function ReviewCard({ t }: { t: Testimonial }) {
   );
 }
 
-export default function TestimonialsClean({ items = [...TESTIMONIALS, ...EXTRA], tone = "papper" }: Props) {
+export default function TestimonialsClean({
+  items = [...TESTIMONIALS, ...EXTRA],
+  tone = "papper",
+  cta = { href: "/strategisession", label: "Boka strategisamtal" },
+}: Props) {
   const sectionClass =
     tone === "sand" ? "sec-sand" : tone === "himmel" ? "sec-himmel" : "sec-papper";
 
@@ -73,6 +79,27 @@ export default function TestimonialsClean({ items = [...TESTIMONIALS, ...EXTRA],
           </div>
         ))}
       </div>
+
+      {cta && (
+        <div className="reveal reveal-d2 container-site mt-12 md:mt-14 flex justify-center">
+          <Link href={cta.href} className="btn-primary">
+            {cta.label}
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="13 6 19 12 13 18" />
+            </svg>
+          </Link>
+        </div>
+      )}
     </section>
   );
 }
