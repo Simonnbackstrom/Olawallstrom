@@ -68,7 +68,7 @@ export default function ConsultHero() {
         <div className="container-site relative">
           <div className="grid grid-cols-[1.15fr_1fr] gap-20 items-center">
             <div className="max-w-2xl mx-auto text-center pt-16">
-              <h1 className="reveal reveal-d1 text-[color:var(--marin)] hyphens-none [word-break:keep-all] text-[clamp(2rem,4vw,3.4rem)]">
+              <h1 className="reveal reveal-d1 text-[color:var(--marin)] hyphens-none [word-break:keep-all] text-[clamp(1.75rem,3.4vw,2.9rem)]">
                 Väx ditt företag från 10–50 miljoner <em>utan att jobba mer.</em>
               </h1>
 
