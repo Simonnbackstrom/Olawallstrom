@@ -122,12 +122,8 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
-          open
-            ? "bg-papper border-b border-[color:var(--border-soft)]"
-            : scrolled
-              ? "bg-papper/95 backdrop-blur-md border-b border-[color:var(--border-soft)]"
-              : "bg-transparent"
+        className={`fixed top-0 inset-x-0 z-50 transition-shadow duration-300 bg-[color:var(--sand)] border-b border-[color:var(--border-soft)] ${
+          scrolled ? "shadow-[0_4px_18px_-14px_rgba(23,59,96,0.3)]" : ""
         }`}
       >
         <div className="container-site flex items-center justify-between h-16 md:h-20">
