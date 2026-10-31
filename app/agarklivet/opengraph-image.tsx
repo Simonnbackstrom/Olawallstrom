@@ -1,10 +1,13 @@
 import { ImageResponse } from "next/og";
+import { loadOgFonts } from "@/lib/og-fonts";
 
 export const alt = "Ägarklivet. Ett år. Fyra teman.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function OGImage() {
+  const fonts = await loadOgFonts();
+
   return new ImageResponse(
     (
       <div
@@ -18,7 +21,7 @@ export default async function OGImage() {
           justifyContent: "space-between",
           padding: "72px",
           position: "relative",
-          fontFamily: "sans-serif",
+          fontFamily: "Source Sans 3",
         }}
       >
         <div
@@ -36,7 +39,15 @@ export default async function OGImage() {
 
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <div style={{ width: 44, height: 2, background: "#F26A2E", borderRadius: 2 }} />
-          <div style={{ fontSize: 24, color: "#F26A2E" }}>
+          <div
+            style={{
+              fontSize: 24,
+              fontWeight: 600,
+              color: "#F26A2E",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+            }}
+          >
             Primärt program
           </div>
         </div>
@@ -45,6 +56,7 @@ export default async function OGImage() {
           <div
             style={{
               display: "flex",
+              fontFamily: "Lora",
               fontSize: 96,
               lineHeight: 1.02,
               letterSpacing: "-0.01em",
@@ -56,6 +68,9 @@ export default async function OGImage() {
           <div
             style={{
               display: "flex",
+              fontFamily: "Lora",
+              fontWeight: 500,
+              fontStyle: "italic",
               fontSize: 44,
               color: "rgba(247,243,236,0.9)",
               lineHeight: 1.1,
@@ -68,7 +83,6 @@ export default async function OGImage() {
               display: "flex",
               gap: 20,
               marginTop: 12,
-              fontFamily: "sans-serif",
               fontSize: 22,
               color: "rgba(247,243,236,0.75)",
             }}
@@ -82,7 +96,6 @@ export default async function OGImage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            fontFamily: "sans-serif",
           }}
         >
           <div
@@ -101,6 +114,6 @@ export default async function OGImage() {
         </div>
       </div>
     ),
-    { ...size }
+    { ...size, fonts },
   );
 }

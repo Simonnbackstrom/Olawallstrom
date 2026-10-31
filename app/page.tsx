@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ConsultHero from "@/components/ConsultHero";
-import BoardroomPrimary from "@/components/BoardroomPrimary";
+import TillvaxthjuletSection from "@/components/TillvaxthjuletSection";
 import LogoCarousel from "@/components/LogoCarousel";
 import NeedsAnalysis from "@/components/NeedsAnalysis";
 import MethodTeaser from "@/components/MethodTeaser";
@@ -38,7 +38,7 @@ export default function Home() {
         image={{ src: "/images/ola-fatolj-tanker.jpg", alt: "Ola Wallström sitter eftertänksam i en läderfåtölj" }}
       />
       <NeedsAnalysis />
-      <BoardroomPrimary />
+      <TillvaxthjuletSection />
       <MethodTeaser />
       <CtaBand
         tone="olabla"

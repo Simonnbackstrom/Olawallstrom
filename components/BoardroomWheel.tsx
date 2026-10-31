@@ -134,7 +134,7 @@ export default function BoardroomWheel() {
                 strokeWidth="4"
               />
 
-              <g fontFamily="var(--font-heading), sans-serif" fontWeight="600" textAnchor="middle">
+              <g fontFamily="var(--font-heading), ui-serif, Georgia, serif" fontWeight="600" textAnchor="middle">
                 <text x="275" y="112" fill="#F7F3EC" fontSize="14">Mental klarhet</text>
                 <text x="275" y="128" fill="#F7F3EC" fontSize="10" fontWeight="400" opacity="0.75">Q1 (jan–mar)</text>
 
@@ -155,7 +155,7 @@ export default function BoardroomWheel() {
                 x="200"
                 y="195"
                 textAnchor="middle"
-                fontFamily="var(--font-heading), sans-serif"
+                fontFamily="var(--font-heading), ui-serif, Georgia, serif"
                 fontWeight="600"
                 fontSize="18"
                 fill="#173B60"

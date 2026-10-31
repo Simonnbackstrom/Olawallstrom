@@ -1,10 +1,18 @@
-/** The upcoming webinar. Used by the page, the signup form and the calendar links. */
+/** The upcoming webinar. Three live sessions, same content. */
 export const WEBINAR = {
-  title: "Så bygger du ett bolag som inte äger dig",
-  startISO: "2026-11-11T09:00:00+01:00",
-  endISO: "2026-11-11T10:00:00+01:00",
-  dateLabel: "Onsdag 11 november",
-  timeLabel: "09.00–10.00",
+  title: "Så växer du från 10 till 50 miljoner, utan att behöva jobba mer",
+  tagline: "Mer tillväxt. Mindre slit.",
+  sessions: [
+    { id: "tis", iso: "2026-11-17T08:00:00+01:00", label: "Tisdag 17 november", timeLabel: "08.00-09.00" },
+    { id: "ons", iso: "2026-11-18T11:30:00+01:00", label: "Onsdag 18 november", timeLabel: "11.30-12.30" },
+    { id: "fre", iso: "2026-11-20T08:00:00+01:00", label: "Fredag 20 november", timeLabel: "08.00-09.00" },
+  ],
+  /** Primary date for countdown and schema (first session). */
+  startISO: "2026-11-17T08:00:00+01:00",
+  endISO: "2026-11-17T09:00:00+01:00",
+  dateLabel: "17, 18 och 20 november",
+  /** Rough span across sessions — individual times live on each session. */
+  timeLabel: "Olika tider",
   seats: 100,
   url: "https://olawallstrom.com/webinar",
 };
@@ -16,11 +24,23 @@ function utcStamp(iso: string) {
 
 const CALENDAR_DETAILS = "Live-webinar med Ola Wallström på Zoom. Zoom-länken kommer på mejlen före webinaret.";
 
-export function googleCalendarUrl() {
+function endIsoFor(startIso: string) {
+  const d = new Date(startIso);
+  d.setHours(d.getHours() + 1);
+  return d.toISOString();
+}
+
+/** Pick the session matching the given id, fall back to the first one. */
+export function sessionForId(id?: string | null) {
+  return WEBINAR.sessions.find((s) => s.id === id) ?? WEBINAR.sessions[0];
+}
+
+export function googleCalendarUrl(sessionId?: string | null) {
+  const s = sessionForId(sessionId);
   const params = new URLSearchParams({
     action: "TEMPLATE",
     text: `Webinar: ${WEBINAR.title}`,
-    dates: `${utcStamp(WEBINAR.startISO)}/${utcStamp(WEBINAR.endISO)}`,
+    dates: `${utcStamp(s.iso)}/${utcStamp(endIsoFor(s.iso))}`,
     details: `${CALENDAR_DETAILS}\n${WEBINAR.url}`,
     location: "Zoom",
   });
@@ -51,7 +71,8 @@ function icsFold(line: string) {
 }
 
 /** Calendar file for Outlook, Apple Calendar and others. */
-export function webinarIcs() {
+export function webinarIcs(sessionId?: string | null) {
+  const s = sessionForId(sessionId);
   const lines = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
@@ -59,10 +80,10 @@ export function webinarIcs() {
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
     "BEGIN:VEVENT",
-    `UID:webinar-${utcStamp(WEBINAR.startISO)}@olawallstrom.com`,
+    `UID:webinar-${utcStamp(s.iso)}@olawallstrom.com`,
     `DTSTAMP:${utcStamp(new Date().toISOString())}`,
-    `DTSTART:${utcStamp(WEBINAR.startISO)}`,
-    `DTEND:${utcStamp(WEBINAR.endISO)}`,
+    `DTSTART:${utcStamp(s.iso)}`,
+    `DTEND:${utcStamp(endIsoFor(s.iso))}`,
     `SUMMARY:${icsText(`Webinar: ${WEBINAR.title}`)}`,
     `DESCRIPTION:${icsText(`${CALENDAR_DETAILS}\n${WEBINAR.url}`)}`,
     "LOCATION:Zoom",
@@ -73,17 +94,18 @@ export function webinarIcs() {
   return lines.map(icsFold).join("\r\n") + "\r\n";
 }
 
-/** Automatic reply FormSubmit sends to the person who signs up (plain text). */
-export function webinarAutoresponse() {
+/** Automatic reply sent to the person who signs up (plain text). */
+export function webinarAutoresponse(sessionId?: string | null) {
+  const s = sessionForId(sessionId);
   return [
     "Hej!",
     "",
     `Tack för din anmälan till webinaret "${WEBINAR.title}". Din plats är bokad.`,
     "",
-    `När: ${WEBINAR.dateLabel} kl. ${WEBINAR.timeLabel}, live på Zoom.`,
-    `Lägg till i kalendern: ${googleCalendarUrl()}`,
+    `När: ${s.label} kl. ${s.timeLabel}, live på Zoom.`,
+    `Lägg till i kalendern: ${googleCalendarUrl(s.id)}`,
     "",
-    "Zoom-länken mejlar jag till dig före webinaret. Bolagsdiagnosen skickar jag också till dig innan vi ses, gör den gärna före så får du ut mer av frågestunden.",
+    "Zoom-länken mejlar jag till dig före webinaret. Självskattningen Tillväxthjulet (PDF) skickar jag också innan vi ses. Gör den gärna på förhand, så ser du direkt vilken av dina fyra ekrar som bromsar mest.",
     "",
     "Kan du inte vara med live? Då får du inspelningen samma eftermiddag. Den går att se i 7 dagar.",
     "",

@@ -1,10 +1,13 @@
 import { ImageResponse } from "next/og";
+import { loadOgFonts } from "@/lib/og-fonts";
 
 export const alt = "Ola Wallström. 25 år som mentor. 650+ coachade bolagsägare.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function OGImage() {
+  const fonts = await loadOgFonts();
+
   return new ImageResponse(
     (
       <div
@@ -18,7 +21,7 @@ export default async function OGImage() {
           justifyContent: "space-between",
           padding: "72px",
           position: "relative",
-          fontFamily: "sans-serif",
+          fontFamily: "Source Sans 3",
         }}
       >
         <div
@@ -36,7 +39,15 @@ export default async function OGImage() {
 
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <div style={{ width: 44, height: 2, background: "#F26A2E", borderRadius: 2 }} />
-          <div style={{ fontSize: 24, color: "#F26A2E" }}>
+          <div
+            style={{
+              fontSize: 24,
+              fontWeight: 600,
+              color: "#F26A2E",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+            }}
+          >
             Om Ola
           </div>
         </div>
@@ -45,6 +56,7 @@ export default async function OGImage() {
           <div
             style={{
               display: "flex",
+              fontFamily: "Lora",
               fontSize: 96,
               lineHeight: 1.02,
               fontWeight: 600,
@@ -57,7 +69,6 @@ export default async function OGImage() {
             style={{
               display: "flex",
               gap: 48,
-              fontFamily: "sans-serif",
             }}
           >
             {[
@@ -66,10 +77,26 @@ export default async function OGImage() {
               { n: "8", l: "egna bolag" },
             ].map((s) => (
               <div key={s.n} style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                <div style={{ fontSize: 56, fontWeight: 600, color: "#173B60", lineHeight: 1 }}>
+                <div
+                  style={{
+                    fontFamily: "Lora",
+                    fontSize: 56,
+                    fontWeight: 600,
+                    color: "#173B60",
+                    lineHeight: 1,
+                  }}
+                >
                   {s.n}
                 </div>
-                <div style={{ fontSize: 20, color: "#5a6b80", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                <div
+                  style={{
+                    fontSize: 20,
+                    fontWeight: 600,
+                    color: "#5a6b80",
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                  }}
+                >
                   {s.l}
                 </div>
               </div>
@@ -82,7 +109,6 @@ export default async function OGImage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            fontFamily: "sans-serif",
           }}
         >
           <div
@@ -101,6 +127,6 @@ export default async function OGImage() {
         </div>
       </div>
     ),
-    { ...size }
+    { ...size, fonts },
   );
 }

@@ -24,10 +24,10 @@
   --font-body: var(--font-text);
 }
 
-/* Text and heading font: Source Sans 3 per the brand profile. */
+/* Lora bär rubriker och citat; Source Sans 3 håller brödtext, knappar och menyer. */
 :root {
   --font-text: var(--font-source-sans);
-  --font-heading: var(--font-source-sans);
+  --font-heading: var(--font-lora);
 }
 
 :root {
@@ -65,8 +65,8 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-heading), system-ui, sans-serif;
-  font-weight: 700;
+  font-family: var(--font-heading), ui-serif, Georgia, serif;
+  font-weight: 600;
   letter-spacing: -0.015em;
   color: var(--marin);
   line-height: 1.15;
@@ -111,7 +111,7 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--font-heading), system-ui, sans-serif;
+  font-family: var(--font-heading), ui-serif, Georgia, serif;
   font-weight: 600;
   font-size: 0.95rem;
   color: var(--glod);

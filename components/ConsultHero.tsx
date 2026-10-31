@@ -2,65 +2,122 @@ import Image from "next/image";
 
 export default function ConsultHero() {
   return (
-    <section className="relative pt-24 md:pt-32 pb-20 md:pb-28 bg-papper overflow-hidden">
-      <div className="container-site relative">
-        <div className="grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-20 items-center">
-          {/* Text */}
-          <div className="order-2 lg:order-1 max-w-2xl mx-auto text-center lg:pt-16">
-            <h1 className="reveal reveal-d1 text-[color:var(--marin)]">
-              Äkta, rakt och med <em>riktning framåt.</em>
-            </h1>
+    <section className="relative bg-papper overflow-hidden">
+      {/* MOBILE: fullbleed-bild med text ovanpå */}
+      <div className="lg:hidden relative min-h-[88vh] flex flex-col justify-end">
+        <Image
+          src="/images/ola-portratt-leende-hd.jpg"
+          alt="Ola Wallström ler i brun kavaj"
+          fill
+          quality={95}
+          priority
+          sizes="100vw"
+          className="object-cover object-[50%_25%]"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-t from-[color:var(--marin)] via-[color:var(--marin)]/75 to-transparent"
+        />
+        <div className="relative container-site pb-10 pt-32 text-center text-[color:var(--papper)]">
+          <h1 className="reveal reveal-d1 !text-white hyphens-none [word-break:keep-all]" style={{ fontSize: "clamp(1.95rem, 7.5vw, 2.5rem)" }}>
+            Växa ditt bolag förbi 10 miljoner. <em className="!text-white">Utan att slita mer.</em>
+          </h1>
 
-            <p className="reveal reveal-d2 mt-8 text-[1.1rem] md:text-[1.15rem] text-ink-soft leading-relaxed max-w-xl mx-auto">
-              Du är inte den enda som fastnat vid ett omsättningstak eller känt att allt landar på dig.
-              Här får du raka samtal utan konsultspråk, och fokus på det som faktiskt blir gjort.
-              Så att bolaget kan växa utan att det tar all din tid och energi.
-            </p>
+          <p className="reveal reveal-d2 mt-5 text-[1.02rem] leading-relaxed text-white/90 max-w-lg mx-auto">
+            Du har byggt något som faktiskt fungerar. Kunderna kommer, teamet drar, omsättningen är över 10 miljoner. Men du känner det, allt går via dig. Ju mer bolaget växer desto mer sliter du. Nästa nivå ligger inte i att du jobbar hårdare, utan i att du blir onödig i din egen vardag.
+          </p>
 
-            <div className="reveal reveal-d3 mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="https://calendly.com/olawallstrom/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-              >
-                Boka ett strategisamtal med mig
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="13 6 19 12 13 18" />
-                </svg>
-              </a>
-            </div>
-
-            {/* Proof row */}
-            <dl className="reveal reveal-d4 mt-12 grid grid-cols-3 gap-4 sm:flex sm:justify-center sm:gap-14 text-center">
-              {[
-                { n: "650+", l: "coachade ägare" },
-                { n: "25 år", l: "som entreprenör" },
-                { n: "8", l: "egna bolag" },
-              ].map((p) => (
-                <div key={p.n} className="flex flex-col-reverse justify-end">
-                  <dt className="mt-2 text-[0.85rem] text-muted leading-snug sm:whitespace-nowrap">{p.l}</dt>
-                  <dd className="font-[family-name:var(--font-heading)] font-semibold text-[2rem] md:text-[2.3rem] leading-none text-[color:var(--marin)]">
-                    {p.n}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+          <div className="reveal reveal-d3 mt-7 flex justify-center">
+            <a
+              href="https://calendly.com/olawallstrom/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              Boka kostnadsfritt strategisamtal
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="13 6 19 12 13 18" />
+              </svg>
+            </a>
           </div>
 
-          {/* Portrait */}
-          <div className="order-1 lg:order-2 relative">
-            <div className="relative aspect-[4/5] max-w-[520px] mx-auto">
-              <Image
-                src="/images/ola-portratt-leende-hd.jpg"
-                alt="Ola Wallström ler i brun kavaj"
-                fill
-                quality={90}
-                priority
-                sizes="(min-width: 1024px) 520px, 90vw"
-                className="object-cover object-[50%_20%] rounded-[2rem]"
-              />
+          <dl className="reveal reveal-d4 mt-8 grid grid-cols-3 gap-4 text-center border-t border-white/15 pt-6">
+            {[
+              { n: "650+", l: "coachade ägare" },
+              { n: "25 år", l: "som entreprenör" },
+              { n: "8", l: "egna bolag" },
+            ].map((p) => (
+              <div key={p.n} className="flex flex-col-reverse justify-end">
+                <dt className="mt-1 text-[0.78rem] text-white/75 leading-snug">{p.l}</dt>
+                <dd className="font-[family-name:var(--font-heading)] font-semibold text-[1.6rem] leading-none !text-white">
+                  {p.n}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+
+      {/* DESKTOP: oförändrad side-by-side */}
+      <div className="hidden lg:block pt-32 pb-28">
+        <div className="container-site relative">
+          <div className="grid grid-cols-[1.15fr_1fr] gap-20 items-center">
+            <div className="max-w-2xl mx-auto text-center pt-16">
+              <h1 className="reveal reveal-d1 text-[color:var(--marin)] hyphens-none [word-break:keep-all]">
+                Växa ditt bolag förbi 10 miljoner. <em>Utan att slita mer.</em>
+              </h1>
+
+              <p className="reveal reveal-d2 mt-8 text-[1.15rem] text-ink-soft leading-relaxed max-w-xl mx-auto">
+                Du har byggt något som faktiskt fungerar. Kunderna kommer, teamet drar,
+                omsättningen är över 10 miljoner. Men du känner det, allt går via dig. Ju mer
+                bolaget växer desto mer sliter du. Nästa nivå ligger inte i att du jobbar
+                hårdare, utan i att du blir onödig i din egen vardag.
+              </p>
+
+              <div className="reveal reveal-d3 mt-10 flex items-center justify-center gap-4">
+                <a
+                  href="https://calendly.com/olawallstrom/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                >
+                  Boka kostnadsfritt strategisamtal
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="13 6 19 12 13 18" />
+                  </svg>
+                </a>
+              </div>
+
+              <dl className="reveal reveal-d4 mt-12 flex justify-center gap-14 text-center">
+                {[
+                  { n: "650+", l: "coachade ägare" },
+                  { n: "25 år", l: "som entreprenör" },
+                  { n: "8", l: "egna bolag" },
+                ].map((p) => (
+                  <div key={p.n} className="flex flex-col-reverse justify-end">
+                    <dt className="mt-2 text-[0.85rem] text-muted leading-snug whitespace-nowrap">{p.l}</dt>
+                    <dd className="font-[family-name:var(--font-heading)] font-semibold text-[2.3rem] leading-none text-[color:var(--marin)]">
+                      {p.n}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+
+            <div className="relative">
+              <div className="relative aspect-[4/5] max-w-[520px] mx-auto">
+                <Image
+                  src="/images/ola-portratt-leende-hd.jpg"
+                  alt="Ola Wallström ler i brun kavaj"
+                  fill
+                  quality={90}
+                  priority
+                  sizes="520px"
+                  className="object-cover object-[50%_20%] rounded-[2rem]"
+                />
+              </div>
             </div>
           </div>
         </div>

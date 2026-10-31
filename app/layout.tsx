@@ -1,15 +1,24 @@
 import type { Metadata, Viewport } from "next";
-import { Source_Sans_3 } from "next/font/google";
+import { Lora, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import StructuredData from "@/components/StructuredData";
+import CookieBanner from "@/components/CookieBanner";
 
 const sourceSans = Source_Sans_3({
   variable: "--font-source-sans",
   subsets: ["latin"],
   weight: "variable",
+  display: "swap",
+});
+
+const lora = Lora({
+  variable: "--font-lora",
+  subsets: ["latin", "latin-ext"],
+  weight: ["500", "600"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -78,7 +87,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="sv" className={sourceSans.variable}>
+    <html lang="sv" className={`${lora.variable} ${sourceSans.variable}`}>
       <head>
         <link rel="preconnect" href="https://calendly.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="anonymous" />
@@ -90,6 +99,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1">{children}</main>
         <Footer />
         <ScrollReveal />
+        <CookieBanner />
       </body>
     </html>
   );

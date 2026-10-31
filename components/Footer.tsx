@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import CookieSettingsButton from "@/components/CookieSettingsButton";
 
 const SITE_LINKS = [
   { href: "/om-ola", label: "Om Ola" },
@@ -61,6 +62,17 @@ function Brand({ className = "" }: { className?: string }) {
             <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5z" />
             <path d="M.5 8h4V24h-4z" />
             <path d="M8 8h3.8v2.2h.1c.5-1 1.9-2.4 4.1-2.4 4.4 0 5.2 2.9 5.2 6.7V24h-4v-8.4c0-2-.1-4.5-2.8-4.5s-3.2 2.1-3.2 4.3V24H8z" />
+          </svg>
+        </a>
+        <a
+          href="https://www.tiktok.com/@olawallstrom"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok"
+          className="h-11 w-11 inline-flex items-center justify-center rounded-full bg-black text-white shadow-[0_6px_16px_-8px_rgba(0,0,0,0.7)] transition-[translate,box-shadow] hover:-translate-y-0.5 hover:shadow-[0_10px_20px_-8px_rgba(0,0,0,0.75)]"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.07A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z" />
           </svg>
         </a>
       </div>
@@ -130,8 +142,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Desktop: four columns. */}
-        <div className="hidden md:grid md:grid-cols-[1.5fr_1fr_1fr_1fr] md:gap-12">
+        {/* Desktop: three columns. */}
+        <div className="hidden md:grid md:grid-cols-[1.5fr_1fr_1fr] md:gap-12">
           <Brand />
 
           <div>
@@ -153,23 +165,21 @@ export default function Footer() {
               <li><Link href="/kontakt" className={linkClass}>Kontaktformulär</Link></li>
             </ul>
           </div>
-
-          <div>
-            <h4 className={headingClass}>Juridiskt</h4>
-            <ul className="space-y-1 text-[0.95rem] text-ink-soft">
-              <li><Link href="/integritetspolicy" className={linkClass}>Integritetspolicy</Link></li>
-            </ul>
-          </div>
         </div>
 
-        <div className="mt-10 md:mt-16 pt-6 md:pt-8 border-t border-[color:var(--marin)]/15 flex flex-col md:flex-row justify-between gap-2 md:gap-3 text-center md:text-left text-[0.8rem] text-muted">
+        <div className="mt-10 md:mt-16 pt-6 md:pt-8 border-t border-[color:var(--marin)]/15 flex flex-col md:flex-row md:items-center justify-between gap-3 text-center md:text-left text-[0.8rem] text-muted">
           <p>© 2026 Ola Wallström, Perspektivo i Sverige AB</p>
-          <p className="md:hidden">
+          <div className="flex flex-wrap justify-center md:justify-end gap-x-5 gap-y-1">
             <Link href="/integritetspolicy" className="inline-block py-2.5 underline underline-offset-4 hover:text-[color:var(--glod)]">
               Integritetspolicy
             </Link>
-          </p>
-          <p className="hidden md:block font-[family-name:var(--font-heading)] text-[color:var(--marin)]/70">Autentisk affärsutveckling</p>
+            <Link href="/anvandarvillkor" className="inline-block py-2.5 underline underline-offset-4 hover:text-[color:var(--glod)]">
+              Användarvillkor
+            </Link>
+            <CookieSettingsButton className="inline-block py-2.5 underline underline-offset-4 hover:text-[color:var(--glod)] cursor-pointer">
+              Cookie-inställningar
+            </CookieSettingsButton>
+          </div>
         </div>
       </div>
     </footer>
