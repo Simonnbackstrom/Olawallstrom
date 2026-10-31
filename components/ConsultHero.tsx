@@ -5,7 +5,7 @@ export default function ConsultHero() {
     <section className="relative bg-papper overflow-hidden">
       {/* MOBIL: bilden först, text under på papper */}
       <div className="lg:hidden">
-        <div className="relative h-[62vh] min-h-[460px] max-h-[640px]">
+        <div className="relative w-full aspect-[4/5] overflow-hidden">
           <Image
             src="/images/ola-hero-biljard.jpg"
             alt="Ola Wallström ler, håller en biljardkö i ett industriellt rum"
@@ -13,11 +13,11 @@ export default function ConsultHero() {
             quality={92}
             priority
             sizes="100vw"
-            className="object-cover object-[50%_18%] scale-105"
+            className="object-cover object-[center_12%] scale-110"
           />
           <div
             aria-hidden
-            className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent via-[color:var(--papper)]/60 to-[color:var(--papper)]"
+            className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-b from-transparent to-[color:var(--papper)]"
           />
         </div>
 
