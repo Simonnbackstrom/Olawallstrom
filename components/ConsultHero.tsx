@@ -17,7 +17,7 @@ export default function ConsultHero() {
           />
           {/* Glass-card + CTA ligger nertill, över bilden. */}
           <div className="absolute inset-x-0 bottom-6 px-4 flex flex-col items-center gap-4">
-            <div className="reveal reveal-d1 w-full max-w-md rounded-2xl bg-[color:var(--papper)]/85 backdrop-blur-md ring-1 ring-white/50 shadow-[0_18px_42px_-20px_rgba(23,59,96,0.35)] px-5 py-6 text-center">
+            <div className="reveal reveal-d1 w-full max-w-md rounded-2xl bg-[color:var(--sand)]/85 backdrop-blur-md ring-1 ring-white/40 shadow-[0_18px_42px_-20px_rgba(23,59,96,0.35)] px-5 py-6 text-center">
               <h1
                 className="text-[color:var(--marin)] hyphens-none [word-break:keep-all]"
                 style={{ fontSize: "clamp(1.5rem, 6vw, 2rem)" }}
