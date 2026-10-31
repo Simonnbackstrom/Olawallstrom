@@ -94,28 +94,24 @@ const HOW_IT_WORKS = [
   },
   {
     n: "02",
-    title: "Få Självskattningen innan vi ses",
-    body: "Jag mejlar Självskattning Tillväxthjulet (PDF) och Zoom-länken så du vet exakt var ditt bolag står när vi börjar.",
+    title: "Få Zoom-länken",
+    body: "Jag mejlar Zoom-länken så du är redo. Självskattning Tillväxthjulet (PDF) delar jag live under webinaret.",
   },
   {
     n: "03",
     title: "Live 60 minuter + öppen frågestund",
-    body: "Vi går igenom modellen, de fyra skiften och riktiga case. Kan du inte vara med live? Du får inspelningen samma eftermiddag.",
+    body: "Vi går igenom modellen, de fyra skiften och riktiga case. Enbart live, ingen inspelning efteråt.",
   },
 ];
 
 const BONUSES = [
   {
     title: "Självskattning Tillväxthjulet (PDF)",
-    body: "Mallen jag använder med mina VIP-kunder, byggd för att göras tillsammans med din ledningsgrupp. Du ser svart på vitt vilken eker som bromsar mest.",
+    body: "Mallen jag använder med mina VIP-kunder. Du får den live på webinaret, så vi fyller i den tillsammans och du ser svart på vitt vilken eker som bromsar mest.",
   },
   {
     title: "Ljudboken Ledarskap utan ansträngning",
     body: "Min bok om hur du leder så att andra blir bättre än dig, i stället för att allt landar hos dig. Hela boken i ljud, gratis.",
-  },
-  {
-    title: "Inspelning i efterhand",
-    body: "Kan du inte vara med live får du inspelningen samma eftermiddag. Giltig i 7 dagar.",
   },
 ];
 
@@ -137,7 +133,7 @@ const DATE_OPTIONS_LABEL = WEBINAR.sessions.map((s) => s.label).join(", ");
 const FAQ: { q: string; a: string; link?: { href: string; label: string } }[] = [
   {
     q: "Är det verkligen gratis?",
-    a: "Ja. Inga uppsäljningar under webinaret, inget köptvång efteråt. Vill du jobba vidare med mig får du höra av dig själv.",
+    a: "Ja, webinaret är kostnadsfritt. Jag presenterar också ett erbjudande för dig som vill jobba vidare med mig, men det är helt upp till dig om du nappar.",
   },
   {
     q: "Måste jag välja vilken dag jag kommer?",
@@ -145,7 +141,7 @@ const FAQ: { q: string; a: string; link?: { href: string; label: string } }[] = 
   },
   {
     q: "Vad händer om jag inte kan vara med live?",
-    a: "Anmäl dig ändå. Du får inspelningen samma eftermiddag, giltig i 7 dagar. Men live är bättre. Det är då frågestunden händer och det är där du får mest värde.",
+    a: "Webinaret körs enbart live, ingen inspelning efteråt. Välj det tillfälle som funkar bäst, du har tre att välja på. Det är live som frågestunden och självskattningen händer, och det är då du får mest värde.",
   },
   {
     q: "Är det för mig som precis har startat?",
@@ -218,7 +214,7 @@ export default function WebinarPage() {
                 {[
                   "Konkret var ditt bolag bromsar, och hur du släpper fram tillväxten utan att själv jobba mer",
                   "Fyra skiften med riktiga case: 10 till 50 MSEK, 24× marginal, +25 % på tre veckor",
-                  "Självskattning Tillväxthjulet (PDF) och ljudbok direkt till din mejl",
+                  "Självskattning Tillväxthjulet (PDF) live på webinaret, plus ljudbok till din mejl",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-[0.98rem] text-ink leading-relaxed">
                     <span className="mt-[0.2rem] shrink-0 h-5 w-5 inline-flex items-center justify-center rounded-full bg-glod-dim text-[color:var(--glod)]">
@@ -491,10 +487,10 @@ export default function WebinarPage() {
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-14">
             <h2 className="reveal">
-              Tre saker du tar med dig, oavsett om du gör något mer med mig eller inte.
+              Två saker du tar med dig, oavsett om du gör något mer med mig eller inte.
             </h2>
           </div>
-          <div className="grid gap-5 md:gap-6 md:grid-cols-3 max-w-5xl mx-auto">
+          <div className="grid gap-5 md:gap-6 md:grid-cols-2 max-w-3xl mx-auto">
             {BONUSES.map((b, i) => (
               <div
                 key={b.title}
@@ -637,17 +633,13 @@ export default function WebinarPage() {
             <p className="reveal reveal-d1 mt-5 text-[1.05rem] text-[color:var(--papper)]/75 leading-relaxed">
               Tre tillfällen: {EVENT_DATE_LABEL} kl. {EVENT_TIME_LABEL}. Max {SEATS_LIMIT} platser
               per gång. Välj den dag som passar dig. Du får bekräftelsen direkt och Zoom-länken
-              före webinaret. Kan du inte vara med live skickar jag inspelningen efteråt.
+              före webinaret. Webinaret körs enbart live, ingen inspelning efteråt.
             </p>
           </div>
 
           <div className="reveal reveal-d2 max-w-xl mx-auto">
             <WebinarSignupForm dark />
           </div>
-
-          <p className="reveal reveal-d3 mt-6 text-center text-[0.85rem] text-[color:var(--papper)]/60">
-            Inga uppsäljningar under webinaret. Inget köptvång efteråt.
-          </p>
         </div>
       </section>
 
