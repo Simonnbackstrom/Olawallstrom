@@ -20,7 +20,7 @@ export default function ConsultHero() {
             <div className="reveal reveal-d1 w-full max-w-md rounded-2xl bg-[color:var(--sand)]/85 backdrop-blur-md ring-1 ring-white/40 shadow-[0_18px_42px_-20px_rgba(23,59,96,0.35)] px-5 py-6 text-center">
               <h1
                 className="text-[color:var(--marin)] hyphens-none [word-break:keep-all]"
-                style={{ fontSize: "clamp(1.5rem, 6vw, 2rem)" }}
+                style={{ fontSize: "clamp(1.3rem, 5.2vw, 1.75rem)" }}
               >
                 Väx ditt företag från 10–50 miljoner <em>utan att jobba mer.</em>
               </h1>
@@ -68,7 +68,7 @@ export default function ConsultHero() {
         <div className="container-site relative">
           <div className="grid grid-cols-[1.15fr_1fr] gap-20 items-center">
             <div className="max-w-2xl mx-auto text-center pt-16">
-              <h1 className="reveal reveal-d1 text-[color:var(--marin)] hyphens-none [word-break:keep-all]">
+              <h1 className="reveal reveal-d1 text-[color:var(--marin)] hyphens-none [word-break:keep-all] text-[clamp(2rem,4vw,3.4rem)]">
                 Väx ditt företag från 10–50 miljoner <em>utan att jobba mer.</em>
               </h1>
 
