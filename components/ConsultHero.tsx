@@ -22,10 +22,10 @@ export default function ConsultHero() {
                 className="text-[color:var(--marin)] hyphens-none [word-break:keep-all]"
                 style={{ fontSize: "clamp(1.5rem, 6vw, 2rem)" }}
               >
-                Väx ditt bolag förbi 10 miljoner. <em>Utan att slita mer.</em>
+                Väx ditt företag från 10–50 miljoner <em>utan att jobba mer.</em>
               </h1>
               <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-soft">
-                För dig som vill bygga ett bolag som rullar – även dagar du inte är där.
+                Skapa ett företag som inte står och faller med din närvaro. Mer struktur. Mer frihet. Hållbar tillväxt.
               </p>
             </div>
 
@@ -69,14 +69,11 @@ export default function ConsultHero() {
           <div className="grid grid-cols-[1.15fr_1fr] gap-20 items-center">
             <div className="max-w-2xl mx-auto text-center pt-16">
               <h1 className="reveal reveal-d1 text-[color:var(--marin)] hyphens-none [word-break:keep-all]">
-                Väx ditt bolag förbi 10 miljoner. <em>Utan att slita mer.</em>
+                Väx ditt företag från 10–50 miljoner <em>utan att jobba mer.</em>
               </h1>
 
               <p className="reveal reveal-d2 mt-8 text-[1.15rem] text-ink-soft leading-relaxed max-w-xl mx-auto">
-                Du har byggt något som faktiskt fungerar. Kunderna kommer, teamet drar,
-                omsättningen är över 10 miljoner. Men du känner det, allt går via dig. Ju mer
-                bolaget växer desto mer sliter du. Nästa nivå ligger inte i att du jobbar
-                hårdare, utan i att du blir onödig i din egen vardag.
+                Skapa ett företag som inte står och faller med din närvaro. Mer struktur. Mer frihet. Hållbar tillväxt.
               </p>
 
               <div className="reveal reveal-d3 mt-10 flex items-center justify-center gap-4">
