@@ -13,7 +13,12 @@ export default function ConsultHero() {
             quality={92}
             priority
             sizes="100vw"
-            className="object-cover object-[center_12%] scale-110"
+            className="object-cover object-[center_20%] scale-110"
+          />
+          {/* Top fade så fixed navbar (marin-logo + burger) alltid syns mot bilden. */}
+          <div
+            aria-hidden
+            className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[color:var(--papper)] to-transparent"
           />
           <div
             aria-hidden
