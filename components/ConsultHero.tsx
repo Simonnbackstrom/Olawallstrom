@@ -15,12 +15,6 @@ export default function ConsultHero() {
             sizes="100vw"
             className="object-cover object-[center_12%] scale-[1.3]"
           />
-          {/* Top fade så fixed navbar alltid är läsbar mot bilden. */}
-          <div
-            aria-hidden
-            className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[color:var(--papper)] to-transparent"
-          />
-
           {/* Glass-card + CTA ligger nertill, över bilden. */}
           <div className="absolute inset-x-0 bottom-6 px-4 flex flex-col items-center gap-4">
             <div className="reveal reveal-d1 w-full max-w-md rounded-2xl bg-[color:var(--papper)]/85 backdrop-blur-md ring-1 ring-white/50 shadow-[0_18px_42px_-20px_rgba(23,59,96,0.35)] px-5 py-6 text-center">
@@ -28,10 +22,10 @@ export default function ConsultHero() {
                 className="text-[color:var(--marin)] hyphens-none [word-break:keep-all]"
                 style={{ fontSize: "clamp(1.5rem, 6vw, 2rem)" }}
               >
-                Växa ditt bolag förbi 10 miljoner. <em>Utan att slita mer.</em>
+                Väx ditt bolag förbi 10 miljoner. <em>Utan att slita mer.</em>
               </h1>
-              <p className="mt-3 text-[0.92rem] leading-relaxed text-ink-soft">
-                Nästa nivå ligger inte i att jobba hårdare — utan i att bli onödig i din egen vardag.
+              <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-soft">
+                För dig som vill växa vidare – utan att göra dig själv till flaskhals.
               </p>
             </div>
 
@@ -75,7 +69,7 @@ export default function ConsultHero() {
           <div className="grid grid-cols-[1.15fr_1fr] gap-20 items-center">
             <div className="max-w-2xl mx-auto text-center pt-16">
               <h1 className="reveal reveal-d1 text-[color:var(--marin)] hyphens-none [word-break:keep-all]">
-                Växa ditt bolag förbi 10 miljoner. <em>Utan att slita mer.</em>
+                Väx ditt bolag förbi 10 miljoner. <em>Utan att slita mer.</em>
               </h1>
 
               <p className="reveal reveal-d2 mt-8 text-[1.15rem] text-ink-soft leading-relaxed max-w-xl mx-auto">
