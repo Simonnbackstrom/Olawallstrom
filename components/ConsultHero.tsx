@@ -3,28 +3,34 @@ import Image from "next/image";
 export default function ConsultHero() {
   return (
     <section className="relative bg-papper overflow-hidden">
-      {/* MOBILE: fullbleed-bild med text ovanpå */}
-      <div className="lg:hidden relative min-h-[88vh] flex flex-col justify-end">
-        <Image
-          src="/images/ola-portratt-leende-hd.jpg"
-          alt="Ola Wallström ler i brun kavaj"
-          fill
-          quality={95}
-          priority
-          sizes="100vw"
-          className="object-cover object-[50%_25%]"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-gradient-to-t from-[color:var(--marin)] via-[color:var(--marin)]/75 to-transparent"
-        />
-        <div className="relative container-site pb-10 pt-32 text-center text-[color:var(--papper)]">
-          <h1 className="reveal reveal-d1 !text-white hyphens-none [word-break:keep-all]" style={{ fontSize: "clamp(1.95rem, 7.5vw, 2.5rem)" }}>
-            Växa ditt bolag förbi 10 miljoner. <em className="!text-white">Utan att slita mer.</em>
+      {/* MOBIL: bilden först, text under på papper */}
+      <div className="lg:hidden">
+        <div className="relative h-[62vh] min-h-[460px] max-h-[640px]">
+          <Image
+            src="/images/ola-hero-biljard.jpg"
+            alt="Ola Wallström ler, håller en biljardkö i ett industriellt rum"
+            fill
+            quality={92}
+            priority
+            sizes="100vw"
+            className="object-cover object-[50%_18%]"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-transparent to-[color:var(--papper)]"
+          />
+        </div>
+
+        <div className="container-site pt-4 pb-14 text-center">
+          <h1
+            className="reveal reveal-d1 text-[color:var(--marin)] hyphens-none [word-break:keep-all]"
+            style={{ fontSize: "clamp(1.95rem, 7.5vw, 2.5rem)" }}
+          >
+            Växa ditt bolag förbi 10 miljoner. <em>Utan att slita mer.</em>
           </h1>
 
-          <p className="reveal reveal-d2 mt-5 text-[1.02rem] leading-relaxed text-white/90 max-w-lg mx-auto">
-            Du har byggt något som faktiskt fungerar. Kunderna kommer, teamet drar, omsättningen är över 10 miljoner. Men du känner det, allt går via dig. Ju mer bolaget växer desto mer sliter du. Nästa nivå ligger inte i att du jobbar hårdare, utan i att du blir onödig i din egen vardag.
+          <p className="reveal reveal-d2 mt-5 text-[1rem] leading-relaxed text-ink-soft max-w-md mx-auto">
+            Du har byggt något som fungerar. Nästa nivå ligger inte i att du jobbar hårdare — utan i att du blir onödig i din egen vardag.
           </p>
 
           <div className="reveal reveal-d3 mt-7 flex justify-center">
@@ -42,15 +48,15 @@ export default function ConsultHero() {
             </a>
           </div>
 
-          <dl className="reveal reveal-d4 mt-8 grid grid-cols-3 gap-4 text-center border-t border-white/15 pt-6">
+          <dl className="reveal reveal-d4 mt-10 grid grid-cols-3 gap-4 text-center border-t border-[color:var(--marin)]/15 pt-6">
             {[
               { n: "650+", l: "coachade ägare" },
               { n: "25 år", l: "som entreprenör" },
               { n: "8", l: "egna bolag" },
             ].map((p) => (
               <div key={p.n} className="flex flex-col-reverse justify-end">
-                <dt className="mt-1 text-[0.78rem] text-white/75 leading-snug">{p.l}</dt>
-                <dd className="font-[family-name:var(--font-heading)] font-semibold text-[1.6rem] leading-none !text-white">
+                <dt className="mt-1 text-[0.78rem] text-ink-soft leading-snug">{p.l}</dt>
+                <dd className="font-[family-name:var(--font-heading)] font-semibold text-[1.6rem] leading-none text-[color:var(--marin)]">
                   {p.n}
                 </dd>
               </div>
@@ -59,7 +65,7 @@ export default function ConsultHero() {
         </div>
       </div>
 
-      {/* DESKTOP: oförändrad side-by-side */}
+      {/* DESKTOP: side-by-side med biljardbilden */}
       <div className="hidden lg:block pt-32 pb-28">
         <div className="container-site relative">
           <div className="grid grid-cols-[1.15fr_1fr] gap-20 items-center">
@@ -109,13 +115,13 @@ export default function ConsultHero() {
             <div className="relative">
               <div className="relative aspect-[4/5] max-w-[520px] mx-auto">
                 <Image
-                  src="/images/ola-portratt-leende-hd.jpg"
-                  alt="Ola Wallström ler i brun kavaj"
+                  src="/images/ola-hero-biljard.jpg"
+                  alt="Ola Wallström ler, håller en biljardkö i ett industriellt rum"
                   fill
-                  quality={90}
+                  quality={92}
                   priority
                   sizes="520px"
-                  className="object-cover object-[50%_20%] rounded-[2rem]"
+                  className="object-cover object-[50%_15%] rounded-[2rem]"
                 />
               </div>
             </div>

@@ -40,7 +40,7 @@ export default function MethodTeaser() {
           {KEYS.map((key, i) => (
             <article
               key={key.n}
-              className={`reveal reveal-d${(i % 4) + 1} bg-[color:var(--marin)] px-8 py-10 md:px-10 md:py-12 text-center`}
+              className={`reveal reveal-d${(i % 4) + 1} bg-[color:var(--marin)] px-6 py-8 md:px-10 md:py-12 text-center`}
             >
               <div className="font-[family-name:var(--font-heading)] font-semibold text-[2.6rem] md:text-[3rem] leading-none text-[color:var(--glod)]">
                 {key.n}
