@@ -109,24 +109,32 @@ export default function TillvaxthjuletSection() {
       <div className="container-site">
         <div className="relative overflow-hidden rounded-3xl sec-marin">
           <div className="relative grid lg:grid-cols-[0.9fr_1.1fr] items-stretch">
-            <div className="reveal relative aspect-[4/5] lg:aspect-auto lg:min-h-[640px] flex items-center justify-center p-10 md:p-14">
-              <div className="relative w-full max-w-[460px] aspect-square">
+            {/* MOBIL: rubriken över hjulet */}
+            <div className="lg:hidden text-center px-6 pt-10">
+              <span className="reveal eyebrow-upper mx-auto">Metoden</span>
+              <h2 className="reveal mt-4 text-[color:var(--papper)]">
+                Tillväxthjulet. <em>Inifrån och ut.</em>
+              </h2>
+            </div>
+
+            <div className="reveal relative flex items-center justify-center px-6 py-6 md:p-14 lg:min-h-[640px]">
+              <div className="relative w-full max-w-[320px] md:max-w-[400px] lg:max-w-[460px] aspect-square">
                 <Wheel />
               </div>
               <div
                 aria-hidden
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[color:var(--marin)]/70 lg:to-[color:var(--marin)] pointer-events-none"
+                className="hidden lg:block absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[color:var(--marin)] pointer-events-none"
               />
             </div>
 
-            <div className="relative p-8 md:p-14 flex flex-col justify-center text-center">
-              <span className="reveal eyebrow-upper mx-auto">Metoden</span>
+            <div className="relative px-6 pb-10 md:p-14 flex flex-col justify-center text-center">
+              <span className="hidden lg:inline-block reveal eyebrow-upper mx-auto">Metoden</span>
 
-              <h2 className="reveal mt-5 text-[color:var(--papper)]">
+              <h2 className="hidden lg:block reveal mt-5 text-[color:var(--papper)]">
                 Tillväxthjulet. <em>Inifrån och ut.</em>
               </h2>
 
-              <p className="reveal reveal-d2 mt-6 text-[1.05rem] md:text-[1.1rem] text-[color:var(--papper)]/80 leading-relaxed max-w-xl mx-auto">
+              <p className="reveal reveal-d2 lg:mt-6 text-[1.05rem] md:text-[1.1rem] text-[color:var(--papper)]/80 leading-relaxed max-w-xl mx-auto">
                 Metoden jag jobbar efter, oavsett om vi möts i Ägarklivet eller
                 VIP-coaching. Du står i mitten, fyra ekrar bär bolaget framåt.
                 När en eker är svag skakar hela hjulet.
