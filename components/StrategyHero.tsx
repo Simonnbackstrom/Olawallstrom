@@ -116,7 +116,7 @@ export default function StrategyHero() {
   return (
     <section className="relative pt-28 md:pt-40 pb-20 md:pb-28 sec-papper overflow-hidden">
       <div className="container-site relative text-center">
-        <h1 className="reveal reveal-d1 max-w-4xl mx-auto">
+        <h1 className="reveal reveal-d1 max-w-4xl mx-auto hyphens-none [word-break:keep-all]">
           Fullt huvud, team som väntar, och allt{" "}
           <em>landar på dig.</em>
         </h1>
