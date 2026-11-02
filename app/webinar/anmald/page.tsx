@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { googleCalendarUrl, sessionForId } from "@/lib/webinar";
-import WebinarIcsButton from "@/components/WebinarIcsButton";
+import { googleCalendarUrl, outlookCalendarUrl, sessionForId } from "@/lib/webinar";
 
 export const metadata: Metadata = {
   title: "Tack. Du är anmäld",
@@ -53,7 +52,14 @@ export default async function WebinarAnmaldPage({
             >
               Lägg till i Google Kalender
             </a>
-            <WebinarIcsButton sessionId={session.id} />
+            <a
+              href={outlookCalendarUrl(session.id)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-dark-ghost justify-center"
+            >
+              Lägg till i Outlook
+            </a>
           </div>
 
           <p className="reveal reveal-d4 mt-12 font-[family-name:var(--font-heading)] italic text-[color:var(--papper)]/70">

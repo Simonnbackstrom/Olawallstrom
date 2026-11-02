@@ -130,7 +130,7 @@ export default function CookieBanner() {
               <div className="min-w-0 flex-1">
                 <h2
                   id="cookie-banner-title"
-                  className="text-[0.98rem] font-[family-name:var(--font-heading)] font-semibold text-[color:var(--marin)] leading-snug"
+                  className="text-[0.88rem] font-[family-name:var(--font-heading)] font-semibold text-[color:var(--marin)] leading-snug"
                 >
                   Vi använder kakor.
                 </h2>

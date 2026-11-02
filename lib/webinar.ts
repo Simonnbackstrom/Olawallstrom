@@ -47,6 +47,20 @@ export function googleCalendarUrl(sessionId?: string | null) {
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
+export function outlookCalendarUrl(sessionId?: string | null) {
+  const s = sessionForId(sessionId);
+  const params = new URLSearchParams({
+    path: "/calendar/action/compose",
+    rru: "addevent",
+    subject: `Webinar: ${WEBINAR.title}`,
+    startdt: s.iso,
+    enddt: endIsoFor(s.iso),
+    body: `${CALENDAR_DETAILS}\n${WEBINAR.url}`,
+    location: "Zoom",
+  });
+  return `https://outlook.live.com/calendar/0/deeplink/compose?${params.toString()}`;
+}
+
 function icsText(s: string) {
   return s.replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\n/g, "\\n");
 }
