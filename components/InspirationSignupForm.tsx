@@ -25,7 +25,7 @@ export default function InspirationSignupForm() {
           "",
           "Tack, nu är du med på Ägartipset.",
           "",
-          "En gång i månaden får du konkreta tips, verktyg och nya perspektiv på hur du kan växa ditt bolag på ett enkelt, effektivt och roligt sätt.",
+          "Varje vecka får du konkreta tips, verktyg och nya perspektiv på hur du kan växa ditt bolag på ett enkelt, effektivt och roligt sätt.",
           "",
           "Under tiden finns mina samtal i poddar och livesändningar här: https://olawallstrom.com/inspiration",
           "",
@@ -35,6 +35,7 @@ export default function InspirationSignupForm() {
           "Ola Wallström",
           "Autentisk affärsutveckling",
         ].join("\n"),
+        brevo: { listKey: "agartipset" },
       });
       setStatus("success");
       form.reset();
@@ -53,7 +54,7 @@ export default function InspirationSignupForm() {
           </svg>
         </div>
         <h3 className="mb-2" style={{ fontSize: "1.25rem" }}>Tack. Du är med.</h3>
-        <p className="text-[0.95rem] text-ink-soft">Ägartipset kommer en gång i månaden. Håll utkik i inkorgen.</p>
+        <p className="text-[0.95rem] text-ink-soft">Ägartipset kommer varje vecka. Håll utkik i inkorgen.</p>
       </div>
     );
   }
@@ -100,7 +101,7 @@ export default function InspirationSignupForm() {
         <p className="text-sm text-red-600 text-center">{errorMsg || "Något gick fel. Försök igen."}</p>
       )}
       <p className="pt-1 text-[0.8rem] text-muted text-center">
-        En gång i månaden. Avsluta när du vill.
+        Varje vecka. Avsluta när du vill.
       </p>
     </form>
   );

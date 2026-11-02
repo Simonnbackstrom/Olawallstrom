@@ -6,10 +6,58 @@ type Payload = {
   fields: Record<string, string>;
   autoresponse?: string;
   honeypot?: string;
+  brevo?: { listKey: string };
 };
 
 const FROM = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 const TO = process.env.RESEND_TO_EMAIL || "ola@olawallstrom.com";
+
+/* Maps a form's listKey to the matching Brevo list ID env var. */
+const BREVO_LIST_ENV: Record<string, string> = {
+  agartipset: "BREVO_LIST_ID_AGARTIPSET",
+};
+
+async function addToBrevoList(listKey: string, fields: Record<string, string>) {
+  const apiKey = process.env.BREVO_API_KEY;
+  const listEnvVar = BREVO_LIST_ENV[listKey];
+  const listIdRaw = listEnvVar ? process.env[listEnvVar] : undefined;
+  const listId = listIdRaw ? Number(listIdRaw) : NaN;
+
+  if (!apiKey || !Number.isFinite(listId)) {
+    console.warn(`Brevo skipped for listKey="${listKey}": missing BREVO_API_KEY or ${listEnvVar}.`);
+    return;
+  }
+
+  const email = (fields.email || "").trim();
+  if (!email) return;
+
+  const [firstName, ...rest] = (fields.name || "").trim().split(/\s+/);
+  const lastName = rest.join(" ");
+
+  const res = await fetch("https://api.brevo.com/v3/contacts", {
+    method: "POST",
+    headers: {
+      "api-key": apiKey,
+      "content-type": "application/json",
+      accept: "application/json",
+    },
+    body: JSON.stringify({
+      email,
+      attributes: {
+        FIRSTNAME: firstName || undefined,
+        LASTNAME: lastName || undefined,
+        COMPANY: fields.company || undefined,
+      },
+      listIds: [listId],
+      updateEnabled: true,
+    }),
+  });
+
+  if (!res.ok) {
+    const body = await res.text().catch(() => "");
+    console.error(`Brevo signup failed (${res.status}) for ${email}:`, body);
+  }
+}
 
 function esc(value: string) {
   return value
@@ -95,6 +143,15 @@ export async function POST(req: Request) {
         subject: "Tack för din anmälan",
         text: autoresponse,
       });
+    }
+
+    // Best-effort Brevo list signup. Failures are logged but don't fail the form.
+    if (payload.brevo?.listKey) {
+      try {
+        await addToBrevoList(payload.brevo.listKey, fields);
+      } catch (err) {
+        console.error("Brevo signup threw:", err);
+      }
     }
 
     return NextResponse.json({ ok: true });

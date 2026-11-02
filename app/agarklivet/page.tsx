@@ -22,33 +22,6 @@ export const metadata: Metadata = {
   },
 };
 
-const THEMES = [
-  {
-    q: "Q1 (jan–mar)",
-    title: "Mental klarhet",
-    body: "Du ser vad som verkligen är viktigt och tar tillbaka kontrollen över din tid och energi.",
-    dot: "bg-[color:var(--marin)]",
-  },
-  {
-    q: "Q2 (apr–jun)",
-    title: "Stjärnledarskap",
-    body: "Du får människor att ta ansvar, tänka själva och fungera bättre tillsammans, utan att allt går via dig.",
-    dot: "bg-[color:var(--olabla)]",
-  },
-  {
-    q: "Q3 (jul–sep)",
-    title: "Autentisk affärsutveckling",
-    body: "Du utvecklar affären utifrån dina egna styrkor och det kunderna faktiskt värdesätter.",
-    dot: "bg-[color:var(--glod)]",
-  },
-  {
-    q: "Q4 (okt–dec)",
-    title: "Smart säljstrategi",
-    body: "Du bygger ett sälj som är tydligt, hållbart och inte hänger på dig.",
-    dot: "bg-[color:var(--sand)] ring-1 ring-[color:var(--glod)]/40",
-  },
-];
-
 const LOOP_STEPS = [
   { n: "01", title: "Frågebatteri", body: "Du reflekterar i lugn och ro inför kvartalets tema." },
   { n: "02", title: "Kvartalsavstamp", body: "Två timmars digital fördjupning tillsammans med de andra ägarna." },
@@ -67,28 +40,28 @@ const JOURNEY = [
   {
     tag: "Q1 · jan–mar",
     title: "Mental klarhet",
-    body: "Riktning, fokus och kontroll över tid och energi.",
+    body: "Du ser vad som verkligen är viktigt och tar tillbaka kontrollen över din tid och energi.",
     meta: ["Kvartalsavstamp", "Workshopdag", "5 gemensamma sessioner"],
     dot: "bg-[color:var(--marin)]",
   },
   {
     tag: "Q2 · apr–jun",
     title: "Stjärnledarskap",
-    body: "Få människor att ta ansvar och fungera tillsammans.",
+    body: "Du får människor att ta ansvar, tänka själva och fungera tillsammans, utan att allt går via dig.",
     meta: ["Kvartalsavstamp", "Workshopdag", "5 gemensamma sessioner"],
     dot: "bg-[color:var(--olabla)]",
   },
   {
     tag: "Q3 · jul–sep",
     title: "Autentisk affärsutveckling",
-    body: "Utveckla affären utifrån egna styrkor och kundvärde.",
+    body: "Du utvecklar affären utifrån dina egna styrkor och det kunderna faktiskt värdesätter.",
     meta: ["Kvartalsavstamp", "Workshopdag", "4 gemensamma sessioner"],
     dot: "bg-[color:var(--glod)]",
   },
   {
     tag: "Q4 · okt–dec",
     title: "Smart säljstrategi",
-    body: "Ett sälj som är tydligt, hållbart och mindre personberoende.",
+    body: "Du bygger ett sälj som är tydligt, hållbart och inte hänger på dig.",
     meta: ["Kvartalsavstamp", "Workshopdag", "5 gemensamma sessioner"],
     dot: "bg-[color:var(--sand)] ring-2 ring-[color:var(--glod)]",
   },
@@ -249,36 +222,6 @@ export default function AgarklivetPage() {
 
       <BoardroomWheel />
 
-      {/* THEMES */}
-      <section className="py-[var(--section-y)] sec-sand">
-        <div className="container-site">
-          <div className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
-            <h2 className="reveal">Ett år tillsammans, fyra riktningar att växa i.</h2>
-            <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.1rem] text-ink-soft leading-relaxed">
-              Varje kvartal har sitt eget fokus. Vi tar dem i en ordning där det ena bygger vidare på
-              det andra.
-            </p>
-          </div>
-          <div className="grid gap-5 md:gap-6 sm:grid-cols-2 max-w-5xl mx-auto">
-            {THEMES.map((t, i) => (
-              <article
-                key={t.title}
-                className={`reveal reveal-d${(i % 4) + 1} rounded-3xl bg-white border border-[color:var(--border-soft)] px-8 py-10 md:px-10 text-center`}
-              >
-                <div className="inline-flex items-center gap-2.5 text-[0.82rem] text-muted">
-                  <span aria-hidden className={`h-2.5 w-2.5 rounded-full ${t.dot}`} />
-                  {t.q}
-                </div>
-                <h3 className="mt-4 leading-tight" style={{ fontSize: "clamp(1.5rem, 2.4vw, 1.8rem)" }}>
-                  {t.title}
-                </h3>
-                <p className="mt-3 text-[1rem] leading-relaxed text-ink-soft max-w-sm mx-auto">{t.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* QUARTER LOOP */}
       <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
@@ -335,7 +278,7 @@ export default function AgarklivetPage() {
             <h2 className="reveal">Din resa i Ägarklivet.</h2>
             <p className="reveal reveal-d1 mt-6 text-[1.05rem] text-ink-soft leading-relaxed max-w-xl mx-auto">
               Tolv månader, från en personlig start med mig till fyra teman tillsammans med andra
-              erfarna ägare.
+              erfarna ägare. Vi tar dem i en ordning där det ena bygger vidare på det andra.
             </p>
             <p className="reveal reveal-d2 mt-5 inline-flex items-center gap-2 rounded-full border border-[color:var(--glod)]/40 bg-[color:var(--glod)]/10 px-4 py-2 text-[0.9rem] font-semibold text-[color:var(--marin)]">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>

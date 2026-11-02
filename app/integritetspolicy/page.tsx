@@ -63,7 +63,7 @@ export default function IntegritetspolicyPage() {
           <h2 className="mt-12 mb-4 text-[1.4rem] text-left">4. Hur skyddar vi dina uppgifter?</h2>
           <p>
             Vi vidtar lämpliga tekniska och organisatoriska åtgärder för att skydda dina
-            personuppgifter — bland annat genom brandväggar, kryptering och säkra servrar.
+            personuppgifter. Det handlar bland annat om brandväggar, kryptering och säkra servrar.
           </p>
 
           <h2 className="mt-12 mb-4 text-[1.4rem] text-left">5. Delning av personuppgifter</h2>

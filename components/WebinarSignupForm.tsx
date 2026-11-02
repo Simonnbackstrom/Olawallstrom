@@ -1,14 +1,9 @@
 "use client";
 
 import { useId, useState } from "react";
+import { useRouter } from "next/navigation";
 import { sendForm } from "@/lib/formsubmit";
-import {
-  WEBINAR,
-  googleCalendarUrl,
-  sessionForId,
-  webinarAutoresponse,
-  webinarIcs,
-} from "@/lib/webinar";
+import { WEBINAR, sessionForId, webinarAutoresponse } from "@/lib/webinar";
 
 type Props = {
   /** Render on a dark (marin) background. */
@@ -16,12 +11,10 @@ type Props = {
 };
 
 export default function WebinarSignupForm({ dark = false }: Props) {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const router = useRouter();
+  const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [selected, setSelected] = useState<string>(WEBINAR.sessions[0].id);
-
-  const sessionLabel = sessionForId(selected).label;
-  const sessionTime = sessionForId(selected).timeLabel;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,38 +31,12 @@ export default function WebinarSignupForm({ dark = false }: Props) {
         subject: `Ny webinaranmälan: ${name} (${chosen.label})`,
         autoresponse: webinarAutoresponse(chosen.id),
       });
-      setStatus("success");
-      form.reset();
+      router.push(`/webinar/anmald?datum=${chosen.id}`);
     } catch (err) {
       setStatus("error");
       setErrorMsg(err instanceof Error ? err.message : "Något gick fel");
     }
   };
-
-  if (status === "success") {
-    return (
-      <div className="rounded-2xl bg-white px-7 py-9 text-center">
-        <div className="mx-auto mb-5 h-12 w-12 rounded-full bg-glod-dim inline-flex items-center justify-center">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--glod)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-            <polyline points="20 6 9 17 4 12" />
-          </svg>
-        </div>
-        <h3 className="mb-3">Tack. Du är anmäld.</h3>
-        <p className="text-[1rem] text-ink-soft max-w-sm mx-auto">
-          {sessionLabel} kl. {sessionTime}. Bekräftelsen ligger i din mejl, och
-          Zoom-länken får du före webinaret. Hittar du inget mejl, titta i skräpposten.
-        </p>
-        <div className="mt-6 flex flex-col sm:flex-row justify-center gap-3">
-          <a href={googleCalendarUrl(selected)} target="_blank" rel="noopener noreferrer" className="btn-primary justify-center">
-            Lägg till i Google Kalender
-          </a>
-          <button type="button" onClick={() => downloadIcs(selected)} className="btn-ghost justify-center">
-            Ladda ner kalenderfil
-          </button>
-        </div>
-      </div>
-    );
-  }
 
   const labelTone = dark ? "text-[color:var(--papper)]/80" : "text-[color:var(--marin)]/80";
   const radioInactive = dark
@@ -148,19 +115,6 @@ export default function WebinarSignupForm({ dark = false }: Props) {
       </p>
     </form>
   );
-}
-
-/** Calendar file for Outlook and Apple Calendar, made in the browser. */
-function downloadIcs(sessionId: string) {
-  const blob = new Blob([webinarIcs(sessionId)], { type: "text/calendar;charset=utf-8" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "webinar-ola-wallstrom.ics";
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  URL.revokeObjectURL(url);
 }
 
 type FieldProps = {
