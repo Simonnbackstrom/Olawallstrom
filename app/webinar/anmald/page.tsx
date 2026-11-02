@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { googleCalendarUrl, outlookCalendarUrl, sessionForId } from "@/lib/webinar";
+import { googleCalendarUrl, sessionForId } from "@/lib/webinar";
 
 export const metadata: Metadata = {
   title: "Tack. Du är anmäld",
@@ -43,7 +43,7 @@ export default async function WebinarAnmaldPage({
             Zoom-länken får du före webinaret. Hittar du inget mejl, titta i skräpposten.
           </p>
 
-          <div className="reveal reveal-d3 mt-10 flex flex-col sm:flex-row justify-center gap-3">
+          <div className="reveal reveal-d3 mt-10 flex justify-center">
             <a
               href={googleCalendarUrl(session.id)}
               target="_blank"
@@ -51,14 +51,6 @@ export default async function WebinarAnmaldPage({
               className="btn-primary justify-center"
             >
               Lägg till i Google Kalender
-            </a>
-            <a
-              href={outlookCalendarUrl(session.id)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-dark-ghost justify-center"
-            >
-              Lägg till i Outlook
             </a>
           </div>
 
