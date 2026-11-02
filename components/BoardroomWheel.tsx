@@ -52,7 +52,7 @@ const LEGEND = [
   {
     count: "4",
     title: "workshopdagar",
-    body: "En heldag per kvartal — Mental klarhet, Stjärnledarskap, Autentisk affärsutveckling och Smart säljstrategi.",
+    body: "En heldag per kvartal. Mental klarhet, Stjärnledarskap, Autentisk affärsutveckling och Smart säljstrategi.",
     marker: "workshop" as const,
   },
 ];

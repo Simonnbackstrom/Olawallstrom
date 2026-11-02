@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Resultat",
     description:
-      "Riktiga resultat från bolag jag coachat — case, testimonials och nyckeltal.",
+      "Riktiga resultat från bolag jag coachat. Case, testimonials och nyckeltal.",
     url: "/resultat",
     type: "website",
   },

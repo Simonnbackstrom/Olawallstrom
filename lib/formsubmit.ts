@@ -9,9 +9,11 @@ type Options = {
   subject: string;
   /** Plain-text reply sent automatically to the person who filled in the form. */
   autoresponse?: string;
+  /** Optional Brevo list signup. Server maps listKey → list ID via env var. */
+  brevo?: { listKey: string };
 };
 
-export async function sendForm(form: HTMLFormElement, { subject, autoresponse }: Options) {
+export async function sendForm(form: HTMLFormElement, { subject, autoresponse, brevo }: Options) {
   const data = new FormData(form);
   const honeypot = String(data.get("_honey") || "");
 
@@ -29,7 +31,7 @@ export async function sendForm(form: HTMLFormElement, { subject, autoresponse }:
     res = await fetch(ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ subject, fields, autoresponse, honeypot }),
+      body: JSON.stringify({ subject, fields, autoresponse, honeypot, brevo }),
     });
   } catch {
     throw new Error("Kunde inte skicka. Kontrollera din uppkoppling och försök igen.");

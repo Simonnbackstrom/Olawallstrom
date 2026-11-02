@@ -4,12 +4,12 @@ import PageHero from "@/components/PageHero";
 export const metadata: Metadata = {
   title: "Användarvillkor",
   description:
-    "Villkor för användning av olawallstrom.com. Perspektivo i Sverige AB — Ola Wallström.",
+    "Villkor för användning av olawallstrom.com. Perspektivo i Sverige AB. Ola Wallström.",
   alternates: { canonical: "/anvandarvillkor" },
   openGraph: {
     title: "Användarvillkor",
     description:
-      "Villkor för användning av olawallstrom.com. Perspektivo i Sverige AB — Ola Wallström.",
+      "Villkor för användning av olawallstrom.com. Perspektivo i Sverige AB. Ola Wallström.",
     url: "/anvandarvillkor",
     type: "website",
   },
@@ -48,8 +48,8 @@ export default function AnvandarvillkorPage() {
 
           <h2 className="mt-12 mb-4 text-[1.4rem] text-left">3. Användarbidrag</h2>
           <p>
-            Om du bidrar med innehåll till webbplatsen — till exempel kommentarer, recensioner
-            eller inlägg — ger du oss en icke-exklusiv, royaltyfri, världsomspännande licens att
+            Om du bidrar med innehåll till webbplatsen (till exempel kommentarer, recensioner
+            eller inlägg) ger du oss en icke-exklusiv, royaltyfri, världsomspännande licens att
             använda, reproducera, modifiera, distribuera och visa detta innehåll. Du ansvarar för
             att ditt innehåll inte kränker tredje parts rättigheter eller är olagligt.
           </p>

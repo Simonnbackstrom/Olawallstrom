@@ -11,7 +11,7 @@ const LINKEDIN_URL = "https://se.linkedin.com/in/olawallstrom";
 export const metadata: Metadata = {
   title: "Inspiration: Ola Wallström i poddar och samtal",
   description:
-    "Lyssna på Ola Wallström i poddar och LinkedIn Live. Samtal om ledarskap, tillväxt och att driva bolag utan att tappa sig själv. Prenumerera på Ägartipset en gång i månaden.",
+    "Lyssna på Ola Wallström i poddar och LinkedIn Live. Samtal om ledarskap, tillväxt och att driva bolag utan att tappa sig själv. Prenumerera på Ägartipset och få det varje vecka.",
   alternates: { canonical: "/inspiration" },
   openGraph: {
     title: "Inspiration: Ola Wallström i poddar och samtal",
@@ -309,7 +309,7 @@ export default function InspirationPage() {
                 Ägartipset
               </h2>
               <p className="mt-3 mb-7 text-center text-[1rem] text-ink-soft leading-relaxed">
-                Konkreta tips, verktyg och nya perspektiv i din inkorg en gång i månaden. Om hur du
+                Konkreta tips, verktyg och nya perspektiv i din inkorg varje vecka. Om hur du
                 kan växa ditt bolag på ett enkelt, effektivt och roligt sätt.
               </p>
               <InspirationSignupForm />
