@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
+/* searchParams is read directly, so skip prerendering for this route. */
+export const instant = false;
+
 export default async function WebinarAnmaldPage({
   searchParams,
 }: {
