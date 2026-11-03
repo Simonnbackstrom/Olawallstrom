@@ -24,7 +24,6 @@ export const metadata: Metadata = {
 
 const EVENT_DATE_ISO = WEBINAR.startISO;
 const EVENT_DATE_LABEL = WEBINAR.dateLabel;
-const EVENT_TIME_LABEL = WEBINAR.timeLabel;
 const SEATS_LIMIT = WEBINAR.seats;
 
 const FACTS = [
@@ -95,7 +94,7 @@ const HOW_IT_WORKS = [
   {
     n: "2",
     title: "Få Zoom-länken",
-    body: "Jag mejlar Zoom-länken så du är redo. Självskattning Tillväxthjulet (PDF) delar jag live under webinaret.",
+    body: "Zoom-länken får du direkt i bekräftelsemejlet, så du är redo. Självskattning Tillväxthjulet (PDF) delar jag live under webinaret.",
   },
   {
     n: "3",
@@ -138,7 +137,7 @@ const FAQ: { q: string; a: string; link?: { href: string; label: string } }[] = 
   },
   {
     q: "Måste jag välja vilken dag jag kommer?",
-    a: `Ja. Jag kör samma webinar tre gånger: ${DATE_OPTIONS_LABEL}. Välj den som passar dig bäst när du anmäler dig. Du får en bekräftelse direkt och Zoom-länken före den dagen.`,
+    a: `Ja. Jag kör samma webinar tre gånger: ${DATE_OPTIONS_LABEL}. Välj den som passar dig bäst när du anmäler dig. Du får en bekräftelse med Zoom-länken direkt.`,
   },
   {
     q: "Vad händer om jag inte kan vara med live?",
@@ -636,8 +635,8 @@ export default function WebinarPage() {
             <h2 className="reveal text-balance text-[color:var(--papper)]">Säkra din plats innan den är tagen.</h2>
             <p className="reveal reveal-d1 mt-5 text-[1.05rem] text-[color:var(--papper)]/75 leading-relaxed">
               Tre tillfällen: {EVENT_DATE_LABEL}. Max {SEATS_LIMIT} platser
-              per gång. Välj den dag som passar dig. Du får bekräftelsen direkt och Zoom-länken
-              före webinaret. Webinaret körs enbart live, ingen inspelning efteråt.
+              per gång. Välj den dag som passar dig. Du får bekräftelsen med Zoom-länken
+              direkt. Webinaret körs enbart live, ingen inspelning efteråt.
             </p>
           </div>
 

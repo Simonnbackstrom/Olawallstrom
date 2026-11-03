@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Script from "next/script";
 import PageHero from "@/components/PageHero";
 
@@ -83,7 +84,7 @@ const BREVO_FORM_HTML = `
           <div class="sib-input sib-form-block">
             <div class="form__entry entry_block"><div class="form__label-row">
               <label class="entry__label" style="font-weight: 700; text-align: left; font-family:Source Sans 3, webFonts; font-size:16px; color:#3c4858;" for="CHALLENGE" data-required="*">Vad är din största utmaning just nu för att växa?</label>
-              <div class="entry__field"><input class="input" maxlength="200" type="text" id="CHALLENGE" name="CHALLENGE" autocomplete="off" placeholder="Fyll i ditt svar" data-required="true" required /></div>
+              <div class="entry__field"><textarea class="input ola-brevo-textarea" rows="5" maxlength="1000" id="CHALLENGE" name="CHALLENGE" autocomplete="off" placeholder="Fyll i ditt svar" data-required="true" required></textarea></div>
             </div><label class="entry__error entry__error--primary" style="font-family:Futura, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px;"></label></div>
           </div>
         </div>
@@ -91,9 +92,13 @@ const BREVO_FORM_HTML = `
           <div class="sib-input sib-form-block">
             <div class="form__entry entry_block"><div class="form__label-row">
               <label class="entry__label" style="font-weight: 700; text-align: left; font-family:Source Sans 3, webFonts; font-size:16px; color:#3c4858;" for="GOAL" data-required="*">Var vill du att företaget ska vara om 3 år?</label>
-              <div class="entry__field"><input class="input" maxlength="200" type="text" id="GOAL" name="GOAL" autocomplete="off" placeholder="Fyll i ditt svar" data-required="true" required /></div>
+              <div class="entry__field"><textarea class="input ola-brevo-textarea" rows="5" maxlength="1000" id="GOAL" name="GOAL" autocomplete="off" placeholder="Fyll i ditt svar" data-required="true" required></textarea></div>
             </div><label class="entry__error entry__error--primary" style="font-family:Futura, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px;"></label></div>
           </div>
+        </div>
+        <div style="padding: 8px 0 0;">
+          <p class="ola-brevo-consent">I och med att jag skickar in mina svar godkänner jag att få mejl från olawallstrom.com. Jag kan när som helst avsluta prenumerationen. Läs mer i <a href="/integritetspolicy">integritetspolicyn</a>.</p>
+          <input type="hidden" name="OPT_IN" value="1">
         </div>
         <div style="padding: 16px 0;">
           <div class="sib-form-block" style="text-align: left">
@@ -112,7 +117,7 @@ const BREVO_FORM_HTML = `
 `;
 
 const BRAND_FORM_CSS = `
-.ola-brevo-wrap { max-width: 540px; margin-inline: auto; }
+.ola-brevo-wrap { max-width: 680px; margin-inline: auto; }
 .ola-brevo-container {
   max-width: none !important;
   background: var(--papper) !important;
@@ -139,7 +144,14 @@ const BRAND_FORM_CSS = `
   color: var(--marin) !important;
   text-align: left !important;
 }
+/* Brevo's stylesheet makes fields inline (as narrow as their content); stretch them to the full form width. */
+.ola-brevo-wrap .sib-input,
+.ola-brevo-wrap .form__entry,
+.ola-brevo-wrap .form__label-row { width: 100% !important; max-width: none !important; }
 .ola-brevo-wrap .entry__field {
+  display: flex !important;
+  width: 100% !important;
+  max-width: none !important;
   background: #fff !important;
   border: 1px solid var(--border-soft) !important;
   border-radius: 12px !important;
@@ -161,6 +173,13 @@ const BRAND_FORM_CSS = `
   font-size: 1rem !important;
   color: var(--ink) !important;
   box-shadow: none !important;
+}
+.ola-brevo-wrap .entry__field textarea.input {
+  height: auto !important;
+  min-height: 140px !important;
+  padding: 14px 16px !important;
+  line-height: 1.55 !important;
+  resize: vertical !important;
 }
 .ola-brevo-wrap .entry__field .input::placeholder {
   color: #9aa3af !important;
@@ -205,6 +224,15 @@ const BRAND_FORM_CSS = `
 .ola-brevo-wrap .ola-brevo-msg--error { color: #7a1d1d !important; background: #fdecec !important; border: 1px solid #f3c4c4 !important; }
 .ola-brevo-wrap .ola-brevo-msg--success { color: #0b4a28 !important; background: #e7faf0 !important; border: 1px solid #b7ead1 !important; }
 .ola-brevo-wrap .sib-form-message-panel__inner-text { font-family: var(--font-text), system-ui, sans-serif !important; }
+.ola-brevo-wrap .ola-brevo-consent {
+  margin: 0;
+  text-align: left;
+  font-family: var(--font-text), system-ui, sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--ink-soft, #4a4a4a);
+}
+.ola-brevo-wrap .ola-brevo-consent a { color: var(--marin); text-decoration: underline; text-underline-offset: 2px; }
 .ola-brevo-wrap .sib-notification__icon { width: 20px !important; height: 20px !important; margin-right: 8px !important; }
 `;
 
@@ -224,10 +252,22 @@ var AUTOHIDE = Boolean(1);
 export default function WebinarUppvarmningPage() {
   return (
     <>
+      {/* The site header is hidden on this focused page; a plain (non-clickable) logo keeps it branded. */}
+      <div className="absolute inset-x-0 top-6 md:top-8 z-10 flex justify-center pointer-events-none">
+        <Image
+          src="/brand/logo-horizontal.png"
+          alt="Ola Wallström"
+          width={1289}
+          height={236}
+          priority
+          quality={90}
+          className="h-7 md:h-8 w-auto"
+        />
+      </div>
       <PageHero
         eyebrow="Inför webinaret"
         title={
-          <span className="hyphens-none [word-break:keep-all]">
+          <span className="block text-balance hyphens-none [word-break:keep-all]">
             Hjälp Ola förbereda webinaret för dig.
           </span>
         }
@@ -237,7 +277,7 @@ export default function WebinarUppvarmningPage() {
 
       <section className="pb-24 md:pb-32 sec-sand">
         <div className="container-site">
-          <div className="max-w-xl mx-auto -mt-10 md:-mt-16 relative z-10">
+          <div className="max-w-2xl mx-auto -mt-10 md:-mt-16 relative z-10">
             <div dangerouslySetInnerHTML={{ __html: BREVO_FORM_HTML }} />
           </div>
           <p className="mt-10 text-center text-[0.85rem] text-muted max-w-md mx-auto">

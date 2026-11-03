@@ -3,6 +3,7 @@ import { Lora, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import HideOnRoutes from "@/components/HideOnRoutes";
 import ScrollReveal from "@/components/ScrollReveal";
 import StructuredData from "@/components/StructuredData";
 import CookieBanner from "@/components/CookieBanner";
@@ -95,9 +96,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-screen flex flex-col bg-papper text-ink">
         <StructuredData />
-        <Navbar />
+        <HideOnRoutes>
+          <Navbar />
+        </HideOnRoutes>
         <main className="flex-1">{children}</main>
-        <Footer />
+        <HideOnRoutes>
+          <Footer />
+        </HideOnRoutes>
         <ScrollReveal />
         <CookieBanner />
       </body>

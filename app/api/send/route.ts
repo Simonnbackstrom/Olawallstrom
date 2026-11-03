@@ -12,19 +12,30 @@ type Payload = {
 const FROM = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 const TO = process.env.RESEND_TO_EMAIL || "ola@olawallstrom.com";
 
-/* Maps a form's listKey to the matching Brevo list ID env var. */
-const BREVO_LIST_ENV: Record<string, string> = {
-  agartipset: "BREVO_LIST_ID_AGARTIPSET",
+/*
+ * Maps a form's listKey to the Brevo list ID env vars it should be added to.
+ * Every env var that is set is used, so a webinar signup lands in the shared
+ * webinar list and, if configured, in a list for the chosen day (handy for
+ * sending the right reminder and Zoom link per session).
+ */
+const BREVO_LIST_ENV: Record<string, string[]> = {
+  agartipset: ["BREVO_LIST_ID_AGARTIPSET"],
+  "webinar-tis": ["BREVO_LIST_ID_WEBINAR", "BREVO_LIST_ID_WEBINAR_TIS"],
+  "webinar-ons": ["BREVO_LIST_ID_WEBINAR", "BREVO_LIST_ID_WEBINAR_ONS"],
+  "webinar-fre": ["BREVO_LIST_ID_WEBINAR", "BREVO_LIST_ID_WEBINAR_FRE"],
 };
 
 async function addToBrevoList(listKey: string, fields: Record<string, string>) {
   const apiKey = process.env.BREVO_API_KEY;
-  const listEnvVar = BREVO_LIST_ENV[listKey];
-  const listIdRaw = listEnvVar ? process.env[listEnvVar] : undefined;
-  const listId = listIdRaw ? Number(listIdRaw) : NaN;
+  const envVars = BREVO_LIST_ENV[listKey] ?? [];
+  const listIds = envVars
+    .map((name) => Number(process.env[name]))
+    .filter((id) => Number.isInteger(id) && id > 0);
 
-  if (!apiKey || !Number.isFinite(listId)) {
-    console.warn(`Brevo skipped for listKey="${listKey}": missing BREVO_API_KEY or ${listEnvVar}.`);
+  if (!apiKey || listIds.length === 0) {
+    console.warn(
+      `Brevo skipped for listKey="${listKey}": missing BREVO_API_KEY or all of ${envVars.join(", ") || "(unknown listKey)"}.`,
+    );
     return;
   }
 
@@ -48,7 +59,7 @@ async function addToBrevoList(listKey: string, fields: Record<string, string>) {
         LASTNAME: lastName || undefined,
         COMPANY: fields.company || undefined,
       },
-      listIds: [listId],
+      listIds,
       updateEnabled: true,
     }),
   });

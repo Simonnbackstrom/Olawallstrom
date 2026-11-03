@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { sendForm } from "@/lib/formsubmit";
 import { WEBINAR, sessionForId, webinarAutoresponse } from "@/lib/webinar";
@@ -30,8 +31,10 @@ export default function WebinarSignupForm({ dark = false }: Props) {
       await sendForm(form, {
         subject: `Ny webinaranmälan: ${name} (${chosen.label})`,
         autoresponse: webinarAutoresponse(chosen.id),
+        // Add the contact to the webinar list(s) in Brevo (list IDs come from env vars).
+        brevo: { listKey: `webinar-${chosen.id}` },
       });
-      router.push(`/webinar/anmald?datum=${chosen.id}`);
+      router.push("/webinar/anmald");
     } catch (err) {
       setStatus("error");
       setErrorMsg(err instanceof Error ? err.message : "Något gick fel");
@@ -113,7 +116,16 @@ export default function WebinarSignupForm({ dark = false }: Props) {
         </p>
       )}
       <p className={`pt-1 text-[0.8rem] leading-[1.65] text-center ${dark ? "text-[color:var(--papper)]/60" : "text-muted"}`}>
-        Jag mejlar Zoom-länken, påminnelser och fortsatt tillväxtinspiration för bolagsägare. Avprenumerera när som helst.
+        {/* Consent notice: signing up means agreeing to email from olawallstrom.com (agreed with Ola). */}
+        I och med min anmälan godkänner jag att få mejl från olawallstrom.com: Zoom-länken, påminnelser och
+        tillväxtinspiration. Jag kan när som helst avsluta prenumerationen. Läs mer i{" "}
+        <Link
+          href="/integritetspolicy"
+          className={`underline underline-offset-2 transition-colors ${dark ? "hover:text-[color:var(--papper)]" : "hover:text-[color:var(--marin)]"}`}
+        >
+          integritetspolicyn
+        </Link>
+        .
       </p>
     </form>
   );
