@@ -3,9 +3,10 @@ export const WEBINAR = {
   title: "Så växer du från 10 till 50 miljoner, utan att behöva jobba mer",
   tagline: "Mer tillväxt. Mindre slit.",
   sessions: [
-    { id: "tis", iso: "2026-11-17T08:00:00+01:00", label: "Tisdag 17 november", timeLabel: "08.00-09.00" },
-    { id: "ons", iso: "2026-11-18T11:30:00+01:00", label: "Onsdag 18 november", timeLabel: "11.30-12.30" },
-    { id: "fre", iso: "2026-11-20T08:00:00+01:00", label: "Fredag 20 november", timeLabel: "08.00-09.00" },
+    // brevoValue = the option value of WEBINAR_NOVEMBER_2026 in the Brevo form (1 = tis, 2 = ons, 3 = fre).
+    { id: "tis", iso: "2026-11-17T08:00:00+01:00", label: "Tisdag 17 november", timeLabel: "08.00-09.00", brevoValue: "1" },
+    { id: "ons", iso: "2026-11-18T11:30:00+01:00", label: "Onsdag 18 november", timeLabel: "11.30-12.30", brevoValue: "2" },
+    { id: "fre", iso: "2026-11-20T08:00:00+01:00", label: "Fredag 20 november", timeLabel: "08.00-09.00", brevoValue: "3" },
   ],
   /** Primary date for countdown and schema (first session). */
   startISO: "2026-11-17T08:00:00+01:00",
@@ -15,7 +16,38 @@ export const WEBINAR = {
   timeLabel: "Olika tider",
   seats: 100,
   url: "https://olawallstrom.com/webinar",
+  /*
+   * Brevo sign-up form "(Ads) Webinar: Så växer du från 10 till 50 miljoner".
+   * Submitting to it (instead of the API) is what starts the Brevo automation
+   * "Webinar - November 2026", which sends the confirmation with the Zoom link
+   * for the chosen day. The URL is public (it's in Brevo's embed code).
+   */
+  brevoFormUrl:
+    "https://2a8f6d4e.sibforms.com/serve/MUIFAEyRgr9DaSz0ksvOXEbIFnlGXvaoDcZhtb4dD6xiXm6ZVuLKfULmXwyaRFqo_WfQBT_sByaBxrYH_74z9ZD_rfImvsx_G8W5T3KW9o5z5knLyOMpozqkz79ac2itnP45WTHcR-I2BPfCgVu-gkReR_JkPeSqaaHLKBuaL3HSx8D-2bvkrQOqO76njikeWXQ8Yjq1uB8U5_y53A==",
 };
+
+/** Sends a webinar signup to the Brevo form. Fields match the form's embed code. */
+export async function submitToBrevoForm(fields: {
+  firstName: string;
+  lastName: string;
+  email: string;
+  sessionId: string;
+}) {
+  const body = new FormData();
+  body.append("FIRSTNAME", fields.firstName);
+  body.append("LASTNAME", fields.lastName);
+  body.append("EMAIL", fields.email);
+  body.append("WEBINAR_NOVEMBER_2026", sessionForId(fields.sessionId).brevoValue);
+  // Consent is given by signing up (notice shown under the button).
+  body.append("OPT_IN", "1");
+  // Brevo's own honeypot and locale fields, sent like the embedded form does.
+  body.append("email_address_check", "");
+  body.append("locale", "en");
+
+  // no-cors: the browser sends the request like a normal form post but can't read the reply.
+  // Fields are validated on our side first, so a successful send means Brevo received it.
+  await fetch(`${WEBINAR.brevoFormUrl}?isAjax=1`, { method: "POST", mode: "no-cors", body });
+}
 
 /** 2026-11-11T09:00:00+01:00 -> 20261111T080000Z */
 function utcStamp(iso: string) {
@@ -94,23 +126,3 @@ export function webinarIcs(sessionId?: string | null) {
   return lines.map(icsFold).join("\r\n") + "\r\n";
 }
 
-/** Automatic reply sent to the person who signs up (plain text). */
-export function webinarAutoresponse(sessionId?: string | null) {
-  const s = sessionForId(sessionId);
-  return [
-    "Hej!",
-    "",
-    `Tack för din anmälan till webinaret "${WEBINAR.title}". Din plats är bokad.`,
-    "",
-    `När: ${s.label} kl. ${s.timeLabel}, live på Zoom.`,
-    `Lägg till i kalendern: ${googleCalendarUrl(s.id)}`,
-    "",
-    "Zoom-länken mejlar jag till dig före webinaret. Självskattningen Tillväxthjulet (PDF) delar jag live på webinaret, så vi fyller i den tillsammans. Webinaret körs enbart live, ingen inspelning efteråt.",
-    "",
-    "Har du en fråga redan nu? Mejla mig på ola@olawallstrom.com.",
-    "",
-    "Vi ses,",
-    "Ola Wallström",
-    "Autentisk affärsutveckling",
-  ].join("\n");
-}

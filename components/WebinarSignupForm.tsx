@@ -4,7 +4,7 @@ import { useId, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { sendForm } from "@/lib/formsubmit";
-import { WEBINAR, sessionForId, webinarAutoresponse } from "@/lib/webinar";
+import { WEBINAR, sessionForId, submitToBrevoForm } from "@/lib/webinar";
 
 type Props = {
   /** Render on a dark (marin) background. */
@@ -23,22 +23,33 @@ export default function WebinarSignupForm({ dark = false }: Props) {
     setErrorMsg(null);
     const form = e.currentTarget;
     const data = new FormData(form);
-    const name = String(data.get("name") || "").trim();
+    const firstName = String(data.get("firstName") || "").trim();
+    const lastName = String(data.get("lastName") || "").trim();
+    const email = String(data.get("email") || "").trim();
     const sessionId = String(data.get("datum") || WEBINAR.sessions[0].id);
     const chosen = sessionForId(sessionId);
 
     try {
-      await sendForm(form, {
-        subject: `Ny webinaranmälan: ${name} (${chosen.label})`,
-        autoresponse: webinarAutoresponse(chosen.id),
-        // Add the contact to the webinar list(s) in Brevo (list IDs come from env vars).
-        brevo: { listKey: `webinar-${chosen.id}` },
-      });
-      router.push("/webinar/anmald");
-    } catch (err) {
+      // 1. Brevo form: adds the contact to the webinar list and starts the automation
+      //    that emails the confirmation with the Zoom link for the chosen day.
+      await submitToBrevoForm({ firstName, lastName, email, sessionId: chosen.id });
+    } catch {
       setStatus("error");
-      setErrorMsg(err instanceof Error ? err.message : "Något gick fel");
+      setErrorMsg("Kunde inte skicka. Kontrollera din uppkoppling och försök igen.");
+      return;
     }
+
+    // 2. Notification to Ola (best effort, the signup itself is already saved in Brevo).
+    //    No autoresponse here: the confirmation comes from Brevo.
+    try {
+      await sendForm(form, {
+        subject: `Ny webinaranmälan: ${firstName} ${lastName} (${chosen.label})`,
+      });
+    } catch {
+      /* ignore */
+    }
+
+    router.push("/webinar/anmald");
   };
 
   const labelTone = dark ? "text-[color:var(--papper)]/80" : "text-[color:var(--marin)]/80";
@@ -93,9 +104,12 @@ export default function WebinarSignupForm({ dark = false }: Props) {
         </div>
       </fieldset>
 
-      <div className="grid gap-3 sm:grid-cols-2">
-        <Field name="name" label="Namn" autoComplete="name" />
-        <Field name="email" label="E-post" type="email" autoComplete="email" />
+      <div className="grid gap-3 grid-cols-2">
+        <Field name="firstName" label="Förnamn" autoComplete="given-name" />
+        <Field name="lastName" label="Efternamn" autoComplete="family-name" />
+        <div className="col-span-2">
+          <Field name="email" label="E-post" type="email" autoComplete="email" />
+        </div>
       </div>
       <button
         type="submit"
