@@ -230,8 +230,16 @@ export default function Navbar() {
           </div>
 
           <div className="lg:hidden flex items-center gap-2">
-            <a {...ctaProps} className="btn-primary !py-2 !px-4 !text-[13px]">
-              {ctaMobileLabel}
+            <a {...ctaProps} className="btn-primary !py-2 !px-4 !text-[13px] whitespace-nowrap">
+              {onWebinar ? (
+                ctaMobileLabel
+              ) : (
+                <>
+                  {/* Shorter label on the narrowest phones so the logo, button and menu fit on one row. */}
+                  <span className="min-[400px]:hidden">Boka samtal</span>
+                  <span className="hidden min-[400px]:inline">{ctaMobileLabel}</span>
+                </>
+              )}
             </a>
 
           {!onWebinar && (

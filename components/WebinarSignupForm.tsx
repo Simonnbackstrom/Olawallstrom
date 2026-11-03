@@ -61,7 +61,7 @@ export default function WebinarSignupForm({ dark = false }: Props) {
             return (
               <label
                 key={s.id}
-                className={`cursor-pointer rounded-xl ring-1 px-2.5 py-2.5 text-center transition ${
+                className={`cursor-pointer rounded-xl ring-1 px-1.5 sm:px-2.5 py-2.5 text-center transition ${
                   active ? radioActive : radioInactive
                 }`}
               >
@@ -76,11 +76,13 @@ export default function WebinarSignupForm({ dark = false }: Props) {
                 <span className="block text-[0.68rem] uppercase tracking-[0.1em] opacity-70">
                   {s.label.split(" ")[0]}
                 </span>
-                <span className="mt-0.5 block font-[family-name:var(--font-heading)] font-semibold text-[1rem] leading-tight">
-                  {s.label.replace(/^\S+\s/, "")}
+                <span className="mt-0.5 block font-[family-name:var(--font-heading)] font-semibold text-[1rem] leading-tight whitespace-nowrap">
+                  {/* Short month on phones so the date stays on one line. */}
+                  <span className="sm:hidden">{s.label.replace(/^\S+\s/, "").replace(/(\d+) (\p{L}{3})\p{L}*/u, "$1 $2")}</span>
+                  <span className="hidden sm:inline">{s.label.replace(/^\S+\s/, "")}</span>
                 </span>
-                <span className="mt-1 block text-[0.72rem] opacity-70 tabular-nums">
-                  {s.timeLabel}
+                <span className="mt-1 block text-[0.72rem] opacity-70 tabular-nums whitespace-nowrap">
+                  {s.timeLabel.replace("-", "–")}
                 </span>
               </label>
             );

@@ -22,7 +22,7 @@ export default function LogoCarousel({ eyebrow = "Några av bolagen jag jobbat m
     <section className="py-16 md:py-20 bg-sand">
       {eyebrow && (
         <div className="container-site mb-10 flex justify-center">
-          <p className="reveal font-[family-name:var(--font-heading)] font-semibold text-[0.95rem] text-[color:var(--glod)]">
+          <p className="reveal text-center text-balance font-[family-name:var(--font-heading)] font-semibold text-[0.95rem] text-[color:var(--glod)]">
             {eyebrow}
           </p>
         </div>

@@ -130,7 +130,9 @@ export default function CookieBanner() {
               <div className="min-w-0 flex-1">
                 <h2
                   id="cookie-banner-title"
-                  className="text-[0.88rem] font-[family-name:var(--font-heading)] font-semibold text-[color:var(--marin)] leading-snug"
+                  className="font-[family-name:var(--font-heading)] font-semibold text-[color:var(--marin)] leading-snug"
+                  // Inline size: the global h2 size in globals.css is unlayered and would win over a Tailwind class.
+                  style={{ fontSize: "1rem" }}
                 >
                   Vi använder kakor.
                 </h2>

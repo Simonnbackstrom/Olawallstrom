@@ -11,12 +11,12 @@ import { WEBINAR } from "@/lib/webinar";
 export const metadata: Metadata = {
   title: "Gratis webinar: så växer du från 10 till 50 miljoner, utan att jobba mer",
   description:
-    "Live på Zoom 11, 12 och 13 november. 60 minuter för bolagsägare på 10 MSEK+. Ola Wallström delar Tillväxthjulet och fyra skiften bakom 650+ coachade bolag. Kostnadsfritt.",
+    `Live på Zoom ${WEBINAR.dateLabel}. 60 minuter för bolagsägare på 10 MSEK+. Ola Wallström delar Tillväxthjulet och fyra skiften bakom 650+ coachade bolag. Kostnadsfritt.`,
   alternates: { canonical: "/webinar" },
   openGraph: {
     title: "Gratis webinar: så växer du från 10 till 50 miljoner",
     description:
-      "Live på Zoom 11, 12 och 13 november. 60 minuter med Ola Wallström. Tillväxthjulet, fyra skiften, konkreta case.",
+      `Live på Zoom ${WEBINAR.dateLabel}. 60 minuter med Ola Wallström. Tillväxthjulet, fyra skiften, konkreta case.`,
     url: "https://olawallstrom.com/webinar",
     type: "website",
   },
@@ -45,87 +45,88 @@ const RECOGNITION = [
 
 const SHIFTS = [
   {
-    n: "01",
+    n: "1",
     title: "Mental klarhet",
-    old: "”Jag sätter större mål och kör hårdare.”",
-    neww: "”Jag vet vad jag egentligen vill, och bygger bolaget efter det.”",
-    body: "Vart du är på väg, och varför. När riktningen är knivskarp blir varje beslut lättare.",
+    old: "Mer mål. Mer fart. Ändå skaver något.",
+    neww: "Tänk om nästa steg kräver ett helt annat mindset?",
+    body: "Vart du är på väg och varför. När riktningen är knivskarp blir varje beslut lättare.",
     caseLabel: "Case · 2 bolag",
     caseBody:
-      "Två motsatta beslut: det ena bolaget säljs i stället för att växas vidare, det andra skalar ner och tjänar mer än någonsin.",
+      "Två ägare stod inför oväntade vägval. Vad hände när de valde en annan riktning än de först tänkt?",
   },
   {
-    n: "02",
+    n: "2",
     title: "Ledarskap",
-    old: "”Det går fortast om jag gör det själv.”",
-    neww: "”Mitt jobb är att göra andra bättre än mig.”",
+    old: "Det går fortast om jag gör det själv.",
+    neww: "Vad händer när du inte längre behöver vara svaret på allt?",
     body: "Att göra andra självgående. Vet de vad? Vet de hur? Vill de?",
     caseLabel: "Case · 3 månader",
     caseBody:
-      "Christoffer fick två mellanchefer på plats. I dag lämnar han på förskolan och tränar tre gånger i veckan, samtidigt som bolaget växer.",
+      "Christoffer fick mer tid för familj och träning samtidigt som bolaget fortsatte växa. Vad förändrades?",
   },
   {
-    n: "03",
+    n: "3",
     title: "Affärsutveckling",
-    old: "”Vi säljer det vi alltid sålt, till det pris vi alltid tagit.”",
-    neww: "”Vi säljer det värde vi faktiskt skapar, till dem som kan betala för det.”",
+    old: "Samma erbjudande. Samma pris. Samma marginal.",
+    neww: "Öka kundens upplevda värde utan att det kostar dig mer energi.",
     body: "Rätt kunder, rätt paketering, rätt marginal. Det är sällan ett volymproblem.",
     caseLabel: "Case · 24×",
     caseBody:
-      "Från 20 000 kr till 480 000 kr på fyra månader, och det blev lättare att sälja, inte svårare.",
+      "Priset höjdes från 20 000 kr till 480 000 kr per uppdrag och plötsligt blev det lättare att sälja. Vad låg bakom?",
   },
   {
-    n: "04",
+    n: "4",
     title: "Försäljning",
-    old: "”Vi måste hitta fler nya kunder.”",
-    neww: "”Vi börjar där förtroendet redan finns.”",
+    old: "Fler kunder. Fler samtal. Ändå står det still?",
+    neww: "Skapa ett jämnt flöde av inkommande kunder med en strategi som håller över tid.",
     body: "De flesta bolag jagar nya kunder när tillväxten faktiskt ligger i de befintliga.",
-    caseLabel: "Case · +25 %",
+    caseLabel: "Case · +25%",
     caseBody:
-      "Högre omsättning på tre veckor, genom ett riktat erbjudande till befintliga kunder.",
+      "Ett bolag i kris ökade omsättningen med 25 procent på tre veckor. Vad vände utvecklingen?",
   },
 ];
 
 const HOW_IT_WORKS = [
   {
-    n: "01",
+    n: "1",
     title: "Anmäl dig på 30 sekunder",
     body: "Välj en av tre dagar och fyll i namn + mejl. Bekräftelse i din inkorg direkt.",
   },
   {
-    n: "02",
+    n: "2",
     title: "Få Zoom-länken",
     body: "Jag mejlar Zoom-länken så du är redo. Självskattning Tillväxthjulet (PDF) delar jag live under webinaret.",
   },
   {
-    n: "03",
+    n: "3",
     title: "Live 60 minuter + öppen frågestund",
-    body: "Vi går igenom modellen, de fyra skiften och riktiga case. Enbart live, ingen inspelning efteråt.",
+    body: "Vi går igenom metoden, de fyra ekrarna och riktiga case. Enbart live, ingen inspelning efteråt.",
   },
 ];
 
 const BONUSES = [
   {
     title: "Självskattning Tillväxthjulet (PDF)",
-    body: "Mallen jag använder med mina VIP-kunder. Du får den live på webinaret, så vi fyller i den tillsammans och du ser svart på vitt vilken eker som bromsar mest.",
+    body: "Metoden jag använder med mina VIP‑kunder. Du får den live på webinaret, så vi fyller i den tillsammans och du ser svart på vitt vilken eker som bromsar mest.",
   },
   {
     title: "Ljudboken Ledarskap utan ansträngning",
-    body: "Min bok om hur du leder så att andra blir bättre än dig, i stället för att allt landar hos dig. Hela boken i ljud, gratis.",
+    body: "Min ljudbok handlar om hur du leder så att andra blir bättre än du och hur du blir mer fri. Ladda ner den kostnadsfritt.",
   },
 ];
 
 const FOR_WHOM = [
   "Du äger eller leder ett bolag som omsätter minst 10 miljoner.",
-  "Du har medarbetare, och allt för många beslut går fortfarande via dig.",
+  "Du har duktiga medarbetare, men alltför många beslut går fortfarande via dig.",
   "Du vill växa, men inte genom att slita mer.",
-  "Du är beredd att ändra på dig själv, inte bara teamet.",
+  "Du är beredd att utveckla ditt mindset och din strategi.",
 ];
 
 const NOT_FOR_WHOM = [
-  "Du har precis startat och letar efter en första kund.",
-  "Du söker en snabb lösning eller en ny marknadsföringskanal.",
-  "Du vill bli underhållen snarare än utmanad.",
+  "Ännu inte har byggt ett etablerat bolag med medarbetare, återkommande kunder och minst 10 miljoner kronor i omsättning.",
+  "Hoppas på en snabb genväg eller att en ny marknadsföringskanal ska lösa tillväxten.",
+  "Vill bli inspirerad, men inte utmanad i hur du själv leder och driver bolaget.",
+  "Söker färdiga svar, men inte är beredd att omsätta nya insikter i handling.",
 ];
 
 const DATE_OPTIONS_LABEL = WEBINAR.sessions.map((s) => s.label).join(", ");
@@ -145,10 +146,10 @@ const FAQ: { q: string; a: string; link?: { href: string; label: string } }[] = 
   },
   {
     q: "Är det för mig som precis har startat?",
-    a: "Nej, ärligt talat. Innehållet är byggt för etablerade bolag på 10 MSEK och uppåt med medarbetare. Är du i början, väx först, eller läs om mina andra program på sajten.",
+    a: "Nej, ärligt talat. Innehållet är för ägare i etablerade bolag med medarbetare, återkommande kunder och minst 10 MSEK i omsättning.",
   },
   {
-    q: "Vad gör jag om jag inte vill vänta till november?",
+    q: "Vad gör jag om jag inte vill vänta till webinaret?",
     a: "Boka ett kostnadsfritt strategisamtal på 30 minuter med mig i stället. Inget säljtryck. Vi tittar på var ditt bolag står och vilken eker som bromsar.",
     link: { href: "https://calendly.com/olawallstrom/30min", label: "Boka ett strategisamtal" },
   },
@@ -213,10 +214,10 @@ export default function WebinarPage() {
               <ul className="reveal reveal-d2 mt-6 mx-auto w-fit max-w-md flex flex-col gap-2.5 text-left">
                 {[
                   "Konkret var ditt bolag bromsar, och hur du släpper fram tillväxten utan att själv jobba mer",
-                  "Fyra skiften med riktiga case: 10 till 50 MSEK, 24× marginal, +25 % på tre veckor",
+                  "Fyra skiften med riktiga case: 10 till 50 MSEK, 24× marginal, +25% på tre veckor",
                   "Självskattning Tillväxthjulet (PDF) live på webinaret, plus ljudbok till din mejl",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-[0.98rem] text-ink leading-relaxed">
+                  <li key={item} className="flex items-start gap-3 text-[0.98rem] text-ink leading-relaxed text-pretty">
                     <span className="mt-[0.2rem] shrink-0 h-5 w-5 inline-flex items-center justify-center rounded-full bg-glod-dim text-[color:var(--glod)]">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                         <polyline points="20 6 9 17 4 12" />
@@ -229,14 +230,14 @@ export default function WebinarPage() {
             </div>
 
             <div id="anmal-top" className="reveal reveal-d1 flex">
-              <div className="w-full rounded-3xl sec-marin px-7 py-9 md:px-10 flex flex-col justify-center text-center shadow-[0_30px_70px_-34px_rgba(23,59,96,0.6)]">
+              <div className="w-full rounded-3xl sec-marin px-5 py-8 sm:px-7 sm:py-9 md:px-10 flex flex-col justify-center text-center shadow-[0_30px_70px_-34px_rgba(23,59,96,0.6)]">
                 <WebinarCountdown tone="dark" />
 
                 <h2 className="mt-6 text-[color:var(--papper)]" style={{ fontSize: "clamp(1.6rem, 2.6vw, 2rem)" }}>
-                  Säkra din plats. Gratis.
+                  Säkra din plats.
                 </h2>
 
-                <div className="mt-4 mb-6 inline-flex items-center justify-center gap-2.5 text-[0.9rem] text-[color:var(--papper)]/80">
+                <div className="mt-4 mb-6 flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2.5 text-[0.9rem] text-[color:var(--papper)]/80">
                   <span className="inline-flex gap-0.5" aria-hidden>
                     {Array.from({ length: 5 }).map((_, i) => (
                       <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="var(--glod)">
@@ -263,17 +264,17 @@ export default function WebinarPage() {
       {/* 3. FACT BAR */}
       <section className="py-8 md:py-10 sec-papper border-y border-[color:var(--border-soft)]">
         <div className="container-site">
-          <ul className="reveal flex flex-wrap items-center justify-center gap-x-6 gap-y-3 md:gap-x-10 text-center">
+          <ul className="reveal grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-5 xl:flex xl:flex-wrap xl:items-center xl:justify-center xl:gap-x-10 xl:gap-y-3 text-center">
             {FACTS.map((f, i) => (
-              <li key={f.label} className="flex items-center gap-3">
-                <span className="inline-flex items-baseline gap-2">
+              <li key={f.label} className="flex items-center justify-center gap-3 first:col-span-2 sm:first:col-span-4">
+                <span className="flex flex-col items-center gap-1 xl:inline-flex xl:flex-row xl:items-baseline xl:gap-2">
                   <span className="text-[0.78rem] uppercase tracking-[0.14em] text-muted">{f.label}</span>
                   <span className="font-[family-name:var(--font-heading)] font-semibold text-[1rem] md:text-[1.05rem] text-[color:var(--marin)]">
                     {f.value}
                   </span>
                 </span>
                 {i < FACTS.length - 1 && (
-                  <span aria-hidden className="hidden md:inline-block h-4 w-px bg-[color:var(--border-soft)]" />
+                  <span aria-hidden className="hidden xl:inline-block h-4 w-px bg-[color:var(--border-soft)]" />
                 )}
               </li>
             ))}
@@ -296,7 +297,7 @@ export default function WebinarPage() {
               />
             </div>
             <div className="text-center">
-              <h2 className="reveal">Vem är Ola?</h2>
+              <h2 className="reveal text-balance">Vem är Ola?</h2>
               <p className="reveal reveal-d1 mt-6 text-[1.05rem] text-ink-soft leading-relaxed max-w-lg mx-auto">
                 Civilekonom, författare till fyra böcker om ledarskap och entreprenörskap, och med
                 åtta grundade bolag i bagaget. Senaste 25 åren har jag jobbat med fler än 650
@@ -304,8 +305,8 @@ export default function WebinarPage() {
                 till 1,9 miljarder på två år, utan att någon gick sönder.
               </p>
               <p className="reveal reveal-d2 mt-5 text-[1.05rem] text-ink-soft leading-relaxed max-w-lg mx-auto">
-                Det jag delar på webinaret är ingen teaser. Det är samma ramverk som mina
-                VIP-kunder jobbar med, förtätat till 60 minuter.
+                Det jag delar på webinaret är praktiska tillämpningar från verkliga case. Det är
+                samma ramverk som mina VIP‑kunder jobbar med, förtätat till 60 minuter.
               </p>
 
               <dl className="reveal reveal-d3 mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 max-w-xl mx-auto">
@@ -332,12 +333,12 @@ export default function WebinarPage() {
       <section className="py-[var(--section-y)] sec-marin">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-[color:var(--papper)]">
+            <h2 className="text-balance text-[color:var(--papper)]">
               Ju mer du gör själv, <em className="text-[color:var(--glod)]">desto mindre jobbar andra.</em>
             </h2>
             <p className="mt-6 text-[1.1rem] md:text-[1.2rem] text-[color:var(--papper)]/80 leading-relaxed">
-              Ett bolag kan bara växa så långt som dess trångaste flaskhals tillåter. I bolag
-              mellan 10 och 50 miljoner är den nästan alltid ägaren.
+              Det är en obekväm sanning som bromsar din tillväxt. I bolag mellan 10 och 50
+              miljoner gör ägaren nästan alltid för mycket själv.
             </p>
             <p className="mt-8 font-[family-name:var(--font-heading)] text-[1.15rem] md:text-[1.3rem] text-[color:var(--papper)]/90">
               Känner du igen dig?
@@ -356,15 +357,15 @@ export default function WebinarPage() {
                 >
                   !
                 </span>
-                <p className="text-left font-[family-name:var(--font-heading)] text-[1.05rem] md:text-[1.15rem] leading-snug text-[color:var(--marin)]">
+                <p className="text-left text-pretty font-[family-name:var(--font-heading)] text-[1.05rem] md:text-[1.15rem] leading-snug text-[color:var(--marin)]">
                   {p}
                 </p>
               </li>
             ))}
           </ul>
 
-          <p className="mt-12 text-center max-w-2xl mx-auto font-[family-name:var(--font-heading)] text-[1.25rem] md:text-[1.5rem] leading-snug text-[color:var(--papper)]">
-            Så vad gör ägarna som bryter kurvan? De slutar jobba <em className="text-[color:var(--glod)]">i</em> bolaget och börjar jobba <em className="text-[color:var(--glod)]">på</em> det.
+          <p className="mt-12 text-center text-balance max-w-2xl mx-auto font-[family-name:var(--font-heading)] text-[1.25rem] md:text-[1.5rem] leading-snug text-[color:var(--papper)]">
+            Så vad gör ägarna som bryter kurvan? De slutar jobba <em className="text-[color:var(--glod)]">i</em> bolaget och börjar jobba <em className="text-[color:var(--glod)]">med</em> det.
           </p>
 
           <div className="mt-10 flex justify-center">
@@ -383,13 +384,13 @@ export default function WebinarPage() {
       <section className="py-[var(--section-y)] sec-papper">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-14 md:mb-16">
-            <h2 className="reveal">
+            <h2 className="reveal text-balance">
               Tillväxthjulet. <em>Fyra ekrar som bär bolaget.</em>
             </h2>
             <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.15rem] text-ink-soft leading-relaxed">
-              Samma modell som ligger bakom 650 entreprenörers resor. När en eker är svag skakar
-              hela hjulet, och det du känner som ”brandkårstider” är nästan alltid en specifik
-              eker som inte roterar.
+              Samma metod som jag har arbetat med tillsammans med över 650 entreprenörer. När en
+              av ekrarna inte fungerar som den ska börjar hjulet gå ojämnt. I bolaget märks det
+              ofta som stress, återkommande problem och en känsla av att mycket inte riktigt flyter.
             </p>
           </div>
 
@@ -408,7 +409,7 @@ export default function WebinarPage() {
                   </h3>
                 </div>
 
-                <p className="mt-5 text-[0.98rem] text-ink-soft leading-relaxed">{s.body}</p>
+                <p className="mt-5 text-[0.98rem] text-ink-soft leading-relaxed text-pretty">{s.body}</p>
 
                 <dl className="mt-6 grid gap-3 text-left">
                   <div className="rounded-xl bg-sand px-4 py-3">
@@ -431,7 +432,7 @@ export default function WebinarPage() {
                   <p className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[color:var(--glod)]">
                     {s.caseLabel}
                   </p>
-                  <p className="mt-2 text-[0.98rem] text-ink leading-relaxed">{s.caseBody}</p>
+                  <p className="mt-2 text-[0.98rem] text-ink leading-relaxed text-pretty">{s.caseBody}</p>
                 </div>
               </article>
             ))}
@@ -472,10 +473,10 @@ export default function WebinarPage() {
                 <div className="mx-auto mb-5 h-14 w-14 rounded-full bg-[color:var(--marin)] inline-flex items-center justify-center font-[family-name:var(--font-heading)] font-semibold text-[1.3rem] text-[color:var(--papper)]">
                   {s.n}
                 </div>
-                <h3 className="mb-3 leading-tight" style={{ fontSize: "1.2rem" }}>
+                <h3 className="mb-3 leading-tight text-balance" style={{ fontSize: "1.2rem" }}>
                   {s.title}
                 </h3>
-                <p className="text-[0.98rem] text-ink-soft leading-relaxed">{s.body}</p>
+                <p className="text-[0.98rem] text-ink-soft leading-relaxed text-pretty">{s.body}</p>
               </article>
             ))}
           </div>
@@ -486,8 +487,8 @@ export default function WebinarPage() {
       <section className="py-[var(--section-y)] sec-sand">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-14">
-            <h2 className="reveal">
-              Två saker du tar med dig, oavsett om du gör något mer med mig eller inte.
+            <h2 className="reveal text-balance hyphens-manual">
+              Två saker du tar med dig, oavsett om du fortsätter med mig eller inte.
             </h2>
           </div>
           <div className="grid gap-5 md:gap-6 md:grid-cols-2 max-w-3xl mx-auto">
@@ -501,10 +502,10 @@ export default function WebinarPage() {
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
-                <h3 className="mb-3 leading-tight" style={{ fontSize: "1.2rem" }}>
+                <h3 className="mb-3 leading-tight text-balance" style={{ fontSize: "1.2rem" }}>
                   {b.title}
                 </h3>
-                <p className="text-[0.96rem] text-ink-soft leading-relaxed">{b.body}</p>
+                <p className="text-[0.96rem] text-ink-soft leading-relaxed text-pretty">{b.body}</p>
               </div>
             ))}
           </div>
@@ -514,21 +515,24 @@ export default function WebinarPage() {
       {/* 11. MID-PAGE CTA BAND — flyttad hit */}
       <section className="py-14 md:py-16 sec-marin">
         <div className="container-site">
-          <div className="max-w-4xl mx-auto rounded-3xl bg-[color:var(--marin)] border border-white/15 px-7 py-9 md:px-12 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left shadow-[0_30px_70px_-34px_rgba(0,0,0,0.6)]">
+          <div className="max-w-4xl mx-auto rounded-3xl bg-[color:var(--marin)] border border-white/15 px-5 py-8 sm:px-7 sm:py-9 md:px-12 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left shadow-[0_30px_70px_-34px_rgba(0,0,0,0.6)]">
             <div className="flex-1">
               <p className="text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[color:var(--glod)]">
                 Få platser kvar
               </p>
               <h3 className="mt-2 text-[color:var(--papper)] leading-tight" style={{ fontSize: "clamp(1.4rem, 2.4vw, 1.8rem)" }}>
-                Säkra din plats, gratis.
+                Säkra din plats.
               </h3>
               <p className="mt-2 text-[0.95rem] text-[color:var(--papper)]/70">
-                {EVENT_DATE_LABEL} · {EVENT_TIME_LABEL} · max {SEATS_LIMIT} platser per gång.
+                {/* Each fact stays on one line; the row breaks only between them. */}
+                <span className="whitespace-nowrap">{EVENT_DATE_LABEL} ·</span>{" "}
+                <span className="whitespace-nowrap">Live på Zoom ·</span>{" "}
+                <span className="whitespace-nowrap">max {SEATS_LIMIT} platser per gång.</span>
               </p>
             </div>
             <a
               href="#anmal"
-              className="btn-primary !py-3.5 !px-6 whitespace-nowrap"
+              className="btn-primary !py-3.5 !px-6 w-full md:w-auto md:whitespace-nowrap"
             >
               Anmäl mig till kostnadsfritt webinar
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
@@ -548,7 +552,7 @@ export default function WebinarPage() {
               <h3 style={{ fontSize: "1.3rem" }}>Det här är för dig som</h3>
               <ul className="mt-6 mx-auto w-fit flex flex-col gap-3 text-left">
                 {FOR_WHOM.map((p) => (
-                  <li key={p} className="flex items-start gap-3 text-[1rem] text-ink leading-relaxed">
+                  <li key={p} className="flex items-start gap-3 text-[1rem] text-ink leading-relaxed text-pretty">
                     <span className="mt-[0.2rem] shrink-0 h-5 w-5 inline-flex items-center justify-center rounded-full bg-glod-dim text-[color:var(--glod)]">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                         <polyline points="20 6 9 17 4 12" />
@@ -563,7 +567,7 @@ export default function WebinarPage() {
               <h3 style={{ fontSize: "1.3rem" }}>Det här är inte för dig som</h3>
               <ul className="mt-6 mx-auto w-fit flex flex-col gap-3 text-left">
                 {NOT_FOR_WHOM.map((p) => (
-                  <li key={p} className="flex items-start gap-3 text-[1rem] text-ink-soft leading-relaxed">
+                  <li key={p} className="flex items-start gap-3 text-[1rem] text-ink-soft leading-relaxed text-pretty">
                     <span className="mt-[0.2rem] shrink-0 h-5 w-5 inline-flex items-center justify-center rounded-full bg-[color:var(--marin)]/10 text-[color:var(--marin)]/60">
                       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                         <line x1="6" y1="6" x2="18" y2="18" />
@@ -584,7 +588,7 @@ export default function WebinarPage() {
         <div className="container-site">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="reveal">Här är det jag brukar få frågor om innan.</h2>
+              <h2 className="reveal text-balance">Här är det jag brukar få frågor om innan.</h2>
             </div>
             <div className="space-y-3">
               {FAQ.map((item, i) => (
@@ -592,9 +596,9 @@ export default function WebinarPage() {
                   key={item.q}
                   className={`reveal reveal-d${(i % 4) + 1} group rounded-2xl bg-white border border-[color:var(--border-soft)] overflow-hidden open:border-[color:var(--glod)]/40 transition-colors`}
                 >
-                  <summary className="cursor-pointer list-none px-6 py-5 flex items-center justify-between gap-4 font-[family-name:var(--font-heading)] font-semibold text-[1.05rem] md:text-[1.1rem] text-[color:var(--marin)]">
-                    <span aria-hidden className="shrink-0 w-8" />
-                    <span className="flex-1 text-center">{item.q}</span>
+                  <summary className="cursor-pointer list-none px-5 md:px-6 py-5 flex items-center justify-between gap-4 font-[family-name:var(--font-heading)] font-semibold text-[1.05rem] md:text-[1.1rem] text-[color:var(--marin)]">
+                    <span aria-hidden className="hidden md:block shrink-0 w-8" />
+                    <span className="flex-1 text-left md:text-center">{item.q}</span>
                     <span className="shrink-0 h-8 w-8 inline-flex items-center justify-center rounded-full bg-glod-dim text-[color:var(--glod)] transition-transform group-open:rotate-45">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden>
                         <line x1="12" y1="5" x2="12" y2="19" />
@@ -602,7 +606,7 @@ export default function WebinarPage() {
                       </svg>
                     </span>
                   </summary>
-                  <div className="px-6 md:px-14 pb-6 text-center text-[0.98rem] text-ink-soft leading-relaxed">
+                  <div className="px-5 md:px-14 pb-6 text-left md:text-center text-[0.98rem] text-ink-soft leading-relaxed">
                     {item.a}
                     {item.link && (
                       <>
@@ -629,9 +633,9 @@ export default function WebinarPage() {
       <section id="anmal" className="py-[var(--section-y)] sec-marin">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-10">
-            <h2 className="reveal text-[color:var(--papper)]">Säkra din plats innan den är tagen.</h2>
+            <h2 className="reveal text-balance text-[color:var(--papper)]">Säkra din plats innan den är tagen.</h2>
             <p className="reveal reveal-d1 mt-5 text-[1.05rem] text-[color:var(--papper)]/75 leading-relaxed">
-              Tre tillfällen: {EVENT_DATE_LABEL} kl. {EVENT_TIME_LABEL}. Max {SEATS_LIMIT} platser
+              Tre tillfällen: {EVENT_DATE_LABEL}. Max {SEATS_LIMIT} platser
               per gång. Välj den dag som passar dig. Du får bekräftelsen direkt och Zoom-länken
               före webinaret. Webinaret körs enbart live, ingen inspelning efteråt.
             </p>
