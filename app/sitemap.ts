@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/resultat", priority: 0.8, changeFrequency: "monthly" },
     { path: "/inspiration", priority: 0.7, changeFrequency: "weekly" },
     { path: "/kontakt", priority: 0.6, changeFrequency: "yearly" },
-    { path: "/webinar", priority: 0.5, changeFrequency: "monthly" },
+    { path: "/live-webinar", priority: 0.5, changeFrequency: "monthly" },
     { path: "/integritetspolicy", priority: 0.3, changeFrequency: "yearly" },
   ];
   return routes.map(({ path, priority, changeFrequency }) => ({

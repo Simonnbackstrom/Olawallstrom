@@ -27,7 +27,7 @@ const NAV_LINKS: NavItem[] = [
 /* Shown only in the mobile menu, so every page is reachable from a phone. */
 const MORE_LINKS = [
   { href: "/resultat", label: "Resultat" },
-  { href: "/webinar", label: "Webinar" },
+  { href: "/live-webinar", label: "Webinar" },
 ];
 
 export default function Navbar() {
@@ -48,7 +48,8 @@ export default function Navbar() {
   // Strategisession has the calendar on the page itself.
   const onStrategy = pathname === "/strategisession";
   // Webinar is a focused landing page — CTA points to the signup form on the same page.
-  const onWebinar = pathname === "/webinar";
+  // Both webinar landing pages (ads and organic) are focused pages with a signup CTA.
+  const onWebinar = pathname === "/webinar" || pathname === "/live-webinar";
   const ctaLabel = onWebinar ? "Anmäl till kostnadsfritt webinar" : "Boka ett strategisamtal";
   const ctaMobileLabel = onWebinar ? "Anmäl kostnadsfritt" : "Boka strategisamtal";
   const ctaProps = onWebinar

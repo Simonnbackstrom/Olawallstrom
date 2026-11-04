@@ -6,7 +6,7 @@ const SITE_LINKS = [
   { href: "/om-ola", label: "Om Ola" },
   { href: "/vip-coaching", label: "VIP-coaching" },
   { href: "/agarklivet", label: "Ägarklivet" },
-  { href: "/webinar", label: "Webinar" },
+  { href: "/live-webinar", label: "Webinar" },
   { href: "/resultat", label: "Resultat" },
   { href: "/inspiration", label: "Inspiration" },
 ];

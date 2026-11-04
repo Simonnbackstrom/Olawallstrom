@@ -4,14 +4,16 @@ import { useId, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { sendForm } from "@/lib/formsubmit";
-import { WEBINAR, sessionForId, submitToBrevoForm } from "@/lib/webinar";
+import { WEBINAR, sessionForId, submitToBrevoForm, type WebinarSource } from "@/lib/webinar";
 
 type Props = {
   /** Render on a dark (marin) background. */
   dark?: boolean;
+  /** Which landing page the form is on; decides which Brevo form receives the signup. */
+  source: WebinarSource;
 };
 
-export default function WebinarSignupForm({ dark = false }: Props) {
+export default function WebinarSignupForm({ dark = false, source }: Props) {
   const router = useRouter();
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -32,7 +34,7 @@ export default function WebinarSignupForm({ dark = false }: Props) {
     try {
       // 1. Brevo form: adds the contact to the webinar list and starts the automation
       //    that emails the confirmation with the Zoom link for the chosen day.
-      await submitToBrevoForm({ firstName, lastName, email, sessionId: chosen.id });
+      await submitToBrevoForm(source, { firstName, lastName, email, sessionId: chosen.id });
     } catch {
       setStatus("error");
       setErrorMsg("Kunde inte skicka. Kontrollera din uppkoppling och försök igen.");
@@ -43,7 +45,7 @@ export default function WebinarSignupForm({ dark = false }: Props) {
     //    No autoresponse here: the confirmation comes from Brevo.
     try {
       await sendForm(form, {
-        subject: `Ny webinaranmälan: ${firstName} ${lastName} (${chosen.label})`,
+        subject: `Ny webinaranmälan: ${firstName} ${lastName} (${chosen.label}, ${source === "ads" ? "annons" : "organisk"})`,
       });
     } catch {
       /* ignore */

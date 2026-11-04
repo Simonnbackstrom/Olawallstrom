@@ -15,24 +15,39 @@ export const WEBINAR = {
   /** Rough span across sessions — individual times live on each session. */
   timeLabel: "Olika tider",
   seats: 100,
-  url: "https://olawallstrom.com/webinar",
+  /* Public page for the webinar (organic). Ads use /webinar, see WEBINAR_PATHS. */
+  url: "https://olawallstrom.com/live-webinar",
   /*
-   * Brevo sign-up form "(Ads) Webinar: Så växer du från 10 till 50 miljoner".
-   * Submitting to it (instead of the API) is what starts the Brevo automation
-   * "Webinar - November 2026", which sends the confirmation with the Zoom link
-   * for the chosen day. The URL is public (it's in Brevo's embed code).
+   * Brevo sign-up forms, one per traffic source. Submitting to them (instead of
+   * the API) is what starts the Brevo automation "Webinar - November 2026",
+   * which sends the confirmation with the Zoom link for the chosen day.
+   * The URLs are public (they're in Brevo's embed code).
    */
-  brevoFormUrl:
-    "https://2a8f6d4e.sibforms.com/serve/MUIFAEyRgr9DaSz0ksvOXEbIFnlGXvaoDcZhtb4dD6xiXm6ZVuLKfULmXwyaRFqo_WfQBT_sByaBxrYH_74z9ZD_rfImvsx_G8W5T3KW9o5z5knLyOMpozqkz79ac2itnP45WTHcR-I2BPfCgVu-gkReR_JkPeSqaaHLKBuaL3HSx8D-2bvkrQOqO76njikeWXQ8Yjq1uB8U5_y53A==",
+  brevoForms: {
+    // "(Ads) Webinar: Så växer du från 10 till 50 miljoner – utan att behöva jobba mer" → list #17
+    ads: "https://2a8f6d4e.sibforms.com/serve/MUIFAEyRgr9DaSz0ksvOXEbIFnlGXvaoDcZhtb4dD6xiXm6ZVuLKfULmXwyaRFqo_WfQBT_sByaBxrYH_74z9ZD_rfImvsx_G8W5T3KW9o5z5knLyOMpozqkz79ac2itnP45WTHcR-I2BPfCgVu-gkReR_JkPeSqaaHLKBuaL3HSx8D-2bvkrQOqO76njikeWXQ8Yjq1uB8U5_y53A==",
+    // "Webinar: Så växer du från 10 till 50 miljoner – utan att behöva jobba mer" → list #16
+    organic: "https://2a8f6d4e.sibforms.com/serve/MUIFACRpy86jsgvrHY7uj_eNpiJM4mSRhwJotnB9OLGSe-2pF3wikP_3QKUXrrHFN9qzcKtm-R6UgY43-IaVd6D2X3Kysm13l8pOj1VORL6EuZqSCG2PcnTG1MSgRit4WmQ2QaQhTkX9EBhydnCF0f_00m7knriO2vSIm8z8nBb67dg0AUrwFM6IirSp1CasqFWOsKECc2uOfUS1oA==",
+  },
+};
+
+/* Where each traffic source lands. Ads: paid campaigns. Organic: site links, newsletters, social. */
+export type WebinarSource = "ads" | "organic";
+export const WEBINAR_PATHS: Record<WebinarSource, string> = {
+  ads: "/webinar",
+  organic: "/live-webinar",
 };
 
 /** Sends a webinar signup to the Brevo form. Fields match the form's embed code. */
-export async function submitToBrevoForm(fields: {
-  firstName: string;
-  lastName: string;
-  email: string;
-  sessionId: string;
-}) {
+export async function submitToBrevoForm(
+  source: WebinarSource,
+  fields: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    sessionId: string;
+  },
+) {
   const body = new FormData();
   body.append("FIRSTNAME", fields.firstName);
   body.append("LASTNAME", fields.lastName);
@@ -46,7 +61,7 @@ export async function submitToBrevoForm(fields: {
 
   // no-cors: the browser sends the request like a normal form post but can't read the reply.
   // Fields are validated on our side first, so a successful send means Brevo received it.
-  await fetch(`${WEBINAR.brevoFormUrl}?isAjax=1`, { method: "POST", mode: "no-cors", body });
+  await fetch(`${WEBINAR.brevoForms[source]}?isAjax=1`, { method: "POST", mode: "no-cors", body });
 }
 
 /** 2026-11-11T09:00:00+01:00 -> 20261111T080000Z */
