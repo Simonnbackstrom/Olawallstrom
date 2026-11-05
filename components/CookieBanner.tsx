@@ -2,68 +2,32 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
-const STORAGE_KEY = "ow-cookie-consent";
-const STORAGE_VERSION = 1;
-
-type Prefs = {
-  version: number;
-  necessary: true;
-  analytics: boolean;
-  updatedAt: string;
-};
-
-function readPrefs(): Prefs | null {
-  if (typeof window === "undefined") return null;
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw) as Prefs;
-    if (parsed.version !== STORAGE_VERSION) return null;
-    return parsed;
-  } catch {
-    return null;
-  }
-}
-
-function writePrefs(analytics: boolean) {
-  const prefs: Prefs = {
-    version: STORAGE_VERSION,
-    necessary: true,
-    analytics,
-    updatedAt: new Date().toISOString(),
-  };
-  try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(prefs));
-  } catch {
-    /* storage disabled — the choice is still respected for this session */
-  }
-  window.dispatchEvent(
-    new CustomEvent("cookie-consent-change", { detail: prefs }),
-  );
-}
+import { readConsent, writeConsent } from "@/lib/consent";
 
 export default function CookieBanner() {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [analytics, setAnalytics] = useState(false);
+  const [marketing, setMarketing] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    const existing = readPrefs();
+    const existing = readConsent();
     if (!existing) {
       // Delay slightly so the banner doesn't flash in on first paint.
       const t = setTimeout(() => setOpen(true), 350);
       return () => clearTimeout(t);
     }
     setAnalytics(existing.analytics);
+    setMarketing(existing.marketing);
   }, []);
 
   useEffect(() => {
     const onReopen = () => {
-      const existing = readPrefs();
+      const existing = readConsent();
       setAnalytics(existing?.analytics ?? false);
+      setMarketing(existing?.marketing ?? false);
       setShowDetails(true);
       setOpen(true);
     };
@@ -74,19 +38,19 @@ export default function CookieBanner() {
   if (!mounted || !open) return null;
 
   const acceptAll = () => {
-    writePrefs(true);
+    writeConsent({ analytics: true, marketing: true });
     setOpen(false);
     setShowDetails(false);
   };
 
   const rejectAll = () => {
-    writePrefs(false);
+    writeConsent({ analytics: false, marketing: false });
     setOpen(false);
     setShowDetails(false);
   };
 
   const savePrefs = () => {
-    writePrefs(analytics);
+    writeConsent({ analytics, marketing });
     setOpen(false);
     setShowDetails(false);
   };
@@ -184,6 +148,23 @@ export default function CookieBanner() {
                     </span>
                     <span className="block text-[0.78rem] text-ink-soft leading-snug">
                       Anonym statistik så vi kan göra sidan bättre.
+                    </span>
+                  </span>
+                </label>
+
+                <label className="flex items-start gap-3 px-3 py-2.5 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={marketing}
+                    onChange={(e) => setMarketing(e.target.checked)}
+                    className="mt-0.5 h-3.5 w-3.5 accent-[color:var(--glod)]"
+                  />
+                  <span className="min-w-0 flex-1">
+                    <span className="block font-semibold text-[0.85rem] text-[color:var(--marin)]">
+                      Marknadsföring
+                    </span>
+                    <span className="block text-[0.78rem] text-ink-soft leading-snug">
+                      Meta-pixeln, så vi kan mäta våra annonser och visa dem för rätt personer.
                     </span>
                   </span>
                 </label>

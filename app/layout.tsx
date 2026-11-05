@@ -7,6 +7,7 @@ import HideOnRoutes from "@/components/HideOnRoutes";
 import ScrollReveal from "@/components/ScrollReveal";
 import StructuredData from "@/components/StructuredData";
 import CookieBanner from "@/components/CookieBanner";
+import MetaPixel from "@/components/MetaPixel";
 
 const sourceSans = Source_Sans_3({
   variable: "--font-source-sans",
@@ -105,6 +106,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </HideOnRoutes>
         <ScrollReveal />
         <CookieBanner />
+        <MetaPixel />
       </body>
     </html>
   );

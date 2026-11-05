@@ -4,6 +4,7 @@ import { useId, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { sendForm } from "@/lib/formsubmit";
+import { trackMetaEvent } from "@/lib/metaPixel";
 import { WEBINAR, sessionForId, submitToBrevoForm, type WebinarSource } from "@/lib/webinar";
 
 type Props = {
@@ -39,6 +40,15 @@ export default function WebinarSignupForm({ dark = false, source }: Props) {
       setStatus("error");
       setErrorMsg("Kunde inte skicka. Kontrollera din uppkoppling och försök igen.");
       return;
+    }
+
+    // Meta Pixel "Registrering" (CompleteRegistration) for every signup on the paid page.
+    // Runs only with marketing consent; both signup boxes on /webinar use this form.
+    if (source === "ads") {
+      trackMetaEvent("CompleteRegistration", {
+        content_name: WEBINAR.title,
+        content_category: chosen.label,
+      });
     }
 
     // 2. Notification to Ola (best effort, the signup itself is already saved in Brevo).
