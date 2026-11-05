@@ -1,9 +1,9 @@
 /*
- * Meta (Facebook) Pixel. Only loaded after the visitor accepts marketing cookies.
+ * Meta (Facebook) Pixel, loaded for every visitor (decided by the site owner;
+ * disclosed in the cookie banner and privacy policy).
  * PageView is tracked site-wide; CompleteRegistration fires on webinar signups
  * from the paid landing page (/webinar).
  */
-import { readConsent } from "@/lib/consent";
 
 export const META_PIXEL_ID = "1519376236089915";
 
@@ -22,19 +22,11 @@ declare global {
   }
 }
 
-let revoked = false;
 let lastPageView: string | null = null;
 
 /* Loads the pixel script and runs init once (Meta's standard base code). */
 export function loadMetaPixel() {
-  if (typeof window === "undefined") return;
-  if (window.fbq) {
-    if (revoked) {
-      window.fbq("consent", "grant");
-      revoked = false;
-    }
-    return;
-  }
+  if (typeof window === "undefined" || window.fbq) return;
   const fbq = function (...args: unknown[]) {
     if (fbq.callMethod) fbq.callMethod(...args);
     else fbq.queue.push(args);
@@ -54,25 +46,17 @@ export function loadMetaPixel() {
   fbq("init", META_PIXEL_ID);
 }
 
-/* Tells the pixel to stop sending if the visitor withdraws consent. */
-export function revokeMetaPixel() {
-  if (!window.fbq) return;
-  window.fbq("consent", "revoke");
-  revoked = true;
-  lastPageView = null;
-}
-
 /* One PageView per page, even if React runs the effect twice. */
 export function trackMetaPageView(path: string) {
-  if (typeof window === "undefined" || !readConsent()?.marketing || lastPageView === path) return;
+  if (typeof window === "undefined" || lastPageView === path) return;
   loadMetaPixel();
   lastPageView = path;
   window.fbq?.("track", "PageView");
 }
 
-/* Sends a standard event, but only with marketing consent. */
+/* Sends a standard event. */
 export function trackMetaEvent(event: string, params?: Record<string, unknown>) {
-  if (typeof window === "undefined" || !readConsent()?.marketing) return;
+  if (typeof window === "undefined") return;
   loadMetaPixel();
   window.fbq?.("track", event, params);
 }

@@ -43,7 +43,7 @@ export default function WebinarSignupForm({ dark = false, source }: Props) {
     }
 
     // Meta Pixel "Registrering" (CompleteRegistration) for every signup on the paid page.
-    // Runs only with marketing consent; both signup boxes on /webinar use this form.
+    // Both signup boxes on /webinar use this form.
     if (source === "ads") {
       trackMetaEvent("CompleteRegistration", {
         content_name: WEBINAR.title,

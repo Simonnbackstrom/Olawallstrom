@@ -9,7 +9,6 @@ export default function CookieBanner() {
   const [mounted, setMounted] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [analytics, setAnalytics] = useState(false);
-  const [marketing, setMarketing] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -20,14 +19,12 @@ export default function CookieBanner() {
       return () => clearTimeout(t);
     }
     setAnalytics(existing.analytics);
-    setMarketing(existing.marketing);
   }, []);
 
   useEffect(() => {
     const onReopen = () => {
       const existing = readConsent();
       setAnalytics(existing?.analytics ?? false);
-      setMarketing(existing?.marketing ?? false);
       setShowDetails(true);
       setOpen(true);
     };
@@ -38,19 +35,19 @@ export default function CookieBanner() {
   if (!mounted || !open) return null;
 
   const acceptAll = () => {
-    writeConsent({ analytics: true, marketing: true });
+    writeConsent({ analytics: true });
     setOpen(false);
     setShowDetails(false);
   };
 
   const rejectAll = () => {
-    writeConsent({ analytics: false, marketing: false });
+    writeConsent({ analytics: false });
     setOpen(false);
     setShowDetails(false);
   };
 
   const savePrefs = () => {
-    writeConsent({ analytics, marketing });
+    writeConsent({ analytics });
     setOpen(false);
     setShowDetails(false);
   };
@@ -101,7 +98,7 @@ export default function CookieBanner() {
                   Vi använder kakor.
                 </h2>
                 <p className="mt-0.5 text-[0.82rem] leading-relaxed text-ink-soft">
-                  Nödvändiga kakor behövs för att sajten ska fungera. Du bestämmer resten.{" "}
+                  Nödvändiga kakor behövs för att sajten ska fungera, och vi använder Meta-pixeln för att mäta våra annonser. Analys bestämmer du själv.{" "}
                   <Link
                     href="/integritetspolicy"
                     className="underline underline-offset-4 text-[color:var(--marin)] hover:text-[color:var(--glod)]"
@@ -152,22 +149,6 @@ export default function CookieBanner() {
                   </span>
                 </label>
 
-                <label className="flex items-start gap-3 px-3 py-2.5 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={marketing}
-                    onChange={(e) => setMarketing(e.target.checked)}
-                    className="mt-0.5 h-3.5 w-3.5 accent-[color:var(--glod)]"
-                  />
-                  <span className="min-w-0 flex-1">
-                    <span className="block font-semibold text-[0.85rem] text-[color:var(--marin)]">
-                      Marknadsföring
-                    </span>
-                    <span className="block text-[0.78rem] text-ink-soft leading-snug">
-                      Meta-pixeln, så vi kan mäta våra annonser och visa dem för rätt personer.
-                    </span>
-                  </span>
-                </label>
               </div>
             )}
 

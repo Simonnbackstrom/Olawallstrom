@@ -47,9 +47,9 @@ export default function IntegritetspolicyPage() {
             </li>
             <li>
               <strong>Kakor (cookies):</strong> används för att förbättra din upplevelse av
-              webbplatsen. Om du godkänner marknadsföringskakor använder vi Meta-pixeln för att
-              mäta och förbättra våra annonser på Facebook och Instagram. Du kan när som helst
-              ändra ditt val under Cookie-inställningar längst ner på sidan.
+              webbplatsen. Vi använder även Meta-pixeln för att mäta och förbättra våra annonser
+              på Facebook och Instagram. Den skickar uppgifter om ditt besök, till exempel
+              IP-adress och vilka sidor du besöker, till Meta.
             </li>
           </ul>
 
