@@ -51,32 +51,32 @@ const BREVO_FORM_HTML = `
         <div style="padding: 16px 0;">
           <div class="sib-input sib-form-block">
             <div class="form__entry entry_block"><div class="form__label-row">
-              <label class="entry__label" style="font-weight: 700; text-align: left; font-family:Source Sans 3, webFonts; font-size:16px; color:#3c4858;" for="name" data-required="*">Företag</label>
-              <div class="entry__field"><input class="input" maxlength="200" type="text" id="name" name="COMPANY:name" autocomplete="off" placeholder="Företag" data-required="true" required /></div>
+              <label class="entry__label" style="font-weight: 700; text-align: left; font-family:Source Sans 3, webFonts; font-size:16px; color:#3c4858;" for="COMPANY" data-required="*">Företag</label>
+              <div class="entry__field"><input class="input" maxlength="200" type="text" id="COMPANY" name="COMPANY" autocomplete="off" placeholder="Företag" data-required="true" required /></div>
             </div><label class="entry__error entry__error--primary" style="font-family:Futura, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px;"></label></div>
           </div>
         </div>
         <div style="padding: 16px 0;">
           <div class="sib-input sib-form-block">
             <div class="form__entry entry_block"><div class="form__label-row">
-              <label class="entry__label" style="font-weight: 700; text-align: left; font-family:Source Sans 3, webFonts; font-size:16px; color:#3c4858;" for="JOB_TITLE" data-required="*">Roll</label>
-              <div class="entry__field"><input class="input" maxlength="200" type="text" id="JOB_TITLE" name="JOB_TITLE" autocomplete="off" placeholder="Din roll i företaget" data-required="true" required /></div>
+              <label class="entry__label" style="font-weight: 700; text-align: left; font-family:Source Sans 3, webFonts; font-size:16px; color:#3c4858;" for="ROLL" data-required="*">Roll</label>
+              <div class="entry__field"><input class="input" maxlength="200" type="text" id="ROLL" name="ROLL" autocomplete="off" placeholder="Din roll i företaget" data-required="true" required /></div>
             </div><label class="entry__error entry__error--primary" style="font-family:Futura, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px;"></label></div>
           </div>
         </div>
         <div style="padding: 16px 0;">
           <div class="sib-input sib-form-block">
             <div class="form__entry entry_block"><div class="form__label-row">
-              <label class="entry__label" style="font-weight: 700; text-align: left; font-family:Source Sans 3, webFonts; font-size:16px; color:#3c4858;" for="industry" data-required="*">Bransch</label>
-              <div class="entry__field"><input class="input" maxlength="200" type="text" id="industry" name="COMPANY:industry" autocomplete="off" placeholder="Bransch" data-required="true" required /></div>
+              <label class="entry__label" style="font-weight: 700; text-align: left; font-family:Source Sans 3, webFonts; font-size:16px; color:#3c4858;" for="BRANSCH" data-required="*">Bransch</label>
+              <div class="entry__field"><input class="input" maxlength="200" type="text" id="BRANSCH" name="BRANSCH" autocomplete="off" placeholder="Bransch" data-required="true" required /></div>
             </div><label class="entry__error entry__error--primary" style="font-family:Futura, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px;"></label></div>
           </div>
         </div>
         <div style="padding: 16px 0;">
           <div class="sib-input sib-form-block">
             <div class="form__entry entry_block"><div class="form__label-row">
-              <label class="entry__label" style="font-weight: 700; text-align: left; font-family:Source Sans 3, webFonts; font-size:16px; color:#3c4858;" for="number_of_employees">Antal anställda</label>
-              <div class="entry__field"><input maxlength="200" type="text" data-numeric="true" class="input" id="number_of_employees" name="COMPANY:number_of_employees" autocomplete="off" placeholder="Antal anställda" /></div>
+              <label class="entry__label" style="font-weight: 700; text-align: left; font-family:Source Sans 3, webFonts; font-size:16px; color:#3c4858;" for="EMPLOYEES" data-required="*">Antal anställda</label>
+              <div class="entry__field"><input class="input" maxlength="200" type="text" id="EMPLOYEES" name="EMPLOYEES" autocomplete="off" placeholder="Antal anställda" data-required="true" required /></div>
             </div><label class="entry__error entry__error--primary" style="font-family:Futura, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px;"></label></div>
           </div>
         </div>
@@ -98,7 +98,6 @@ const BREVO_FORM_HTML = `
         </div>
         <div style="padding: 8px 0 0;">
           <p class="ola-brevo-consent">I och med att jag skickar in mina svar godkänner jag att få mejl från olawallstrom.com. Jag kan när som helst avsluta prenumerationen. Läs mer i <a href="/integritetspolicy">integritetspolicyn</a>.</p>
-          <input type="hidden" name="OPT_IN" value="1">
         </div>
         <div style="padding: 16px 0;">
           <div class="sib-form-block" style="text-align: left">

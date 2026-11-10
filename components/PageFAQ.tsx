@@ -79,8 +79,8 @@ export default function PageFAQ({
               <li key={item.q} className={`reveal reveal-d${(i % 4) + 1}`}>
                 <details className="group rounded-2xl bg-white border border-[color:var(--border-soft)] open:border-[color:var(--glod)]/40 transition-colors">
                   <summary className="list-none cursor-pointer px-6 py-5 flex items-center justify-between gap-4">
-                    {centered && <span aria-hidden className="shrink-0 w-8" />}
-                    <span className={`font-[family-name:var(--font-heading)] font-semibold text-[1.05rem] md:text-[1.1rem] text-[color:var(--marin)] leading-snug${centered ? " flex-1 text-center" : ""}`}>
+                    {centered && <span aria-hidden className="hidden md:block shrink-0 w-8" />}
+                    <span className={`font-[family-name:var(--font-heading)] font-semibold text-[1.05rem] md:text-[1.1rem] text-[color:var(--marin)] leading-snug text-pretty${centered ? " flex-1 text-left md:text-center" : ""}`}>
                       {item.q}
                     </span>
                     <span className="shrink-0 h-8 w-8 inline-flex items-center justify-center rounded-full bg-[color:var(--glod-dim)] text-[color:var(--glod)] transition-transform group-open:rotate-45">
@@ -90,7 +90,7 @@ export default function PageFAQ({
                       </svg>
                     </span>
                   </summary>
-                  <div className={`px-6 pb-6 pt-0 text-[0.98rem] text-ink-soft leading-relaxed ${centered ? "text-center md:px-14" : ""}`}>
+                  <div className={`px-6 pb-6 pt-0 text-[0.98rem] text-ink-soft leading-relaxed ${centered ? "text-left md:text-center md:px-14" : ""}`}>
                     {item.a}
                   </div>
                 </details>

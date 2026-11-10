@@ -22,84 +22,36 @@ export const metadata: Metadata = {
   },
 };
 
-const LOOP_STEPS = [
-  { n: "01", title: "Frågebatteri", body: "Du reflekterar i lugn och ro inför kvartalets tema." },
-  { n: "02", title: "Kvartalsavstamp", body: "Två timmars digital fördjupning tillsammans med de andra ägarna." },
-  { n: "03", title: "Workshopdag", body: "En heldag tillsammans, med fullt fokus på temat." },
-  { n: "04", title: "Gemensamma sessioner", body: "4–5 digitala sessioner på en timme var." },
-];
-
 const JOURNEY = [
   {
     tag: "Start",
     title: "Personlig startworkshop",
     body: "Riktning, viktigaste förflyttningar och en personlig plan.",
-    meta: ["4 timmar", "I Stockholm"],
     dot: "bg-white ring-2 ring-[color:var(--marin)]",
   },
   {
     tag: "Q1 · jan–mar",
     title: "Mental klarhet",
     body: "Du ser vad som verkligen är viktigt och tar tillbaka kontrollen över din tid och energi.",
-    meta: ["Kvartalsavstamp", "Workshopdag", "5 gemensamma sessioner"],
     dot: "bg-[color:var(--marin)]",
   },
   {
     tag: "Q2 · apr–jun",
     title: "Stjärnledarskap",
     body: "Du får människor att ta ansvar, tänka själva och fungera tillsammans, utan att allt går via dig.",
-    meta: ["Kvartalsavstamp", "Workshopdag", "5 gemensamma sessioner"],
     dot: "bg-[color:var(--olabla)]",
   },
   {
     tag: "Q3 · jul–sep",
     title: "Autentisk affärsutveckling",
     body: "Du utvecklar affären utifrån dina egna styrkor och det kunderna faktiskt värdesätter.",
-    meta: ["Kvartalsavstamp", "Workshopdag", "4 gemensamma sessioner"],
     dot: "bg-[color:var(--glod)]",
   },
   {
     tag: "Q4 · okt–dec",
     title: "Smart säljstrategi",
     body: "Du bygger ett sälj som är tydligt, hållbart och inte hänger på dig.",
-    meta: ["Kvartalsavstamp", "Workshopdag", "5 gemensamma sessioner"],
     dot: "bg-[color:var(--sand)] ring-2 ring-[color:var(--glod)]",
-  },
-];
-
-const ONGOING = [
-  {
-    title: "3 coachingsamtal",
-    body: "45 minuter var, bara du och jag. Vi tar det som är viktigast för dig just då.",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <circle cx="9" cy="8" r="3.2" />
-        <path d="M3.5 19c.6-3 2.8-4.8 5.5-4.8s4.9 1.8 5.5 4.8" />
-        <circle cx="17" cy="9" r="2.5" />
-        <path d="M16 14.4c2.3.1 4 1.6 4.5 4.6" />
-      </svg>
-    ),
-  },
-  {
-    title: "Chatt-kanal",
-    body: "Med mig och de andra ägarna, så att du har stöd även mellan träffarna.",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <path d="M21 12a8.5 8.5 0 0 1-12.3 7.6L3 21l1.5-5.4A8.5 8.5 0 1 1 21 12z" />
-        <path d="M8.5 11h7M8.5 14h4.5" />
-      </svg>
-    ),
-  },
-  {
-    title: "19 gemensamma sessioner",
-    body: "En timme var, digitalt. Här tar vi upp frågor, utmaningar och beslut.",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <rect x="3.5" y="5" width="17" height="15" rx="2.5" />
-        <path d="M3.5 10h17M8 3v4M16 3v4" />
-        <path d="M8.5 14.5l2 2 4-4" />
-      </svg>
-    ),
   },
 ];
 
@@ -179,7 +131,7 @@ export default function AgarklivetPage() {
         title={
           <>
             Ägarklivet.<br />
-            <em>Ett år. Fyra teman.</em>
+            <em>Ett år. <span className="whitespace-nowrap">Fyra teman.</span></em>
           </>
         }
         intro="Det är ensamt i toppen. I Ägarklivet samlar jag ett sammanhang av erfarna ägare under ett helt år, för att ta klivet från att driva allt själv till att leda som ägare. Du får andra att tänka högt med, en gemensam rytm och personligt stöd från mig hela vägen."
@@ -222,66 +174,17 @@ export default function AgarklivetPage() {
 
       <BoardroomWheel />
 
-      {/* QUARTER LOOP */}
-      <section className="py-[var(--section-y)] sec-papper">
-        <div className="container-site">
-          <div className="max-w-2xl mx-auto text-center mb-14 md:mb-16">
-            <h2 className="reveal">Samma rytm, fyra varv per år.</h2>
-            <p className="reveal reveal-d1 mt-6 text-[1.05rem] text-ink-soft leading-relaxed max-w-xl mx-auto">
-              Varje tema får 90 dagar och fyra steg som bygger på varandra. Du vet alltid var du är i
-              resan.
-            </p>
-          </div>
-
-          <div className="relative grid gap-5 md:gap-6 md:grid-cols-4">
-            {LOOP_STEPS.map((s, i) => (
-              <article
-                key={s.n}
-                className={`reveal reveal-d${(i % 4) + 1} relative rounded-2xl bg-white border border-[color:var(--border-soft)] px-6 py-8 text-center shadow-[0_18px_40px_-32px_rgba(23,59,96,0.35)]`}
-              >
-                <span
-                  aria-hidden
-                  className="mx-auto mb-5 h-11 w-11 inline-flex items-center justify-center rounded-full border-2 border-[color:var(--glod)] font-semibold text-[1.05rem] text-[color:var(--glod)]"
-                >
-                  {i + 1}
-                </span>
-                <h3 className="leading-tight" style={{ fontSize: "1.2rem" }}>{s.title}</h3>
-                <p className="mt-3 text-[0.95rem] text-ink-soft leading-relaxed">{s.body}</p>
-                {i < LOOP_STEPS.length - 1 && (
-                  <svg
-                    aria-hidden
-                    className="hidden md:block absolute top-1/2 -right-3.5 -translate-y-1/2 text-[color:var(--glod)]"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="13 6 19 12 13 18" />
-                  </svg>
-                )}
-              </article>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
       {/* CUSTOMER JOURNEY */}
       <section className="py-[var(--section-y)] sec-sand">
         <div className="container-site">
           <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
-            <h2 className="reveal">Din resa i Ägarklivet.</h2>
+            <h2 className="reveal text-balance">Fyra teman, ett i taget.</h2>
             <p className="reveal reveal-d1 mt-6 text-[1.05rem] text-ink-soft leading-relaxed max-w-xl mx-auto">
-              Tolv månader, från en personlig start med mig till fyra teman tillsammans med andra
-              erfarna ägare. Vi tar dem i en ordning där det ena bygger vidare på det andra.
+              Du börjar med en personlig startworkshop med mig. Sedan får varje tema ett kvartal, i en
+              ordning där det ena bygger vidare på det andra.
             </p>
-            <p className="reveal reveal-d2 mt-5 inline-flex items-center gap-2 rounded-full border border-[color:var(--glod)]/40 bg-[color:var(--glod)]/10 px-4 py-2 text-[0.9rem] font-semibold text-[color:var(--marin)]">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+            <p className="reveal reveal-d2 mt-5 inline-flex items-start sm:items-center gap-2 text-left sm:text-center text-pretty rounded-2xl sm:rounded-full border border-[color:var(--glod)]/40 bg-[color:var(--glod)]/10 px-4 py-2 text-[0.9rem] font-semibold text-[color:var(--marin)]">
+              <svg width="16" height="16" className="shrink-0 mt-0.5 sm:mt-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                 <circle cx="12" cy="12" r="9" />
                 <polyline points="12 7 12 12 15 15" />
               </svg>
@@ -298,46 +201,17 @@ export default function AgarklivetPage() {
                 <span aria-hidden className="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sand">
                   <span className={`h-4 w-4 rounded-full ${j.dot}`} />
                 </span>
-                <div className="relative z-10 mt-3 flex h-full w-full flex-col items-center rounded-2xl bg-white px-6 pt-6 pb-6 text-center shadow-[0_18px_40px_-30px_rgba(23,59,96,0.4)] sm:max-w-sm lg:max-w-none lg:px-5">
+                <div className="relative z-10 mt-3 flex h-full w-full flex-col items-center rounded-2xl bg-white px-6 pt-6 pb-7 text-center shadow-[0_18px_40px_-30px_rgba(23,59,96,0.4)] sm:max-w-sm lg:max-w-none lg:px-5">
                   <p className="text-[0.8rem] font-semibold tracking-wide text-[color:var(--glod)]">{j.tag}</p>
                   <h3 className="mt-2 leading-tight" style={{ fontSize: "1.15rem" }}>
                     {j.title}
                   </h3>
                   <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-soft">{j.body}</p>
-                  <ul className="mt-auto pt-5 flex w-full flex-wrap justify-center gap-1.5">
-                    {j.meta.map((m) => (
-                      <li key={m} className="rounded-full bg-papper px-2.5 py-1 text-[0.78rem] text-ink-soft whitespace-nowrap">
-                        {m}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </li>
             ))}
           </ol>
 
-          <div className="mt-24 text-center">
-            <h3 style={{ fontSize: "clamp(1.6rem, 2.6vw, 2rem)" }}>Löpande under hela året</h3>
-            <p className="mt-4 text-[1.05rem] text-ink-soft leading-relaxed max-w-xl mx-auto">
-              Mellan kvartalen är du aldrig ensam. Jag och de andra ägarna finns där hela vägen.
-            </p>
-            <ul className="mt-12 grid gap-5 md:gap-6 md:grid-cols-3 max-w-5xl mx-auto">
-              {ONGOING.map((o, i) => (
-                <li
-                  key={o.title}
-                  className={`reveal reveal-d${i + 1} flex flex-col items-center rounded-3xl bg-white px-7 py-10 shadow-[0_18px_44px_-34px_rgba(23,59,96,0.4)]`}
-                >
-                  <span className="h-14 w-14 inline-flex items-center justify-center rounded-full bg-glod-dim text-[color:var(--glod)]">
-                    {o.icon}
-                  </span>
-                  <h4 className="mt-6 font-[family-name:var(--font-heading)] font-semibold text-[1.25rem] leading-tight text-[color:var(--marin)]">
-                    {o.title}
-                  </h4>
-                  <p className="mt-3 text-[0.98rem] leading-relaxed text-ink-soft max-w-[16rem]">{o.body}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </section>
 
@@ -410,7 +284,7 @@ export default function AgarklivetPage() {
       <section className="py-[var(--section-y)] sec-marin">
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="reveal">Bolaget växer, men måste allt hänga på dig?</h2>
+            <h2 className="reveal text-balance">Bolaget växer, men måste allt hänga på dig?</h2>
             <p className="reveal reveal-d1 mt-6 text-[1.05rem] md:text-[1.15rem] text-[color:var(--papper)]/80 leading-relaxed">
               Ägarklivet är för dig som är ägare i ett bolag som omsätter minst 10 miljoner och
               som vill växa utan att behöva offra sin hälsa, sina relationer eller all sin fritid.
@@ -435,7 +309,7 @@ export default function AgarklivetPage() {
             </div>
             <p className="reveal reveal-d3 mt-6 text-[0.88rem] text-[color:var(--papper)]/60">
               Kostnadsfritt. Är ni flera delägare?{" "}
-              <Link href="/vip-coaching" className="font-semibold text-[color:var(--papper)] underline underline-offset-4 hover:text-[color:var(--glod)] transition-colors">
+              <Link href="/vip-coaching" className="whitespace-nowrap font-semibold text-[color:var(--papper)] underline underline-offset-4 hover:text-[color:var(--glod)] transition-colors">
                 Läs om VIP-coaching
               </Link>
             </p>
