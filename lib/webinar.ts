@@ -46,22 +46,20 @@ export async function submitToBrevoForm(
     lastName: string;
     email: string;
     sessionId: string;
+    honeypot?: string;
   },
 ) {
-  const body = new FormData();
-  body.append("FIRSTNAME", fields.firstName);
-  body.append("LASTNAME", fields.lastName);
-  body.append("EMAIL", fields.email);
-  body.append("WEBINAR_NOVEMBER_2026", sessionForId(fields.sessionId).brevoValue);
-  // Consent is given by signing up (notice shown under the button).
-  body.append("OPT_IN", "1");
-  // Brevo's own honeypot and locale fields, sent like the embedded form does.
-  body.append("email_address_check", "");
-  body.append("locale", "en");
-
-  // no-cors: the browser sends the request like a normal form post but can't read the reply.
-  // Fields are validated on our side first, so a successful send means Brevo received it.
-  await fetch(`${WEBINAR.brevoForms[source]}?isAjax=1`, { method: "POST", mode: "no-cors", body });
+  // The same-origin endpoint can read Brevo's reply. An opaque no-cors response
+  // cannot establish whether a registration was accepted.
+  const response = await fetch("/api/webinar", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ source, ...fields }),
+  });
+  const result = await response.json();
+  if (!response.ok || result?.ok !== true) {
+    throw new Error("Webinar registration was not confirmed");
+  }
 }
 
 /** 2026-11-11T09:00:00+01:00 -> 20261111T080000Z */

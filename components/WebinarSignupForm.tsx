@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { sendForm } from "@/lib/formsubmit";
@@ -19,9 +19,12 @@ export default function WebinarSignupForm({ dark = false, source }: Props) {
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [selected, setSelected] = useState<string>(WEBINAR.sessions[0].id);
+  const submitting = useRef(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (submitting.current) return;
+    submitting.current = true;
     setStatus("loading");
     setErrorMsg(null);
     const form = e.currentTarget;
@@ -35,20 +38,28 @@ export default function WebinarSignupForm({ dark = false, source }: Props) {
     try {
       // 1. Brevo form: adds the contact to the webinar list and starts the automation
       //    that emails the confirmation with the Zoom link for the chosen day.
-      await submitToBrevoForm(source, { firstName, lastName, email, sessionId: chosen.id });
+      await submitToBrevoForm(source, {
+        firstName, lastName, email, sessionId: chosen.id,
+        honeypot: String(data.get("_honey") || ""),
+      });
     } catch {
+      submitting.current = false;
       setStatus("error");
-      setErrorMsg("Kunde inte skicka. Kontrollera din uppkoppling och försök igen.");
+      setErrorMsg("Anmälan kunde inte bekräftas. Kontrollera dina uppgifter och försök igen.");
       return;
     }
 
-    // Meta Pixel "Registrering" (CompleteRegistration) for every signup on the paid page.
-    // Both signup boxes on /webinar use this form.
+    // Both boxes on /webinar count only after Brevo explicitly accepted the form.
     if (source === "ads") {
-      trackMetaEvent("CompleteRegistration", {
-        content_name: WEBINAR.title,
-        content_category: chosen.label,
-      });
+      try {
+        trackMetaEvent("CompleteRegistration", {
+          content_name: WEBINAR.title,
+          content_category: chosen.label,
+          status: true,
+        });
+      } catch {
+        // A blocked/broken pixel must not interrupt an accepted registration.
+      }
     }
 
     // 2. Notification to Ola (best effort, the signup itself is already saved in Brevo).
