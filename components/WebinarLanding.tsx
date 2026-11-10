@@ -20,11 +20,11 @@ const FACTS = [
 ];
 
 const RECOGNITION = [
-  "Du släcker bränder varje dag!",
-  "Du är flaskhalsen. Det mesta går via dig!",
-  "Du jobbar hårdast, men ändå står ni still!",
-  "Återkommande problem som aldrig blir lösta på riktigt!",
-  "Du börjar bli trött. På riktigt!",
+  "Du släcker bränder varje dag.",
+  "Du är flaskhalsen. Det mesta går via dig.",
+  "Du jobbar hårdast, men ändå står ni still.",
+  "Återkommande problem som aldrig blir lösta på riktigt.",
+  "Du börjar bli trött. På riktigt.",
 ];
 
 const SHIFTS = [
@@ -79,7 +79,7 @@ const HOW_IT_WORKS = [
   {
     n: "2",
     title: "Få Zoom-länken",
-    body: "Zoom-länken får du direkt i bekräftelsemejlet, så du är redo. Självskattning Tillväxthjulet (PDF) delar jag live under webinaret.",
+    body: "Zoom-länken får du direkt i bekräftelsemejlet, så du är redo. Självskattning Tillväxthjulet (PDF) och ljudboken får du som bonus när du är med live och stannar till slutet.",
   },
   {
     n: "3",
@@ -91,11 +91,11 @@ const HOW_IT_WORKS = [
 const BONUSES = [
   {
     title: "Självskattning Tillväxthjulet (PDF)",
-    body: "Metoden jag använder med mina VIP‑kunder. Du får den live på webinaret, så vi fyller i den tillsammans och du ser svart på vitt vilken eker som bromsar mest.",
+    body: "Metoden jag använder med mina VIP‑kunder hjälper dig att se vilken eker som bromsar mest. Du får PDF:en som bonus när du är med live och stannar till slutet av webinaret.",
   },
   {
     title: "Ljudboken Ledarskap utan ansträngning",
-    body: "Min ljudbok handlar om hur du leder så att andra blir bättre än du och hur du blir mer fri. Ladda ner den kostnadsfritt.",
+    body: "Min ljudbok handlar om hur du leder så att andra blir bättre än du och hur du blir mer fri. Du får den som bonus när du är med live och stannar till slutet av webinaret.",
   },
 ];
 
@@ -126,7 +126,7 @@ const FAQ: { q: string; a: string; link?: { href: string; label: string } }[] = 
   },
   {
     q: "Vad händer om jag inte kan vara med live?",
-    a: "Webinaret körs enbart live, ingen inspelning efteråt. Välj det tillfälle som funkar bäst, du har tre att välja på. Det är live som frågestunden och självskattningen händer, och det är då du får mest värde.",
+    a: "Webinaret körs enbart live, ingen inspelning efteråt. Välj det tillfälle som funkar bäst, du har tre att välja på. Frågestunden sker live, och självskattningen och ljudboken är bonusar för dig som är med och stannar till slutet.",
   },
   {
     q: "Är det för mig som precis har startat?",
@@ -189,10 +189,13 @@ export default function WebinarLanding({ source }: { source: WebinarSource }) {
       <JsonLd id="webinar-schema" data={[eventLd(path), breadcrumbLd(path)]} />
 
       {/* 1. HERO */}
-      <section className="pt-24 md:pt-32 pb-12 md:pb-16 sec-papper">
+      <section className="pt-12 md:pt-16 pb-12 md:pb-16 sec-papper">
         <div className="container-site">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-stretch max-w-6xl mx-auto">
             <div className="flex flex-col justify-center text-center">
+              <p className="reveal mb-4 text-[0.78rem] md:text-[0.85rem] font-semibold uppercase tracking-[0.1em] text-[color:var(--marin)]">
+                För ägare av bolag som omsätter minst 10 miljoner
+              </p>
               <h1 className="reveal" style={{ fontSize: "clamp(2.1rem, 4.2vw, 3.5rem)" }}>
                 Så växer du från 10 till 50 miljoner, <em>utan att behöva jobba mer.</em>
               </h1>
@@ -203,8 +206,8 @@ export default function WebinarLanding({ source }: { source: WebinarSource }) {
               <ul className="reveal reveal-d2 mt-6 mx-auto w-fit max-w-md flex flex-col gap-2.5 text-left">
                 {[
                   "Konkret var ditt bolag bromsar, och hur du släpper fram tillväxten utan att själv jobba mer",
-                  "Fyra skiften med riktiga case: 10 till 50 MSEK, 24× marginal, +25% på tre veckor",
-                  "Självskattning Tillväxthjulet (PDF) live på webinaret, plus ljudbok till din mejl",
+                  "Fyra skiften med riktiga case: 10 till 50 MSEK, 24× priset, +25% på tre veckor",
+                  "Självskattning Tillväxthjulet (PDF) samt ljudbok får du live på webinaret, bonus till dig som stannar till slutet",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 text-[0.98rem] text-ink leading-relaxed text-pretty">
                     <span className="mt-[0.2rem] shrink-0 h-5 w-5 inline-flex items-center justify-center rounded-full bg-glod-dim text-[color:var(--glod)]">
@@ -286,7 +289,7 @@ export default function WebinarLanding({ source }: { source: WebinarSource }) {
               />
             </div>
             <div className="text-center">
-              <h2 className="reveal text-balance">Vem är Ola?</h2>
+              <h2 className="reveal text-balance">Om Ola</h2>
               <p className="reveal reveal-d1 mt-6 text-[1.05rem] text-ink-soft leading-relaxed max-w-lg mx-auto">
                 Civilekonom, författare till fyra böcker om ledarskap och entreprenörskap, och med
                 åtta grundade bolag i bagaget. Senaste 25 åren har jag jobbat med fler än 650
@@ -477,7 +480,7 @@ export default function WebinarLanding({ source }: { source: WebinarSource }) {
         <div className="container-site">
           <div className="max-w-3xl mx-auto text-center mb-14">
             <h2 className="reveal text-balance hyphens-manual">
-              Två saker du tar med dig, oavsett om du fortsätter med mig eller inte.
+              Två bonusar för dig som är med live och stannar till slutet.
             </h2>
           </div>
           <div className="grid gap-5 md:gap-6 md:grid-cols-2 max-w-3xl mx-auto">
@@ -506,10 +509,7 @@ export default function WebinarLanding({ source }: { source: WebinarSource }) {
         <div className="container-site">
           <div className="max-w-4xl mx-auto rounded-3xl bg-[color:var(--marin)] border border-white/15 px-5 py-8 sm:px-7 sm:py-9 md:px-12 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left shadow-[0_30px_70px_-34px_rgba(0,0,0,0.6)]">
             <div className="flex-1">
-              <p className="text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[color:var(--glod)]">
-                Få platser kvar
-              </p>
-              <h3 className="mt-2 text-[color:var(--papper)] leading-tight" style={{ fontSize: "clamp(1.4rem, 2.4vw, 1.8rem)" }}>
+              <h3 className="text-[color:var(--papper)] leading-tight" style={{ fontSize: "clamp(1.4rem, 2.4vw, 1.8rem)" }}>
                 Säkra din plats.
               </h3>
               <p className="mt-2 text-[0.95rem] text-[color:var(--papper)]/70">

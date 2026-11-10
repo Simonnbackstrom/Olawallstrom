@@ -80,6 +80,35 @@ function Brand({ className = "" }: { className?: string }) {
   );
 }
 
+function FooterLegal({ compact = false }: { compact?: boolean }) {
+  return (
+    <div className={`${compact ? "" : "mt-10 md:mt-16 pt-6 md:pt-8 border-t border-[color:var(--marin)]/15 "}flex flex-col md:flex-row md:items-center justify-between gap-3 text-center md:text-left text-[0.8rem] text-muted`}>
+      <p>© 2026 Ola Wallström, Perspektivo i Sverige AB</p>
+      <div className="flex flex-wrap justify-center md:justify-end gap-x-5 gap-y-1">
+        <Link href="/integritetspolicy" className="inline-block py-2.5 underline underline-offset-4 hover:text-[color:var(--glod)]">
+          Integritetspolicy
+        </Link>
+        <Link href="/anvandarvillkor" className="inline-block py-2.5 underline underline-offset-4 hover:text-[color:var(--glod)]">
+          Användarvillkor
+        </Link>
+        <CookieSettingsButton className="inline-block py-2.5 underline underline-offset-4 hover:text-[color:var(--glod)] cursor-pointer">
+          Cookie-inställningar
+        </CookieSettingsButton>
+      </div>
+    </div>
+  );
+}
+
+export function LandingFooter() {
+  return (
+    <footer className="sec-sand py-6 mt-auto border-t border-[color:var(--border-soft)]">
+      <div className="container-site">
+        <FooterLegal compact />
+      </div>
+    </footer>
+  );
+}
+
 export default function Footer() {
   return (
     <footer className="sec-sand pt-16 md:pt-20 pb-10 mt-auto border-t border-[color:var(--border-soft)]">
@@ -167,20 +196,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 md:mt-16 pt-6 md:pt-8 border-t border-[color:var(--marin)]/15 flex flex-col md:flex-row md:items-center justify-between gap-3 text-center md:text-left text-[0.8rem] text-muted">
-          <p>© 2026 Ola Wallström, Perspektivo i Sverige AB</p>
-          <div className="flex flex-wrap justify-center md:justify-end gap-x-5 gap-y-1">
-            <Link href="/integritetspolicy" className="inline-block py-2.5 underline underline-offset-4 hover:text-[color:var(--glod)]">
-              Integritetspolicy
-            </Link>
-            <Link href="/anvandarvillkor" className="inline-block py-2.5 underline underline-offset-4 hover:text-[color:var(--glod)]">
-              Användarvillkor
-            </Link>
-            <CookieSettingsButton className="inline-block py-2.5 underline underline-offset-4 hover:text-[color:var(--glod)] cursor-pointer">
-              Cookie-inställningar
-            </CookieSettingsButton>
-          </div>
-        </div>
+        <FooterLegal />
       </div>
     </footer>
   );

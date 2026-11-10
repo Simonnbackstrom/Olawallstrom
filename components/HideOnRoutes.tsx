@@ -3,13 +3,21 @@
 import { usePathname } from "next/navigation";
 
 /*
- * Focused pages (e.g. the webinar warm-up form) hide the site header and footer
- * so visitors aren't tempted to click away before they finish.
+ * The webinar funnel hides site navigation and uses a compact legal footer.
  */
-export const FOCUS_ROUTES = ["/webinar/uppvarmning"];
+export const FOCUS_ROUTES = [
+  "/webinar",
+  "/live-webinar",
+  "/webinar/anmald",
+  "/webinar/tack",
+  "/webinar/uppvarmning",
+];
 
-export default function HideOnRoutes({ children }: { children: React.ReactNode }) {
+export default function HideOnRoutes({ children, fallback = null }: {
+  children: React.ReactNode;
+  fallback?: React.ReactNode;
+}) {
   const pathname = usePathname();
-  if (FOCUS_ROUTES.includes(pathname)) return null;
+  if (FOCUS_ROUTES.includes(pathname)) return <>{fallback}</>;
   return <>{children}</>;
 }
