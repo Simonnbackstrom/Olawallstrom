@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { trackMetaEvent } from "@/lib/metaPixel";
 
 type Props = {
   url: string;
@@ -13,6 +14,9 @@ type Props = {
  * hydration. Calendly's postMessage height event lets the frame grow with the
  * calendar instead of hiding steps behind an inner scrollbar.
  */
+/* Bookings already reported to Meta, so one booking is never counted twice. */
+const trackedBookings = new Set<string>();
+
 export default function CalendlyEmbed({ url, title }: Props) {
   const [height, setHeight] = useState<number | null>(null);
   const [loaded, setLoaded] = useState(false);
@@ -27,7 +31,20 @@ export default function CalendlyEmbed({ url, title }: Props) {
   useEffect(() => {
     const onMessage = (e: MessageEvent) => {
       if (e.origin !== "https://calendly.com") return;
-      const data = e.data as { event?: string; payload?: { height?: string } };
+      const data = e.data as {
+        event?: string;
+        payload?: { height?: string; event?: { uri?: string } };
+      };
+      // Meta Pixel conversion: a meeting was booked in the embedded calendar.
+      if (data?.event === "calendly.event_scheduled") {
+        const id = data.payload?.event?.uri ?? "booking";
+        if (!trackedBookings.has(id)) {
+          trackedBookings.add(id);
+          trackMetaEvent("Schedule", { content_name: title });
+          trackMetaEvent("Lead", { content_name: title });
+        }
+        return;
+      }
       if (data?.event === "calendly.page_height" && data.payload?.height) {
         const h = parseInt(data.payload.height, 10);
         if (h > 0) {
@@ -40,7 +57,7 @@ export default function CalendlyEmbed({ url, title }: Props) {
     };
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  }, []);
+  }, [title]);
 
   return (
     <div

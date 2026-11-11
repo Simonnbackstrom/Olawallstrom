@@ -4,7 +4,7 @@ import { useId, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { sendForm } from "@/lib/formsubmit";
-import { trackMetaEvent } from "@/lib/metaPixel";
+import { trackMetaCustomEvent, trackMetaEvent } from "@/lib/metaPixel";
 import { WEBINAR, sessionForId, submitToBrevoForm, type WebinarSource } from "@/lib/webinar";
 
 type Props = {
@@ -49,17 +49,24 @@ export default function WebinarSignupForm({ dark = false, source }: Props) {
       return;
     }
 
-    // Both boxes on /webinar count only after Brevo explicitly accepted the form.
-    if (source === "ads") {
-      try {
-        trackMetaEvent("CompleteRegistration", {
-          content_name: WEBINAR.title,
-          content_category: chosen.label,
-          status: true,
-        });
-      } catch {
-        // A blocked/broken pixel must not interrupt an accepted registration.
+    // Meta: counted only after Brevo explicitly accepted the form.
+    // Paid page (/webinar): the ad conversion (Registrering) + Lead.
+    // Organic page (/live-webinar): its own custom event, so Meta sees it without it
+    // counting as an ad conversion.
+    try {
+      const params = {
+        content_name: WEBINAR.title,
+        content_category: chosen.label,
+        status: true,
+      };
+      if (source === "ads") {
+        trackMetaEvent("CompleteRegistration", params);
+        trackMetaEvent("Lead", params);
+      } else {
+        trackMetaCustomEvent("WebinarRegistrationOrganic", params);
       }
+    } catch {
+      // A blocked/broken pixel must not interrupt an accepted registration.
     }
 
     // 2. Notification to Ola (best effort, the signup itself is already saved in Brevo).

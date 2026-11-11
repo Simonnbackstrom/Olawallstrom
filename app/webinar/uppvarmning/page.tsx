@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Script from "next/script";
 import PageHero from "@/components/PageHero";
+import WarmupFormTracker from "@/components/WarmupFormTracker";
 
 export const metadata: Metadata = {
   title: "Inför webinaret",
@@ -285,6 +286,7 @@ export default function WebinarUppvarmningPage() {
         </div>
       </section>
 
+      <WarmupFormTracker />
       <style dangerouslySetInnerHTML={{ __html: BRAND_FORM_CSS }} />
       <script dangerouslySetInnerHTML={{ __html: BREVO_CONFIG_SCRIPT }} />
       <Script

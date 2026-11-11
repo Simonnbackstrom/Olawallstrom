@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { sendForm } from "@/lib/formsubmit";
+import { trackMetaEvent } from "@/lib/metaPixel";
 
 export default function InspirationSignupForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -37,6 +38,7 @@ export default function InspirationSignupForm() {
         ].join("\n"),
         brevo: { listKey: "agartipset" },
       });
+      trackMetaEvent("Lead", { content_name: "Ägartipset" });
       setStatus("success");
       form.reset();
     } catch (err) {

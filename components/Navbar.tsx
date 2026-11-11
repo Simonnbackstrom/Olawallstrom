@@ -243,7 +243,8 @@ export default function Navbar() {
               )}
             </a>
 
-          {!onWebinar && (
+          {/* No menu on focused pages: the webinar pages and Strategisession (booking page). */}
+          {!onWebinar && !onStrategy && (
             <button
               ref={toggleRef}
               type="button"

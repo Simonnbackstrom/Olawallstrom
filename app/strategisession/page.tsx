@@ -122,6 +122,7 @@ export default function Strategisession() {
 
       <SharedPainPoints
         tone="sand"
+        ctaHref="#boka"
         warningIcon
         heading={
           <>

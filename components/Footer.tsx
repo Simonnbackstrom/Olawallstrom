@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import CookieSettingsButton from "@/components/CookieSettingsButton";
+import BookingLink from "@/components/BookingLink";
 
 const SITE_LINKS = [
   { href: "/om-ola", label: "Om Ola" },
@@ -12,7 +13,6 @@ const SITE_LINKS = [
 ];
 
 const EMAIL = "ola@olawallstrom.com";
-const BOOKING_URL = "https://calendly.com/olawallstrom/30min";
 
 const linkClass = "inline-block py-1.5 hover:text-[color:var(--glod)] transition-colors";
 const headingClass =
@@ -122,7 +122,7 @@ export default function Footer() {
               <h4 className={`${headingClass} !mb-3 text-center`}>Kontakt</h4>
               <ul className="overflow-hidden rounded-2xl bg-white divide-y divide-[color:var(--marin)]/[0.08] shadow-[0_14px_36px_-30px_rgba(23,59,96,0.4)]">
                 <li>
-                  <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className={rowClass}>
+                  <BookingLink className={rowClass}>
                     <span className="inline-flex items-center gap-2.5 text-[color:var(--glod)]">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                         <rect x="3.5" y="5" width="17" height="15" rx="2.5" />
@@ -130,7 +130,7 @@ export default function Footer() {
                       </svg>
                       Boka ett strategisamtal
                     </span>
-                  </a>
+                  </BookingLink>
                 </li>
                 <li>
                   <a href={`mailto:${EMAIL}`} className={rowClass}>
@@ -190,7 +190,7 @@ export default function Footer() {
             <h4 className={headingClass}>Kontakt</h4>
             <ul className="space-y-1 text-[0.95rem] text-ink-soft">
               <li><a href={`mailto:${EMAIL}`} className={linkClass}>{EMAIL}</a></li>
-              <li><a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className={linkClass}>Boka ett strategisamtal</a></li>
+              <li><BookingLink className={linkClass}>Boka ett strategisamtal</BookingLink></li>
               <li><Link href="/kontakt" className={linkClass}>Kontaktformulär</Link></li>
             </ul>
           </div>

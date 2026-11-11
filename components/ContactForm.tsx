@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { sendForm } from "@/lib/formsubmit";
+import { trackMetaEvent } from "@/lib/metaPixel";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -29,6 +30,8 @@ export default function ContactForm() {
           "Autentisk affärsutveckling",
         ].join("\n"),
       });
+      trackMetaEvent("Contact", { content_name: "Kontaktformulär" });
+      trackMetaEvent("Lead", { content_name: "Kontaktformulär" });
       setStatus("success");
       form.reset();
     } catch (err) {

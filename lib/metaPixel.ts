@@ -1,8 +1,15 @@
 /*
  * Meta (Facebook) Pixel, loaded for every visitor (decided by the site owner;
  * disclosed in the cookie banner and privacy policy).
- * PageView is tracked site-wide; CompleteRegistration fires on webinar signups
- * from the paid landing page (/webinar).
+ *
+ * Events sent to Meta:
+ * - PageView                    every page
+ * - Lead + CompleteRegistration webinar signup on the paid page /webinar (confirmed by Brevo)
+ * - WebinarRegistrationOrganic (custom) webinar signup on /live-webinar (confirmed by Brevo)
+ * - Lead + Schedule             meeting booked in the Calendly calendar on /strategisession
+ * - Lead + Contact              contact form sent (/kontakt)
+ * - Lead                        Ägartipset newsletter signup (/inspiration)
+ * - WarmupFormSubmitted (custom) webinar warm-up questionnaire sent (/webinar/uppvarmning)
  */
 
 export const META_PIXEL_ID = "1519376236089915";
@@ -59,4 +66,11 @@ export function trackMetaEvent(event: string, params?: Record<string, unknown>) 
   if (typeof window === "undefined") return;
   loadMetaPixel();
   window.fbq?.("track", event, params);
+}
+
+/* Sends a custom (non-standard) event. */
+export function trackMetaCustomEvent(event: string, params?: Record<string, unknown>) {
+  if (typeof window === "undefined") return;
+  loadMetaPixel();
+  window.fbq?.("trackCustom", event, params);
 }
