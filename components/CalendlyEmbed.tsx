@@ -8,12 +8,6 @@ type Props = {
   title: string;
 };
 
-/*
- * Inline Calendly booking. The iframe src is built at module scope so it is
- * server-rendered and starts fetching on first paint — no round-trip wait for
- * hydration. Calendly's postMessage height event lets the frame grow with the
- * calendar instead of hiding steps behind an inner scrollbar.
- */
 /* Bookings already reported to Meta, so one booking is never counted twice. */
 const trackedBookings = new Set<string>();
 
@@ -22,11 +16,20 @@ export default function CalendlyEmbed({ url, title }: Props) {
   const [loaded, setLoaded] = useState(false);
   const boxRef = useRef<HTMLDivElement>(null);
 
-  const u = new URL(url);
-  u.searchParams.set("embed_domain", "olawallstrom.com");
-  u.searchParams.set("embed_type", "Inline");
-  u.searchParams.set("hide_gdpr_banner", "1");
-  const src = u.toString();
+  const [src, setSrc] = useState(() => {
+    const u = new URL(url);
+    u.searchParams.set("embed_type", "Inline");
+    u.searchParams.set("hide_gdpr_banner", "1");
+    return u.toString();
+  });
+
+  useEffect(() => {
+    const u = new URL(url);
+    u.searchParams.set("embed_domain", window.location.hostname);
+    u.searchParams.set("embed_type", "Inline");
+    u.searchParams.set("hide_gdpr_banner", "1");
+    setSrc(u.toString());
+  }, [url]);
 
   useEffect(() => {
     const onMessage = (e: MessageEvent) => {
