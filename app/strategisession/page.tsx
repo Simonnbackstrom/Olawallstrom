@@ -5,7 +5,6 @@ import LogoCarousel from "@/components/LogoCarousel";
 import TestimonialsClean from "@/components/TestimonialsClean";
 import PageFAQ from "@/components/PageFAQ";
 import JsonLd from "@/components/JsonLd";
-import CalendlyEmbed from "@/components/CalendlyEmbed";
 import SharedPainPoints from "@/components/SharedPainPoints";
 import PageQualifier from "@/components/PageQualifier";
 import NextSlotsChips from "@/components/NextSlotsChips";
@@ -203,10 +202,10 @@ export default function Strategisession() {
         </div>
       </section>
 
-      {/* CALENDLY EMBED — placerad högt för att fånga de som är klara att boka */}
+      {/* BOKNINGS-CTA — öppnar Calendly i ny flik */}
       <section id="boka" className="py-[var(--section-y)] sec-marin">
         <div className="container-site">
-          <div className="max-w-3xl mx-auto text-center mb-10">
+          <div className="max-w-3xl mx-auto text-center">
             <h2 className="reveal reveal-d1 text-[color:var(--papper)]" style={{ fontSize: "clamp(2.1rem, 4.6vw, 3.6rem)" }}>
               Välj en tid som <em>passar dig.</em>
             </h2>
@@ -216,24 +215,34 @@ export default function Strategisession() {
             <div className="reveal reveal-d3 mt-7">
               <NextSlotsChips />
             </div>
-          </div>
-
-          <div className="reveal reveal-d5 relative max-w-4xl mx-auto">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -inset-1 rounded-[28px]"
-              style={{
-                background:
-                  "radial-gradient(ellipse at top, rgba(242,106,46,0.35), transparent 60%)",
-                filter: "blur(14px)",
-              }}
-            />
-            <div className="relative rounded-3xl overflow-hidden bg-papper shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] ring-2 ring-[color:var(--glod)]/30">
-              <CalendlyEmbed
-                url="https://calendly.com/olawallstrom/30min"
-                title="Boka strategisamtal med Ola Wallström"
+            <div className="reveal reveal-d5 mt-10 relative inline-block">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -inset-3 rounded-full"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at center, rgba(242,106,46,0.45), transparent 65%)",
+                  filter: "blur(18px)",
+                }}
               />
+              <a
+                href="https://calendly.com/olawallstrom/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative inline-flex items-center gap-3 rounded-full bg-[color:var(--glod)] text-[color:var(--marin)] px-8 py-4 text-[1.05rem] font-semibold shadow-[0_18px_40px_-10px_rgba(242,106,46,0.6)] hover:brightness-110 transition"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <rect x="3" y="4" width="18" height="18" rx="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+                Boka kostnadsfritt strategisamtal
+              </a>
             </div>
+            <p className="reveal reveal-d6 mt-5 text-[0.9rem] text-[color:var(--papper)]/70">
+              Öppnas i ny flik hos Calendly.
+            </p>
           </div>
         </div>
       </section>
