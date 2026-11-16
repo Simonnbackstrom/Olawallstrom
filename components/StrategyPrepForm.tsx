@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { sendForm } from "@/lib/formsubmit";
 import { trackMetaCustomEvent } from "@/lib/metaPixel";
 import { MAX_PER_SPOKE, SCALE, SPOKES } from "@/lib/strategyPrep";
+import GrowthWheel from "@/components/GrowthWheel";
 
 type Answers = Record<string, string>;
 const key = (spokeId: string, i: number) => `${spokeId}-${i}`;
@@ -35,6 +36,7 @@ export default function StrategyPrepForm({
   const done = answered === total;
   const spokeScore = (id: string) =>
     SPOKES.find((s) => s.id === id)!.statements.reduce((sum, _, i) => sum + Number(answers[key(id, i)] ?? 0), 0);
+  const scores = Object.fromEntries(SPOKES.map((s) => [s.id, spokeScore(s.id)]));
 
   // Answering moves the visitor to the next open question, so it feels like a quick tap-through.
   const answer = (k: string, value: string) => {
@@ -74,19 +76,33 @@ export default function StrategyPrepForm({
   };
 
   if (status === "success") {
-    const first = name.trim().split(/\s+/)[0];
     return (
-      <div ref={topRef} className="scroll-mt-6 rounded-[28px] bg-white px-6 py-12 sm:p-14 text-center shadow-[0_30px_70px_-45px_rgba(23,59,96,0.55)]">
-        <span className="mx-auto h-14 w-14 rounded-full bg-[color:var(--glod)] inline-flex items-center justify-center">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-            <polyline points="20 6 9 17 4 12" />
-          </svg>
-        </span>
-        <h3 className="mt-6 text-balance" style={{ fontSize: "clamp(1.8rem, 4.5vw, 2.3rem)" }}>
-          {first ? `Tack, ${first}!` : "Tack!"}
-        </h3>
-        <p className="mt-3 max-w-sm mx-auto text-[1.05rem] text-ink-soft leading-relaxed text-pretty">
-          Dina svar är skickade till Ola. Vi ses på mötet.
+      <div ref={topRef} className="scroll-mt-6 rounded-[28px] bg-white p-6 sm:p-10 shadow-[0_30px_70px_-45px_rgba(23,59,96,0.55)]">
+        <div className="text-center">
+          <p className="eyebrow-upper text-[color:var(--glod)]">Resultat</p>
+          <h3 className="mt-3 text-balance" style={{ fontSize: "clamp(1.8rem, 4.5vw, 2.3rem)" }}>
+            Ditt hjul
+          </h3>
+          <p className="mt-3 max-w-md mx-auto text-ink-soft leading-relaxed text-pretty">
+            Tack, {name.trim().split(/\s+/)[0]}. Ju rundare och större ditt hjul blir, desto jämnare rullar bolaget.
+          </p>
+        </div>
+        <div className="mt-8">
+          <GrowthWheel scores={scores} />
+        </div>
+        <ul className="mt-8 grid grid-cols-2 gap-3 max-w-md mx-auto">
+          {SPOKES.map((s) => (
+            <li key={s.id} className="rounded-2xl bg-papper px-4 py-3">
+              <span className="block text-[0.82rem] text-ink-soft">{s.n}. {s.title}</span>
+              <span className="block font-[family-name:var(--font-heading)] text-[1.35rem] text-[color:var(--marin)] tabular-nums">
+                {scores[s.id]}
+                <span className="text-[0.9rem] text-ink-soft"> / {MAX_PER_SPOKE}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-8 max-w-md mx-auto text-center text-[1rem] leading-relaxed text-ink text-pretty">
+          Jag går igenom dina svar innan vi ses, så tittar vi på hjulet tillsammans.
         </p>
       </div>
     );
@@ -206,7 +222,7 @@ export default function StrategyPrepForm({
       </div>
 
       <div ref={contactRef} className="mt-5 rounded-[24px] bg-[color:var(--marin)] p-5 sm:p-7 text-[color:var(--papper)] shadow-[0_30px_70px_-40px_rgba(23,59,96,0.8)]">
-        <p className="font-[family-name:var(--font-heading)] text-[1.45rem] !text-white">Skicka ditt hjul</p>
+        <p className="font-[family-name:var(--font-heading)] text-[1.45rem] !text-white">Se ditt hjul</p>
         <p className="mt-1 text-[0.95rem] text-[color:var(--papper)]/75">Dina svar går bara till Ola.</p>
         <div className="mt-5 grid gap-3 sm:grid-cols-2">
           <input name="name" required autoComplete="name" placeholder="Namn" aria-label="Namn" value={name} onChange={(e) => setName(e.target.value)} className={inputClass} />
