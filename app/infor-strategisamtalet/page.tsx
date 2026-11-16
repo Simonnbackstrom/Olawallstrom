@@ -31,7 +31,7 @@ export default async function InforStrategisamtaletPage({
 
   return (
     <>
-      <BookingTracker bookingId={bookingId} />
+      <BookingTracker bookingId={bookingId} firstName={firstName} email={email.trim().slice(0, 254)} />
       <section className="relative bg-papper overflow-hidden pt-8 pb-16 md:pt-10 md:pb-24">
         <div
           aria-hidden

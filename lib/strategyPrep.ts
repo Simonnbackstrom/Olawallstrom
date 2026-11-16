@@ -9,6 +9,15 @@ export const PREP_PATH = "/infor-strategisamtalet";
 /* Ola's video (1080p mp4 in public/videos, made from the original .mov). */
 export const PREP_VIDEO_SRC = "/videos/infor-motet.mp4";
 
+/*
+ * Brevo sign-up form "Strategisamtal bokade" → list "Strategisamtal bokade".
+ * Posted (server side, /api/strategisamtal) when Calendly redirects a new booking
+ * to the prep page; the Brevo automation on that list sends the prep email.
+ * The URL is public (it's in Brevo's embed code).
+ */
+export const PREP_BREVO_FORM =
+  "https://2a8f6d4e.sibforms.com/serve/MUIFAInvxgtm17jQ3kNsGtXPjWHj2DxKBarnJB-ZzQniSFCyMH6Tltdb3pRu7C3xzqhX11VDdueUsB07KXiujnkVjzosL-7ULoPPN-padOhQ8Z7p3Ij7Ax8_00OwD0P8VKnTfZd-GFolF2mmhytK-j36oWA9ei89MEH6Ti0H8R7ZqBr8yHhJuZ737qlQQE5yScaKWDoQZTJQj8Qdcg==";
+
 export const SCALE = [{ value: "0" }, { value: "1" }, { value: "2" }] as const;
 
 export type Spoke = {
