@@ -42,6 +42,11 @@ export default function StrategyPrepForm({
   const answer = (k: string, value: string) => {
     const next = { ...answers, [k]: value };
     setAnswers(next);
+    // A new answer clears an earlier "answer all questions first" message.
+    if (status === "error") {
+      setStatus("idle");
+      setErrorMsg(null);
+    }
     if (answers[k] !== undefined) return;
     const nextKey = ORDER.find((o) => next[o] === undefined);
     const target = nextKey ? rows.current[nextKey] : contactRef.current;
@@ -217,7 +222,7 @@ export default function StrategyPrepForm({
       </div>
 
       <div ref={contactRef} className="mt-5 rounded-[24px] bg-[color:var(--marin)] p-5 sm:p-7 text-[color:var(--papper)] shadow-[0_30px_70px_-40px_rgba(23,59,96,0.8)]">
-        <p className="font-[family-name:var(--font-heading)] text-[1.45rem] !text-white">Se ditt hjul</p>
+        <p className="font-[family-name:var(--font-heading)] text-[1.45rem] !text-white">Skicka ditt hjul</p>
         <p className="mt-1 text-[0.95rem] text-[color:var(--papper)]/75">Dina svar går bara till Ola.</p>
         <div className="mt-5 grid gap-3 sm:grid-cols-2">
           <input name="name" required autoComplete="name" placeholder="Namn" aria-label="Namn" value={name} onChange={(e) => setName(e.target.value)} className={inputClass} />
