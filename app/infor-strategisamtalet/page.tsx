@@ -80,9 +80,6 @@ export default async function InforStrategisamtaletPage({
                   <polyline points="19 12 12 19 5 12" />
                 </svg>
               </a>
-              <p className="mt-4 text-[0.85rem] text-ink-soft">
-                Film ca 6 min · 8 påståenden · ditt hjul direkt
-              </p>
             </div>
           </div>
         </div>
