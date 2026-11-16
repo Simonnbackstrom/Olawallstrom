@@ -236,7 +236,7 @@ export default function StrategyPrepForm({
           disabled={status === "loading" || !name.trim() || !email.trim()}
           className="btn-primary mt-5 w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          {status === "loading" ? "Skickar…" : "Visa mitt hjul"}
+          {status === "loading" ? "Skickar…" : "Skicka"}
           {status !== "loading" && (
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <line x1="5" y1="12" x2="19" y2="12" />
