@@ -10,6 +10,9 @@ type Props = {
   email: string;
 };
 
+/* Requests already in flight, so a double render never sends twice. */
+const inFlight = new Set<string>();
+
 function once(key: string) {
   try {
     if (window.localStorage.getItem(key)) return false;
@@ -44,7 +47,8 @@ export default function BookingTracker({ bookingId, firstName, email }: Props) {
     }
 
     const brevoKey = `brevo-booking-${bookingId}`;
-    if (email && once(brevoKey)) {
+    if (email && once(brevoKey) && !inFlight.has(brevoKey)) {
+      inFlight.add(brevoKey);
       fetch("/api/strategisamtal", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -56,7 +60,8 @@ export default function BookingTracker({ bookingId, firstName, email }: Props) {
           // Only remember a confirmed signup, so a failed one is retried on reload.
           if (r?.ok === true) remember(brevoKey);
         })
-        .catch(() => {});
+        .catch(() => {})
+        .finally(() => inFlight.delete(brevoKey));
     }
   }, [bookingId, firstName, email]);
 

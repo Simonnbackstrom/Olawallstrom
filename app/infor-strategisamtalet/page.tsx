@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Image from "next/image";
 import StrategyPrepForm from "@/components/StrategyPrepForm";
 import BookingTracker from "@/components/BookingTracker";
@@ -14,24 +15,48 @@ export const metadata: Metadata = {
 };
 
 type Search = Record<string, string | string[] | undefined>;
+type SearchProp = { searchParams: Promise<Search> };
 const first = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) ?? "";
 
-export default async function InforStrategisamtaletPage({
-  searchParams,
-}: {
-  searchParams: Promise<Search>;
-}) {
-  // ?name=…&email=… from the confirmation email (Calendly's own names work too).
+/* ?name=…&email=… from the email link; Calendly's own names after a booking redirect. */
+async function readVisitor(searchParams: Promise<Search>) {
   const q = await searchParams;
   const name = first(q.name) || first(q.invitee_full_name);
   const email = first(q.email) || first(q.invitee_email);
-  const firstName = name.trim().split(/\s+/)[0]?.slice(0, 40) ?? "";
-  // Set only when Calendly redirects here right after a booking (not from the email link).
-  const bookingId = (first(q.invitee_uuid) || first(q.event_start_time)).slice(0, 100);
+  return {
+    name: name.slice(0, 200),
+    email: email.trim().slice(0, 254),
+    firstName: name.trim().split(/\s+/)[0]?.slice(0, 40) ?? "",
+    // Set only when Calendly redirects here right after a booking (not from the email link).
+    bookingId: (first(q.invitee_uuid) || first(q.event_start_time)).slice(0, 100),
+  };
+}
 
+/*
+ * The visitor-specific bits read the URL, so they sit in <Suspense> and the rest of
+ * the page is prerendered (required with Cache Components).
+ */
+async function Tracker({ searchParams }: SearchProp) {
+  const v = await readVisitor(searchParams);
+  return <BookingTracker bookingId={v.bookingId} firstName={v.firstName} email={v.email} />;
+}
+
+async function Greeting({ searchParams }: SearchProp) {
+  const { firstName } = await readVisitor(searchParams);
+  return <>{firstName ? `${firstName}, ditt möte är bokat` : "Ditt möte är bokat"}</>;
+}
+
+async function PrepForm({ searchParams }: SearchProp) {
+  const v = await readVisitor(searchParams);
+  return <StrategyPrepForm initialName={v.name} initialEmail={v.email} />;
+}
+
+export default function InforStrategisamtaletPage({ searchParams }: SearchProp) {
   return (
     <>
-      <BookingTracker bookingId={bookingId} firstName={firstName} email={email.trim().slice(0, 254)} />
+      <Suspense fallback={null}>
+        <Tracker searchParams={searchParams} />
+      </Suspense>
       <section className="relative bg-papper overflow-hidden pt-8 pb-16 md:pt-10 md:pb-24">
         <div
           aria-hidden
@@ -56,7 +81,9 @@ export default async function InforStrategisamtaletPage({
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
               </span>
-              {firstName ? `${firstName}, ditt möte är bokat` : "Ditt möte är bokat"}
+              <Suspense fallback="Ditt möte är bokat">
+                <Greeting searchParams={searchParams} />
+              </Suspense>
             </p>
             <h1 className="mt-5 text-balance text-[color:var(--marin)]" style={{ fontSize: "clamp(2.4rem, 6vw, 4.2rem)", lineHeight: 1.04, letterSpacing: "-0.01em" }}>
               Inför mötet
@@ -101,7 +128,9 @@ export default async function InforStrategisamtaletPage({
               </p>
             </div>
 
-            <StrategyPrepForm initialName={name.slice(0, 200)} initialEmail={email.slice(0, 254)} />
+            <Suspense fallback={<StrategyPrepForm initialName="" initialEmail="" />}>
+              <PrepForm searchParams={searchParams} />
+            </Suspense>
 
           </div>
         </div>
