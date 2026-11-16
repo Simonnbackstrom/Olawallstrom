@@ -6,10 +6,12 @@
  * - PageView                    every page
  * - Lead + CompleteRegistration webinar signup on the paid page /webinar (confirmed by Brevo)
  * - WebinarRegistrationOrganic (custom) webinar signup on /live-webinar (confirmed by Brevo)
- * - Lead + Schedule             meeting booked in the Calendly calendar on /strategisession
+ * - Lead + Schedule             meeting booked in Calendly (fired on /infor-strategisamtalet,
+ *                               where Calendly redirects after booking)
  * - Lead + Contact              contact form sent (/kontakt)
  * - Lead                        Ägartipset newsletter signup (/inspiration)
  * - WarmupFormSubmitted (custom) webinar warm-up questionnaire sent (/webinar/uppvarmning)
+ * - StrategyPrepSubmitted (custom) self-assessment before a strategy call (/infor-strategisamtalet)
  */
 
 export const META_PIXEL_ID = "1519376236089915";

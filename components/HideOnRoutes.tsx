@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 
 /*
- * The webinar funnel hides site navigation and uses a compact legal footer.
+ * Focused pages (webinar funnel, strategy-call prep) hide site navigation and use a compact legal footer.
  */
 export const FOCUS_ROUTES = [
   "/webinar",
@@ -11,6 +11,7 @@ export const FOCUS_ROUTES = [
   "/webinar/anmald",
   "/webinar/tack",
   "/webinar/uppvarmning",
+  "/infor-strategisamtalet",
 ];
 
 export default function HideOnRoutes({ children, fallback = null }: {
