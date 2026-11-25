@@ -10,6 +10,14 @@ type Answers = Record<string, string>;
 const key = (spokeId: string, i: number) => `${spokeId}-${i}`;
 const ORDER = SPOKES.flatMap((s) => s.statements.map((_, i) => key(s.id, i)));
 
+/* Follow-up questions after the wheel. Each `label` is also the field name, so it heads the answer in Ola's email. All required. */
+const EXTRA_QUESTIONS = [
+  { id: "mal", label: "Har du några specifika mål som du just nu satsar på att uppnå?", rows: 3 },
+  { id: "beslut", label: "Vem mer är med när ni fattar beslut om extern hjälp?", rows: 2 },
+  { id: "investera", label: "Kan du investera om vi är en match?", rows: 2 },
+] as const;
+type ExtraId = (typeof EXTRA_QUESTIONS)[number]["id"];
+
 const inputClass =
   "w-full rounded-xl bg-papper px-4 py-3.5 text-[1rem] text-ink ring-1 ring-[color:var(--marin)]/10 placeholder:text-ink-soft/60 focus:outline-none focus:ring-2 focus:ring-[color:var(--glod)]/60 transition";
 
@@ -23,12 +31,15 @@ export default function StrategyPrepForm({
   initialEmail?: string;
 }) {
   const [answers, setAnswers] = useState<Answers>({});
+  const [extra, setExtra] = useState<Record<ExtraId, string>>({ mal: "", beslut: "", investera: "" });
   const [name, setName] = useState(initialName);
   const [email, setEmail] = useState(initialEmail);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const rows = useRef<Record<string, HTMLDivElement | null>>({});
   const contactRef = useRef<HTMLDivElement | null>(null);
+  const extraRef = useRef<HTMLFieldSetElement | null>(null);
+  const extraFields = useRef<Partial<Record<ExtraId, HTMLTextAreaElement | null>>>({});
   const topRef = useRef<HTMLDivElement | null>(null);
 
   const total = ORDER.length;
@@ -49,7 +60,8 @@ export default function StrategyPrepForm({
     }
     if (answers[k] !== undefined) return;
     const nextKey = ORDER.find((o) => next[o] === undefined);
-    const target = nextKey ? rows.current[nextKey] : contactRef.current;
+    // After the last wheel question, move on to the follow-up questions.
+    const target = nextKey ? rows.current[nextKey] : extraRef.current;
     window.setTimeout(() => target?.scrollIntoView({ behavior: "smooth", block: "center" }), 250);
   };
 
@@ -60,6 +72,15 @@ export default function StrategyPrepForm({
       setErrorMsg(`Svara på alla ${total} frågor först.`);
       const firstOpen = ORDER.find((o) => answers[o] === undefined);
       if (firstOpen) rows.current[firstOpen]?.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+    const firstEmptyExtra = EXTRA_QUESTIONS.find((q) => !extra[q.id].trim());
+    if (firstEmptyExtra) {
+      setStatus("error");
+      setErrorMsg("Svara på alla frågor under ”Lite mer om dig” först.");
+      const field = extraFields.current[firstEmptyExtra.id];
+      field?.scrollIntoView({ behavior: "smooth", block: "center" });
+      field?.focus({ preventScroll: true });
       return;
     }
     setStatus("loading");
@@ -220,6 +241,46 @@ export default function StrategyPrepForm({
           );
         })}
       </div>
+
+      {/* Follow-up questions (all required). Field names are the questions, so they head the answers in Ola's email. */}
+      <fieldset
+        ref={extraRef}
+        className="mt-5 rounded-[24px] bg-white p-5 sm:p-7 shadow-[0_24px_60px_-45px_rgba(23,59,96,0.55)]"
+      >
+        <legend className="sr-only">Lite mer om dig</legend>
+        <p className="text-[0.75rem] font-bold tracking-[0.18em] uppercase text-[color:var(--glod)]">Sista steget</p>
+        <p className="mt-1 font-[family-name:var(--font-heading)] text-[1.45rem] leading-tight text-[color:var(--marin)]">
+          Lite mer om dig
+        </p>
+        <div className="mt-5 space-y-5">
+          {EXTRA_QUESTIONS.map((q) => (
+            <div key={q.id}>
+              <label htmlFor={`extra-${q.id}`} className="block text-[1.02rem] leading-relaxed text-ink text-pretty">
+                {q.label} <span className="text-[color:var(--glod)]" aria-hidden>*</span>
+              </label>
+              <textarea
+                id={`extra-${q.id}`}
+                ref={(el) => {
+                  extraFields.current[q.id] = el;
+                }}
+                name={q.label}
+                rows={q.rows}
+                required
+                aria-required="true"
+                value={extra[q.id]}
+                onChange={(e) => {
+                  setExtra((prev) => ({ ...prev, [q.id]: e.target.value }));
+                  if (status === "error") {
+                    setStatus("idle");
+                    setErrorMsg(null);
+                  }
+                }}
+                className={`${inputClass} mt-3 resize-none`}
+              />
+            </div>
+          ))}
+        </div>
+      </fieldset>
 
       <div ref={contactRef} className="mt-5 rounded-[24px] bg-[color:var(--marin)] p-5 sm:p-7 text-[color:var(--papper)] shadow-[0_30px_70px_-40px_rgba(23,59,96,0.8)]">
         <p className="font-[family-name:var(--font-heading)] text-[1.45rem] !text-white">Se ditt hjul</p>
